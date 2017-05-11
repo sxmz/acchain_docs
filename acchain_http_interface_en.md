@@ -24,7 +24,7 @@ Table of Contents
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
         * [2.2.3 Get Transaction Detail by Unconfirmed Transaction ID](#223-get-transaction-detail-by-unconfirmed-transaction-id)
-        * [**2.2.4 Get Unconfirmed Transaction Detail Inforamtion [within all network]](#224-get-unconfirmed-transaction-detail-inforamtion-within-all-network)
+        * [2.2.4 Get Unconfirmed Transaction Detail Inforamtion [within all network]](#224-get-unconfirmed-transaction-detail-inforamtion-within-all-network)
         * [2.2.5 Create Transaction](#225-create-transaction)
       * [2.3 Blocks](#23-blocks)
         * [2.3.1 Get the Block Detail Information of the Given ID](#231-get-the-block-detail-information-of-the-given-id)
@@ -1976,3 +1976,4 @@ The transaction data is generated through a JS library named "asch-js", and then
 **Install the library**   
 `npm install asch-js`   
    
+
