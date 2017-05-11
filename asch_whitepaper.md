@@ -1,1 +1,0 @@
-请访问[白皮书PDF版官网链接](https://www.asch.so/asch-whitepaper.pdf)
