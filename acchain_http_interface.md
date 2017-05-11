@@ -3049,14 +3049,14 @@ attrs表示商品分类名称，可能有多种语言的翻译，第一个是中
 {
 success: true,
 issues: [
-{
-transactionId: "431dd812d00e2c7a9242b1b0f1bbf33b80b27e4a8bf333755673ab3ac0ff9d08",
-currency: "PuerBank.PEB",
-amount: "10000000",
-exchangeRate: "0.2",
-senderId: "A7KaYaLnWhSwCzrFVeE1TcXCQUY8WHB9hR"
-}
-],
+        {
+            transactionId: "431dd812d00e2c7a9242b1b0f1bbf33b80b27e4a8bf333755673ab3ac0ff9d08",
+            currency: "PuerBank.PEB",
+            amount: "10000000",
+            exchangeRate: "0.2",
+            senderId: "A7KaYaLnWhSwCzrFVeE1TcXCQUY8WHB9hR"
+        }
+    ],
 count: 1
 }
 ```
