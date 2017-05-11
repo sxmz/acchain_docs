@@ -109,6 +109,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
  
 ##**1 API使用说明**   
 ###**1.1 请求过程说明**   
+
     - 构造请求数据，用户数据按照Acchain提供的接口规则，通过程序生成签名，生成请求数据集合；       
     - 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
     - acchain对请求数据进行处理，服务器在接收到请求后，会首先进行安全校验，验证通过后便会处理该次发送过来的请求；       
