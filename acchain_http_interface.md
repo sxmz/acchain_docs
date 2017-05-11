@@ -116,7 +116,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
     4. 返回响应结果数据，acchain把响应结果以JSON的格式反馈给用户，每个响应都包含success字段，表示请求是否成功，成功为true, 失败为false。 如果失败，则还会包含一个error字段，表示错误原因；       
     5. 对获取的返回结果数据进行处理；       
    
----   
+
    
 ##**2 接口**   
 ### **2.1 账户accounts**   
