@@ -1,4 +1,4 @@
-#Asch Node Installation Guide
+#Acchain Node Installation Guide
 
 ##1. Sytem requirement
 - Linux system required
@@ -19,14 +19,14 @@ As long as there is no conflict of ports, you can install the test version and o
 test version (testnet)  
 
 ```
-wget https://www.asch.so/downloads/asch-linux-latest-testnet.tar.gz
-tar zxvf asch-linux-latest-testnet.tar.gz
+wget https://www.acchain.org/downloads/acchain-linux-latest-testnet.tar.gz
+tar zxvf acchain-linux-latest-testnet.tar.gz
 ```
 
 official version (mainnet)
 ```
-wget https://www.asch.so/downloads/asch-linux-latest-mainnet.tar.gz
-tar zxvf asch-linux-latest-mainnet.tar.gz
+wget https://www.acchain.org/downloads/acchain-linux-latest-mainnet.tar.gz
+tar zxvf acchain-linux-latest-mainnet.tar.gz
 ```
 
 Usually, the version number of testnet will larger than that of mainnet.
@@ -39,7 +39,7 @@ In this step, something will be done for you automatically:
 There is no need to run this step once although there is no harm to execute it more than one time.
 
 	#locate to your installation folder
-	/aschd configure
+	/acchaind configure
 	...
 
 ##3. Run
@@ -47,28 +47,28 @@ There is no need to run this step once although there is no harm to execute it m
 # Enter the installation folder
 
 # start the service
-./aschd start
+./acchaind start
 
 # stop the service
-./aschd stop
+./acchaind stop
 
 # check the running status
-./aschd status
+./acchaind status
 
 # restart the service
-./aschd restart
+./acchaind restart
 
 # upgrade the system
-./aschd upgrade
+./acchaind upgrade
 
 # re-synchronize the blockchain
-./aschd rebuild
+./acchaind rebuild
 
 # check the system version
-./aschd version
+./acchaind version
 
 # start producing block
-./aschd enable "your sercret"
+./acchaind enable "your sercret"
 
 # check the log
 tail -f logs/debug.log
@@ -90,13 +90,13 @@ By default, the system will automatically detect the public IP you assigned. But
 ```
 And don't forget restarting your system after configuration by:
 ```
-./aschd restart
+./acchaind restart
 ```
 
 ##5. Upgrade the system
 ```
-./aschd upgrade
-./aschd start
+./acchaind upgrade
+./acchaind start
 ```
 ##6. Troubleshooting
 ###6.1 I cannot access my online wallet
@@ -106,13 +106,13 @@ Check the `[port]` field in `config.json`, the default port numbers of **testnet
 #### Solution 2
 Check whether service is started by typing commands as follows:
 ```
-./aschd status
+./acchaind status
 
 # if service is not started, then following message will be shown
-Asch server is not running
+acchain server is not running
 
 # then restart the service
-./aschd restart
+./acchaind restart
 ```
 
 ###6.2 Unable to generate the block
@@ -143,7 +143,7 @@ It means that the passphrase of your account has not been registed as delegates 
 
 **NOTICE:** If your node is synchronizing the blocks, restart the system after the synchronization is finished.
 ```
-./aschd restart
+./acchaind restart
 ```
 If the system has been restarted successfully, the following log will be found:
 ```
@@ -156,9 +156,10 @@ Forging enabled on account: xxxxxxxxxxxxxx
 
 First, try `restart` the system:
 ```
-./aschd restart
+./acchaind restart
 ```
 If problem is still unsolved, try `rebuild`
 ```
-./aschd rebuild
+./acchaind rebuild
 ```
+
