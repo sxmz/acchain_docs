@@ -15,7 +15,7 @@ From this perspective, the sidechain mechanism is not as good as Ethereum. Once 
 
 Sidechain mechanism, however, has its own value of existence since not every application needs such a high level security. Based on sidechain mechanism, Acchain can provide a more flexible choice to users.
 
-For example, let's say Acchain system has 1000 nodes. And under this circumstance some DApps are important so that they need 500 nodes to run. But some others may not be such crucial and only 100 nodes can meet their requirements. The point is that all of these choices are totally up to users and developers.
+For example, let's say Acchain system has 1000 nodes. And under this circumstance some Dapps are important so that they need 500 nodes to run. But some others may not be such crucial and only 100 nodes can meet their requirements. The point is that all of these choices are totally up to users and developers.
 
 Comparily, only one option is available in Ethereum, which is all nodes are occupied to run this application. It is said that Ethereum is also about to provide a partition mechanism, which is a solution that Acchain system has already had.
 
