@@ -19,15 +19,15 @@
 测试版testnet
 
 ```
-wget https://www.asch.so/downloads/asch-linux-latest-testnet.tar.gz
-tar zxvf asch-linux-latest-testnet.tar.gz
+wget https://www.acchain.org/downloads/acchain-linux-latest-testnet.tar.gz
+tar zxvf acchain-linux-latest-testnet.tar.gz
 ```
 
 正式版mainnet
 
 ```
-wget https://www.asch.so/downloads/asch-linux-latest-mainnet.tar.gz
-tar zxvf asch-linux-latest-mainnet.tar.gz
+wget https://www.acchain.org/downloads/acchain-linux-latest-mainnet.tar.gz
+tar zxvf acchain-linux-latest-mainnet.tar.gz
 ```
 
 一般情况下，testnet的版本号大于等于mainnet的版本号
@@ -43,7 +43,7 @@ tar zxvf asch-linux-latest-mainnet.tar.gz
 
 ```
 # 进入你的安装目录
-./aschd configure
+./acchaind configure
 ```
 
 ## 3 运行
@@ -52,28 +52,28 @@ tar zxvf asch-linux-latest-mainnet.tar.gz
 # 进入你的安装目录
 
 # 启动
-./aschd start
+./acchaind start
 
 # 停止
-./aschd stop
+./acchaind stop
 
 # 查看运行状态
-./aschd status
+./acchaind status
 
 # 重启
-./aschd restart
+./acchaind restart
 
 # 升级
-./aschd upgrade
+./acchaind upgrade
 
 # 重新同步区块
-./aschd rebuild
+./acchaind rebuild
 
 # 查看版本
-./aschd version
+./acchaind version
 
 # 开启区块生产
-./aschd enable "your sercret"
+./acchaind enable "your sercret"
 
 # 查看log
 tail -f logs/debug.log
@@ -100,14 +100,14 @@ tail -f logs/debug.log
 配置完之后需要重启程序
 
 ```
-./aschd restart
+./acchaind restart
 ```
 
 ## 5 升级
 
 ```
-./aschd upgrade
-./aschd start
+./acchaind upgrade
+./acchaind start
 ```
 
 ## 6 错误诊断
@@ -124,13 +124,13 @@ tail -f logs/debug.log
 查看服务是否启动，可以使用如下命令
 
 ```
-./aschd status
+./acchaind status
 
 # 如果没有启动则显示
-Asch server is not running
+Acchain server is not running
 
 # 如果出现这种情况，重启即可
-./aschd restart
+./acchaind restart
 ```
 
 ### 6.2 无法生产区块 
@@ -173,7 +173,7 @@ Failed to load delegates: Account xxxxxxxxx not found
 **注意** 如果你的节点正在同步区块，不要立即重启，等同步完成了再重启
 
 ```
-./aschd restart
+./acchaind restart
 ```
 
 正常情况下应该会出现如下log
@@ -191,11 +191,13 @@ Forging enabled on account: xxxxxxxxxxxxxx
 优先使用restart命令
 
 ```
-./aschd restart
+./acchaind restart
 ```
 
 如果无法解决，使用rebuild命令
 
 ```
-./aschd rebuild
+./acchaind rebuild
 ```
+
+
