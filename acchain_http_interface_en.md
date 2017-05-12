@@ -1,11 +1,11 @@
-#Asch-HTTP Interface Specification
+#Acchain-HTTP Interface Specification
 ---
 Table of Contents
 =================
 
-  * [Asch-HTTP Interface Specification](#asch-http-interface-specification)
+  * [Acchain-HTTP Interface Specification](#Acchain-http-interface-specification)
   * [Index](#index)
-    * [* <a href="#appendix-1-install-asch-js-library">Appendix 1ï¼š Install 'asch-js' library</a>](#-appendix-1-install-asch-js-library)
+    * [<a href="#appendix-1-install-Acchain-js-library">Appendix 1ï¼š Install 'Acchain-js' library</a>](#-appendix-1-install-Acchain-js-library)
     * [1 API Usage Guide](#1-api-usage-guide)
       * [1.1 Request Process Overview](#11-request-process-overview)
     * [2 Interface](#2-interface)
@@ -65,14 +65,15 @@ Table of Contents
           * [2.9.2.2 Transfer Money](#2922-transfer-money)
           * [2.9.2.3 Register Delegates](#2923-register-delegates)
           * [2.9.2.4 Vote and Cancel the vote](#2924-vote-and-cancel-the-vote)
-    * [Appendix 1ï¼š Install 'asch-js' library](#appendix-1-install-asch-js-library)
+* [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
+        
 ---
 ##1 API Usage Guide
 ###1.1 Request Process Overview
-- **Generate request data:** according the interface specification provided by Asch system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called asch-js to create signature. see [2.9 Peer to Peer transportation](#29-peer-to-peer-transportation) for detail).
-- **Send request data:** transfer the generated data object to Asch  platform through POST/GET method upon HTTP
-- **Asch system handles the data object:** after receiving the data object, Asch server will validate the data firstly, then deal with it.
-- **Return the response data:** Asch system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
+- **Generate request data:** according the interface specification provided by Acchain system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called Acchain-js to create signature. see [2.9 Peer to Peer transportation](#29-peer-to-peer-transportation) for detail).
+- **Send request data:** transfer the generated data object to acchain  platform through POST/GET method upon HTTP
+- **Acchain system handles the data object:** after receiving the data object, acchain server will validate the data firstly, then deal with it.
+- **Return the response data:** acchain system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
 - **Client handles the response data**
 
 ##2 Interface   
@@ -89,7 +90,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|publicKey |string |Y    |Asch account public key       |   
+|publicKey |string |Y    |acchain account public key       |   
    
 Response Parameter Description:   
 
@@ -100,11 +101,11 @@ Response Parameter Description:
 Request Example:   
   
 ```js
-var AschJS = require('asch-js');  //For further information about asch-js, please see Appendix
-var publicKey = AschJS.crypto.getKeys(secret).publicKey;  //Generate public key according to password 
-// var address = AschJS.crypto.getAddress(publicKey);   //Generate address according to public key
+var acchainJS = require('Acchain-js');  //For further information about Acchain-js, please see Appendix
+var publicKey = AcchainJS.crypto.getKeys(secret).publicKey;  //Generate public key according to password 
+// var address = AcchainJS.crypto.getAddress(publicKey);   //Generate address according to public key
 
-// Submit the above data to Asch server through post method   
+// Submit the above data to acchain server through post method   
 curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://45.32.248.33:4096/api/accounts/open2/   
 ```   
    
@@ -141,7 +142,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |asch account password       |   
+|secret |string |Y    |acchain account password       |   
    
 Response Parameter Description:   
 
@@ -201,7 +202,7 @@ JSON Response Example:
 {   
 	"success": true,   
 	"account": {   
-		"address": "16723473400748954103",  //Asch address   
+		"address": "16723473400748954103",  //acchain address   
 		"unconfirmedBalance": 19480000000,  //the sum of unconfirmed and confirmed balance, that should be larger than or equal to balance below.   
 		"balance": 19480000000, //balance   
 		"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9",    //Public key   
@@ -293,7 +294,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account password     |   
+|secret |string |Y    |acchain account password     |   
    
 Response Parameter Description:   
 
@@ -414,9 +415,9 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account password       |   
+|secret |string |Y    |acchain account password       |   
 |publicKey|string  |N|public key      |    
-|secondSecret|string|N|Asch account's second password，minimum length：1，maximum length：100|   
+|secondSecret|string|N|acchain account's second password，minimum length：1，maximum length：100|   
 |delegates|Array|a list that contains delegates' public key. put +/- in front of each public key, which means vote/abolish this delegate. |   
    
 Response Parameter Description:   
@@ -693,7 +694,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account password       |   
+|secret |string |Y    |acchain account password       |   
 |amount|integer|Y|amount，between 1 and 10000000000000000|   
 |recipientId|string|Y|recipient's address, minimum:1|   
 |publicKey|string|N|sender's public key|   
@@ -1266,9 +1267,9 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account password       |   
+|secret |string |Y    |acchain account password       |   
 |publicKey|string  |N      |public key|    
-|secondSecret|string|N|Asch account's second password, minimum length:1 maximum length: 100 |   
+|secondSecret|string|N|acchain account's second password, minimum length:1 maximum length: 100 |   
 |username|string|N|the delegate's user name|   
    
 Response Parameter Description:   
@@ -1321,7 +1322,7 @@ Request Parameter Description:
 |------ |-----  |---  |----              |   
 |state |integer |N    |peer's status: 0:,1:,2:,3:     |   
 |os|string|N|Linux kernel version|   
-|version|string|N|Asch system version|   
+|version|string|N|acchain system version|   
 |limit |integer |N    |maximum return records, minimum:0, maximum: 100|   
 |orderBy|string|N||   
 |offset|integer  |N      |offset, minimum 0  |   
@@ -1488,9 +1489,9 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account's password       |   
+|secret |string |Y    |acchain account's password       |   
 |publicKey|string  |N|public key      |    
-|secondSecret|string|Y|Asch account's second password，minimum length：1，maximum length：100|   
+|secondSecret|string|Y|acchain account's second password，minimum length：1，maximum length：100|   
 |multisigAccountPublicKey|string|N|the public key of multi signatures account|   
    
    
@@ -1569,9 +1570,9 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account's password       |   
+|secret |string |Y    |acchain account's password       |   
 |publicKey|string  |N|public key      |    
-|secondSecret|string|N|Asch account's second password, minimum length:1 maximum length: 100|   
+|secondSecret|string|N|acchain account's second password, minimum length:1 maximum length: 100|   
 |min|integer|Y|the minimum signatures that is required to each transaction for multi-signatures account. (When the transaction is to register multi-signature account, this parameter will not work since everyone needs to sign.) Minimum:2, maximum:16. This number must not be larger than keysgroup.length+1. |   
 |lifetime|integer|Y|the maximum pending time of multi-signature transaction. Minimum:1, maximum:24. NOTE: this parameter is not available currently.|   
 |keysgroup|array|Y|an array containing other signaturers' public key. There are plus/minus (+/-) in front of each public key, means add or delete multi-signature account respectively. Minimum length:1, maximum length:10.|   
@@ -1663,8 +1664,8 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|secret |string |Y    |Asch account's password       |   
-|secondSecret|string|N|Asch account second password. Minimum length:1, maximum length:100|   
+|secret |string |Y    |acchain account's password       |   
+|secondSecret|string|N|acchain account second password. Minimum length:1, maximum length:100|   
 |publicKey|string  |N|public key      |    
 |transactionId|string|Y|transaction ID|   
    
@@ -1810,11 +1811,11 @@ To request a peer related API, it is required to set a header like this:
  - key=version, and value=''  
 
 #### 2.9.2 Transaction 
-All the writing operations in Asch system are finished by starting a transaction.
-The transaction data is generated through a JS library named "asch-js", and then broadcasted by a POST API.
+All the writing operations in acchain system are finished by starting a transaction.
+The transaction data is generated through a JS library named "Acchain-js", and then broadcasted by a POST API.
 The POST API specification is as follows:
 
-payload: transaction data generated by asch-js
+payload: transaction data generated by Acchain-js
 API Address: /peer/transactions  
 Request Method: POST   
 Supported Format: JSON  
@@ -1824,7 +1825,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|transaction data generated by [asch-js.signature.createSignature]|
+|transaction|json|Y|transaction data generated by [Acchain-js.signature.createSignature]|
 
 Response Parameter Description:   
 
@@ -1835,12 +1836,12 @@ Response Parameter Description:
    
 Request Example:   
 ```js   
-var asch = require('asch-js');    
-var transaction = asch.signature.createSignature('measure bottom stock hospital calm hurdle come banner high edge foster cram','erjimimashezhi001')       
+var acchain = require('Acchain-js');    
+var transaction = Acchain.signature.createSignature('measure bottom stock hospital calm hurdle come banner high edge foster cram','erjimimashezhi001')       
 console.log(JSON.stringify(transaction))  
 {"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}   
 
-// submit above data of setting second password to Asch server by POST method
+// submit above data of setting second password to acchain server by POST method
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' http://45.32.248.33:4096/peer/transactions   
 ```   
    
@@ -1856,7 +1857,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|transaction data generated by [asch-js.transaction.createTransaction]|
+|transaction|json|Y|transaction data generated by [Acchain-js.transaction.createTransaction]|
 
 Response Parameter Description:   
 
@@ -1867,7 +1868,7 @@ Response Parameter Description:
    
 Request Example:   
 ```js   
-var asch = require('asch-js');   
+var acchain = require('Acchain-js');   
 var targetAddress = "16358246403719868041";  
 var amount = 100*100000000;   //100 XAS
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
@@ -1876,11 +1877,11 @@ var secondPassword  = 'erjimimashezhi001';
 // in above code, password is recorded when user logs in. meanwhile the second password needs to be input every time by user.
 // To input or not depends on whether user has second password, which can be identified by "user.secondPublicKey" function.
 
-var transaction = asch.transaction.createTransaction(targetAddress, amount, password, secondPassword || undefined);       
+var transaction = Acchain.transaction.createTransaction(targetAddress, amount, password, secondPassword || undefined);       
 JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
-// submit above data of transfer to Asch server by POST method
+// submit above data of transfer to acchain server by POST method
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
@@ -1896,7 +1897,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|transaction data generated by [asch-js.delegate.createDelegate]|
+|transaction|json|Y|transaction data generated by [Acchain-js.delegate.createDelegate]|
 
 Response Parameter Description:   
 
@@ -1907,16 +1908,16 @@ Response Parameter Description:
    
 Request Example:   
 ```js   
-var asch = require('asch-js');   
+var acchain = require('Acchain-js');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 var userName = 'zhenxi_test';  
 
-var transaction = asch.delegate.createDelegate(password, userName, secondPassword || undefined);   
+var transaction = Acchain.delegate.createDelegate(password, userName, secondPassword || undefined);   
 JSON.stringify(transaction)  
 '{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}'
 
-// submit above data of registering delegate to Asch server by POST method
+// submit above data of registering delegate to acchain server by POST method
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
@@ -1933,7 +1934,7 @@ Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|transaction data generated by [asch-js.vote.createVote]|
+|transaction|json|Y|transaction data generated by [Acchain-js.vote.createVote]|
 
 Response Parameter Description:   
 
@@ -1944,7 +1945,7 @@ Response Parameter Description:
    
 Request Example:   
 ```js   
-var asch = require('asch-js');   
+var acchain = require('Acchain-js');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 // the voting content is a list in which each item consists of a symbol (+ or -) and the delegate's public key. The "+" means vote, and "-" means cancel the vote.
@@ -1953,11 +1954,11 @@ var voteContent = [
     '+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2'
 ];
 
-var transaction = asch.vote.createVote(password, voteContent, secondPassword || undefined);
+var transaction = Acchain.vote.createVote(password, voteContent, secondPassword || undefined);
 JSON.stringify(transaction)
 {"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}
 
-// submit above data of vote/cancel vote to Asch server by POST method
+// submit above data of vote/cancel vote to acchain server by POST method
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
@@ -1969,11 +1970,11 @@ JSON Response Example:
 ``` 
 
    
-## Appendix 1： Install 'asch-js' library   
-All the writing operations in Asch system are finished by starting a transaction.
-The transaction data is generated through a JS library named "asch-js", and then broadcasted by a POST API.
+## Appendix 1： Install 'Acchain-js' library   
+All the writing operations in Acchain system are finished by starting a transaction.
+The transaction data is generated through a JS library named "Acchain-js", and then broadcasted by a POST API.
   
 **Install the library**   
-`npm install asch-js`   
+`npm install Acchain-js`   
    
 
