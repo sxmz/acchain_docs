@@ -794,7 +794,7 @@ JSON返回示例：
 |名称	|类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
-|amount|integer|Y|金额，最小值：1，最大值：10000000000000000|   
+|amount|string|Y|金额，最小值：1，最大值：10000000000000000|   
 |recipientId|string|Y|接收者地址,最小长度：1|   
 |publicKey|string|N|发送者公钥|   
 |secondSecret|string|N|发送者二级密码，最小长度1，最大长度：100|   
