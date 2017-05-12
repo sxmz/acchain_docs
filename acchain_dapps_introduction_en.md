@@ -1,14 +1,14 @@
 # Introducing Acchain Dapp Development
-As we mentioned in whitepaper, not like Etherum or Bitcoin, Acchain is using a sidechain framework as a platform for decentralised applications (DApp). Usually, each DApp runs on its own sidechain. 
+As we mentioned in whitepaper, not like Etherum or Bitcoin, Acchain is using a sidechain framework as a platform for decentralised applications (Dapp). Usually, each Dapp runs on its own sidechain. 
 
 ## The Independency of Sidechain
 
 The advantage of sidechain framework is that both the code and data are independent from main blockchain, hence data over-dilation can be avoided. In fact this is a nature partition mechanism.
 A sidechain has its own blockchain, delegates and nodes network, which means a block generated from a sidechain will be able to broadcast among the nodes belong to this sidechain.
 
-Every coin has to sides, so does independency of sidechain. After finishing the developement of DApp, developers still need to consider the operating and maintenance. In detail, it is necessary for developers to guarntee enough nodes to maintain acceptable security.
+Every coin has to sides, so does independency of sidechain. After finishing the developement of Dapp, developers still need to consider the operating and maintenance. In detail, it is necessary for developers to guarntee enough nodes to maintain acceptable security.
 
-From this perspective, the sidechain mechanism is not as good as Ethereum. Once a DApp is deployed on Ethereum, all the nodes in Ethereum can work for it, as well as promise the security.
+From this perspective, the sidechain mechanism is not as good as Ethereum. Once a Dapp is deployed on Ethereum, all the nodes in Ethereum can work for it, as well as promise the security.
 
 
 ## The Flexibility of Sidechain
