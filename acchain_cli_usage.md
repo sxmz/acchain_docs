@@ -58,18 +58,17 @@
 
 ##1 Acchain-cli的安装
 
+安装js软件包管理器npm
+
 ```
 sudo apt-get install npm
 ```
 
- #安装js软件包管理器npm
-
-
+国内服务器可以考虑加上 “--registry=http://registry.npm.taobao.org” 参数加快安装速度
 ```
 npm install -g acchain-cli
 ```
 
-#国内服务器可以考虑加上 “--registry=http://registry.npm.taobao.org” 参数加快安装速度
 
 ##2 Acchain-cli使用说明
 acchain-cli [选项] [命令]
