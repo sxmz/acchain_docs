@@ -1,1 +1,1 @@
-Please visit[whitepaper of pdf version in official website](https://www.asch.so/asch-whitepaper-en.pdf)
+Please visit[whitepaper of pdf version in official website](https://www.acchain.org/upload/white_paper/Acchain_whitepaper_En.pdf)
