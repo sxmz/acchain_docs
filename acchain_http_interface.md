@@ -529,7 +529,7 @@ JSON返回示例：
 	"success": true,
 	"accounts": [{
 		"address": "355198157736313687",
-		"balance": 4400099900000000,        //44000999 XAS
+		"balance": 4400099900000000,        //44000999 ACC
 		"publicKey": "0b8e120db026d58cbf9d3f392f88eefe3a82a0a3023298b9466d7ed64ff05881"
 	},
 	{
@@ -993,7 +993,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getfee'
    
 JSON返回示例：   
 ```js   
-{"success":true,"fee":10000000}     //手续费为0.1 XAS   
+{"success":true,"fee":10000000}     
 ```   
    
 #### **2.3.5 获取里程碑**   
@@ -1040,7 +1040,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getReward'
    
 JSON返回示例：   
 ```js   
-{"success":true,"reward":350000000} //每个生成一个block奖励3.5 XAS   
+{"success":true,"reward":350000000} //每个生成一个block奖励3.5 ACC 
 ```   
    
 #### **2.3.7 获取区块链当前最大供应值**   
@@ -1054,7 +1054,7 @@ JSON返回示例：
 |名称	|类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
-|supply|integer  |全网XAS个数      |    
+|supply|integer  |全网ACC个数      |    
    
    
 请求示例：   
@@ -1064,7 +1064,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getSupply'
    
 JSON返回示例：   
 ```js   
-{"success":true,"supply":10049222600000000} //当前testnet共有100492226XAS   
+{"success":true,"supply":10049222600000000} //当前testnet共有100492226ACC  
 ```   
    
 #### **2.3.8 区块链状态**   
@@ -1082,7 +1082,7 @@ JSON返回示例：
 |fee|integer  |交易手续费      |    
 |milestone|integer  |      |    
 |reward|integer  |区块奖励      |    
-|supply|integer  |全网XAS个数      |    
+|supply|integer  |全网ACC个数      |    
    
    
 请求示例：   
@@ -1319,7 +1319,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/delegates/fee?publicKey=ae256559d06
    
 JSON返回示例：   
 ```js   
-{"success":true,"fee":10000000000}  //0.1 XAS   
+{"success":true,"fee":10000000000}  //0.1 ACC
 ```   
    
 #### **2.4.6 根据公钥查看其锻造情况**   
@@ -1713,7 +1713,7 @@ JSON返回示例：
 		"recipientId": null,   
 		"signature": "e76d9b25ec0fdaa88b19d59c5a222b7efdc04f738ee05896f55f4e6959229d9b1600ca25aa92fbea176668f3be7c12c506f2091e2b38c52ef0ece7a5d35e240a",   
 		"id": "1614688380530105232",   
-		"fee": 500000000,       //设置二级密码密码的手续费为5 XAS   
+		"fee": 500000000,       //设置二级密码密码的手续费为5 ACC  
 		"senderId": "250438937633388106"   
 	}   
 }   
@@ -1743,7 +1743,7 @@ JSON返回示例：
 ```js   
 {   
 	"success": true,   
-	"fee": 500000000         //5 XAS   
+	"fee": 500000000         //5 ACC  
 }     
 ```   
    
@@ -2058,7 +2058,7 @@ JSON返回示例：
 ```js   
 var acchain = require('Acchain-js');   
 var targetAddress = "16358246403719868041";  
-var amount = 100*100000000;   //100 XAS
+var amount = 100*100000000;   //100 ACC  
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 
@@ -2495,7 +2495,7 @@ JSON返回示例：
 |名称	|类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
-|transactions|list|交易列表，每个元素是一个字典代表一次交易，包含交易id、区块高度、区块id、交易类型、时间戳、发送者公钥、发送者id、接收者id（系统为空，如资产注册）、交易数量（资产交易都为0）、手续费0.1XAS、签名、多重签名、确认数、资产信息（包含发行商id、发行商名字、描述）、交易id。|
+|transactions|list|交易列表，每个元素是一个字典代表一次交易，包含交易id、区块高度、区块id、交易类型、时间戳、发送者公钥、发送者id、接收者id（系统为空，如资产注册）、交易数量（资产交易都为0）、手续费0.1ACC、签名、多重签名、确认数、资产信息（包含发行商id、发行商名字、描述）、交易id。|
 |count|integer|资产交易总个数|
    
 请求示例：   
@@ -2516,7 +2516,7 @@ JSON返回示例：
 		"senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",  // 交易发起者公钥
 		"senderId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",   // 交易发起者id
 		"recipientId": "",  //  接收者id，如果是系统则为空
-		"amount": 0,    //  交易数量，如果是资产或者XAS则为非0，否则为0
+		"amount": 0,    //  交易数量，如果是资产或者ACC则为非0，否则为0
 		"fee": 10000000,    // 交易费
 		"signature": "6a1e66387f610de5a89489105697082037b82bff4fb6f95f9786304176efe59f7d41e8fe9c5501e1b0b34a47e957a38e10e940fdb180f8ebcaf0ac062a63c601", // 交易签名
 		"signSignature": "",    // 二级签名，有二级密码时才有
@@ -2796,7 +2796,7 @@ var trs = AcchainJS.uia.createAcl(currency, operator, flag, list, secret, second
 console.log(JSON.stringify(trs))
 {"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}
 
-// 将生成的交易数据通过post发送给server，把地址列表['15745540293890213312']增加到该白名单中，只修改名单列表，不修改acl模式，手续费0.2XAS
+// 将生成的交易数据通过post发送给server，把地址列表['15745540293890213312']增加到该白名单中，只修改名单列表，不修改acl模式，手续费0.2ACC
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
@@ -3267,7 +3267,7 @@ JSON返回示例：
 	"senderId": "16358246403719868041", // 上传者id
 	"recipientId": "",
 	"amount": 0,
-	"fee": 10000000,    // 交易费。0.1XAS
+	"fee": 10000000,    // 交易费。0.1ACC
 	"signature": "8a8a256ab16c9cc966f2b975cf5ce39f13f4f13ae4a60f8c6bdfbe94e2e4ee4cb79c3be80630a5c15289d7e959e50dba5f711e9956781b150185ca9d8519f50b", // 交易签名
 	"signSignature": "46431039f7e15f3147ca6991e6b46a856741b8566aeb54af97dd73d8d3e03b69eb74693c87d4ce1ef4aa2fb69d56c710681494a013fcf747de24d7ea4e79740f", // 二级签名，有二级密码时才有
 	"signatures": null, // 多重签名，使用多重签名账户时才有
