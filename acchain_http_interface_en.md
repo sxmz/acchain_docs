@@ -477,7 +477,7 @@ Request Parameter Description:
 |ownerAddress|string|N||   
 |senderId|string|N|sender's address|   
 |recipientId|string|N|recipient's address, minimum:1|   
-|amount|integer|N|amount|   
+|amount|string|N|amount|   
 |fee|integer|N|charge fee|   
    
 Response Parameter Description:   
@@ -695,7 +695,7 @@ Request Parameter Description:
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain account password       |   
-|amount|integer|Y|amount，between 1 and 10000000000000000|   
+|amount|string|Y|amount，between 1 and 10000000000000000|   
 |recipientId|string|Y|recipient's address, minimum:1|   
 |publicKey|string|N|sender's public key|   
 |secondSecret|string|N|sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|   
@@ -895,7 +895,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getfee'
 JSON Response Example:   
 ```js   
 {"success":true,"fee":10000000}     //transaction fee is 
-0.1 XAS   
+0.1 ACC   
 ```   
    
 #### 2.3.5 Get the Milestone   
@@ -942,7 +942,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getReward'
    
 JSON Response Example:   
 ```js   
-{"success":true,"reward":350000000} //every single block you created will be rewarded by 3.5 XAS   
+{"success":true,"reward":350000000} //every single block you created will be rewarded by 3.5 ACC   
 ```   
    
 #### 2.3.7 Get the Current Maximum Supply of the Blockchain
@@ -956,7 +956,7 @@ Response Parameter Description:
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
-|supply|integer  |the total amount of XAS in the whole network      |    
+|supply|integer  |the total amount of ACC in the whole network      |    
    
    
 Request Example:   
@@ -966,7 +966,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getSupply'
    
 JSON Response Example:   
 ```js   
-{"success":true,"supply":10049222600000000} //There are totally 100492226 XAS in current testnet   
+{"success":true,"supply":10049222600000000} //There are totally 100492226 ACC in current testnet   
 ```   
    
 #### 2.3.8 Get Current Status of Blockchain  
@@ -984,7 +984,7 @@ Response Parameter Description:
 |fee|integer  |transaction fee      |    
 |milestone|integer  |      |    
 |reward|integer  |block reward      |    
-|supply|integer  |total amount of XAS in the whole network      |    
+|supply|integer  |total amount of ACC in the whole network      |    
    
    
 Request Example:   
@@ -1221,7 +1221,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/delegates/fee?publicKey=ae256559d06
    
 JSON Response Example:   
 ```js   
-{"success":true,"fee":10000000000}  //0.1 XAS   
+{"success":true,"fee":10000000000}  //0.1 ACC   
 ```   
    
 #### 2.4.6 Get Forge Information by Public Key 
@@ -1526,7 +1526,7 @@ JSON Response Example:
 		"recipientId": null,   
 		"signature": "e76d9b25ec0fdaa88b19d59c5a222b7efdc04f738ee05896f55f4e6959229d9b1600ca25aa92fbea176668f3be7c12c506f2091e2b38c52ef0ece7a5d35e240a",   
 		"id": "1614688380530105232",   
-		"fee": 500000000,       //the transaction fee of setting second password is 5 XAS   
+		"fee": 500000000,       //the transaction fee of setting second password is 5 ACC   
 		"senderId": "250438937633388106"   
 	}   
 }   
@@ -1556,7 +1556,7 @@ JSON Response Example:
 ```js   
 {   
 	"success": true,   
-	"fee": 500000000         //5 XAS   
+	"fee": 500000000         //5 ACC   
 }     
 ```   
    
@@ -1870,7 +1870,7 @@ Request Example:
 ```js   
 var acchain = require('Acchain-js');   
 var targetAddress = "16358246403719868041";  
-var amount = 100*100000000;   //100 XAS
+var amount = 100*100000000;   //100 ACC
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 
