@@ -576,7 +576,7 @@ JSON返回示例：
 |ownerAddress|string|N||   
 |senderId|string|N|发送者地址|   
 |recipientId|string|N|接收者地址,最小长度：1|   
-|amount|integer|N|金额|   
+|amount|string|N|金额|   
 |fee|integer|N|手续费|   
    
 返回参数说明：   
