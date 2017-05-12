@@ -1,19 +1,19 @@
-#Asch-CLI User Guide
+#ACCHAIN-CLI User Guide
 ---
 Index
 =================
 
-  * [Asch-CLI Instruction](#asch-cli-instruction)
-    * [0 Asch-CLI Overview](#0-asch-cli-overview)
-    * [1 Asch-CLI Installation](#1-asch-cli-installation)
-    * [2 Asch-CLI Synopsis](#2-asch-cli-synopsis)
-    * [3 Asch-CLI Option Description](#3-asch-cli-option-description)
+  * [ACCHAIN-CLI Instruction](#acchain-cli-instruction)
+    * [0 ACCHAIN-CLI Overview](#0-acchain-cli-overview)
+    * [1 ACCHAIN-CLI Installation](#1-acchain-cli-installation)
+    * [2 ACCHAIN-CLI Synopsis](#2-acchain-cli-synopsis)
+    * [3 ACCHAIN-CLI Option Description](#3-acchain-cli-option-description)
       * [3.1 Print help information](#31-print-help-information)
-      * [3.2 Print Asch-CLI version information](#32-print-asch-cli-version-information)
-      * [3.3 Appoint the host name or IP address of target Asch Server](#33-appoint-the-host-name-or-ip-address-of-target-asch-server)
-      * [3.4 Appoint the port number of target Asch server](#34-appoint-the-port-number-of-target-asch-server)
+      * [3.2 Print ACCHAIN-CLI version information](#32-print-acchain-cli-version-information)
+      * [3.3 Appoint the host name or IP address of target acchain Server](#33-appoint-the-host-name-or-ip-address-of-target-acchain-server)
+      * [3.4 Appoint the port number of target acchain server](#34-appoint-the-port-number-of-target-acchain-server)
       * [3.5 Appoint the main chain](#35-appoint-the-main-chain)
-    * [4 Asch-CLI supported commands](#4-asch-cli-supported-commands)
+    * [4 ACCHAIN-CLI supported commands](#4-acchain-cli-supported-commands)
       * [4.1 Check the blockchain height](#41-check-the-blockchain-height)
       * [4.2 Check the blockchain status](#42-check-the-blockchain-status)
       * [4.3 Check account information by password](#43-check-account-information-by-password)
@@ -48,33 +48,33 @@ Index
       * [4.32 Check the original place of all nodes/peers' IP address in the whole network](#432-check-the-original-place-of-all-nodespeers-ip-address-in-the-whole-network)
 
 ---
-##0 Asch-CLI Overview
-From [Asch Whitepaper](/asch_whitepaper_en.md)
-> Asch-CLI is a command line interface provided by Asch system. Within the Asch-CLI, developers can rapidly establish a sidechain by making some simple configurations according to instructions and then create any kind of applications on this sidechain. The system also provides a series of APIs to help developers to create complicate smart contract applications. The functions of these APIs include consensus, strong random numbers, database, and cryptology and so on.
+##0 ACCHAIN-CLI Overview
+From [Acchain Whitepaper](/acchain_whitepaper_en.md)
+> ACCHAIN-CLI is a command line interface provided by acchain system. Within the ACCHAIN-CLI, developers can rapidly establish a sidechain by making some simple configurations according to instructions and then create any kind of applications on this sidechain. The system also provides a series of APIs to help developers to create complicate smart contract applications. The functions of these APIs include consensus, strong random numbers, database, and cryptology and so on.
 
-##1 Asch-CLI Installation
+##1 ACCHAIN-CLI Installation
 - Install nodejs package manager **npm**
 `sudo apt-get install npm`
 
-- Install Asch-CLI 
-`npm install -g asch-cli`
+- Install ACCHAIN-CLI 
+`npm install -g acchain-cli`
 NOTICE: if you install it in China, try parameter `--registry=http://registry.npm.taobao.org` to accelerate the installation.
  
-##2 Asch-CLI Synopsis
-`asch-cli [option] [command]`
+##2 ACCHAIN-CLI Synopsis
+`acchain-cli [option] [command]`
 
-##3 Asch-CLI Option Description
+##3 ACCHAIN-CLI Option Description
 ###3.1 Print help information
 **Parameter:** 	-h, --help  
-**Return:**     Help document of Asch-CLI commands or sub-commands  
+**Return:**     Help document of ACCHAIN-CLI commands or sub-commands  
 **Usage:**  	
- - asch-cli -h #print help information of asch-cli itself 
- - asch-cli [commands] -h #print help information of Asch-CLI command
+ - acchain-cli -h #print help information of acchain-cli itself 
+ - acchain-cli [commands] -h #print help information of acchain-CLI command
 
 **Examples:**
 ```
-root@asch:~# asch-cli -h #print asch-cli help information
-  Usage: asch-cli [options] [command]
+root@acchain:~# acchain-cli -h #print acchain-cli help information
+  Usage: acchain-cli [options] [command]
   Commands:
 
     getheight                              get block height
@@ -118,7 +118,7 @@ root@asch:~# asch-cli -h #print asch-cli help information
     -P, --port <port>  Specify the port of the node, default: 4096
     -M, --main         Specify the mainnet, default: false
 
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getvoteddelegates -h #print Asch-CLI command help information
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getvoteddelegates -h #print ACCHAIN-CLI command help information
   Usage: getvoteddelegates [options] [address]
   get delegates voted by address
   Options:
@@ -128,42 +128,42 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getvoteddelegates -h #print Asch-C
     -l, --limit <n>   
 ```
 
-###3.2 Print Asch-CLI version information 
+###3.2 Print ACCHAIN-CLI version information 
 **Parameter:** 	-V, --version  
 **Return:**     Output the version information  
-**Usage:**  `asch-cli -V`	
+**Usage:**  `acchain-cli -V`	
 
 **Example:**
  
 ```
-root@asch:~# asch-cli -V
+root@acchain:~# acchain-cli -V
 1.0.0
 ```
 
-###3.3 Appoint the host name or IP address of target Asch Server
+###3.3 Appoint the host name or IP address of target Acchain Server
 **Parameter:** -H, --host &lt;host&gt; [command] *(Default: 127.0.0.1)* 
 
 **Return:** none
 
-**Usage:** `asch-cli -H 45.32.248.33 [command]`
+**Usage:** `acchain-cli -H 45.32.248.33 [command]`
 
 **Example:**
 ```
-root@asch:~# asch-cli -H 45.32.248.33 getheight     #check block height of Asch server whose IP is 45.32.248.33
+root@acchain:~# acchain-cli -H 45.32.248.33 getheight     #check block height of acchain server whose IP is 45.32.248.33
 101236
 ```
 
-###3.4 Appoint the port number of target Asch server
+###3.4 Appoint the port number of target Acchain server
 **Parameter:** -P, --port &lt;port&gt; [command] *(Default: 4096)*
 
 **Return:** none
 
-**Usage:** asch-cli -P 4096
+**Usage:** acchain-cli -P 4096
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getheight  
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight  
 102313
 ```
 
@@ -172,27 +172,27 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getheight
 
 **Return:** none
 
-**Usage:** asch-cli -M 
+**Usage:** acchain-cli -M 
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -M -H *.*.*.105 -P 8192 getheight  #check the block height of Asch main chain
+root@acchain:~# acchain-cli -M -H *.*.*.105 -P 8192 getheight  #check the block height of acchain main chain
 9388
 ```
 
-##4 Asch-CLI supported commands
+##4 ACCHAIN-CLI supported commands
 ###4.1 Check the blockchain height
 **Command:** getheight
 
 **Return:** blockchain height
 
-**Usage:** asch-cli getheight
+**Usage:** acchain-cli getheight
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getheight
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight
 105387
 ```
 
@@ -201,12 +201,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getheight
 
 **Return:** a JSON format string including blockchain height, transaction fee, milestone, the reward of each delegate's block and the whole current volume
 
-**Usage:** asch-cli getblockstatus
+**Usage:** acchain-cli getblockstatus
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getblockstatus
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getblockstatus
 {
   "success": true,
   "height": 105392,
@@ -222,12 +222,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getblockstatus
 
 **Return:** A JSON string containing account information such as address, balance, public key, and second public key and so on.
 
-**Usage:**asch-cli openaccount "password"
+**Usage:**acchain-cli openaccount "password"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 openaccount "fault still attack alley expand music basket purse later educate follow ride"
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccount "fault still attack alley expand music basket purse later educate follow ride"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -246,12 +246,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 openaccount "fault still attack al
 
 **Return:** A JSON string containing  account information such as address, balance, public key, and second public key and so on.
 
-**Usage:** asch-cli openaccountbypublickey "public key"
+**Usage:** acchain-cli openaccountbypublickey "public key"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -269,12 +269,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 openaccountbypublickey "bd1e78c5a1
 
 **Return:** A integer number that will be the account balance when divided by 100000000
 
-**Usage:** asch-cli getbalance [account address]
+**Usage:** acchain-cli getbalance [account address]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getbalance 16723473400748954103
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getbalance 16723473400748954103
 20000000000
 ```
 
@@ -283,12 +283,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getbalance 16723473400748954103
 
 **Return:** A JSON string containing  account information such as address, balance, public key, and second public key and so on.
 
-**Usage:** asch-cli getaccount [account address]
+**Usage:** acchain-cli getaccount [account address]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getaccount 16723473400748954103
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getaccount 16723473400748954103
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -307,12 +307,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getaccount 16723473400748954103
 
 **Return:** A list containing the delegates voted by this account
 
-**Usage:**asch-cli getvoteddelegates [account address] -o offset -l [a number indicates maximum delegates that can be printed]
+**Usage:**acchain-cli getvoteddelegates [account address] -o offset -l [a number indicates maximum delegates that can be printed]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getvoteddelegates 15745540293890213312 -o 1 -l 2
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getvoteddelegates 15745540293890213312 -o 1 -l 2
 { success: true,
   delegates: 
    [ { username: 'wgl_002',
@@ -340,12 +340,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getvoteddelegates 1574554029389021
 
 **Return:** An integer number indicates the count of all delegates
 
-**Usage:** asch-cli getdelegatescount
+**Usage:** acchain-cli getdelegatescount
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getdelegatescount
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegatescount
 232
 ```
 
@@ -354,14 +354,14 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getdelegatescount
 
 **Return:** A list containing all delegates' information
 
-**Usage:** asch-cli getdelegates -o [offset number] -l [a number indicates maximum delegates that can be printed] -s rate:asc 
+**Usage:** acchain-cli getdelegates -o [offset number] -l [a number indicates maximum delegates that can be printed] -s rate:asc 
 
-**NOTICE:** rate:asc means ascending sort according to votes. Check other sort types with `asch-cli getdelegates -h`
+**NOTICE:** rate:asc means ascending sort according to votes. Check other sort types with `acchain-cli getdelegates -h`
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getdelegates -o 1 -l 1 -s rate:asc
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegates -o 1 -l 1 -s rate:asc
 [
   {
     "username": "wgl_003",
@@ -385,12 +385,12 @@ root@asch:~# asch-cli -H 45.32.248.33 -P 4096 getdelegates -o 1 -l 1 -s rate:asc
 
 **Return:** A list containing all the voters
 
-**Usage:**asch-cli getvoters "delegate's public key"
+**Usage:**acchain-cli getvoters "delegate's public key"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 [
   {
     "address": "2918354313445278349",
@@ -411,12 +411,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getvoters "ae256559d06409435c04
 
 **Return:** A JSON string containing delegate's detail information such as name, address, votes, produced blocks, and forging reward and so on.
 
-**Usage:** asch-cli getdelegatebypublickey "delegate's public key"
+**Usage:** acchain-cli getdelegatebypublickey "delegate's public key"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 {
   "username": "wgl_002",
   "address": "14636456069025293113",
@@ -437,12 +437,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getdelegatebypublickey "ae25655
 
 **Return:** A JSON string containing delegate's detail
 
-**Usage:** asch-cli getdelegatebyusername "delegate's name"
+**Usage:** acchain-cli getdelegatebyusername "delegate's name"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getdelegatebyusername "wgl_002"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getdelegatebyusername "wgl_002"
 {
   "username": "wgl_002",
   "address": "14636456069025293113",
@@ -464,12 +464,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getdelegatebyusername "wgl_002"
 
 **Return:** A JSON string containing query result status and queried block information
 
-**Usage:** asch-cli getblocks -o [offset number] -l [an integer that indicate maximum return data] -r [reward amount] -f [fee] -a [total amount] -g [public key that generates blocks] -s [sort rule]
+**Usage:** acchain-cli getblocks -o [offset number] -l [an integer that indicate maximum return data] -r [reward amount] -f [fee] -a [total amount] -g [public key that generates blocks] -s [sort rule]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblocks -o 1 -l 1 -r 350000000
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblocks -o 1 -l 1 -r 350000000
 {
   "success": true,
   "blocks": [
@@ -499,12 +499,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblocks -o 1 -l 1 -r 35000000
 **Command:** getblockbyid [id]
 
 **Return:** A JSON string containing block ID, block height, previous block ID, total transaction number, total amount, transaction fee, reward, hash, block generator public key and ID, block signature, quantity of confirmation and so on.
-**Usage:**asch-cli getblockbyid [block ID]
+**Usage:**acchain-cli getblockbyid [block ID]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblockbyid 1425942128040906871 #check the genesis block
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyid 1425942128040906871 #check the genesis block
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -530,12 +530,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblockbyid 142594212804090687
 
 **Return:** A JSON string containing block ID, block height, previous block ID, total transaction number, total amount, transaction fee, reward, hash, block generator public key and ID, block signature, quantity of confirmation and so on.
 
-**Usage:**asch-cli getblockbyheight [block height]
+**Usage:**acchain-cli getblockbyheight [block height]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblockbyheight 1
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyheight 1
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -559,16 +559,16 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getblockbyheight 1
 ###4.16 Check the peer/node status
 **Command:** getpeers [options] 
 
-**Return:** A list containing peer ip, port, operation system, and Asch version, and so on.
+**Return:** A list containing peer ip, port, operation system, and acchain version, and so on.
 
-**Usage:**asch-cli getpeers -o [offset] -l [an integer that indicate maximum return data] -t [status value] -s [sort type] -v [version] -p [port number] --os [OS version] 
+**Usage:**acchain-cli getpeers -o [offset] -l [an integer that indicate maximum return data] -t [status value] -s [sort type] -v [version] -p [port number] --os [OS version] 
 
-**NOTICE:** For further information, try `asch-cli getpeers -h`
+**NOTICE:** For further information, try `acchain-cli getpeers -h`
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getpeers -o 1 -l 2 
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getpeers -o 1 -l 2 
 [
   {
     "ip": "45.32.62.184",
@@ -592,12 +592,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getpeers -o 1 -l 2
 
 **Return:** A list containing details of all transactions that are not confirmed yet
 
-**Usage:** asch-cli getunconfirmedtransactions -p "sender's public key" -a [recipient's address]
+**Usage:** acchain-cli getunconfirmedtransactions -p "sender's public key" -a [recipient's address]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
 [
   {
     "type": 0,
@@ -621,14 +621,14 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 getunconfirmedtransactions -k "
 
 **Return:** A list containing all selected transaction's detail information
 
-**Usage:** asch-cli gettransactions -b [block ID] -o [offset] -l [an integer that indicate maximum return data] 
+**Usage:** acchain-cli gettransactions -b [block ID] -o [offset] -l [an integer that indicate maximum return data] 
 
-**NOTICE:** try `asch-cli gettransactions -h` to get the information for other parameters.
+**NOTICE:** try `acchain-cli gettransactions -h` to get the information for other parameters.
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 gettransactions -o 1 -l 2 #check the first two transactions' information in the whole network
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransactions -o 1 -l 2 #check the first two transactions' information in the whole network
 [
   {
     "id": "10169086766604015960",
@@ -672,12 +672,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 gettransactions -o 1 -l 2 #chec
 
 **Return:** A JSON string containing transaction ID, block height, block ID, time stamp, sender's public key, recipient's address, total amount, fee, signature, confirmation quantity, assets, and etc.
 
-**Usage:**asch-cli gettransaction [transactionID]
+**Usage:**acchain-cli gettransaction [transactionID]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 gettransaction 17192581936339156329
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransaction 17192581936339156329
 {
   "id": "17192581936339156329",
   "height": "105951",
@@ -702,12 +702,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 gettransaction 1719258193633915
 
 **Return:** transaction result. true=success, otherwise error message
 
-**Usage:** asch-cli sendmoney -e "[sender's password]" -t [recipient's address] -a [transfer amount] [-s "second password"]
+**Usage:** acchain-cli sendmoney -e "[sender's password]" -t [recipient's address] -a [transfer amount] [-s "second password"]
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
 true
 ```
 
@@ -716,12 +716,12 @@ true
 
 **Return:** Registering result，ture=success, otherwise error message
 
-**Usage:** asch-cli registerdelegate -e "[password]" -s "[second password]" -u "[delegate's name]"
+**Usage:** acchain-cli registerdelegate -e "[password]" -s "[second password]" -u "[delegate's name]"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
 true
 ```
 
@@ -730,12 +730,12 @@ true
 
 **Return:** Voting result, ture=success, otherwise error message
 
-**Usage:** asch-cli upvote -e "[password]" -s "[second password]" -p "delegate's public key"
+**Usage:** acchain-cli upvote -e "[password]" -s "[second password]" -p "delegate's public key"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -744,12 +744,12 @@ true
 
 **Return:** Cancelling vote result, ture=success, otherwise error message
 
-**Usage:** asch-cli downvote -e "[password]" -s "[second password]" -p "delegate's public key"
+**Usage:** acchain-cli downvote -e "[password]" -s "[second password]" -p "delegate's public key"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -758,12 +758,12 @@ true
 
 **Return:** Setting up result, ture=success, otherwise error message
 
-**Usage:** asch-cli setsecondsecret -e "[password]" -s "[second password]"
+**Usage:** acchain-cli setsecondsecret -e "[password]" -s "[second password]"
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
 true
 ```
 
@@ -772,7 +772,7 @@ true
 
 **Return:**
 
-**Usage:** asch-cli registerdapp -e "[password]" -s "[second password]" -f [Dapp meta file]
+**Usage:** acchain-cli registerdapp -e "[password]" -s "[second password]" -f [Dapp meta file]
 
 **Example:**
 
@@ -784,8 +784,8 @@ true
 **Return:** 
 
 **Usage:** 
- - asch-cli contract -a 	# create a contract
- - asch-cli contract -d 	# delete a contract
+ - acchain-cli contract -a 	# create a contract
+ - acchain-cli contract -d 	# delete a contract
 
 **Example:**
 
@@ -796,13 +796,13 @@ true
 **Return:** A list
 
 **Usage:**
-- asch-cli -p # generate public key according to password
-- asch-cli -g # create one or more new account
+- acchain-cli -p # generate public key according to password
+- acchain-cli -g # create one or more new account
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 45.32.248.33 -P 4096 crypto -g
+root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 crypto -g
 ? Enter number of accounts to generate 1
 [ { address: '16723473400748954103',
     secret: 'fault still attack alley expand music basket purse later educate follow ride',
@@ -815,7 +815,7 @@ Done
 
 **Return:** 
 
-**Usage:** asch-cli dapps -a 
+**Usage:** acchain-cli dapps -a 
 
 **Example:**
 
@@ -824,13 +824,13 @@ Done
 
 **Return:** to create a genesis block file (genesisBlock.json) and log file (genGenesisBlock.log) in the current folder
 
-**Usage:** asch-cli creategenesis
+**Usage:** acchain-cli creategenesis
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 creategenesis 
-root@asch:~# more genesisBlock.json
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 creategenesis 
+root@acchain:~# more genesisBlock.json
 {
   "version": 0,
   "totalAmount": 10000000000000000,
@@ -848,12 +848,12 @@ root@asch:~# more genesisBlock.json
 
 **Return:** The peer's information, containing peer IP address, port, version and block height and etc.
 
-**Usage:**asch-cli peerstat
+**Usage:**acchain-cli peerstat
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 peerstat
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 peerstat
 45.32.248.33:4096 1.0.0 106036
 45.32.62.184:4096 1.0.0 106036
 45.32.19.241:4096 1.0.0 106036
@@ -864,12 +864,12 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 peerstat
 
 **Return:** Delegates' information, containing delegates' name, address, approval votes, productivity, the amount of generated blocks, block height, ID, and the time of last block generated and so on.
 
-**Usage:** asch-cli delegatestat
+**Usage:** acchain-cli delegatestat
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 delegatestat
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 delegatestat
 name	address	rate	approval	productivity	produced	height	id	time
 nayimoliuguang	3331976396377269399	93	88.36%	98.39%	1037	105618	12962348710289833740	2016/08/17 21:07:20(1 hour ago)
 jack	3705405381126069457	86	88.36%	99.41%	506	105628	5876778147855073736	2016/08/17 21:09:00(1 hour ago)
@@ -877,7 +877,7 @@ node_3	12796761013870716784	81	88.36%	80.51%	814	105784	4575518649204137595	2016
 wgl_003	9961157415582672274	2	98.65%	99.24%	1047	105852	11175724889329116017	2016/08/17 21:49:40(28 mins ago)
 xihulongjing	12676662200687508271	59	88.36%	76.92%	150	105853	15273855606472618453	2016/08/17 21:49:50(28 mins ago)
 liangpeili	4514546945474752928	50	88.37%	99.68%	627	105855	3771943180359756069	2016/08/17 21:50:10(28 mins ago)
-asch_tea1	8812460086240160222	4	98.58%	98.79%	1059	105857	14968719538781965695	2016/08/17 21:50:30(27 mins ago)
+acchain_tea1	8812460086240160222	4	98.58%	98.79%	1059	105857	14968719538781965695	2016/08/17 21:50:30(27 mins ago)
 intmaster	7321911740133937168	97	88.36%	100%	1032	105871	6757656887343300317	2016/08/17 21:52:50(25 mins ago)
 mode_6	9248745407080572308	8	88.48%	100%	1060	105873	3777454410915098884	2016/08/17 21:53:10(25 mins ago)
 ```
@@ -887,12 +887,12 @@ mode_6	9248745407080572308	8	88.48%	100%	1060	105873	3777454410915098884	2016/08
 
 **Return:** the original place of each peer's IP address
 
-**Usage:** asch-cli ipstat
+**Usage:** acchain-cli ipstat
 
 **Example:**
 
 ```
-root@asch:~# asch-cli -H 101.200.162.236 -P 4096 ipstat
+root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 ipstat
 美国	US
 美国	US
 美国	US
@@ -904,3 +904,5 @@ root@asch:~# asch-cli -H 101.200.162.236 -P 4096 ipstat
 中国	CN
 中国	CN
 ```
+
+
