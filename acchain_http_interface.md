@@ -2922,23 +2922,28 @@ JSON返回示例：
 
 ```
 {
-    "success": true,
-    "assets": [
+    "success":true,
+    "assets":[
         {
-            "name": "普洱茶",  // 资产名称
-            "currency": "PEB", // 资产符号
-            "desc": "普洱茶简介", // 资产简介
-            "category": "010101", // 资产分类编号
-            "precision": 6, // 精度，表示小数点后有几位数字
-            "estimatePrice": 10, // 初始发行价
-            "estimateUnit": "USD", // 初始发行价单位 
-            "issuerId": "14762548536863074694",  // 发行商账户地址
-            "unlockCondition": 1, // 解锁条件 
-            "extra": "......", // 其他资产信息，json打包
-            "approved": 0
+            "currency":"A.AAA",
+            "name":"A.sfsf",
+            "desc":"sfasfsa",
+            "maximum":"1000000000",
+            "precision":1,
+            "quantity":"0",
+            "height":6931,
+            "issuerId":"ACfjnjJtP9ZkprdLioohFS6Jp2CrAGfMS",
+            "issuerName":"A",
+            "category":"010912",
+            "estimateUnit":"RMB",
+            "estimatePrice":"100000000",
+            "exerciseUnit":"sfasfsa",
+            "extra":"{"productBrand":{"value":"sfasfsa"},"packingStandard":{"value":"sfasfsa"},"productIndex":{"value":"sfasfsa"},"productionInfo":{"value":"sfasfsa"},"otherInfo":{"value":"sfasfsa"}}",
+            "unlockCondition":0,
+            "approved":0
         }
     ],
-  "count": 9
+    "count":1
 }
 ```
 
@@ -2950,23 +2955,64 @@ JSON返回示例：
 
 ```
 {
-    "success": true,
-    "assets": [
+    "success":true,
+    "assets":[
         {
-            "name": "普洱茶",  // 资产名称
-            "currency": "PEB", // 资产符号
-            "desc": "普洱茶简介", // 资产简介
-            "category": "010101", // 资产分类编号
-            "precision": 6, // 精度，表示小数点后有几位数字
-            "estimatePrice": 10, // 初始发行价
-            "estimateUnit": "USD", // 初始发行价单位 
-            "issuerId": "14762548536863074694",  // 发行商账户地址
-            "unlockCondition": 1, // 解锁条件 
-            "extra": "......", // 其他资产信息，json打包
-            "approved": 1
+            "currency":"BTC",
+            "name":"Bitcoin",
+            "desc":"Bitcoin is a cryptocurrency and a digital payment system invented by an unknown programmer, or a group of programmers, under the name Satoshi Nakamoto. It was released as open-source software in 2009",
+            "maximum":"21000000000000",
+            "precision":6,
+            "quantity":"50000000000",
+            "height":1,
+            "issuerId":"AGUaZUoJG5CYqPX32mWAcYQSKjvXu83V8o",
+            "issuerName":"__SYSTEM__",
+            "category":"1801",
+            "estimateUnit":"RMB",
+            "estimatePrice":"8000",
+            "exerciseUnit":"1",
+            "extra":"No extra information",
+            "unlockCondition":0,
+            "approved":1
+        },
+        {
+            "currency":"asd.BUHG",
+            "name":"asd.BUHG",
+            "desc":"BUHG",
+            "maximum":"1000000000",
+            "precision":1,
+            "quantity":"10000000",
+            "height":6158,
+            "issuerId":"APfs15A8KegKu1TtnJsWJvLoFxCKT7pRos",
+            "issuerName":"asd",
+            "category":"1717",
+            "estimateUnit":"RMB",
+            "estimatePrice":"100000000",
+            "exerciseUnit":"BUHG",
+            "extra":"{"productBrand":{"value":"BUHG"},"packingStandard":{"value":"BUHG"},"productIndex":{"value":"BUHG"},"productionInfo":{"value":"BUHG"},"otherInfo":{"value":"BUHG"}}",
+            "unlockCondition":1,
+            "approved":1
+        },
+        {
+            "currency":"meiyingjugroup.RETSCHSR",
+            "name":"RETSCHSR",
+            "desc":"RET to House",
+            "maximum":"6558750000",
+            "precision":1,
+            "quantity":"0",
+            "height":7199,
+            "issuerId":"ADfjWCQ6Ff5c2g62jzJbyQwHAe68TH1QWJ",
+            "issuerName":"meiyingjugroup",
+            "category":"1732",
+            "estimateUnit":"USD",
+            "estimatePrice":"655875000",
+            "exerciseUnit":"220000",
+            "extra":"{"productBrand":{"value":"Serene Country Homes"},"packingStandard":{},"productIndex":{},"productionInfo":{},"otherInfo":{}}",
+            "unlockCondition":0,
+            "approved":1
         }
     ],
-  "count": 9
+    "count":3
 }
 ```
 
