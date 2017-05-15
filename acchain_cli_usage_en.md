@@ -118,10 +118,10 @@ root@acchain:~# acchain-cli -h #print acchain-cli help information
     -h, --help         output usage information
     -V, --version      output the version number
     -H, --host <host>  Specify the hostname or ip of the node, default: 127.0.0.1
-    -P, --port <port>  Specify the port of the node, default: 4096
+    -P, --port <port>  Specify the port of the node, default: 4000
     -M, --main         Specify the mainnet, default: false
 
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getvoteddelegates -h #print ACCHAIN-CLI command help information
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoteddelegates -h #print ACCHAIN-CLI command help information
   Usage: getvoteddelegates [options] [address]
   get delegates voted by address
   Options:
@@ -148,25 +148,25 @@ root@acchain:~# acchain-cli -V
 
 **Return:** none
 
-**Usage:** `acchain-cli -H 45.32.248.33 [command]`
+**Usage:** `acchain-cli -H 127.0.0.1 [command]`
 
 **Example:**
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 getheight     #check block height of acchain server whose IP is 45.32.248.33
+root@acchain:~# acchain-cli -H 127.0.0.1 getheight     #check block height of acchain server whose IP is 45.32.248.33
 101236
 ```
 
 ###3.4 Appoint the port number of target Acchain server
-**Parameter:** -P, --port &lt;port&gt; [command] *(Default: 4096)*
+**Parameter:** -P, --port &lt;port&gt; [command] *(Default: 4000)*
 
 **Return:** none
 
-**Usage:** acchain-cli -P 4096
+**Usage:** acchain-cli -P 4000
 
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight  
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getheight  
 102313
 ```
 
@@ -180,7 +180,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -M -H *.*.*.105 -P 8192 getheight  #check the block height of acchain main chain
+root@acchain:~# acchain-cli -M -H *.*.*.105 -P 4000 getheight  #check the block height of acchain main chain
 9388
 ```
 
@@ -195,7 +195,7 @@ root@acchain:~# acchain-cli -M -H *.*.*.105 -P 8192 getheight  #check the block 
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getheight
 105387
 ```
 
@@ -209,7 +209,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getheight
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getblockstatus
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockstatus
 {
   "success": true,
   "height": 105392,
@@ -230,7 +230,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getblockstatus
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccount "fault still attack alley expand music basket purse later educate follow ride"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 openaccount "fault still attack alley expand music basket purse later educate follow ride"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -254,7 +254,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccount "fault still att
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -277,7 +277,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 openaccountbypublickey "bd1e
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getbalance 16723473400748954103
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getbalance 16723473400748954103
 20000000000
 ```
 
@@ -291,7 +291,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getbalance 16723473400748954
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getaccount 16723473400748954103
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getaccount 16723473400748954103
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -315,7 +315,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getaccount 16723473400748954
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getvoteddelegates 15745540293890213312 -o 1 -l 2
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoteddelegates 15745540293890213312 -o 1 -l 2
 { success: true,
   delegates: 
    [ { username: 'wgl_002',
@@ -348,7 +348,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getvoteddelegates 1574554029
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegatescount
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegatescount
 232
 ```
 
@@ -364,7 +364,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegatescount
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegates -o 1 -l 1 -s rate:asc
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegates -o 1 -l 1 -s rate:asc
 [
   {
     "username": "wgl_003",
@@ -393,7 +393,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 getdelegates -o 1 -l 1 -s ra
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 [
   {
     "address": "2918354313445278349",
@@ -419,7 +419,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getvoters "ae256559d06409
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 {
   "username": "wgl_002",
   "address": "14636456069025293113",
@@ -472,7 +472,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getdelegatebyusername "wg
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblocks -o 1 -l 1 -r 350000000
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblocks -o 1 -l 1 -r 350000000
 {
   "success": true,
   "blocks": [
@@ -507,7 +507,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblocks -o 1 -l 1 -r 35
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyid 1425942128040906871 #check the genesis block
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockbyid 1425942128040906871 #check the genesis block
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -538,7 +538,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyid 142594212804
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyheight 1
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockbyheight 1
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -571,7 +571,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getblockbyheight 1
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getpeers -o 1 -l 2 
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getpeers -o 1 -l 2 
 [
   {
     "ip": "45.32.62.184",
@@ -600,7 +600,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getpeers -o 1 -l 2
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
 [
   {
     "type": 0,
@@ -631,7 +631,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getunconfirmedtransaction
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransactions -o 1 -l 2 #check the first two transactions' information in the whole network
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 gettransactions -o 1 -l 2 #check the first two transactions' information in the whole network
 [
   {
     "id": "10169086766604015960",
@@ -680,7 +680,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransactions -o 1 -l 2
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransaction 17192581936339156329
+root@acchain:~# acchain-cli -H 127.0.01 -P 4000 gettransaction 17192581936339156329
 {
   "id": "17192581936339156329",
   "height": "105951",
@@ -710,7 +710,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 gettransaction 1719258193
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
 true
 ```
 
@@ -724,7 +724,7 @@ true
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
 true
 ```
 
@@ -738,7 +738,7 @@ true
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -752,7 +752,7 @@ true
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -766,7 +766,7 @@ true
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
 true
 ```
 
@@ -832,7 +832,7 @@ Done
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 creategenesis 
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 creategenesis 
 root@acchain:~# more genesisBlock.json
 {
   "version": 0,
@@ -856,7 +856,7 @@ root@acchain:~# more genesisBlock.json
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 peerstat
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 peerstat
 45.32.248.33:4096 1.0.0 106036
 45.32.62.184:4096 1.0.0 106036
 45.32.19.241:4096 1.0.0 106036
@@ -872,7 +872,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 peerstat
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 delegatestat
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 delegatestat
 name	address	rate	approval	productivity	produced	height	id	time
 nayimoliuguang	3331976396377269399	93	88.36%	98.39%	1037	105618	12962348710289833740	2016/08/17 21:07:20(1 hour ago)
 jack	3705405381126069457	86	88.36%	99.41%	506	105628	5876778147855073736	2016/08/17 21:09:00(1 hour ago)
@@ -895,7 +895,7 @@ mode_6	9248745407080572308	8	88.48%	100%	1060	105873	3777454410915098884	2016/08
 **Example:**
 
 ```
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 ipstat
+root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 ipstat
 美国	US
 美国	US
 美国	US
