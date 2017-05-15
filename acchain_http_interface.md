@@ -107,8 +107,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ---
  
-##**1 API使用说明**   
-###**1.1 请求过程说明**   
+## **1 API使用说明**   
+### **1.1 请求过程说明**   
 
     1. 构造请求数据，用户数据按照Acchain提供的接口规则，通过程序生成签名，生成请求数据集合；       
     2. 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
@@ -118,7 +118,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
    
 
    
-##**2 接口**   
+## **2 接口**   
 ### **2.1 账户accounts**   
    
 #### **2.1.1 登录**   
