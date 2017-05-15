@@ -5,7 +5,7 @@ Table of Contents
 
 * [acchain HTTP API文档](#acchain-http-api文档)
       * [<strong>1 API使用说明</strong>](#1-api使用说明)
-           * [<strong>1.1 请求过程说明</strong>](#1.1)
+           * [<strong>1.1 请求过程说明</strong>](#11-请求过程说明)
       * [<strong>2 接口</strong>](#2-接口)
          * [<strong>2.1 账户accounts</strong>](#21-账户accounts)
             * [<strong>2.1.1 登录</strong>](#211-登录)
