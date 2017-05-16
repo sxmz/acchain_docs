@@ -3058,7 +3058,7 @@ JSON返回示例：
 ```
 {
     "success": true,
-    "votes": [
+    "voters": [
         {
             "voter": "delegate1",  // 投票者
             "weight": "500", // 投票权重
@@ -3152,7 +3152,7 @@ count: 1
 ```
 {
     "success": true,
-    "votes": [
+    "voters": [
         {
             "voter": "delegate1",  // 投票者
             "weight": "500", // 投票权重
