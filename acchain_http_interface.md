@@ -2715,37 +2715,37 @@ JSON返回示例：
 ```js   
 var extra = {
     "productBrand": {
-        "value":"productBrand",
-        "remark":"productBrandRemark",
-        "link":"productBrandLink"
+        "value":"ABC",
+        "remark":"ABC",
+        "link":"ABC"
     },
     "packingStandard": {
-        "value":"packingStandard",
-        "remark":"packingStandardRemark",
-        "link":"packingStandardLink"
+        "value":"BCD",
+        "remark":"BCD",
+        "link":"BCD"
     },
     "productIndex": {
-        "value":"productIndex",
-        "remark":"productIndexRemark",
-        "link":"productIndexLink"
+        "value":"CDE",
+        "remark":"CDE",
+        "link":"CDE"
     },
     "productionInfo": {
-        "value":"productionInfo",
-        "remark":"productionInfoRemark",
-        "link":"productionInfoLink"
+        "value":"DEF",
+        "remark":"DEF",
+        "link":"DEF"
     },
     "otherInfo": {
-        "value":"otherInfo",
-        "remark":"otherInfoRemark",
-        "link":"otherInfoLink"
+        "value":" ",
+        "remark":" ",
+        "link":" "
     },
-    "moreDetails":"moreDetails"
+    "moreDetails":" "
 }
 var payload = {
     name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
-    currency: currency,
+    currency: "",// 货币名称:BTC,ETH..
     desc: '资产描述',// 资产描述
-    category: category,// 资产类别
+    category: '',// 资产类别
     precision: 3,// 精度，小数点的位数，这里上限是1000000，精度为3，代表资产IssuerName.CNY的最大发行量为1000.000
     maximum: '1000000',// 上限
     estimateUnit: '',// 估值单位
