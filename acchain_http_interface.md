@@ -3212,7 +3212,7 @@ var trs = AcchainJS.uia.createAsset(payload, secret, secondSecret)
 var trs = AcchainJS.uia.createApproval(topic, value, secret, secondSecret)
 ```
 
-##### **2.10.11.4 资产发行资产**
+##### **2.10.11.4 资产发行投票**
 ---
 ```JavaScript
 var trs = AcchainJS.uia.createApproval(topic, value, secret, secondSecret)
