@@ -2714,32 +2714,32 @@ JSON返回示例：
 请求示例：   
 ```js   
 var extra = {
-	        "productBrand": {
-		    "value":$scope.productBrand,
-		    "remark":$scope.productBrandRemark,
-		    "link":$scope.productBrandLink
-		 },
-		"packingStandard": {
-		    "value":$scope.packingStandard,
-		    "remark":$scope.packingStandardRemark,
-		    "link":$scope.packingStandardLink
-		 },
-		"productIndex": {
-		    "value":$scope.productIndex,
-		    "remark":$scope.productIndexRemark,
-		    "link":$scope.productIndexLink
-		 },
-		"productionInfo": {
-		    "value":$scope.productionInfo,
-		    "remark":$scope.productionInfoRemark,
-		    "link":$scope.productionInfoLink
-		 },
-		"otherInfo": {
-		    "value":$scope.otherInfo,
-		    "remark":$scope.otherInfoRemark,
-		    "link":$scope.otherInfoLink
-		 },
-		"moreDetails":$scope.moreDetails
+                "productBrand": {
+                    "value":$scope.productBrand,
+                    "remark":$scope.productBrandRemark,
+                    "link":$scope.productBrandLink
+                },
+                "packingStandard": {
+                    "value":$scope.packingStandard,
+                    "remark":$scope.packingStandardRemark,
+                    "link":$scope.packingStandardLink
+                },
+                "productIndex": {
+                    "value":$scope.productIndex,
+                    "remark":$scope.productIndexRemark,
+                    "link":$scope.productIndexLink
+                },
+                "productionInfo": {
+                    "value":$scope.productionInfo,
+                    "remark":$scope.productionInfoRemark,
+                    "link":$scope.productionInfoLink
+                },
+                "otherInfo": {
+                    "value":$scope.otherInfo,
+                    "remark":$scope.otherInfoRemark,
+                    "link":$scope.otherInfoLink
+                },
+                "moreDetails":$scope.moreDetails
 }
 var payload = {
     name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
