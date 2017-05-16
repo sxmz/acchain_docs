@@ -2713,17 +2713,22 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-// 资产名称，发行商名.资产名，唯一标识
-var name = 'IssuerName.CNY'
-var desc = '资产描述'
-// 上限
-var maximum = '1000000'
-// 精度，小数点的位数，这里上限是1000000，精度为3，代表资产IssuerName.CNY的最大发行量为1000.000
-var precision = 3
-// 策略
-var strategy = ''
+
+var payload = {
+    name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
+    currency: currency,
+    desc: '资产描述',// 资产描述
+    category: category,// 资产类别
+    precision: 3,// 精度，小数点的位数，这里上限是1000000，精度为3，代表资产IssuerName.CNY的最大发行量为1000.000
+    maximum: '1000000',// 上限
+    estimateUnit: '',// 估值单位
+    estimatePrice: '',// 估值价格
+    exerciseUnit: '',// 行权规格
+    unlockCondition: '',// 解锁条件
+    extra: ''// 其它信息
+}
 // 构造交易数据
-var trs = AcchainJS.uia.createAsset(name, desc, maximum  , precision, strategy, secret, secondSecret)
+var trs = AcchainJS.uia.createAsset(payload, secret, secondSecret)
 console.log(JSON.stringify(trs))
 {"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}
 
@@ -3290,5 +3295,3 @@ acchain系统的所有写操作都是通过发起一个交易来完成的。
 **库安装**   
 npm install acchain-js   
    
-
-
