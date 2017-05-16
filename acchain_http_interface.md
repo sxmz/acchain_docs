@@ -2458,21 +2458,21 @@ JSON返回示例：
 {
 	"success": true,
 	"balances": [{
-                "currency": "zhenxi.UIA",
-                "name":"UIA"
-                "balance": "900000",
-                "maximum": "10000000",
-                "precision": 3,
-                "quantity": "1000000",
-                "writeoff": 1
+            "currency": "zhenxi.UIA",
+            "name":"UIA",
+            "balance": "900000",
+            "maximum": "10000000",
+            "precision": 3,
+            "quantity": "1000000",
+            "writeoff": 1
 	},
 	{
-		"currency": "speedtest.SPEED",
-		"balance": "400",
-		"maximum": "10000",
-		"precision": 1,
-		"quantity": "10000",
-		"writeoff": 0
+            "currency": "speedtest.SPEED",
+            "balance": "400",
+            "maximum": "10000",
+            "precision": 1,
+            "quantity": "10000",
+            "writeoff": 0
 	}],
 	"count": 2
 }		
