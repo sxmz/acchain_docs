@@ -2713,7 +2713,34 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-
+var extra = {
+	        "productBrand": {
+		    "value":$scope.productBrand,
+		    "remark":$scope.productBrandRemark,
+		    "link":$scope.productBrandLink
+		 },
+		"packingStandard": {
+		    "value":$scope.packingStandard,
+		    "remark":$scope.packingStandardRemark,
+		    "link":$scope.packingStandardLink
+		 },
+		"productIndex": {
+		    "value":$scope.productIndex,
+		    "remark":$scope.productIndexRemark,
+		    "link":$scope.productIndexLink
+		 },
+		"productionInfo": {
+		    "value":$scope.productionInfo,
+		    "remark":$scope.productionInfoRemark,
+		    "link":$scope.productionInfoLink
+		 },
+		"otherInfo": {
+		    "value":$scope.otherInfo,
+		    "remark":$scope.otherInfoRemark,
+		    "link":$scope.otherInfoLink
+		 },
+		"moreDetails":$scope.moreDetails
+}
 var payload = {
     name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
     currency: currency,
@@ -2724,8 +2751,8 @@ var payload = {
     estimateUnit: '',// 估值单位
     estimatePrice: '',// 估值价格
     exerciseUnit: '',// 行权规格
-    unlockCondition: '',// 解锁条件
-    extra: ''// 其它信息
+    unlockCondition: 0,// 解锁条件0, 1
+    extra: extra// 其它信息
 }
 // 构造交易数据
 var trs = AcchainJS.uia.createAsset(payload, secret, secondSecret)
