@@ -2458,13 +2458,13 @@ JSON返回示例：
 {
 	"success": true,
 	"balances": [{
-		"currency": "zhenxi.UIA",
+                "currency": "zhenxi.UIA",
                 "name":"UIA"
-		"balance": "900000",
-		"maximum": "10000000",
-		"precision": 3,
-		"quantity": "1000000",
-		"writeoff": 1
+                "balance": "900000",
+                "maximum": "10000000",
+                "precision": 3,
+                "quantity": "1000000",
+                "writeoff": 1
 	},
 	{
 		"currency": "speedtest.SPEED",
