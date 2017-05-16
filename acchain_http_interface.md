@@ -2715,31 +2715,31 @@ JSON返回示例：
 ```js   
 var extra = {
     "productBrand": {
-        "value":$scope.productBrand,
-        "remark":$scope.productBrandRemark,
-        "link":$scope.productBrandLink
+        "value":"productBrand",
+        "remark":"productBrandRemark",
+        "link":"productBrandLink"
     },
     "packingStandard": {
-        "value":$scope.packingStandard,
-        "remark":$scope.packingStandardRemark,
-        "link":$scope.packingStandardLink
+        "value":"packingStandard",
+        "remark":"packingStandardRemark",
+        "link":"packingStandardLink"
     },
     "productIndex": {
-        "value":$scope.productIndex,
-        "remark":$scope.productIndexRemark,
-        "link":$scope.productIndexLink
+        "value":"productIndex",
+        "remark":"productIndexRemark",
+        "link":"productIndexLink"
     },
     "productionInfo": {
-        "value":$scope.productionInfo,
-        "remark":$scope.productionInfoRemark,
-        "link":$scope.productionInfoLink
+        "value":"productionInfo",
+        "remark":"productionInfoRemark",
+        "link":"productionInfoLink"
     },
     "otherInfo": {
-        "value":$scope.otherInfo,
-        "remark":$scope.otherInfoRemark,
-        "link":$scope.otherInfoLink
+        "value":"otherInfo",
+        "remark":"otherInfoRemark",
+        "link":"otherInfoLink"
     },
-    "moreDetails":$scope.moreDetails
+    "moreDetails":"moreDetails"
 }
 var payload = {
     name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
