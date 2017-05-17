@@ -618,10 +618,13 @@ JSON返回示例：
 		"signature": "98d65df3109802c707eeed706e90a907f337bddab58cb4c1fbe6ec2179aa1c85ec2903cc0cf44bf0092926829aa5a0a6ec99458f65b6ebd11f0988772e58740e",   
 		"signSignature": "",   
 		"signatures": null,   
-		"confirmations": "31802",   
+		"confirmations": "31802",
+                currency: "",   
 		"asset": {   
 			   
-		}   
+		},
+                precision: 6,
+                amountShow: "0"   
 	},   
 	{   
 		"id": "7000452951235123088",   
@@ -637,10 +640,13 @@ JSON返回示例：
 		"signature": "dc84044d4f6b4779eecc3a986b6507e458cc5964f601ebeb4d3b68a96129813f4940e14de950526dd685ca1328b6e477e6c57e95aeac45859a2ea62a587d0204",   
 		"signSignature": "",   
 		"signatures": null,   
-		"confirmations": "32280",   
+		"confirmations": "32280",
+                currency: "",   
 		"asset": {   
 			   
-		}   
+		}
+                precision: 6,
+                amountShow: "0"   
 	},   
 	{   
 		"id": "14093929199102906687",   
@@ -656,10 +662,13 @@ JSON返回示例：
 		"signature": "73ceddc3cbe5103fbdd9eee12f7e4d9a125a3bcf2e7cd04282b7329719735aeb36936762f17d842fb14813fa8f857b8144040e5117dffcfc7e2ae88e36440a0f",   
 		"signSignature": "",   
 		"signatures": null,   
-		"confirmations": "32293",   
+		"confirmations": "32293", 
+                currency: "TEST.ABC",  
 		"asset": {   
 			   
-		}   
+		}
+                precision: 1,
+                amountShow: "0"   
 	}],   
 	"count": 3   
 }   
