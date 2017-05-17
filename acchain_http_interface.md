@@ -2201,7 +2201,7 @@ JSON返回示例：
 ``` 
 
 ####**2.10.2 查询指定发行商的信息** 
-接口地址：/api/uia/issuers/name 
+接口地址：/api/uia/issuers/:name 
 请求方式：get   
 支持格式：urlencoded 
 
