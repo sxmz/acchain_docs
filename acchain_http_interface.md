@@ -6,6 +6,7 @@ Table of Contents
 * [acchain HTTP API文档](#acchain-http-api文档)
       * [<strong>1 API使用说明</strong>](#1-api使用说明)
          * [<strong>1.1 请求过程说明</strong>](#11-请求过程说明)
+         * [<strong>1.2 接口说明</strong>](#12-接口说明)
       * [<strong>2 接口</strong>](#2-接口)
          * [<strong>2.1 账户accounts</strong>](#21-账户accounts)
             * [<strong>2.1.1 登录</strong>](#211-登录)
@@ -114,7 +115,10 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
     2. 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
     3. acchain对请求数据进行处理，服务器在接收到请求后，会首先进行安全校验，验证通过后便会处理该次发送过来的请求；       
     4. 返回响应结果数据，acchain把响应结果以JSON的格式反馈给用户，每个响应都包含success字段，表示请求是否成功，成功为true, 失败为false。 如果失败，则还会包含一个error字段，表示错误原因；       
-    5. 对获取的返回结果数据进行处理；       
+    5. 对获取的返回结果数据进行处理；
+
+###**1.2 接口说明** 
+    1. 接口地址中带:的字段为变量名, 调用时需要将变量替换成具体的值， 例如接口地址为/api/uia/balances/:address，:address为实际的地址，实际请求时的接口地址为/api/uia/balances/A21DabNVZ4LFZBSWjcoNsLfpDKdhqqoMqB       
    
 
    
@@ -2428,7 +2432,7 @@ JSON返回示例：
 ``` 
 
 ####**2.10.7 获取某个地址拥有的所有资产信息** 
-接口地址：/api/uia/balances/address
+接口地址：/api/uia/balances/:address
 请求方式：get   
 支持格式：urlencoded 
 
