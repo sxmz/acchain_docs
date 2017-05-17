@@ -99,7 +99,7 @@ Table of Contents
             * [<strong>2.10.6 查询资产投票</strong>](#21010-查询资产投票)
             * [<strong>2.10.6.1 查询某个资产的投票明细</strong>](#210103-查询某个资产的投票明细)
             * [<strong>2.10.6.2 查询资产发行的投票明细</strong>](#210107-查询某次发行的投票)
-            * [<strong>2.10.7 查询资产分类</strong>](#21010-查询资产投票)
+            * [<strong>2.10.7 查询资产分类</strong>](#21010-查询资产分类)
             * [<strong>2.10.7.1 查询一级分类</strong>](#210104-查询一级分类)
             * [<strong>2.10.7.2 查询指定编号分类的子分类</strong>](#210105-查询指定编号分类的子分类)
          * [<strong>2.11 存储storages</strong>](#211-存储storages)
@@ -1297,11 +1297,6 @@ JSON返回示例：
 }   
 ```   
    
-   
-   
-   
-   
-   
 #### **2.4.5 获取受托人设置的转账费**   
 接口地址：/api/delegates/fee   
 请求方式：get   
@@ -1675,7 +1670,8 @@ JSON返回示例：
 }   
 ```   
    
-### **2.7 二级密码signatures**   
+### **2.7 二级密码signatures** 
+  
 #### **2.7.1 设置二级密码**   
 接口地址：/api/signatures   
 请求方式：put   
@@ -1755,7 +1751,8 @@ JSON返回示例：
 }     
 ```   
    
-### **2.8 多重签名multisignatures**   
+### **2.8 多重签名multisignatures** 
+  
 #### **2.8.1 设置普通账户为多重签名账户**   
 接口地址：/api/multisignatures   
 请求方式：put   
@@ -1999,7 +1996,8 @@ JSON返回示例：
 }   
 ```   
 
-### **2.9 点对点传输tansport[安全的api]**   
+### **2.9 点对点传输tansport[安全的api]**  
+ 
 #### **2.9.1 说明**   
 /peer相关的api，在请求时都需要设置一个header  
 
@@ -2165,6 +2163,7 @@ JSON返回示例：
 ``` 
 
 ###**2.10 用户自定义资产uia**
+
 ####**2.10.1 获取资产（UIA）信息**
 #####**2.10.1.1 获取全网所有发行商**  
 接口地址：/api/uia/issuers  
@@ -2213,12 +2212,8 @@ JSON返回示例：
 接口地址：/api/uia/issuers/:name 
 请求方式：get   
 支持格式：urlencoded 
-
-请求参数说明：
-
-|名称	|类型   |必填 |说明              |   
-|------ |-----  |---  |----              |   
-|name|string|Y|可以为发行商名称或acchain账户地址|
+  
+其中name可以为发行商名称或acchain账户地址
 
 返回参数说明：   
 
@@ -2229,7 +2224,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096/api/uia/issuers/zhenxi' && echo
+curl -X GET -H "Content-Type: application/json"  'http://tnode.acchain.org/api/uia/issuers/zhenxi' && echo
 ```   
    
 JSON返回示例：   
@@ -2565,11 +2560,12 @@ JSON返回示例：
 请求方式：get   
 支持格式：urlencoded 
 
+其中address为用户账户地址
+
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|address|string|Y|账户地址|
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
 |offset|integer|N|偏移量，最小值0|
 
@@ -2910,6 +2906,8 @@ JSON返回示例：
 - 请求路径: /api/uia/assets/:currency/voters
 - JSON返回实例:
 
+其中currency为资产的符号， 例如TEST.ABC
+
 ```
 {
     "success": true,
@@ -3163,8 +3161,8 @@ JSON返回示例：
 }
 ```
 
-#### **2.10.6 查询资产分类**
-##### **2.10.6.1 查询一级分类**
+#### **2.10.7 查询资产分类**
+##### **2.10.7.1 查询一级分类**
 --- 
 - 请求方式: get
 - 请求路径: /api/uia/categories/0
@@ -3189,11 +3187,13 @@ JSON返回示例：
 }
 ```
 
-##### **2.10.6.2 查询指定编号分类的子分类**
+##### **2.10.7.2 查询指定编号分类的子分类**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/categories/:id
 - JSON返回实例:
+
+其中id为上一级编号
 
 ```
 {
