@@ -69,35 +69,39 @@ Table of Contents
             * [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
             * [<strong>2.9.2.4 投票 &amp; 取消投票</strong>](#2924-投票--取消投票)
          * [<strong>2.10 用户自定义资产uia</strong>](#210-用户自定义资产uia)
-            * [<strong>2.10.1 获取全网所有发行商</strong>](#2101-获取全网所有发行商)
-            * [<strong>2.10.2 查询指定发行商的信息</strong>](#2102-查询指定发行商的信息)
-            * [<strong>2.10.3 查看指定发行商的资产</strong>](#2103-查看指定发行商的资产)
-            * [<strong>2.10.4 获取全网所有资产</strong>](#2104-获取全网所有资产)
-            * [<strong>2.10.5 获取指定资产信息</strong>](#2105-获取指定资产信息)
-            * [<strong>2.10.6 获取某个资产的访问控制列表（acl）</strong>](#2106-获取某个资产的访问控制列表acl)
-            * [<strong>2.10.7 获取某个地址拥有的所有资产信息</strong>](#2107-获取某个地址拥有的所有资产信息)
-            * [<strong>2.10.8 获取资产交易记录</strong>](#2108-获取资产交易记录)
-            * [<strong>2.10.9 创建资产（UIA）交易</strong>](#2109-创建资产uia交易)
-            * [<strong>2.10.9.1 注册资产发行商</strong>](#21091-注册资产发行商)
-            * [<strong>2.10.9.2 注册资产</strong>](#21092-注册资产)
-            * [<strong>2.10.9.3 资产设置acl模式</strong>](#21093-资产设置acl模式)
-            * [<strong>2.10.9.4 更新访问控制列表（acl）</strong>](#21094-更新访问控制列表acl)
-            * [<strong>2.10.9.5 资产发行</strong>](#21095-资产发行)
-            * [<strong>2.10.9.6 资产转账</strong>](#21096-资产转账)
-            * [<strong>2.10.9.7 资产注销</strong>](#21097-资产注销)
-            * [<strong>2.10.10 查询接口</strong>](#21010-查询接口)
-            * [<strong>2.10.10.1 查询申请中的资产</strong>](#210101-查询正在申请中的资产)
-            * [<strong>2.10.10.2 查询待发行的资产</strong>](#210106-查询待审核的发行)
-            * [<strong>2.10.10.3 查询已上线的资产</strong>](#210102-查询已上线的资产)
-            * [<strong>2.10.10.4 查询某个资产的投票明细</strong>](#210103-查询某个资产的投票明细)
-            * [<strong>2.10.10.5 查询资产发行的投票明细</strong>](#210107-查询某次发行的投票)
-            * [<strong>2.10.10.6 查询一级分类</strong>](#210104-查询一级分类)
-            * [<strong>2.10.10.7 查询指定编号分类的子分类</strong>](#210105-查询指定编号分类的子分类)
-            * [<strong>2.10.11 操作接口</strong>](#21011-操作接口)
-            * [<strong>2.10.11.1 创建账户</strong>](#210111-创建账户)
-            * [<strong>2.10.11.2 资产申请</strong>](#210112-资产申请)
-            * [<strong>2.10.11.3 资产申请投票</strong>](#210113-资产申请投票)
-            * [<strong>2.10.11.4 资产发行投票</strong>](#210114-资产发行投票)
+            * [<strong>2.10.1 获取资产（UIA）信息</strong>](#2109-获取资产（UIA）信息)
+            * [<strong>2.10.1.1 获取全网所有发行商</strong>](#2101-获取全网所有发行商)
+            * [<strong>2.10.1.2 查询指定发行商的信息</strong>](#2102-查询指定发行商的信息)
+            * [<strong>2.10.1.3 查看指定发行商的资产</strong>](#2103-查看指定发行商的资产)
+            * [<strong>2.10.1.4 获取全网所有资产</strong>](#2104-获取全网所有资产)
+            * [<strong>2.10.1.5 获取指定资产信息</strong>](#2105-获取指定资产信息)
+            * [<strong>2.10.1.6 查询申请中的资产</strong>](#210101-查询正在申请中的资产)
+            * [<strong>2.10.1.7 查询待发行的资产</strong>](#210106-查询待审核的发行)
+            * [<strong>2.10.1.8 查询已上线的资产</strong>](#210102-查询已上线的资产)
+            * [<strong>2.10.1.9 获取某个资产的访问控制列表（acl）</strong>](#2106-获取某个资产的访问控制列表acl)
+            * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#2107-获取某个地址拥有的所有资产信息)
+            * [<strong>2.10.1.11 获取资产交易记录</strong>](#2108-获取资产交易记录)
+            * [<strong>2.10.2 创建资产（UIA）交易</strong>](#2109-创建资产uia交易)
+            * [<strong>2.10.2.1 注册资产发行商</strong>](#21091-注册资产发行商)
+            * [<strong>2.10.2.2 注册资产</strong>](#21092-注册资产)
+            * [<strong>2.10.2.2 资产申请</strong>](#210112-资产申请)
+            * [<strong>2.10.2.2 资产申请</strong>](#210112-资产申请)
+            * [<strong>2.10.2.3 资产发行</strong>](#21095-资产发行)
+            * [<strong>2.10.3 资产（UIA）投票</strong>](#2109-资产uia投票)
+            * [<strong>2.10.3.1 资产申请投票</strong>](#210113-资产申请投票)
+            * [<strong>2.10.3.2 资产发行投票</strong>](#210114-资产发行投票)
+            * [<strong>2.10.4 资产（UIA）控制</strong>](#2109-资产（UIA）控制)
+            * [<strong>2.10.4.1 资产设置acl模式</strong>](#21093-资产设置acl模式)
+            * [<strong>2.10.4.2 更新访问控制列表（acl）</strong>](#21094-更新访问控制列表acl)
+            * [<strong>2.10.5 资产（UIA）操作</strong>](#2109-资产（UIA）操作)            
+            * [<strong>2.10.5.1 资产转账</strong>](#21096-资产转账)
+            * [<strong>2.10.5.2 资产注销</strong>](#21097-资产注销)
+            * [<strong>2.10.6 查询资产投票</strong>](#21010-查询资产投票)
+            * [<strong>2.10.6.1 查询某个资产的投票明细</strong>](#210103-查询某个资产的投票明细)
+            * [<strong>2.10.6.2 查询资产发行的投票明细</strong>](#210107-查询某次发行的投票)
+            * [<strong>2.10.7 查询资产分类</strong>](#21010-查询资产投票)
+            * [<strong>2.10.7.1 查询一级分类</strong>](#210104-查询一级分类)
+            * [<strong>2.10.7.2 查询指定编号分类的子分类</strong>](#210105-查询指定编号分类的子分类)
          * [<strong>2.11 存储storages</strong>](#211-存储storages)
             * [<strong>2.11.1 上传数据</strong>](#2111-上传数据)
             * [<strong>2.11.2 查询存储的数据</strong>](#2112-查询存储的数据)
@@ -2160,8 +2164,9 @@ JSON返回示例：
 }		
 ``` 
 
-###**2.10 用户自定义资产uia**  
-####**2.10.1 获取全网所有发行商**  
+###**2.10 用户自定义资产uia**
+####**2.10.1 获取资产（UIA）信息**
+#####**2.10.1.1 获取全网所有发行商**  
 接口地址：/api/uia/issuers  
 请求方式：get   
 支持格式：urlencoded 
@@ -2204,7 +2209,7 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.2 查询指定发行商的信息** 
+#####**2.10.1.2 查询指定发行商的信息** 
 接口地址：/api/uia/issuers/:name 
 请求方式：get   
 支持格式：urlencoded 
@@ -2239,7 +2244,7 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.3 查看指定发行商的资产** 
+#####**2.10.1.3 查看指定发行商的资产** 
 接口地址：/api/uia/issuers/name/assets  
 请求方式：get   
 支持格式：urlencoded 
@@ -2287,7 +2292,7 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.4 获取全网所有资产** 
+#####**2.10.1.4 获取全网所有资产** 
 接口地址：/api/uia/assets  
 请求方式：get   
 支持格式：urlencoded 
@@ -2346,8 +2351,8 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.5 获取指定资产信息** 
-接口地址：/api/uia/assets/name  
+#####**2.10.1.5 获取指定资产信息** 
+接口地址：/api/uia/assets/:name  
 请求方式：get   
 支持格式：urlencoded 
 
@@ -2355,7 +2360,7 @@ JSON返回示例：
 
 |名称	|类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|name|string|Y|资产名|
+|name|string|Y|资产名|例如TEST.ABC
 
 返回参数说明：   
 
@@ -2388,7 +2393,131 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.6 获取某个资产的访问控制列表（acl）** 
+##### **2.10.1.6 查询正在申请中的资产**
+---
+- 请求方式: get
+- 请求路径: /api/uia/assets/applying
+- JSON返回实例:
+
+```
+{
+    "success":true,
+    "assets":[
+        {
+            "currency":"A.AAA",
+            "name":"A.sfsf",
+            "desc":"sfasfsa",
+            "maximum":"1000000000",
+            "precision":1,
+            "quantity":"0",
+            "height":6931,
+            "issuerId":"ACfjnjJtP9ZkprdLioohFS6Jp2CrAGfMS",
+            "issuerName":"A",
+            "category":"010912",
+            "estimateUnit":"RMB",
+            "estimatePrice":"100000000",
+            "exerciseUnit":"sfasfsa",
+            "extra":"{"productBrand":{"value":"sfasfsa"},"packingStandard":{"value":"sfasfsa"},"productIndex":{"value":"sfasfsa"},"productionInfo":{"value":"sfasfsa"},"otherInfo":{"value":"sfasfsa"}}",
+            "unlockCondition":0,
+            "approved":0
+        }
+    ],
+    "count":1
+}
+```
+
+##### **2.10.1.7 查询待发行的资产**
+---
+- 请求方式: get
+- 请求路径: /api/uia/issues/applying
+- JSON返回实例:
+
+```
+{
+success: true,
+issues: [
+        {
+            transactionId: "431dd812d00e2c7a9242b1b0f1bbf33b80b27e4a8bf333755673ab3ac0ff9d08",
+            currency: "PuerBank.PEB",
+            amount: "10000000",
+            exchangeRate: "0.2",
+            senderId: "A7KaYaLnWhSwCzrFVeE1TcXCQUY8WHB9hR"
+        }
+    ],
+count: 1
+}
+```
+
+##### **2.10.1.8 查询已上线的资产**
+---
+- 请求方式: get
+- 请求路径: /api/uia/assets/approved
+- JSON返回实例:
+
+```
+{
+    "success":true,
+    "assets":[
+        {
+            "currency":"BTC",
+            "name":"Bitcoin",
+            "desc":"Bitcoin is a cryptocurrency and a digital payment system invented by an unknown programmer, or a group of programmers, under the name Satoshi Nakamoto. It was released as open-source software in 2009",
+            "maximum":"21000000000000",
+            "precision":6,
+            "quantity":"50000000000",
+            "height":1,
+            "issuerId":"AGUaZUoJG5CYqPX32mWAcYQSKjvXu83V8o",
+            "issuerName":"__SYSTEM__",
+            "category":"1801",
+            "estimateUnit":"RMB",
+            "estimatePrice":"8000",
+            "exerciseUnit":"1",
+            "extra":"No extra information",
+            "unlockCondition":0,
+            "approved":1
+        },
+        {
+            "currency":"asd.BUHG",
+            "name":"asd.BUHG",
+            "desc":"BUHG",
+            "maximum":"1000000000",
+            "precision":1,
+            "quantity":"10000000",
+            "height":6158,
+            "issuerId":"APfs15A8KegKu1TtnJsWJvLoFxCKT7pRos",
+            "issuerName":"asd",
+            "category":"1717",
+            "estimateUnit":"RMB",
+            "estimatePrice":"100000000",
+            "exerciseUnit":"BUHG",
+            "extra":"{"productBrand":{"value":"BUHG"},"packingStandard":{"value":"BUHG"},"productIndex":{"value":"BUHG"},"productionInfo":{"value":"BUHG"},"otherInfo":{"value":"BUHG"}}",
+            "unlockCondition":1,
+            "approved":1
+        },
+        {
+            "currency":"meiyingjugroup.RETSCHSR",
+            "name":"RETSCHSR",
+            "desc":"RET to House",
+            "maximum":"6558750000",
+            "precision":1,
+            "quantity":"0",
+            "height":7199,
+            "issuerId":"ADfjWCQ6Ff5c2g62jzJbyQwHAe68TH1QWJ",
+            "issuerName":"meiyingjugroup",
+            "category":"1732",
+            "estimateUnit":"USD",
+            "estimatePrice":"655875000",
+            "exerciseUnit":"220000",
+            "extra":"{"productBrand":{"value":"Serene Country Homes"},"packingStandard":{},"productIndex":{},"productionInfo":{},"otherInfo":{}}",
+            "unlockCondition":0,
+            "approved":1
+        }
+    ],
+    "count":3
+}
+```
+
+####**2.10.1.9 获取某个资产的访问控制列表（acl）** 
 接口地址：/api/uia/assets/name/acl/flag
 请求方式：get   
 支持格式：urlencoded 
@@ -2431,7 +2560,7 @@ JSON返回示例：
 }		
 ``` 
 
-####**2.10.7 获取某个地址拥有的所有资产信息** 
+#####**2.10.1.10 获取某个地址拥有的所有资产信息** 
 接口地址：/api/uia/balances/:address
 请求方式：get   
 支持格式：urlencoded 
@@ -2482,7 +2611,7 @@ JSON返回示例：
 }		
 ```
 
-####**2.10.8 获取资产交易记录** 
+#####**2.10.1.11 获取资产交易记录** 
 接口地址：/api/uia/transactions  
 请求方式：get   
 支持格式：urlencoded 
@@ -2650,7 +2779,8 @@ type=14
 展示：资产$currency从$senderId转账$amount到$recipientId
 ```
    
-####**2.10.9 创建资产（UIA）交易** 
+####**2.10.2 创建资产（UIA）交易**
+#####**2.10.2.1 创建资产（UIA）交易** 
 acchain系统的所有写操作都是通过发起一个交易来完成的。 
 交易数据通过一个叫做acchain-js的库来构建，然后再通过一个POST接口发布出去。
 
@@ -2668,7 +2798,7 @@ var secret = 'motion group blossom coral upper warrior pattern fragile sister mi
 var secondSecret = 'erjimima001'
 ```
 
-#####**2.10.9.1 注册资产发行商**
+######**2.10.2.2 注册资产发行商**
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2702,7 +2832,7 @@ JSON返回示例：
 {"success":true}		
 ```
 
-#####**2.10.9.2 注册资产** 
+#####**2.10.2.3 注册资产** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2773,7 +2903,49 @@ JSON返回示例：
 {"success":true}		
 ```
 
-#####**2.10.9.3 资产设置acl模式** 
+####** 2.10.3 资产（UIA）投票**
+##### **2.10.3.1 查询某个资产的投票明细**
+---
+- 请求方式: get
+- 请求路径: /api/uia/assets/:currency/voters
+- JSON返回实例:
+
+```
+{
+    "success": true,
+    "voters": [
+        {
+            "voter": "delegate1",  // 投票者
+            "weight": "500", // 投票权重
+        }
+    ],
+  "count": 9
+}
+```
+
+##### **2.10.3.2 查询某次发行的投票明细**
+---
+- 请求方式: get
+- 请求路径: /api/uia/issues/:id/voters
+- JSON返回实例: 
+
+其中id为从上个接口获取的transactionId
+
+```
+{
+    "success": true,
+    "voters": [
+        {
+            "voter": "delegate1",  // 投票者
+            "weight": "500", // 投票权重
+        }
+    ],
+  "count": 9
+}
+```
+
+####**2.10.4 资产（UIA）控制**
+#####**2.10.4.1 资产设置acl模式** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2807,7 +2979,7 @@ JSON返回示例：
 {"success":true}		
 ```
 
-#####**2.10.9.4 更新访问控制列表（acl）** 
+#####**2.10.4.2 更新访问控制列表（acl）** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2851,8 +3023,8 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 }
 ```
 
-
-#####**2.10.9.5 资产发行** 
+####**2.10.5 资产（UIA）操作
+#####**2.10.5.1 资产发行** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2883,7 +3055,7 @@ JSON返回示例：
 		
 ```
 
-#####**2.10.9.6 资产转账** 
+#####**2.10.5.2 资产转账** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2917,7 +3089,7 @@ JSON返回示例：
 {"success":true}		
 ```
  
-#####**2.10.9.7 资产注销** 
+#####**2.10.5.3 资产注销** 
 请求参数说明：
 
 |名称	|类型   |必填 |说明              |   
@@ -2950,132 +3122,8 @@ JSON返回示例：
 {"success":true}		
 ```  
 
-#### **2.10.10 查询接口**
-##### **2.10.10.1 查询正在申请中的资产**
----
-- 请求方式: get
-- 请求路径: /api/uia/assets/applying
-- JSON返回实例:
-
-```
-{
-    "success":true,
-    "assets":[
-        {
-            "currency":"A.AAA",
-            "name":"A.sfsf",
-            "desc":"sfasfsa",
-            "maximum":"1000000000",
-            "precision":1,
-            "quantity":"0",
-            "height":6931,
-            "issuerId":"ACfjnjJtP9ZkprdLioohFS6Jp2CrAGfMS",
-            "issuerName":"A",
-            "category":"010912",
-            "estimateUnit":"RMB",
-            "estimatePrice":"100000000",
-            "exerciseUnit":"sfasfsa",
-            "extra":"{"productBrand":{"value":"sfasfsa"},"packingStandard":{"value":"sfasfsa"},"productIndex":{"value":"sfasfsa"},"productionInfo":{"value":"sfasfsa"},"otherInfo":{"value":"sfasfsa"}}",
-            "unlockCondition":0,
-            "approved":0
-        }
-    ],
-    "count":1
-}
-```
-
-##### **2.10.10.2 查询待发行的资产**
----
-- 请求方式: get
-- 请求路径: /api/uia/issues/applying
-- JSON返回实例:
-
-```
-{
-success: true,
-issues: [
-        {
-            transactionId: "431dd812d00e2c7a9242b1b0f1bbf33b80b27e4a8bf333755673ab3ac0ff9d08",
-            currency: "PuerBank.PEB",
-            amount: "10000000",
-            exchangeRate: "0.2",
-            senderId: "A7KaYaLnWhSwCzrFVeE1TcXCQUY8WHB9hR"
-        }
-    ],
-count: 1
-}
-```
-
-##### **2.10.10.3 查询已上线的资产**
----
-- 请求方式: get
-- 请求路径: /api/uia/assets/approved
-- JSON返回实例:
-
-```
-{
-    "success":true,
-    "assets":[
-        {
-            "currency":"BTC",
-            "name":"Bitcoin",
-            "desc":"Bitcoin is a cryptocurrency and a digital payment system invented by an unknown programmer, or a group of programmers, under the name Satoshi Nakamoto. It was released as open-source software in 2009",
-            "maximum":"21000000000000",
-            "precision":6,
-            "quantity":"50000000000",
-            "height":1,
-            "issuerId":"AGUaZUoJG5CYqPX32mWAcYQSKjvXu83V8o",
-            "issuerName":"__SYSTEM__",
-            "category":"1801",
-            "estimateUnit":"RMB",
-            "estimatePrice":"8000",
-            "exerciseUnit":"1",
-            "extra":"No extra information",
-            "unlockCondition":0,
-            "approved":1
-        },
-        {
-            "currency":"asd.BUHG",
-            "name":"asd.BUHG",
-            "desc":"BUHG",
-            "maximum":"1000000000",
-            "precision":1,
-            "quantity":"10000000",
-            "height":6158,
-            "issuerId":"APfs15A8KegKu1TtnJsWJvLoFxCKT7pRos",
-            "issuerName":"asd",
-            "category":"1717",
-            "estimateUnit":"RMB",
-            "estimatePrice":"100000000",
-            "exerciseUnit":"BUHG",
-            "extra":"{"productBrand":{"value":"BUHG"},"packingStandard":{"value":"BUHG"},"productIndex":{"value":"BUHG"},"productionInfo":{"value":"BUHG"},"otherInfo":{"value":"BUHG"}}",
-            "unlockCondition":1,
-            "approved":1
-        },
-        {
-            "currency":"meiyingjugroup.RETSCHSR",
-            "name":"RETSCHSR",
-            "desc":"RET to House",
-            "maximum":"6558750000",
-            "precision":1,
-            "quantity":"0",
-            "height":7199,
-            "issuerId":"ADfjWCQ6Ff5c2g62jzJbyQwHAe68TH1QWJ",
-            "issuerName":"meiyingjugroup",
-            "category":"1732",
-            "estimateUnit":"USD",
-            "estimatePrice":"655875000",
-            "exerciseUnit":"220000",
-            "extra":"{"productBrand":{"value":"Serene Country Homes"},"packingStandard":{},"productIndex":{},"productionInfo":{},"otherInfo":{}}",
-            "unlockCondition":0,
-            "approved":1
-        }
-    ],
-    "count":3
-}
-```
-
-##### **2.10.10.4 查询某个资产的投票明细**
+#### **2.10.6 查询资产投票**
+##### **2.10.6.1 查询某个资产的投票明细**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/assets/:currency/voters
@@ -3094,7 +3142,7 @@ count: 1
 }
 ```
 
-##### **2.10.10.5 查询某次发行的投票明细**
+##### **2.10.6.2 查询某次发行的投票明细**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/issues/:id/voters
@@ -3115,7 +3163,8 @@ count: 1
 }
 ```
 
-##### **2.10.10.6 查询一级分类**
+#### **2.10.6 查询资产分类**
+##### **2.10.6.1 查询一级分类**
 --- 
 - 请求方式: get
 - 请求路径: /api/uia/categories/0
@@ -3140,7 +3189,7 @@ count: 1
 }
 ```
 
-##### **2.10.10.7 查询指定编号分类的子分类**
+##### **2.10.6.2 查询指定编号分类的子分类**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/categories/:id
@@ -3165,65 +3214,6 @@ count: 1
 }
 ```
 attrs表示商品分类名称，可能有多种语言的翻译，第一个是中文， 第二个是英文
-
-
-#### **2.10.11操作接口**
-
-##### **2.10.11.1 创建接口**
----
-```JavaScript
-var username = '13100933931'
-var password = 'fdsfds7fds9fdsaofhdjs'
-var account = AcchainJS.createAccount(username, password)
-```
-
-##### **2.10.11.2 资产申请**
----
-```JavaScript
-var extra = JSON.stringify({
-    key1: value1,
-    key2: value2
-})
-var payload = {
-    name: '普洱茶',
-    currency: 'issuer.PEB',
-    desc: '资产描述',
-    category: '010203',
-    precision: 1,
-    maximum: '10000000',
-    estimateUnit: 'USD',
-    estimatePrice: '1.5',
-    exerciseUnit: '10',
-    unlockCondition: 0,
-    extra: extra
-}
-var trs = AcchainJS.uia.createAsset(payload, secret, secondSecret)
-```
-- `estimateUnit`表示估值单位，需要从指定列表中选择，列表为 ['USD', 'RMB', 'JPY', 'EUR', 'GBP']
-- `extra`表示扩展字段，是一个`json`对象序列化后的字符串
-- `unlockCondition`表示资产解锁条件，需要从指定列表中选择，列表为
-
-```
-[ 
-    { label: '委员会投票解锁'， value: 1 }， 
-    { label: 'ICO合约解锁'， value: 2 } 
-] 
-```
-其中`label`为下列菜单展示内容，`value`为传给后端的参数
-
-##### **2.10.11.3 资产申请投票**
----
-```JavaScript
-var trs = AcchainJS.uia.createApproval(topic, value, secret, secondSecret)
-```
-
-##### **2.10.11.4 资产发行投票**
----
-```JavaScript
-var trs = AcchainJS.uia.createApproval(topic, value, secret, secondSecret)
-```
-对资产注册进行投票时，`value`为资产的`currency`
-对某次资产发行投票时，`value`为资产发行`transactionId`
 
 
 #### **2.11 存储storages**   
