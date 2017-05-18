@@ -2281,6 +2281,7 @@ JSON返回示例：
 {
 	"success": true,
 	"assets": [{
+                "currency": "BTC",
 		"name": "zhenxi.UIA",
 		"desc": "注册资产-测试",
 		"maximum": "10000000",
