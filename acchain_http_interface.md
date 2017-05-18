@@ -2281,17 +2281,17 @@ JSON返回示例：
 {
 	"success": true,
 	"assets": [{
-                "currency": "BTC",
-		"name": "zhenxi.UIA",
-		"desc": "注册资产-测试",
-		"maximum": "10000000",
-		"precision": 3,
-		"strategy": "",
-		"quantity": "1000000",
-		"height": 301,
-		"issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
-		"acl": 0,
-		"writeoff": 1
+            "currency": "BTC",
+            "name": "zhenxi.UIA",
+            "desc": "注册资产-测试",
+            "maximum": "10000000",
+            "precision": 3,
+            "strategy": "",
+            "quantity": "1000000",
+            "height": 301,
+            "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
+            "acl": 0,
+            "writeoff": 1
 	}],
 	"count": 1
 }		
