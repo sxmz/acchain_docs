@@ -5,14 +5,14 @@ Table of Contents
 
 * [acchain HTTP API文档](#acchain-http-api文档)
     * [<strong>1 API使用说明</strong>](#1-api使用说明)
-		* [<strong>1.1 请求过程说明</strong>](#11-请求过程说明)
-		* [<strong>1.2 接口说明</strong>](#12-接口说明)
-	* [<strong>2 接口</strong>](#2-接口)
-		* [<strong>2.1 账户accounts</strong>](#21-账户accounts)
-			* [<strong>2.1.1 登录</strong>](#211-登录)
-            	* [<strong>2.1.1.1 本地加密后再登陆（推荐使用）</strong>](#2111-本地加密后再登陆推荐使用)
-            	* [<strong>2.1.1.2 本地不加密直接登陆（不推荐使用）</strong>](#2112-本地不加密直接登陆不推荐使用)
-        	* [<strong>2.1.2 获取账户信息</strong>](#212-获取账户信息)
+        * [<strong>1.1 请求过程说明</strong>](#11-请求过程说明)
+        * [<strong>1.2 接口说明</strong>](#12-接口说明)
+    * [<strong>2 接口</strong>](#2-接口)
+        * [<strong>2.1 账户accounts</strong>](#21-账户accounts)
+            * [<strong>2.1.1 登录</strong>](#211-登录)
+                * [<strong>2.1.1.1 本地加密后再登陆（推荐使用）</strong>](#2111-本地加密后再登陆推荐使用)
+                * [<strong>2.1.1.2 本地不加密直接登陆（不推荐使用）</strong>](#2112-本地不加密直接登陆不推荐使用)
+            * [<strong>2.1.2 获取账户信息</strong>](#212-获取账户信息)
             * [<strong>2.1.3 获取账户余额</strong>](#213-获取账户余额)
             * [<strong>2.1.4 获取账户公钥</strong>](#214-获取账户公钥)
             * [<strong>2.1.5 生成公钥</strong>](#215-生成公钥)
@@ -21,7 +21,7 @@ Table of Contents
             * [<strong>2.1.8 投票</strong>](#218-投票)
             * [<strong>2.1.9 获取账户排行榜前100名</strong>](#219-获取账户排行榜前100名)
         * [<strong>2.2 交易transactions</strong>](#22-交易transactions)
-			* [<strong>2.2.1 获取交易信息</strong>](#221-获取交易信息)
+            * [<strong>2.2.1 获取交易信息</strong>](#221-获取交易信息)
             * [<strong>2.2.2 根据id查看交易详情</strong>](#222-根据id查看交易详情)
             * [<strong>2.2.3 根据未确认交易id查看详情</strong>](#223-根据未确认交易id查看详情)
             * [<strong>2.2.4 获取[全网所有]未确认的交易详情</strong>](#224-获取全网所有未确认的交易详情)
@@ -64,42 +64,42 @@ Table of Contents
         * [<strong>2.9 点对点传输tansport[安全的api]</strong>](#29-点对点传输tansport[安全的api])
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
-            	* [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
-            	* [<strong>2.9.2.2 转账</strong>](#2922-转账)
-            	* [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
-				* [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票和取消投票)
+                  *  [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
+                  *  [<strong>2.9.2.2 转账</strong>](#2922-转账)
+                  *  [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
+           * [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票和取消投票)
         * [<strong>2.10 用户自定义资产uia</strong>](#210-用户自定义资产uia)
             * [<strong>2.10.1 获取资产（UIA）信息</strong>](#2101-获取资产（UIA）信息)
-            	* [<strong>2.10.1.1 获取全网所有发行商</strong>](#21011-获取全网所有发行商)
-            	* [<strong>2.10.1.2 查询指定发行商的信息</strong>](#21012-查询指定发行商的信息)
-            	* [<strong>2.10.1.3 查看指定发行商的资产</strong>](#21013-查看指定发行商的资产)
-            	* [<strong>2.10.1.4 获取全网所有资产</strong>](#21014-获取全网所有资产)
-            	* [<strong>2.10.1.5 获取指定资产信息</strong>](#21015-获取指定资产信息)
-            	* [<strong>2.10.1.6 查询申请中的资产</strong>](#21016-查询正在申请中的资产)
-            	* [<strong>2.10.1.7 查询待发行的资产</strong>](#21017-查询待审核的发行)
-            	* [<strong>2.10.1.8 查询已上线的资产</strong>](#21018-查询已上线的资产)
-            	* [<strong>2.10.1.9 获取某个资产的访问控制列表（acl）</strong>](#21019-获取某个资产的访问控制列表acl)
-            	* [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
-            	* [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
+                * [<strong>2.10.1.1 获取全网所有发行商</strong>](#21011-获取全网所有发行商)
+                * [<strong>2.10.1.2 查询指定发行商的信息</strong>](#21012-查询指定发行商的信息)
+                * [<strong>2.10.1.3 查看指定发行商的资产</strong>](#21013-查看指定发行商的资产)
+                * [<strong>2.10.1.4 获取全网所有资产</strong>](#21014-获取全网所有资产)
+                * [<strong>2.10.1.5 获取指定资产信息</strong>](#21015-获取指定资产信息)
+                * [<strong>2.10.1.6 查询申请中的资产</strong>](#21016-查询正在申请中的资产)
+                * [<strong>2.10.1.7 查询待发行的资产</strong>](#21017-查询待审核的发行)
+                * [<strong>2.10.1.8 查询已上线的资产</strong>](#21018-查询已上线的资产)
+                * [<strong>2.10.1.9 获取某个资产的访问控制列表（acl）</strong>](#21019-获取某个资产的访问控制列表acl)
+                * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
+                * [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
             * [<strong>2.10.2 创建资产（UIA）交易</strong>](#2109-创建资产uia交易)
-            	* [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
-            	* [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
-            	* [<strong>2.10.2.3 资产发行</strong>](#21023-资产发行)
+                * [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
+                * [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
+                * [<strong>2.10.2.3 资产发行</strong>](#21023-资产发行)
             * [<strong>2.10.3 资产（UIA）投票</strong>](#2103-资产uia投票)
-            	* [<strong>2.10.3.1 资产申请投票</strong>](#21031-资产申请投票)
-            	* [<strong>2.10.3.2 资产发行投票</strong>](#21032-资产发行投票)
+                * [<strong>2.10.3.1 资产申请投票</strong>](#21031-资产申请投票)
+                * [<strong>2.10.3.2 资产发行投票</strong>](#21032-资产发行投票)
             * [<strong>2.10.4 资产（UIA）控制</strong>](#2104-资产（UIA）控制)
-            	* [<strong>2.10.4.1 资产设置acl模式</strong>](#21041-资产设置acl模式)
-            	* [<strong>2.10.4.2 更新访问控制列表（acl）</strong>](#21042-更新访问控制列表acl)
+                * [<strong>2.10.4.1 资产设置acl模式</strong>](#21041-资产设置acl模式)
+                * [<strong>2.10.4.2 更新访问控制列表（acl）</strong>](#21042-更新访问控制列表acl)
             * [<strong>2.10.5 资产（UIA）操作</strong>](#2105-资产（UIA）操作)            
-            	* [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
-            	* [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
+                * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
+                * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
             * [<strong>2.10.6 查询资产投票</strong>](#2106-查询资产投票)
-            	* [<strong>2.10.6.1 查询某个资产的投票明细</strong>](#21061-查询某个资产的投票明细)
-            	* [<strong>2.10.6.2 查询资产发行的投票明细</strong>](#21062-查询某次发行的投票)
+                * [<strong>2.10.6.1 查询某个资产的投票明细</strong>](#21061-查询某个资产的投票明细)
+                * [<strong>2.10.6.2 查询资产发行的投票明细</strong>](#21062-查询某次发行的投票)
             * [<strong>2.10.7 查询资产分类</strong>](#21010-查询资产分类)
-            	* [<strong>2.10.7.1 查询一级分类</strong>](#21071-查询一级分类)
-            	* [<strong>2.10.7.2 查询指定编号分类的子分类</strong>](#21072-查询指定编号分类的子分类)
+                * [<strong>2.10.7.1 查询一级分类</strong>](#21071-查询一级分类)
+                * [<strong>2.10.7.2 查询指定编号分类的子分类</strong>](#21072-查询指定编号分类的子分类)
         * [<strong>2.11 存储storages</strong>](#211-存储storages)
             * [<strong>2.11.1 上传数据</strong>](#2111-上传数据)
             * [<strong>2.11.2 查询存储的数据</strong>](#2112-查询存储的数据)
@@ -136,13 +136,13 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |acchain账户公钥      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否登陆成功      |    
 |account|json   |账户信息          |    
@@ -160,26 +160,26 @@ curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a1
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"account": {   
-		"address": "16723473400748954103",   
-		"unconfirmedBalance": 19480000000,   
-		"balance": 19480000000,   
-		"unconfirmedSignature": false,   
-		"secondSignature": true,   
-		"secondPublicKey": "edf30942beb74de5ed6368c792af8665e9636f32a5f1c9377bcdc3b252d3f277",   
-		"multisignatures": [],   
-		"u_multisignatures": []   
-	},   
-	"latestBlock": {   
-		"height": 111923,   
-		"timestamp": 4446270   
-	},   
-	"version": {   
-		"version": "1.0.0",   
-		"build": "12:11:11 16/08/2016",   
-		"net": "testnet"   
-	}   
+    "success": true,   
+    "account": {   
+        "address": "16723473400748954103",   
+        "unconfirmedBalance": 19480000000,   
+        "balance": 19480000000,   
+        "unconfirmedSignature": false,   
+        "secondSignature": true,   
+        "secondPublicKey": "edf30942beb74de5ed6368c792af8665e9636f32a5f1c9377bcdc3b252d3f277",   
+        "multisignatures": [],   
+        "u_multisignatures": []   
+    },   
+    "latestBlock": {   
+        "height": 111923,   
+        "timestamp": 4446270   
+    },   
+    "version": {   
+        "version": "1.0.0",   
+        "build": "12:11:11 16/08/2016",   
+        "net": "testnet"   
+    }   
 ```   
    
 ##### **2.1.1.2 本地不加密直接登陆（不推荐使用）**   
@@ -188,13 +188,13 @@ JSON返回示例：
 支持格式：json   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否登陆成功      |    
 |account|json   |账户信息          |    
@@ -227,13 +227,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |用户地址,最小长度：1      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |account|json  |账户信息      |    
@@ -248,27 +248,27 @@ curl -k -X GET http://45.32.248.33:4096/api/accounts?address=1672347340074895410
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"account": {   
-		"address": "16723473400748954103",  //acchain地址   
-		"unconfirmedBalance": 19480000000,  //未确认和已确认的余额之和，该值大于等于balance   
-		"balance": 19480000000, //余额   
-		"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9",    //公钥   
-		"unconfirmedSignature": false,   
-		"secondSignature": true,    //二级签名   
-		"secondPublicKey": "edf30942beb74de5ed6368c792af8665e9636f32a5f1c9377bcdc3b252d3f277",  //二级密码公钥   
-		"multisignatures": [],    
-		"u_multisignatures": []   
-	},   
-	"latestBlock": {   
-		"height": 114480,   //区块高度   
-		"timestamp": 4471890   
-	},   
-	"version": {   
-		"version": "1.0.0",   
-		"build": "12:11:11 16/08/2016", //构建日期   
-		"net": "testnet"    //区块链类型，是主链还是测试链   
-	}   
+    "success": true,   
+    "account": {   
+        "address": "16723473400748954103",  //acchain地址   
+        "unconfirmedBalance": 19480000000,  //未确认和已确认的余额之和，该值大于等于balance   
+        "balance": 19480000000, //余额   
+        "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9",    //公钥   
+        "unconfirmedSignature": false,   
+        "secondSignature": true,    //二级签名   
+        "secondPublicKey": "edf30942beb74de5ed6368c792af8665e9636f32a5f1c9377bcdc3b252d3f277",  //二级密码公钥   
+        "multisignatures": [],    
+        "u_multisignatures": []   
+    },   
+    "latestBlock": {   
+        "height": 114480,   //区块高度   
+        "timestamp": 4471890   
+    },   
+    "version": {   
+        "version": "1.0.0",   
+        "build": "12:11:11 16/08/2016", //构建日期   
+        "net": "testnet"    //区块链类型，是主链还是测试链   
+    }   
 }   
 ```   
 #### **2.1.3 获取账户余额**   
@@ -277,13 +277,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |用户地址,最小长度：1      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |balance|integer  |余额      |    
@@ -298,9 +298,9 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getBalance?address=1463645
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"balance": 5281328514990,   
-	"unconfirmedBalance": 5281328514990   
+    "success": true,   
+    "balance": 5281328514990,   
+    "unconfirmedBalance": 5281328514990   
 }   
 ```   
    
@@ -310,13 +310,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |用户地址,最小长度：1      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |publicKey|string  |公钥      |    
@@ -329,8 +329,8 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getPublickey?address=14636
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"   
+    "success": true,   
+    "publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"   
 }   
 ```   
    
@@ -340,13 +340,13 @@ JSON返回示例：
 支持格式：json   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |publicKey|string  |公钥      |    
@@ -359,8 +359,8 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still a
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"   
+    "success": true,   
+    "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"   
 }   
 ```   
    
@@ -370,13 +370,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |投票人地址      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |delegates|Array  |已投票的受托人详情数组      |    
@@ -390,40 +390,40 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates?address=14636456
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"delegates": [{   
-		"username": "wgl_002",   
-		"address": "14636456069025293113",   
-		"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",   
-		"vote": 9901985415600500,   
-		"producedblocks": 1373,   
-		"missedblocks": 6,   
-		"rate": 1,   
-		"approval": "98.54",   
-		"productivity": "99.56"   
-	},   
-	{   
-		"username": "wgl_003",   
-		"address": "9961157415582672274",   
-		"publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",   
-		"vote": 9891995435600500,   
-		"producedblocks": 1371,   
-		"missedblocks": 8,   
-		"rate": 2,   
-		"approval": "98.44",   
-		"productivity": "99.41"   
-	},   
-	{   
-		"username": "wgl_001",   
-		"address": "1869971419039689816",   
-		"publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",   
-		"vote": 32401577128413,   
-		"producedblocks": 969,   
-		"missedblocks": 8,   
-		"rate": 102,   
-		"approval": "0.32",   
-		"productivity": 0   
-	}]   
+    "success": true,   
+    "delegates": [{   
+        "username": "wgl_002",   
+        "address": "14636456069025293113",   
+        "publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",   
+        "vote": 9901985415600500,   
+        "producedblocks": 1373,   
+        "missedblocks": 6,   
+        "rate": 1,   
+        "approval": "98.54",   
+        "productivity": "99.56"   
+    },   
+    {   
+        "username": "wgl_003",   
+        "address": "9961157415582672274",   
+        "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",   
+        "vote": 9891995435600500,   
+        "producedblocks": 1371,   
+        "missedblocks": 8,   
+        "rate": 2,   
+        "approval": "98.44",   
+        "productivity": "99.41"   
+    },   
+    {   
+        "username": "wgl_001",   
+        "address": "1869971419039689816",   
+        "publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",   
+        "vote": 32401577128413,   
+        "producedblocks": 969,   
+        "missedblocks": 8,   
+        "rate": 102,   
+        "approval": "0.32",   
+        "productivity": 0   
+    }]   
 }   
 ```   
    
@@ -435,7 +435,7 @@ JSON返回示例：
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |fee|integer  |手续费设置      |    
@@ -449,8 +449,8 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates/fee
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"fee": 100000000   
+    "success": true,   
+    "fee": 100000000   
 }   
 ```   
    
@@ -461,7 +461,7 @@ JSON返回示例：
 支持格式：json   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N|公钥      |    
@@ -470,7 +470,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transaction|json  |投票交易详情      |    
@@ -484,24 +484,24 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors 
 JSON返回示例：   
 ```js   
  {
-	"success": true,
-	"transaction": {
-		"type": 3,  //投票的交易类型为3
-		"amount": 0,
-		"senderPublicKey": "3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a",
-		"requesterPublicKey": null,
-		"timestamp": 5056064,
-		"asset": {
-			"vote": {
-				"votes": ["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]
-			}
-		},
-		"recipientId": null,
-		"signature": "0bff58c7311fc59b3c8b3ffc236bbfece9850c334fb0c292ab087f78cf9a6c0f4d3e541c501887a2c2ec46294c777e8f7bf7dea9cb7c9a175fdec641bb684f08",
-		"id": "5630629337798595849",
-		"fee": 10000000,
-		"senderId": "15238461869262180695"
-	}
+    "success": true,
+    "transaction": {
+        "type": 3,  //投票的交易类型为3
+        "amount": 0,
+        "senderPublicKey": "3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a",
+        "requesterPublicKey": null,
+        "timestamp": 5056064,
+        "asset": {
+            "vote": {
+                "votes": ["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]
+            }
+        },
+        "recipientId": null,
+        "signature": "0bff58c7311fc59b3c8b3ffc236bbfece9850c334fb0c292ab087f78cf9a6c0f4d3e541c501887a2c2ec46294c777e8f7bf7dea9cb7c9a175fdec641bb684f08",
+        "id": "5630629337798595849",
+        "fee": 10000000,
+        "senderId": "15238461869262180695"
+    }
 }  
 ```   
 
@@ -511,14 +511,14 @@ JSON返回示例：
 支持格式：无   
 请求参数说明：如果不加请求参数则返回持币量前100名账户信息  
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit |integer |N    |限制结果集个数，最小值：0,最大值：100   |  
 |offset|integer  |N      |偏移量，最小值0  |  
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |accounts|json  |账户信息元组，每个元素包含地址、余额、公钥      |    
@@ -532,32 +532,32 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/top?limit=5&offset=0'  //�
 JSON返回示例：   
 ```js   
 {
-	"success": true,
-	"accounts": [{
-		"address": "355198157736313687",
-		"balance": 4400099900000000,        //44000999 ACC
-		"publicKey": "0b8e120db026d58cbf9d3f392f88eefe3a82a0a3023298b9466d7ed64ff05881"
-	},
-	{
-		"address": "3196144307608101364",
-		"balance": 3750000020000000,
-		"publicKey": "988eb82a603dd033f94a4f3b6f9f9ef4a7d3d066607c433e5255d50ea7270720"
-	},
-	{
-		"address": "9248745407080572308",
-		"balance": 988703397029757,
-		"publicKey": "02cedc56da08099532e312c5e563e2859bc5b93cc594eb3e5d350f368d681988"
-	},
-	{
-		"address": "15745540293890213312",
-		"balance": 498186229718623,
-		"publicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3"
-	},
-	{
-		"address": "8812460086240160222",
-		"balance": 100704426831866,
-		"publicKey": "0af92cc32f54d50dd83c4f7de14e71223a57843a40e993bc0813454aa9270053"
-	}
+    "success": true,
+    "accounts": [{
+        "address": "355198157736313687",
+        "balance": 4400099900000000,        //44000999 ACC
+        "publicKey": "0b8e120db026d58cbf9d3f392f88eefe3a82a0a3023298b9466d7ed64ff05881"
+    },
+    {
+        "address": "3196144307608101364",
+        "balance": 3750000020000000,
+        "publicKey": "988eb82a603dd033f94a4f3b6f9f9ef4a7d3d066607c433e5255d50ea7270720"
+    },
+    {
+        "address": "9248745407080572308",
+        "balance": 988703397029757,
+        "publicKey": "02cedc56da08099532e312c5e563e2859bc5b93cc594eb3e5d350f368d681988"
+    },
+    {
+        "address": "15745540293890213312",
+        "balance": 498186229718623,
+        "publicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3"
+    },
+    {
+        "address": "8812460086240160222",
+        "balance": 100704426831866,
+        "publicKey": "0af92cc32f54d50dd83c4f7de14e71223a57843a40e993bc0813454aa9270053"
+    }
 }    
 ```   
    
@@ -570,7 +570,7 @@ JSON返回示例：
 接口备注：如果请求不加参数则会获取全网所有交易   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |blockId |string |N    |区块id      |   
 |limit |integer |N    |限制结果集个数，最小值：0,最大值：100   |   
@@ -587,7 +587,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactions|列表  |多个交易详情json构成的列表      |    
@@ -601,74 +601,74 @@ curl -k -X GET 'http://45.32.248.33:4096/api/transactions?recipientId=1672347340
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactions": [{   
-		"id": "17192581936339156329",   
-		"height": "105951",   
-		"blockId": "15051364118100195665",   
-		"type": 0,   
-		"timestamp": 4385190,   
-		"senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",   
-		"senderId": "15745540293890213312",   
-		"recipientId": "16723473400748954103",   
-		"amount": 10000000000,   
-		"fee": 10000000,   
-		"signature": "98d65df3109802c707eeed706e90a907f337bddab58cb4c1fbe6ec2179aa1c85ec2903cc0cf44bf0092926829aa5a0a6ec99458f65b6ebd11f0988772e58740e",   
-		"signSignature": "",   
-		"signatures": null,   
-		"confirmations": "31802",
+    "success": true,   
+    "transactions": [{   
+        "id": "17192581936339156329",   
+        "height": "105951",   
+        "blockId": "15051364118100195665",   
+        "type": 0,   
+        "timestamp": 4385190,   
+        "senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",   
+        "senderId": "15745540293890213312",   
+        "recipientId": "16723473400748954103",   
+        "amount": 10000000000,   
+        "fee": 10000000,   
+        "signature": "98d65df3109802c707eeed706e90a907f337bddab58cb4c1fbe6ec2179aa1c85ec2903cc0cf44bf0092926829aa5a0a6ec99458f65b6ebd11f0988772e58740e",   
+        "signSignature": "",   
+        "signatures": null,   
+        "confirmations": "31802",
                 currency: "",   
-		"asset": {   
-			   
-		},
+        "asset": {   
+               
+        },
                 precision: 6,
                 amountShow: "0"   
-	},   
-	{   
-		"id": "7000452951235123088",   
-		"height": "105473",   
-		"blockId": "11877628176330539727",   
-		"type": 0,   
-		"timestamp": 4380147,   
-		"senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
-		"senderId": "16358246403719868041",   
-		"recipientId": "16723473400748954103",   
-		"amount": 10000000000,   
-		"fee": 10000000,   
-		"signature": "dc84044d4f6b4779eecc3a986b6507e458cc5964f601ebeb4d3b68a96129813f4940e14de950526dd685ca1328b6e477e6c57e95aeac45859a2ea62a587d0204",   
-		"signSignature": "",   
-		"signatures": null,   
-		"confirmations": "32280",
+    },   
+    {   
+        "id": "7000452951235123088",   
+        "height": "105473",   
+        "blockId": "11877628176330539727",   
+        "type": 0,   
+        "timestamp": 4380147,   
+        "senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
+        "senderId": "16358246403719868041",   
+        "recipientId": "16723473400748954103",   
+        "amount": 10000000000,   
+        "fee": 10000000,   
+        "signature": "dc84044d4f6b4779eecc3a986b6507e458cc5964f601ebeb4d3b68a96129813f4940e14de950526dd685ca1328b6e477e6c57e95aeac45859a2ea62a587d0204",   
+        "signSignature": "",   
+        "signatures": null,   
+        "confirmations": "32280",
                 currency: "",   
-		"asset": {   
-			   
-		}
+        "asset": {   
+               
+        }
                 precision: 6,
                 amountShow: "0"   
-	},   
-	{   
-		"id": "14093929199102906687",   
-		"height": "105460",   
-		"blockId": "2237504897174225512",   
-		"type": 0,   
-		"timestamp": 4380024,   
-		"senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
-		"senderId": "16358246403719868041",   
-		"recipientId": "16723473400748954103",   
-		"amount": 10000000000,   
-		"fee": 10000000,   
-		"signature": "73ceddc3cbe5103fbdd9eee12f7e4d9a125a3bcf2e7cd04282b7329719735aeb36936762f17d842fb14813fa8f857b8144040e5117dffcfc7e2ae88e36440a0f",   
-		"signSignature": "",   
-		"signatures": null,   
-		"confirmations": "32293", 
+    },   
+    {   
+        "id": "14093929199102906687",   
+        "height": "105460",   
+        "blockId": "2237504897174225512",   
+        "type": 0,   
+        "timestamp": 4380024,   
+        "senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
+        "senderId": "16358246403719868041",   
+        "recipientId": "16723473400748954103",   
+        "amount": 10000000000,   
+        "fee": 10000000,   
+        "signature": "73ceddc3cbe5103fbdd9eee12f7e4d9a125a3bcf2e7cd04282b7329719735aeb36936762f17d842fb14813fa8f857b8144040e5117dffcfc7e2ae88e36440a0f",   
+        "signSignature": "",   
+        "signatures": null,   
+        "confirmations": "32293", 
                 currency: "TEST.ABC",  
-		"asset": {   
-			   
-		}
+        "asset": {   
+               
+        }
                 precision: 1,
                 amountShow: "0"   
-	}],   
-	"count": 3   
+    }],   
+    "count": 3   
 }   
 ```   
 #### **2.2.2 根据id查看交易详情**   
@@ -677,14 +677,14 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |Id |string |Y    |交易id      |   
    
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactions|json  |交易详情      |    
@@ -697,25 +697,25 @@ curl -k -X GET 'http://45.32.248.33:4096/api/transactions/get?id=140939291991029
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transaction": {   
-		"id": "14093929199102906687",   
-		"height": "105460",   
-		"blockId": "2237504897174225512",   
-		"type": 0,   
-		"timestamp": 4380024,   
-		"senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
-		"senderId": "16358246403719868041",   
-		"recipientId": "16723473400748954103",   
-		"amount": 10000000000,   
-		"fee": 10000000,   
-		"signature": "73ceddc3cbe5103fbdd9eee12f7e4d9a125a3bcf2e7cd04282b7329719735aeb36936762f17d842fb14813fa8f857b8144040e5117dffcfc7e2ae88e36440a0f",   
-		"signSignature": "",   
-		"signatures": null,   
-		"confirmations": "34268",   
-		"asset": {   
-		}   
-	}   
+    "success": true,   
+    "transaction": {   
+        "id": "14093929199102906687",   
+        "height": "105460",   
+        "blockId": "2237504897174225512",   
+        "type": 0,   
+        "timestamp": 4380024,   
+        "senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   
+        "senderId": "16358246403719868041",   
+        "recipientId": "16723473400748954103",   
+        "amount": 10000000000,   
+        "fee": 10000000,   
+        "signature": "73ceddc3cbe5103fbdd9eee12f7e4d9a125a3bcf2e7cd04282b7329719735aeb36936762f17d842fb14813fa8f857b8144040e5117dffcfc7e2ae88e36440a0f",   
+        "signSignature": "",   
+        "signatures": null,   
+        "confirmations": "34268",   
+        "asset": {   
+        }   
+    }   
 }   
 ```   
    
@@ -725,13 +725,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |id|string |Y    |未确认交易id      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transaction|json  |未确认交易详情      |   
@@ -745,22 +745,22 @@ curl -k -X GET http://45.32.248.33:4096/api/transactions/unconfirmed/get?id=7557
 JSON返回示例：   
 ```js   
 {
-	"success": true,
-	"transaction": {
-		"type": 0,
-		"amount": 10000,
-		"senderPublicKey": "3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a",
-		"requesterPublicKey": null,
-		"timestamp": 5082322,
-		"asset": {
-			
-		},
-		"recipientId": "16723473400748954103",
-		"signature": "3a97f8d63509ef964bda3d816366b8e9e2d9b5d4604a660e7cbeefe210cb910f5de9a51bece06c32d010f55502c62f0f59b8224e1c141731ddfee27206a88d02",
-		"id": "7557072430673853692",
-		"fee": 10000000,
-		"senderId": "15238461869262180695"
-	}
+    "success": true,
+    "transaction": {
+        "type": 0,
+        "amount": 10000,
+        "senderPublicKey": "3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a",
+        "requesterPublicKey": null,
+        "timestamp": 5082322,
+        "asset": {
+            
+        },
+        "recipientId": "16723473400748954103",
+        "signature": "3a97f8d63509ef964bda3d816366b8e9e2d9b5d4604a660e7cbeefe210cb910f5de9a51bece06c32d010f55502c62f0f59b8224e1c141731ddfee27206a88d02",
+        "id": "7557072430673853692",
+        "fee": 10000000,
+        "senderId": "15238461869262180695"
+    }
 }
 ```   
    
@@ -772,7 +772,7 @@ JSON返回示例：
 接口说明：如果不加参数，则会获取全网所有未确认交易
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |senderPublicKey |string |N    |发送者公钥      |   
 |address |string |N    |地址      |   
@@ -780,7 +780,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactions|Array  |未确认交易列表      |    
@@ -794,8 +794,8 @@ curl -k -X GET 'http://45.32.248.33:4096/api/transactions/unconfirmed'
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactions": []      //全网目前不存在未确认的交易   
+    "success": true,   
+    "transactions": []      //全网目前不存在未确认的交易   
 }   
 ```   
    
@@ -806,7 +806,7 @@ JSON返回示例：
 接口备注：接收者账户需在web端钱包登陆过   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |amount|string|Y|金额，最小值：1，最大值：10000000000000000|   
@@ -817,7 +817,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactionId|string  |交易id      |    
@@ -831,8 +831,8 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactionId": "16670272591943275531"   
+    "success": true,   
+    "transactionId": "16670272591943275531"   
 }   
 ```  
    
@@ -843,7 +843,7 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |id |string |参数3选1    |区块id      |   
 |height|string|参数3选1|区块高度|   
@@ -851,7 +851,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |block|json  |区块详情      |    
@@ -865,25 +865,25 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/get?id=6076474715648888747'
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"block": {   
-		"id": "6076474715648888747",   
-		"version": 0,   
-		"timestamp": 4734070,   
-		"height": 140538,   
-		"previousBlock": "16033230167082515105",    //上一个区块id   
-		"numberOfTransactions": 0,  //交易数   
-		"totalAmount": 0,   //交易额   
-		"totalFee": 0,   
-		"reward": 350000000,    //奖励   
-		"payloadLength": 0,   
-		"payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
-		"generatorPublicKey": "1d352950c8141e1b35daba4a974a604519d7a2ef3a1ec0a503ce2653646aa052",   
-		"generatorId": "6656029629904254066",   
-		"blockSignature": "a53de66922cdc2f431acd0a474beec7cf7c420a8460b7b7caf84999be7caebb59fb7fbb7166c2c7013dbb431585ea7294722166cb08bf9663abf50b6bd81cd05",   
-		"confirmations": "2",   
-		"totalForged": 350000000   
-	}   
+    "success": true,   
+    "block": {   
+        "id": "6076474715648888747",   
+        "version": 0,   
+        "timestamp": 4734070,   
+        "height": 140538,   
+        "previousBlock": "16033230167082515105",    //上一个区块id   
+        "numberOfTransactions": 0,  //交易数   
+        "totalAmount": 0,   //交易额   
+        "totalFee": 0,   
+        "reward": 350000000,    //奖励   
+        "payloadLength": 0,   
+        "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
+        "generatorPublicKey": "1d352950c8141e1b35daba4a974a604519d7a2ef3a1ec0a503ce2653646aa052",   
+        "generatorId": "6656029629904254066",   
+        "blockSignature": "a53de66922cdc2f431acd0a474beec7cf7c420a8460b7b7caf84999be7caebb59fb7fbb7166c2c7013dbb431585ea7294722166cb08bf9663abf50b6bd81cd05",   
+        "confirmations": "2",   
+        "totalForged": 350000000   
+    }   
 }   
 ```   
    
@@ -894,7 +894,7 @@ JSON返回示例：
 接口说明：不加参数则获取全网区块详情   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit |integer |N    |限制结果集个数，最小值：0,最大值：100   |   
 |orderBy|string  |N      |根据表中字段排序，如height:desc  |   
@@ -908,7 +908,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |blocks|Array  |由区块详情json串构成的数组 |    
@@ -923,44 +923,44 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks?limit=2&offset=0&orderBy=hei
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"blocks": [{   
-		"id": "12634047624004615059",   
-		"version": 0,   
-		"timestamp": 4708080,   
-		"height": 137986,   
-		"previousBlock": "3498191422350401106",   
-		"numberOfTransactions": 0,  // 交易数   
-		"totalAmount": 0,   // 金额   
-		"totalFee": 0,  // 手续费   
-		"reward": 350000000,    // 奖励   
-		"payloadLength": 0,   
-		"payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
-		"generatorPublicKey": "44db7bec89ef289d0def257285675ca14f2a947dfd2b70e6b1cff4392ce42ada",   
-		"generatorId": "4925169939071346193",   
-		"blockSignature": "83a2124e3e8201c1a6099b2ac8ab1c117ad34867978add3a90d41a64df9d2ad8fabc9ec14d27a77cd34c08a6479ef684f247c11b1cbbcb0e9767dffc85838600",   
-		"confirmations": "1",   
-		"totalForged": 350000000   
-	},   
-	{   
-		"id": "3498191422350401106",   
-		"version": 0,   
-		"timestamp": 4708070,   
-		"height": 137985,   
-		"previousBlock": "14078155423801039323",   
-		"numberOfTransactions": 0,   
-		"totalAmount": 0,   
-		"totalFee": 0,   
-		"reward": 350000000,   
-		"payloadLength": 0,   
-		"payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
-		"generatorPublicKey": "500b1ec025cd64d36008341ed8d2508473ecf559be213ca5f9580620a21a592c",   
-		"generatorId": "16006295608945777169",   
-		"blockSignature": "a0b5ed6c94b1f33c4d0f017f21a08357061493392b19e34eeedf274b77c751e3f86c92443280de09ea1754d62fe7ef00e02acbdc3bc0c1063cef344bacaa4f07",   
-		"confirmations": "2",   
-		"totalForged": 350000000   
-	}],   
-	"count": 137986   
+    "success": true,   
+    "blocks": [{   
+        "id": "12634047624004615059",   
+        "version": 0,   
+        "timestamp": 4708080,   
+        "height": 137986,   
+        "previousBlock": "3498191422350401106",   
+        "numberOfTransactions": 0,  // 交易数   
+        "totalAmount": 0,   // 金额   
+        "totalFee": 0,  // 手续费   
+        "reward": 350000000,    // 奖励   
+        "payloadLength": 0,   
+        "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
+        "generatorPublicKey": "44db7bec89ef289d0def257285675ca14f2a947dfd2b70e6b1cff4392ce42ada",   
+        "generatorId": "4925169939071346193",   
+        "blockSignature": "83a2124e3e8201c1a6099b2ac8ab1c117ad34867978add3a90d41a64df9d2ad8fabc9ec14d27a77cd34c08a6479ef684f247c11b1cbbcb0e9767dffc85838600",   
+        "confirmations": "1",   
+        "totalForged": 350000000   
+    },   
+    {   
+        "id": "3498191422350401106",   
+        "version": 0,   
+        "timestamp": 4708070,   
+        "height": 137985,   
+        "previousBlock": "14078155423801039323",   
+        "numberOfTransactions": 0,   
+        "totalAmount": 0,   
+        "totalFee": 0,   
+        "reward": 350000000,   
+        "payloadLength": 0,   
+        "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",   
+        "generatorPublicKey": "500b1ec025cd64d36008341ed8d2508473ecf559be213ca5f9580620a21a592c",   
+        "generatorId": "16006295608945777169",   
+        "blockSignature": "a0b5ed6c94b1f33c4d0f017f21a08357061493392b19e34eeedf274b77c751e3f86c92443280de09ea1754d62fe7ef00e02acbdc3bc0c1063cef344bacaa4f07",   
+        "confirmations": "2",   
+        "totalForged": 350000000   
+    }],   
+    "count": 137986   
 }   
 ```   
    
@@ -972,7 +972,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |height|integer  |区块链高度      |    
@@ -995,7 +995,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |fee|integer  |交易手续费      |    
@@ -1018,7 +1018,7 @@ JSON返回示例：
 请求参数说明：无   
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |milestone|integer  |      |    
@@ -1042,7 +1042,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |reward|integer  |区块奖励      |    
@@ -1066,7 +1066,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |supply|integer  |全网ACC个数      |    
@@ -1090,7 +1090,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |height|integer  |区块链高度      |    
@@ -1108,12 +1108,12 @@ curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getStatus'
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"height": 140649,   
-	"fee": 10000000,   
-	"milestone": 0,   
-	"reward": 350000000,   
-	"supply": 10049227150000000   
+    "success": true,   
+    "height": 140649,   
+    "fee": 10000000,   
+    "milestone": 0,   
+    "reward": 350000000,   
+    "supply": 10049227150000000   
 }   
 ```   
    
@@ -1129,7 +1129,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |count|integer   |受托人总个数      |    
@@ -1150,13 +1150,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |受托人公钥      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |accounts|Array  |账户json串组成的数组      |    
@@ -1169,26 +1169,26 @@ curl -k -X GET 'http://45.32.248.33:4096/api/delegates/voters?publicKey=ae256559
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"accounts": [{   
-		"address": "2918354313445278349",   
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",   
-		"balance": 1338227722727,   
-		"weight": 0.013316660647014596   
-	},   
-	{   
-		"address": "1523444724068322527",   
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",   
-		"balance": 2109297623765,   
-		"weight": 0.020989552213127274   
-	},   
-	{   
-		"address": "14483826354741911727",   
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",   
-		"balance": 5135815841470,   
-		"weight": 0.051106336795243436   
-	}   
-	}]   
+    "success": true,   
+    "accounts": [{   
+        "address": "2918354313445278349",   
+        "publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",   
+        "balance": 1338227722727,   
+        "weight": 0.013316660647014596   
+    },   
+    {   
+        "address": "1523444724068322527",   
+        "publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",   
+        "balance": 2109297623765,   
+        "weight": 0.020989552213127274   
+    },   
+    {   
+        "address": "14483826354741911727",   
+        "publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",   
+        "balance": 5135815841470,   
+        "weight": 0.051106336795243436   
+    }   
+    }]   
 }   
 ```   
    
@@ -1199,14 +1199,14 @@ JSON返回示例：
 接口备注：通过公钥或者用户名获取受托人信息   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publickey |string |二选一    |受托人公钥      |   
 |username  |string |二选一    |受托人用户名      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |delegate|json  |委托人详情      |    
@@ -1221,21 +1221,21 @@ curl -k -X GET http://45.32.248.33:4096/api/delegates/get?username=delegate_regi
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"delegate": {   
-		"username": "delegate_register",   
-		"address": "16723473400748954103",   
-		"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9",   
-		"vote": 0,   
-		"producedblocks": 0,   
-		"missedblocks": 0,   
-		"fees": 0,   
-		"rewards": 0,   
-		"rate": 191,   
-		"approval": 0,   
-		"productivity": 0,   
-		"forged": "0"   
-	}   
+    "success": true,   
+    "delegate": {   
+        "username": "delegate_register",   
+        "address": "16723473400748954103",   
+        "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9",   
+        "vote": 0,   
+        "producedblocks": 0,   
+        "missedblocks": 0,   
+        "fees": 0,   
+        "rewards": 0,   
+        "rate": 191,   
+        "approval": 0,   
+        "productivity": 0,   
+        "forged": "0"   
+    }   
 }   
 ```   
    
@@ -1246,7 +1246,7 @@ JSON返回示例：
 接口说明：如果不加参数则会返回全网受托人列表   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |address |string |N    |受托人地址      |   
 |limit|int  |N       |限制返回结果数据集的个数       |   
@@ -1257,7 +1257,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |delegates|Array  |受托人详情列表      |    
@@ -1271,36 +1271,36 @@ curl -k -X GET 'http://45.32.248.33:4096/api/delegates?orderby=approval:desc&lim
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"delegates": [{   
-		"username": "wgl_002",  //受托人名字   
-		"address": "14636456069025293113",  //受托人地址   
-		"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",    //受托人公钥   
-		"vote": 9901984015600500,   //得票数   
-		"producedblocks": 1371, //生成的区块数   
-		"missedblocks": 6,  //丢失的区块数   
-		"fees": 12588514990,       
-		"rewards": 276850000000,    //已经得到的奖励   
-		"rate": 1,   
-		"approval": 98.54,  //得票率   
-		"productivity": 99.56,  //生产率   
-		"forged": "289438514990"    //锻造产生的所有奖励   
-	},   
-	{   
-		"username": "wgl_003",   
-		"address": "9961157415582672274",   
-		"publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",   
-		"vote": 9891994035600500,   
-		"producedblocks": 1370,   
-		"missedblocks": 8,   
-		"fees": 12355148480,   
-		"rewards": 275100000000,   
-		"rate": 2,   
-		"approval": 98.44,   
-		"productivity": 99.42,   
-		"forged": "287455148480"   
-	}],   
-	"totalCount": 233   
+    "success": true,   
+    "delegates": [{   
+        "username": "wgl_002",  //受托人名字   
+        "address": "14636456069025293113",  //受托人地址   
+        "publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",    //受托人公钥   
+        "vote": 9901984015600500,   //得票数   
+        "producedblocks": 1371, //生成的区块数   
+        "missedblocks": 6,  //丢失的区块数   
+        "fees": 12588514990,       
+        "rewards": 276850000000,    //已经得到的奖励   
+        "rate": 1,   
+        "approval": 98.54,  //得票率   
+        "productivity": 99.56,  //生产率   
+        "forged": "289438514990"    //锻造产生的所有奖励   
+    },   
+    {   
+        "username": "wgl_003",   
+        "address": "9961157415582672274",   
+        "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",   
+        "vote": 9891994035600500,   
+        "producedblocks": 1370,   
+        "missedblocks": 8,   
+        "fees": 12355148480,   
+        "rewards": 275100000000,   
+        "rate": 2,   
+        "approval": 98.44,   
+        "productivity": 99.42,   
+        "forged": "287455148480"   
+    }],   
+    "totalCount": 233   
 }   
 ```   
    
@@ -1310,13 +1310,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |受托人公钥      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |fee|integer  |转账费      |    
@@ -1338,13 +1338,13 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |generatorPublicKey |string |Y    |区块生成者公钥      |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |fees|integer  |收取的手续费      |    
@@ -1360,10 +1360,10 @@ curl -k -X GET 'http://45.32.248.33:4096/api/delegates/forging/getForgedByAccoun
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"fees": 12589307065,   
-	"rewards": 285600000000,   
-	"forged": 298189307065   
+    "success": true,   
+    "fees": 12589307065,   
+    "rewards": 285600000000,   
+    "forged": 298189307065   
 }   
 ```   
    
@@ -1373,7 +1373,7 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N      |公钥|    
@@ -1382,7 +1382,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transaction|json  |注册受托人交易详情      |    
@@ -1396,25 +1396,25 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transaction": {   
-		"type": 2,  //注册受托人的交易类型为2   
-		"amount": 0,   
-		"senderPublicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2",   
-		"requesterPublicKey": null,   
-		"timestamp": 4737615,   
-		"asset": {   
-			"delegate": {   
-				"username": "delegate_0821",   
-				"publicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2"   
-			}   
-		},   
-		"recipientId": null,   
-		"signature": "7f8417e8db5f58ddff887c86c789c26b32fd3f01083ef1e3c8d4e18ed16622bf766492d78518c6c7a07aada1c98b1efc36d40c8e09394989dbde229d8e3f8103",   
-		"id": "16351320834453011577",   
-		"fee": 10000000000,   
-		"senderId": "250438937633388106"   
-	}   
+    "success": true,   
+    "transaction": {   
+        "type": 2,  //注册受托人的交易类型为2   
+        "amount": 0,   
+        "senderPublicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2",   
+        "requesterPublicKey": null,   
+        "timestamp": 4737615,   
+        "asset": {   
+            "delegate": {   
+                "username": "delegate_0821",   
+                "publicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2"   
+            }   
+        },   
+        "recipientId": null,   
+        "signature": "7f8417e8db5f58ddff887c86c789c26b32fd3f01083ef1e3c8d4e18ed16622bf766492d78518c6c7a07aada1c98b1efc36d40c8e09394989dbde229d8e3f8103",   
+        "id": "16351320834453011577",   
+        "fee": 10000000000,   
+        "senderId": "250438937633388106"   
+    }   
 }   
 ```   
    
@@ -1424,7 +1424,7 @@ JSON返回示例：
 支持格式：urlencoded   //url必须是受托人所在服务器  
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N      |公钥|    
@@ -1432,7 +1432,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |address|string  |受托人地址      |    
@@ -1454,7 +1454,7 @@ JSON返回示例：
 支持格式：urlencoded   //url必须是受托人所在服务器  
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N      |公钥|    
@@ -1462,7 +1462,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |address|string  |受托人地址      |    
@@ -1484,14 +1484,14 @@ JSON返回示例：
 支持格式：urlencoded    
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey|string  |Y      |公钥|    
 
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |enabled|string  |锻造是否开启      |    
@@ -1515,7 +1515,7 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |state |integer |N    |节点状态,0: ,1:,2:,3:     |   
 |os|string|N|内核版本|   
@@ -1528,7 +1528,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |peers|Array  |节点信息json构成的数组     |    
@@ -1543,15 +1543,15 @@ curl -k -X GET 'http://45.32.248.33:4096/api/peers?limit=1'
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"peers": [{   
-		"ip": "45.32.19.241",   
-		"port": 4096,   
-		"state": 2,   
-		"os": "linux3.13.0-87-generic",   
-		"version": "1.0.0"   
-	}],   
-	"totalCount": ["54"]   
+    "success": true,   
+    "peers": [{   
+        "ip": "45.32.19.241",   
+        "port": 4096,   
+        "state": 2,   
+        "os": "linux3.13.0-87-generic",   
+        "version": "1.0.0"   
+    }],   
+    "totalCount": ["54"]   
 }   
 ```   
    
@@ -1563,7 +1563,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |version|string  |版本号      |    
@@ -1579,10 +1579,10 @@ curl -k -X GET http://45.32.248.33:4096/api/peers/version
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"version": "1.0.0",   
-	"build": "12:11:11 16/08/2016",   
-	"net": "testnet"   
+    "success": true,   
+    "version": "1.0.0",   
+    "build": "12:11:11 16/08/2016",   
+    "net": "testnet"   
 }   
 ```   
    
@@ -1592,7 +1592,7 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |ip |string |Y    |待查询节点ip      |   
 |port|integer|Y|待查询节点端口，1~65535|   
@@ -1600,7 +1600,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |peer|json  |      |    
@@ -1614,9 +1614,9 @@ curl -k -X GET 'http://45.32.248.33:4096/api/peers/get?ip=45.32.248.33&port=4096
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"peer": {   
-	}   
+    "success": true,   
+    "peer": {   
+    }   
 }   
 ```   
    
@@ -1629,7 +1629,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |loaded |boole    |          |   
@@ -1643,9 +1643,9 @@ curl -k http://45.32.248.33:4096/api/loader/status -X GET
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"loaded": true,   
-	"blocksCount": 0   
+    "success": true,   
+    "loaded": true,   
+    "blocksCount": 0   
 }   
 ```   
    
@@ -1657,7 +1657,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |height |int    |区块高度          |   
@@ -1670,10 +1670,10 @@ curl -k http://45.32.248.33:4096/api/loader/status/sync -X GET
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"syncing": false,  // 是否在同步中，如果是则为true，目前没有数据可以同步所以为false   
-	"blocks": 0,   
-	"height": 111987   
+    "success": true,   
+    "syncing": false,  // 是否在同步中，如果是则为true，目前没有数据可以同步所以为false   
+    "blocks": 0,   
+    "height": 111987   
 }   
 ```   
    
@@ -1685,7 +1685,7 @@ JSON返回示例：
 支持格式：json   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N|公钥      |    
@@ -1695,7 +1695,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transaction|json  |设置二级密码产生的交易详情      |    
@@ -1709,24 +1709,24 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transaction": {   
-		"type": 1,  //设置二级密码密码的交易类型为1   
-		"amount": 0,   
-		"senderPublicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2",   
-		"requesterPublicKey": null,   
-		"timestamp": 4872315,   
-		"asset": {   
-			"signature": {   
-				"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"   
-			}   
-		},   
-		"recipientId": null,   
-		"signature": "e76d9b25ec0fdaa88b19d59c5a222b7efdc04f738ee05896f55f4e6959229d9b1600ca25aa92fbea176668f3be7c12c506f2091e2b38c52ef0ece7a5d35e240a",   
-		"id": "1614688380530105232",   
-		"fee": 500000000,       //设置二级密码密码的手续费为5 ACC  
-		"senderId": "250438937633388106"   
-	}   
+    "success": true,   
+    "transaction": {   
+        "type": 1,  //设置二级密码密码的交易类型为1   
+        "amount": 0,   
+        "senderPublicKey": "3b64f1833e6328043e1f2fee31e638bdaa6dfff5c7eb9c8577a5cefcf11261f2",   
+        "requesterPublicKey": null,   
+        "timestamp": 4872315,   
+        "asset": {   
+            "signature": {   
+                "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"   
+            }   
+        },   
+        "recipientId": null,   
+        "signature": "e76d9b25ec0fdaa88b19d59c5a222b7efdc04f738ee05896f55f4e6959229d9b1600ca25aa92fbea176668f3be7c12c506f2091e2b38c52ef0ece7a5d35e240a",   
+        "id": "1614688380530105232",   
+        "fee": 500000000,       //设置二级密码密码的手续费为5 ACC  
+        "senderId": "250438937633388106"   
+    }   
 }   
 ```   
    
@@ -1739,7 +1739,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |fee|integer  |费用      |    
@@ -1753,8 +1753,8 @@ curl -k http://45.32.248.33:4096/api/signatures/fee -X GET
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"fee": 500000000         //5 ACC  
+    "success": true,   
+    "fee": 500000000         //5 ACC  
 }     
 ```   
    
@@ -1767,7 +1767,7 @@ JSON返回示例：
 接口说明：返回结果只是生成交易id，还需要其他人签名后该账户才能成功设置成多重签名账户。注册多重签名账户后任意一笔转账都需要多人签名，签名最少个数为min的值（含交易发起人自身）   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |publicKey|string  |N|公钥      |    
@@ -1780,7 +1780,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactionId|string  |多重签名交易的id      |    
@@ -1794,8 +1794,8 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactionId": "17620378998277022323"     //返回结果只是生成交易id，还需要其他人签名后该账户才能成功设置成多重签名账户   
+    "success": true,   
+    "transactionId": "17620378998277022323"     //返回结果只是生成交易id，还需要其他人签名后该账户才能成功设置成多重签名账户   
 }   
 ```   
    
@@ -1805,14 +1805,14 @@ JSON返回示例：
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey|string  |Y|公钥      |    
    
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactions|Array  |交易json组成的数组      |    
@@ -1826,32 +1826,32 @@ curl -k -X GET http://45.32.248.33:4096/api/multisignatures/pending?publicKey=2c
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactions": [{      //上一步中设置账户为多重签名交易的详情，transactionId: 17620378998277022323   
-		"min": 2,   
-		"lifetime": 1,   
-		"signed": true,   
-		"transaction": {   
-			"type": 4,      //4代表注册多重签名账户   
-			"amount": 0,   
-			"senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
-			"requesterPublicKey": null,   
-			"timestamp": 4879978,   
-			"asset": {   
-				"multisignature": {   
-					"min": 2,   
-					"keysgroup": ["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
-					"+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],   
-					"lifetime": 1   
-				}   
-			},   
-			"recipientId": null,   
-			"signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
-			"id": "17620378998277022323",   
-			"fee": 1500000000,   
-			"senderId": "3855903394839129841"   
-		}   
-	}]   
+    "success": true,   
+    "transactions": [{      //上一步中设置账户为多重签名交易的详情，transactionId: 17620378998277022323   
+        "min": 2,   
+        "lifetime": 1,   
+        "signed": true,   
+        "transaction": {   
+            "type": 4,      //4代表注册多重签名账户   
+            "amount": 0,   
+            "senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
+            "requesterPublicKey": null,   
+            "timestamp": 4879978,   
+            "asset": {   
+                "multisignature": {   
+                    "min": 2,   
+                    "keysgroup": ["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
+                    "+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],   
+                    "lifetime": 1   
+                }   
+            },   
+            "recipientId": null,   
+            "signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
+            "id": "17620378998277022323",   
+            "fee": 1500000000,   
+            "senderId": "3855903394839129841"   
+        }   
+    }]   
 }   
    
 ```   
@@ -1862,7 +1862,7 @@ JSON返回示例：
 支持格式：json   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |secondSecret|string|N|acchain账户二级密码，最小长度：1，最大长度：100|   
@@ -1872,7 +1872,7 @@ JSON返回示例：
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |transactionId|string  |多重签名交易id      |    
@@ -1886,39 +1886,39 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet 
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactionId": "17620378998277022323"   
+    "success": true,   
+    "transactionId": "17620378998277022323"   
 }   
 // 此时再次获取pending   
 curl -k -X GET http://45.32.248.33:4096/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 {   
-	"success": true,   
-	"transactions": [{   
-		"min": 2,   
-		"lifetime": 1,   
-		"signed": true,   
-		"transaction": {   
-			"type": 4,   
-			"amount": 0,   
-			"senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
-			"requesterPublicKey": null,   
-			"timestamp": 4879978,   
-			"asset": {   
-				"multisignature": {   
-					"min": 2,   
-					"keysgroup": ["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
-					"+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],   
-					"lifetime": 1   
-				}   
-			},   
-			"recipientId": null,   
-			"signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
-			"id": "17620378998277022323",   
-			"fee": 1500000000,   
-			"senderId": "3855903394839129841",   
-			"signatures": ["b38a161264db2a23e353d3fbc4983562f6343d5ee693144543ca54e2bc67c0f73d1c761b7bfa38b2bb101ac2ab0797b674b1a9964ccd400aaa310746c3494d03"]      //新生成的多重签名   
-		}   
-	}]   
+    "success": true,   
+    "transactions": [{   
+        "min": 2,   
+        "lifetime": 1,   
+        "signed": true,   
+        "transaction": {   
+            "type": 4,   
+            "amount": 0,   
+            "senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
+            "requesterPublicKey": null,   
+            "timestamp": 4879978,   
+            "asset": {   
+                "multisignature": {   
+                    "min": 2,   
+                    "keysgroup": ["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
+                    "+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],   
+                    "lifetime": 1   
+                }   
+            },   
+            "recipientId": null,   
+            "signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
+            "id": "17620378998277022323",   
+            "fee": 1500000000,   
+            "senderId": "3855903394839129841",   
+            "signatures": ["b38a161264db2a23e353d3fbc4983562f6343d5ee693144543ca54e2bc67c0f73d1c761b7bfa38b2bb101ac2ab0797b674b1a9964ccd400aaa310746c3494d03"]      //新生成的多重签名   
+        }   
+    }]   
 }   
    
 // 公钥为d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb的账户对该注册交易进行签名   
@@ -1930,26 +1930,26 @@ curl -k -X GET http://45.32.248.33:4096/api/multisignatures/pending?publicKey=2c
 // 查看该注册交易详情（该交易已广播并写入blockchain）,此时该账户已成功注册成为多重签名账户   
 curl -k -X GET http://45.32.248.33:4096/api/transactions/get?id=17620378998277022323   
 {   
-	"success": true,   
-	"transaction": {   
-		"id": "17620378998277022323",   //注册账户为多重签名用户的交易id   
-		"height": "157013",   
-		"blockId": "4680888982781013372",   
-		"type": 4,   
-		"timestamp": 4879978,   
-		"senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
-		"senderId": "3855903394839129841",   
-		"recipientId": "",   
-		"amount": 0,   
-		"fee": 1500000000,   
-		"signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
-		"signSignature": "",   
-		"signatures": null,   
-		"confirmations": "26",   
-		"asset": {   
-			   
-		}   
-	}   
+    "success": true,   
+    "transaction": {   
+        "id": "17620378998277022323",   //注册账户为多重签名用户的交易id   
+        "height": "157013",   
+        "blockId": "4680888982781013372",   
+        "type": 4,   
+        "timestamp": 4879978,   
+        "senderPublicKey": "2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd",   
+        "senderId": "3855903394839129841",   
+        "recipientId": "",   
+        "amount": 0,   
+        "fee": 1500000000,   
+        "signature": "a42feaccd9f2a4940fc0be1a1580e786b360f189db3154328f307988e75484293eae391f2f9eee489913cc6d15984eb1f5f5a0aa1bf78ea745d5c725f161af08",   
+        "signSignature": "",   
+        "signatures": null,   
+        "confirmations": "26",   
+        "asset": {   
+               
+        }   
+    }   
 }   
    
 ```   
@@ -1960,14 +1960,14 @@ curl -k -X GET http://45.32.248.33:4096/api/transactions/get?id=1762037899827702
 支持格式：urlencoded   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |多重签名参与者之一的公钥       |   
    
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据 |    
 |accounts|Array  |多重签名账户详情      |    
@@ -1981,25 +1981,25 @@ curl -k -X GET http://45.32.248.33:4096/api/multisignatures/accounts?publicKey=e
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"accounts": [{   
-		"address": "3855903394839129841",       //多重签名账户地址   
-		"balance": 18500000000,     //多重签名账户余额   
-		"multisignatures": ["eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
-		"d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],    //多重签名账户公钥   
-		"multimin": 2,  //最少签名个数   
-		"multilifetime": 1,   
-		"multisigaccounts": [{          //签名者账户详情   
-			"address": "13542769708474548631",   
-			"publicKey": "eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
-			"balance": 0   
-		},   
-		{   
-			"address": "4100816257782486230",   
-			"publicKey": "d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb",   
-			"balance": 0   
-		}]   
-	}]   
+    "success": true,   
+    "accounts": [{   
+        "address": "3855903394839129841",       //多重签名账户地址   
+        "balance": 18500000000,     //多重签名账户余额   
+        "multisignatures": ["eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
+        "d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"],    //多重签名账户公钥   
+        "multimin": 2,  //最少签名个数   
+        "multilifetime": 1,   
+        "multisigaccounts": [{          //签名者账户详情   
+            "address": "13542769708474548631",   
+            "publicKey": "eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97",   
+            "balance": 0   
+        },   
+        {   
+            "address": "4100816257782486230",   
+            "publicKey": "d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb",   
+            "balance": 0   
+        }]   
+    }]   
 }   
 ```   
 
@@ -2024,13 +2024,13 @@ payload为Acchain-js创建出来的交易数据
 #####**2.9.2.1 设置二级支付密码**   
 请求参数说明： 
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|Acchain-js.signature.createSignature生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
    
@@ -2050,19 +2050,19 @@ JSON返回示例：
 ```js  
 {
     "success":true  //二级密码设置成功
-}	
+}   
 ``` 
 
 #####**2.9.2.2 转账**   
 请求参数说明：  
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|Acchain-js.transaction.createTransaction生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
    
@@ -2089,19 +2089,19 @@ JSON返回示例：
 ```js  
 {
     "success":true  //转账成功
-}		
+}       
 ``` 
 
 #####**2.9.2.3 注册受托人**   
 请求参数说明： 
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|Acchain-js.delegate.createDelegate生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
    
@@ -2125,20 +2125,20 @@ JSON返回示例：
 ```js  
 {
     "success":true  //注册受托人成功
-}		
+}       
 ``` 
 
 #####**2.9.2.4 投票 & 取消投票**  
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|Acchain-js.vote.createVote生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
    
@@ -2166,7 +2166,7 @@ JSON返回示例：
 ```js  
 {
     "success":true  //投票&取消投票 成功
-}		
+}       
 ``` 
 
 ###**2.10 用户自定义资产uia**
@@ -2179,14 +2179,14 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
 |offset|integer|N|偏移量，最小值0|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |issuers|list|元素为字典，每个字典代表一个发行商，包含发行商名字、描述、id（acchain地址）|
@@ -2200,19 +2200,19 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"issuers": [{
-		"name": "zhenxi",
-		"desc": "注册资产发行商-测试",
-		"issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
-	},
-	{
-		"name": "speedtest",
-		"desc": "speedtest",
-		"issuerId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy"
-	}],
-	"count": 6
-}		
+    "success": true,
+    "issuers": [{
+        "name": "zhenxi",
+        "desc": "注册资产发行商-测试",
+        "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
+    },
+    {
+        "name": "speedtest",
+        "desc": "speedtest",
+        "issuerId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy"
+    }],
+    "count": 6
+}       
 ``` 
 
 #####**2.10.1.2 查询指定发行商的信息** 
@@ -2224,7 +2224,7 @@ JSON返回示例：
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |issuers|dict|包含发行商名字、描述、id（acchain地址）|
@@ -2237,13 +2237,13 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.acchain.org/api/u
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"issuer": {
-		"name": "zhenxi",
-		"desc": "注册资产发行商-测试",
-		"issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
-	}
-}		
+    "success": true,
+    "issuer": {
+        "name": "zhenxi",
+        "desc": "注册资产发行商-测试",
+        "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
+    }
+}       
 ``` 
 
 #####**2.10.1.3 查看指定发行商的资产** 
@@ -2253,7 +2253,7 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |name|string|Y|可以为发行商名称或acchain账户地址|
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
@@ -2261,7 +2261,7 @@ JSON返回示例：
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |assets|list|每个元素是一个字典，每个字典是一个资产详情，包含资产名字、描述、上限（最大发行量=真实发行量*10**精度）、精度、策略、当前发行量、发行高度、发行商id，acl模式（0：黑名单，1：白名单）、是否注销|
@@ -2277,8 +2277,8 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"assets": [{
+    "success": true,
+    "assets": [{
             "currency": "BTC",
             "name": "zhenxi.UIA",
             "desc": "注册资产-测试",
@@ -2290,9 +2290,9 @@ JSON返回示例：
             "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
             "acl": 0,
             "writeoff": 1
-	}],
-	"count": 1
-}		
+    }],
+    "count": 1
+}       
 ``` 
 
 #####**2.10.1.4 获取全网所有资产** 
@@ -2302,14 +2302,14 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
 |offset|integer|N|偏移量，最小值0|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |assets|list|每个元素是一个字典，每个字典是一个资产详情，包含资产名字、描述、上限、精度、策略、当前发行量、发行高度、发行商id，acl、是否注销|
@@ -2325,33 +2325,33 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"assets": [{
-		"name": "zhenxi.UIA",
-		"desc": "注册资产-测试",
-		"maximum": "10000000",
-		"precision": 3,
-		"strategy": "",
-		"quantity": "1000000",
-		"height": 301,
-		"issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
-		"acl": 0,
-		"writeoff": 1
-	},
-	{
-		"name": "speedtest.SPEED",
-		"desc": "测速",
-		"maximum": "10000",
-		"precision": 1,
-		"strategy": "",
-		"quantity": "10000",
-		"height": 380,
-		"issuerId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy",
-		"acl": 0,
-		"writeoff": 0
-	}],
-	"count": 13
-}		
+    "success": true,
+    "assets": [{
+        "name": "zhenxi.UIA",
+        "desc": "注册资产-测试",
+        "maximum": "10000000",
+        "precision": 3,
+        "strategy": "",
+        "quantity": "1000000",
+        "height": 301,
+        "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
+        "acl": 0,
+        "writeoff": 1
+    },
+    {
+        "name": "speedtest.SPEED",
+        "desc": "测速",
+        "maximum": "10000",
+        "precision": 1,
+        "strategy": "",
+        "quantity": "10000",
+        "height": 380,
+        "issuerId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy",
+        "acl": 0,
+        "writeoff": 0
+    }],
+    "count": 13
+}       
 ``` 
 
 #####**2.10.1.5 获取指定资产信息** 
@@ -2361,13 +2361,13 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |name|string|Y|资产名|例如TEST.ABC
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |assets|dict|包含资产名字、描述、上限、精度、策略、当前发行量、发行高度、发行商id，acl、是否注销|
@@ -2380,20 +2380,20 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"asset": {
-		"name": "zhenxi.UIA",
-		"desc": "注册资产-测试",
-		"maximum": "10000000",
-		"precision": 3,
-		"strategy": "",
-		"quantity": "1000000",
-		"height": 301,
-		"issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
-		"acl": 0,
-		"writeoff": 1
-	}
-}		
+    "success": true,
+    "asset": {
+        "name": "zhenxi.UIA",
+        "desc": "注册资产-测试",
+        "maximum": "10000000",
+        "precision": 3,
+        "strategy": "",
+        "quantity": "1000000",
+        "height": 301,
+        "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",
+        "acl": 0,
+        "writeoff": 1
+    }
+}       
 ``` 
 
 ##### **2.10.1.6 查询正在申请中的资产**
@@ -2527,7 +2527,7 @@ count: 1
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |name|string|Y|资产名|
 |flag|boole|Y|取值0和1，0表示黑名单，1表示白名单|
@@ -2536,7 +2536,7 @@ count: 1
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |list|list|符合规则的账户列表|
@@ -2552,15 +2552,15 @@ curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"list": [{
-		"address": "15745540293890213312"
-	},
-	{
-		"address": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
-	}],
-	"count": 2
-}		
+    "success": true,
+    "list": [{
+        "address": "15745540293890213312"
+    },
+    {
+        "address": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
+    }],
+    "count": 2
+}       
 ``` 
 
 #####**2.10.1.10 获取某个地址拥有的所有资产信息** 
@@ -2572,14 +2572,14 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
 |offset|integer|N|偏移量，最小值0|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |balances|list|拥有的资产详情列表，每个元素是一个资产，包含资产符号、资产名、余额、上限、精度、当前发行量、是否注销（0：未注销，1：已注销）|
@@ -2593,8 +2593,8 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/b
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"balances": [{
+    "success": true,
+    "balances": [{
             "currency": "zhenxi.UIA",
             "name":"UIA",
             "balance": "900000",
@@ -2602,17 +2602,17 @@ JSON返回示例：
             "precision": 3,
             "quantity": "1000000",
             "writeoff": 1
-	},
-	{
+    },
+    {
             "currency": "speedtest.SPEED",
             "balance": "400",
             "maximum": "10000",
             "precision": 1,
             "quantity": "10000",
             "writeoff": 0
-	}],
-	"count": 2
-}		
+    }],
+    "count": 2
+}       
 ```
 
 #####**2.10.1.11 获取资产交易记录** 
@@ -2622,7 +2622,7 @@ JSON返回示例：
 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |limit|integer|N|限制结果集个数，最小值：0,最大值：100|
 |offset|integer|N|偏移量，最小值0|
@@ -2630,7 +2630,7 @@ JSON返回示例：
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 |transactions|list|交易列表，每个元素是一个字典代表一次交易，包含交易id、区块高度、区块id、交易类型、时间戳、发送者公钥、发送者id、接收者id（系统为空，如资产注册）、交易数量（资产交易都为0）、手续费0.1ACC、签名、多重签名、确认数、资产信息（包含发行商id、发行商名字、描述）、交易id。|
@@ -2644,57 +2644,57 @@ curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/
 JSON返回示例：   
 ```js  
 {
-	"success": true,
-	"transactions": [{
-		"id": "12372526051670720162",   // 交易id
-		"height": "286",    // 交易所在区块高度
-		"blockId": "14863181420651287815",  // 交易所在区块id
-		"type": 9,  // 交易类型
-		"timestamp": 17597873,  // 交易时间，举例创世块的offset
-		"senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",  // 交易发起者公钥
-		"senderId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",   // 交易发起者id
-		"recipientId": "",  //  接收者id，如果是系统则为空
-		"amount": 0,    //  交易数量，如果是资产或者ACC则为非0，否则为0
-		"fee": 10000000,    // 交易费
-		"signature": "6a1e66387f610de5a89489105697082037b82bff4fb6f95f9786304176efe59f7d41e8fe9c5501e1b0b34a47e957a38e10e940fdb180f8ebcaf0ac062a63c601", // 交易签名
-		"signSignature": "",    // 二级签名，有二级密码时才有
-		"signatures": null, // 多重签名，使用多重签名账户时才有
-		"confirmations": "155998",  // 交易确认数
-		"asset": {
-			"uiaIssuer": {
-				"transactionId": "12372526051670720162",    // 交易id
-				"name": "zhenxi",   // 发行商名字
-				"desc": "注册资产发行商-测试"   // 发行商描述
-			}
-		},
-		"t_id": "12372526051670720162"  // 交易id
-	},
-	{
-		"id": "17308768226103450697",
-		"height": "371",
-		"blockId": "244913990990213995",
-		"type": 9,
-		"timestamp": 17598730,
-		"senderPublicKey": "7bd645f9626820d390311fb28dc30875e8bd26cce2d04ba2809df82e84088020",
-		"senderId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy",
-		"recipientId": "",
-		"amount": 0,
-		"fee": 10000000,
-		"signature": "6ea76ff6f58f1bc99d6b40ece45e371948db58a68f6fa41e13b34ff86bbf1f0bea53d6afe982562392861727f879205efc7d1342f6e963028985e243a94e5507",
-		"signSignature": "",
-		"signatures": null,
-		"confirmations": "155913",
-		"asset": {
-			"uiaIssuer": {
-				"transactionId": "17308768226103450697",
-				"name": "speedtest",
-				"desc": "speedtest"
-			}
-		},
-		"t_id": "17308768226103450697"
-	}],
-	"count": 58
-}		
+    "success": true,
+    "transactions": [{
+        "id": "12372526051670720162",   // 交易id
+        "height": "286",    // 交易所在区块高度
+        "blockId": "14863181420651287815",  // 交易所在区块id
+        "type": 9,  // 交易类型
+        "timestamp": 17597873,  // 交易时间，举例创世块的offset
+        "senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",  // 交易发起者公钥
+        "senderId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",   // 交易发起者id
+        "recipientId": "",  //  接收者id，如果是系统则为空
+        "amount": 0,    //  交易数量，如果是资产或者ACC则为非0，否则为0
+        "fee": 10000000,    // 交易费
+        "signature": "6a1e66387f610de5a89489105697082037b82bff4fb6f95f9786304176efe59f7d41e8fe9c5501e1b0b34a47e957a38e10e940fdb180f8ebcaf0ac062a63c601", // 交易签名
+        "signSignature": "",    // 二级签名，有二级密码时才有
+        "signatures": null, // 多重签名，使用多重签名账户时才有
+        "confirmations": "155998",  // 交易确认数
+        "asset": {
+            "uiaIssuer": {
+                "transactionId": "12372526051670720162",    // 交易id
+                "name": "zhenxi",   // 发行商名字
+                "desc": "注册资产发行商-测试"   // 发行商描述
+            }
+        },
+        "t_id": "12372526051670720162"  // 交易id
+    },
+    {
+        "id": "17308768226103450697",
+        "height": "371",
+        "blockId": "244913990990213995",
+        "type": 9,
+        "timestamp": 17598730,
+        "senderPublicKey": "7bd645f9626820d390311fb28dc30875e8bd26cce2d04ba2809df82e84088020",
+        "senderId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy",
+        "recipientId": "",
+        "amount": 0,
+        "fee": 10000000,
+        "signature": "6ea76ff6f58f1bc99d6b40ece45e371948db58a68f6fa41e13b34ff86bbf1f0bea53d6afe982562392861727f879205efc7d1342f6e963028985e243a94e5507",
+        "signSignature": "",
+        "signatures": null,
+        "confirmations": "155913",
+        "asset": {
+            "uiaIssuer": {
+                "transactionId": "17308768226103450697",
+                "name": "speedtest",
+                "desc": "speedtest"
+            }
+        },
+        "t_id": "17308768226103450697"
+    }],
+    "count": 58
+}       
 ```
 
 
@@ -2805,13 +2805,13 @@ var secondSecret = 'erjimima001'
 ######**2.10.2.2 注册资产发行商**
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createIssuer根据发行商名字、描述、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -2833,19 +2833,19 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-{"success":true}		
+{"success":true}        
 ```
 
 #####**2.10.2.3 注册资产** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createAsset根据资产名字、描述、上限、精度、策略、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -2904,7 +2904,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-{"success":true}		
+{"success":true}        
 ```
 
 ####** 2.10.3 资产（UIA）投票**
@@ -2954,13 +2954,13 @@ JSON返回示例：
 #####**2.10.4.1 资产设置acl模式** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createFlags根据资产名、流通状态、黑白名单模式、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -2982,19 +2982,19 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-{"success":true}		
+{"success":true}        
 ```
 
 #####**2.10.4.2 更新访问控制列表（acl）** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createAcl根据资产名字、列表操作方法、黑名单还是白名单、地址列表、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -3021,11 +3021,11 @@ JSON返回示例：
 // 查询更新后的列表（acl/1代表白名单）
 curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/assets/IssuerName.CNY/acl/1?limit=10&offset=0' && echo
 {
-	"success": true,
-	"list": [{
-		"address": "15745540293890213312"
-	}],
-	"count": 1
+    "success": true,
+    "list": [{
+        "address": "15745540293890213312"
+    }],
+    "count": 1
 }
 ```
 
@@ -3033,13 +3033,13 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 #####**2.10.5.1 资产发行** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createIssuer根据发行商名字、描述、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -3058,19 +3058,19 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-		
+        
 ```
 
 #####**2.10.5.2 资产转账** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createTransfer根据资产名字、数量、接收者地址、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -3092,19 +3092,19 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-{"success":true}		
+{"success":true}        
 ```
  
 #####**2.10.5.3 资产注销** 
 请求参数说明：
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createFlags根据资产名字、注销状态、黑白名单模式、一级密码、二级密码生成的交易数据|
 
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
@@ -3125,7 +3125,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
    
 JSON返回示例：   
 ```js  
-{"success":true}		
+{"success":true}        
 ```  
 
 #### **2.10.6 查询资产投票**
@@ -3233,7 +3233,7 @@ attrs表示商品分类名称，可能有多种语言的翻译，第一个是中
 接口备注：创建者账户需在web端钱包登陆过   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |secondSecret|string|N|发送者二级密码，最小长度1，最大长度：100|   
@@ -3244,7 +3244,7 @@ attrs表示商品分类名称，可能有多种语言的翻译，第一个是中
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据。|    
 |transactionId|string  |交易id      |    
@@ -3262,8 +3262,8 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"motion group b
 JSON返回示例：   
 ```js   
 {   
-	"success": true,   
-	"transactionId": "16670272591943275531"   
+    "success": true,   
+    "transactionId": "16670272591943275531"   
 }   
 ```  
 
@@ -3273,13 +3273,13 @@ JSON返回示例：
 支持格式：urlencode   
 请求参数说明：   
 
-|名称	|类型   |必填 |说明              |   
+|名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |id |string |Y    |交易id    |   
    
 返回参数说明：   
 
-|名称	|类型   |说明              |   
+|名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功获得response数据。|    
 |id|string  |交易id      |    
@@ -3293,26 +3293,26 @@ curl -k -H "Content-Type: application/json" -X GET http://localhost:4096/api/sto
 JSON返回示例：   
 ```js   
 {
-	"success": true,
-	"id": "eddc48691269e653c5ec6f077ebf7c87aa3e6fb8ec295987366e6661de067da8",   // 交易id
-	"height": "180182", // 交易所在区块高度
-	"blockId": "b59e579a002297557003856fd4cc2b10ac72d3384a5d2a8aece5f906019d79ab",  // 交易所在区块id
-	"type": 8,  // 交易类型
-	"timestamp": 19552678,  // 交易时间，举例创世块的offset
-	"senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   // 上传者公钥
-	"senderId": "16358246403719868041", // 上传者id
-	"recipientId": "",
-	"amount": 0,
-	"fee": 10000000,    // 交易费。0.1ACC
-	"signature": "8a8a256ab16c9cc966f2b975cf5ce39f13f4f13ae4a60f8c6bdfbe94e2e4ee4cb79c3be80630a5c15289d7e959e50dba5f711e9956781b150185ca9d8519f50b", // 交易签名
-	"signSignature": "46431039f7e15f3147ca6991e6b46a856741b8566aeb54af97dd73d8d3e03b69eb74693c87d4ce1ef4aa2fb69d56c710681494a013fcf747de24d7ea4e79740f", // 二级签名，有二级密码时才有
-	"signatures": null, // 多重签名，使用多重签名账户时才有
-	"confirmations": "68",  // 交易确认数
-	"asset": {
-		"storage": {
-			"content": "68656c6c6f776f726c64"   // 数据内容，16进制字符串
-		}
-	}
+    "success": true,
+    "id": "eddc48691269e653c5ec6f077ebf7c87aa3e6fb8ec295987366e6661de067da8",   // 交易id
+    "height": "180182", // 交易所在区块高度
+    "blockId": "b59e579a002297557003856fd4cc2b10ac72d3384a5d2a8aece5f906019d79ab",  // 交易所在区块id
+    "type": 8,  // 交易类型
+    "timestamp": 19552678,  // 交易时间，举例创世块的offset
+    "senderPublicKey": "fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575",   // 上传者公钥
+    "senderId": "16358246403719868041", // 上传者id
+    "recipientId": "",
+    "amount": 0,
+    "fee": 10000000,    // 交易费。0.1ACC
+    "signature": "8a8a256ab16c9cc966f2b975cf5ce39f13f4f13ae4a60f8c6bdfbe94e2e4ee4cb79c3be80630a5c15289d7e959e50dba5f711e9956781b150185ca9d8519f50b", // 交易签名
+    "signSignature": "46431039f7e15f3147ca6991e6b46a856741b8566aeb54af97dd73d8d3e03b69eb74693c87d4ce1ef4aa2fb69d56c710681494a013fcf747de24d7ea4e79740f", // 二级签名，有二级密码时才有
+    "signatures": null, // 多重签名，使用多重签名账户时才有
+    "confirmations": "68",  // 交易确认数
+    "asset": {
+        "storage": {
+            "content": "68656c6c6f776f726c64"   // 数据内容，16进制字符串
+        }
+    }
 }  
 // 将得到的16进制（hex）格式的字符串"68656c6c6f776f726c64"转为文本字符串正好是"helloworld"
 console.log(new Buffer('68656c6c6f776f726c64','hex').toString());
@@ -3325,4 +3325,3 @@ acchain系统的所有写操作都是通过发起一个交易来完成的。
 交易数据通过一个叫做acchain-js的库来创建，然后再通过一个POST接口发布出去   
 **库安装**   
 npm install acchain-js   
-   
