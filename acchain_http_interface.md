@@ -103,7 +103,7 @@ Table of Contents
         * [<strong>2.11 存储storages</strong>](#211-存储storages)
             * [<strong>2.11.1 上传数据</strong>](#2111-上传数据)
             * [<strong>2.11.2 查询存储的数据</strong>](#2112-查询存储的数据)
-     * [<strong>附录1：acchain-js安装</strong>](#附录1acchain-js安装)
+     * [<strong>附录1：acchain-js安装</strong>](#附录1AcchainJS安装)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
@@ -149,7 +149,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 请求示例：   
   
 ```js
-var acchainJS = require('Acchain-js');  //acchain-js具体安装方法见附录 
+var acchainJS = require('AcchainJS');  //AcchainJS具体安装方法见附录 
 var publicKey = AcchainJS.crypto.getKeys(secret).publicKey;  //根据密码生成公钥 
 // var address = AcchainJS.crypto.getAddress(publicKey);   //根据公钥生成地址
 
@@ -2013,10 +2013,10 @@ JSON返回示例：
 
 #### **2.9.2 交易**   
 acchain系统的所有写操作都是通过发起一个交易来完成的。 
-交易数据通过一个叫做Acchain-js的库来创建，然后再通过一个POST接口发布出去
+交易数据通过一个叫做AcchainJS的库来创建，然后再通过一个POST接口发布出去
 
 POST接口规格如下：
-payload为Acchain-js创建出来的交易数据
+payload为AcchainJS创建出来的交易数据
 接口地址：/peer/transactions  
 请求方式：post   
 支持格式：json  
@@ -2026,7 +2026,7 @@ payload为Acchain-js创建出来的交易数据
 
 |名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|Acchain-js.signature.createSignature生成的交易数据|
+|transaction|json|Y|AcchainJS.signature.createSignature生成的交易数据|
 
 返回参数说明：   
 
@@ -2037,8 +2037,8 @@ payload为Acchain-js创建出来的交易数据
    
 请求示例：   
 ```js   
-var acchain = require('Acchain-js');    
-var transaction = Acchain.signature.createSignature('measure bottom stock hospital calm hurdle come banner high edge foster cram','erjimimashezhi001')       
+var acchain = require('AcchainJS');    
+var transaction = AcchainJS.signature.createSignature('measure bottom stock hospital calm hurdle come banner high edge foster cram','erjimimashezhi001')       
 console.log(JSON.stringify(transaction))  
 {"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}   
 
@@ -2058,7 +2058,7 @@ JSON返回示例：
 
 |名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|Acchain-js.transaction.createTransaction生成的交易数据|
+|transaction|json|Y|AcchainJS.transaction.createTransaction生成的交易数据|
 
 返回参数说明：   
 
@@ -2069,7 +2069,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-var acchain = require('Acchain-js');   
+var acchain = require('AcchainJS');   
 var targetAddress = "16358246403719868041";  
 var amount = 100*100000000;   //100 ACC  
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
@@ -2077,7 +2077,7 @@ var secondPassword  = 'erjimimashezhi001';
 
 // 其中password是在用户登录的时候记录下来的，secondPassword需要每次让用户输入
 // 可以通过user.secondPublicKey来判断用户是否有二级密码，如果没有，则不必输入，以下几个交易类型类似
-var transaction = Acchain.transaction.createTransaction(targetAddress, amount, password, secondPassword || undefined);       
+var transaction = AcchainJS.transaction.createTransaction(targetAddress, amount, password, secondPassword || undefined);       
 JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
@@ -2097,7 +2097,7 @@ JSON返回示例：
 
 |名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|Acchain-js.delegate.createDelegate生成的交易数据|
+|transaction|json|Y|AcchainJS.delegate.createDelegate生成的交易数据|
 
 返回参数说明：   
 
@@ -2108,12 +2108,12 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-var acchain = require('Acchain-js');   
+var acchain = require('AcchainJS');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 var userName = 'zhenxi_test';  
 
-var transaction = Acchain.delegate.createDelegate(password, userName, secondPassword || undefined);   
+var transaction = AcchainJS.delegate.createDelegate(password, userName, secondPassword || undefined);   
 JSON.stringify(transaction)  
 '{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}'
 
@@ -2134,7 +2134,7 @@ JSON返回示例：
 
 |名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
-|transaction|json|Y|Acchain-js.vote.createVote生成的交易数据|
+|transaction|json|Y|AcchainJS.vote.createVote生成的交易数据|
 
 返回参数说明：   
 
@@ -2145,7 +2145,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-var acchain = require('Acchain-js');   
+var acchain = require('AcchainJS');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
 // 投票内容是一个列表，列表中的每一个元素是一个符号加上所选择的受托人的公钥，符号为+表示投票，符号为-表示取消投票
@@ -2154,7 +2154,7 @@ var voteContent = [
     '+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2'
 ];
 
-var transaction = Acchain.vote.createVote(password, voteContent, secondPassword || undefined);
+var transaction = AcchainJS.vote.createVote(password, voteContent, secondPassword || undefined);
 JSON.stringify(transaction)
 {"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}
 
@@ -2194,7 +2194,7 @@ JSON返回示例：
 
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096/api/uia/issuers?offset=0&limit=1' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers?offset=0&limit=1' && echo
 ```   
    
 JSON返回示例：   
@@ -2231,7 +2231,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://tnode.acchain.org/api/uia/issuers/zhenxi' && echo
+curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api/uia/issuers/zhenxi' && echo
 ```   
    
 JSON返回示例：   
@@ -2271,7 +2271,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
 ```   
    
 JSON返回示例：   
@@ -2319,7 +2319,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096/api/uia/assets?offset=0&limit=2' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets?offset=0&limit=2' && echo
 ```   
    
 JSON返回示例：   
@@ -2374,7 +2374,7 @@ JSON返回示例：
    
 请求示例：   
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.so:4096/api/uia/assets/zhenxi.UIA' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.UIA' && echo
 ```   
    
 JSON返回示例：   
@@ -2786,16 +2786,16 @@ type=14
 ####**2.10.2 创建资产（UIA）交易**
 #####**2.10.2.1 创建资产（UIA）交易** 
 acchain系统的所有写操作都是通过发起一个交易来完成的。 
-交易数据通过一个叫做acchain-js的库来构建，然后再通过一个POST接口发布出去。
+交易数据通过一个叫做AcchainJS的库来构建，然后再通过一个POST接口发布出去。
 
 POST接口规格如下：
-payload为acchain-js创建出来的交易数据
+payload为AcchainJS创建出来的交易数据
 接口地址：/peer/transactions  
 请求方式：post   
 支持格式：json  
 公用变量：
 ```
-var acchainJS = require('Acchain-js');
+var acchainJS = require('AcchainJS');
 // 一级密码
 var secret = 'motion group blossom coral upper warrior pattern fragile sister misery palm detect'
 // 二级密码
@@ -3325,3 +3325,4 @@ acchain系统的所有写操作都是通过发起一个交易来完成的。
 交易数据通过一个叫做acchain-js的库来创建，然后再通过一个POST接口发布出去   
 **库安装**   
 npm install acchain-js   
+
