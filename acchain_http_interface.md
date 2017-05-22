@@ -61,13 +61,13 @@ Table of Contents
             * [<strong>2.8.2 获取挂起的多重签名交易详情</strong>](#282-获取挂起的多重签名交易详情)
             * [<strong>2.8.3 非交易发起人对交易进行多重签名</strong>](#283-非交易发起人对交易进行多重签名)
             * [<strong>2.8.4 获取多重签名账户信息</strong>](#284-获取多重签名账户信息)
-        * [<strong>2.9 点对点传输tansport[安全的api]</strong>](#29-点对点传输tansport安全的api)
+        * [<strong>2.9 点对点传输tansport[安全的api]</strong>](#29-点对点传输tansport[安全的api])
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
             	* [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
             	* [<strong>2.9.2.2 转账</strong>](#2922-转账)
             	* [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
-            	* [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票--取消投票)
+				* [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票和取消投票)
         * [<strong>2.10 用户自定义资产uia</strong>](#210-用户自定义资产uia)
             * [<strong>2.10.1 获取资产（UIA）信息</strong>](#2101-获取资产（UIA）信息)
             	* [<strong>2.10.1.1 获取全网所有发行商</strong>](#21011-获取全网所有发行商)
@@ -110,8 +110,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ---
  
-##**1 API使用说明**   
-###**1.1 请求过程说明**   
+## **1 API使用说明**   
+### **1.1 请求过程说明**   
 
     1. 构造请求数据，用户数据按照Acchain提供的接口规则，通过程序生成签名，生成请求数据集合；       
     2. 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
@@ -119,7 +119,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
     4. 返回响应结果数据，acchain把响应结果以JSON的格式反馈给用户，每个响应都包含success字段，表示请求是否成功，成功为true, 失败为false。 如果失败，则还会包含一个error字段，表示错误原因；       
     5. 对获取的返回结果数据进行处理；
 
-###**1.2 接口说明** 
+### **1.2 接口说明** 
     1. 接口地址中带:的字段为变量名, 调用时需要将变量替换成具体的值， 例如接口地址为/api/uia/balances/:address，:address为实际的地址，实际请求时的接口地址为/api/uia/balances/A21DabNVZ4LFZBSWjcoNsLfpDKdhqqoMqB       
    
 
