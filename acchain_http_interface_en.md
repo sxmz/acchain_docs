@@ -460,6 +460,7 @@ JSON Response Example:
 ```   
    
 #### 2.1.9 Get the top 100 accounts
+
 Interface Address: /api/accounts/top
 Request Method: get
 Supported Format: none
