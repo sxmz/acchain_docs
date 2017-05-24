@@ -462,7 +462,7 @@ JSON Response Example:
 #### 2.1.9 Get the top 100 accounts
 Interface Address: /api/accounts/top  
 Request Method: get 
-Supported Format: none   
+Supported Format: none
 Request Parameter Description: if no parameters are passed, it will return top 100 accounts info
   
 |Name	|Type   |Required |Description              |   
