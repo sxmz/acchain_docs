@@ -20,6 +20,7 @@ Table of Contents
         * [2.1.6 Get Voting List by Address](#216-get-voting-list-by-address)
         * [2.1.7 Get the Fee of Given Delegate](#217-get-the-fee-of-given-delegate)
         * [2.1.8 Voting](#218-voting)
+	* [2.1.9 Get the top 100 accounts](#219-get_the_top_100_accounts)
       * [2.2 Transactions](#22-transactions)
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
@@ -457,7 +458,66 @@ JSON Response Example:
 	}
 }  
 ```   
-   
+   
+####  2.1.9 Get the top 100 accounts
+Interface Address: /api/accounts/top
+Request Method: get
+Supported Format: none
+Request Parameter Description: if no parameters are passed, it will return top 100 accounts info
+
+|Name	|Type   |required |Description  |    
+|------ |-----  |-----  |-----  |   
+|limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
+|offset |integer  | N  |offset, minimum 0   |
+
+Response Parameter Description: 
+ 
+|Name	|Type   |Description              |   
+|------ |-----  |----              |   
+|success|bool  |true: response data return successfully |    
+|accounts|json  |accounts info array, including "address", "balance", "publicKey" |    
+
+Request Example:
+
+```js
+curl -k -X GET 'http://45.32.248.33:4096/api/accounts/top?limit=5&offset=0'  //return 5 accounts info 
+```
+
+Return JSON example:
+
+```js
+{
+    "success": true,
+    "accounts": [{
+        "address": "355198157736313687",
+        "balance": 4400099900000000,        //44000999 ACC
+        "publicKey": "0b8e120db026d58cbf9d3f392f88eefe3a82a0a3023298b9466d7ed64ff05881"
+    },
+    {
+        "address": "3196144307608101364",
+        "balance": 3750000020000000,
+        "publicKey": "988eb82a603dd033f94a4f3b6f9f9ef4a7d3d066607c433e5255d50ea7270720"
+    },
+    {
+        "address": "9248745407080572308",
+        "balance": 988703397029757,
+        "publicKey": "02cedc56da08099532e312c5e563e2859bc5b93cc594eb3e5d350f368d681988"
+    },
+    {
+        "address": "15745540293890213312",
+        "balance": 498186229718623,
+        "publicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3"
+    },
+    {
+        "address": "8812460086240160222",
+        "balance": 100704426831866,
+        "publicKey": "0af92cc32f54d50dd83c4f7de14e71223a57843a40e993bc0813454aa9270053"
+    }
+}    
+```
+
+
+
 ### 2.2 Transactions   
 #### 2.2.1 Get the Transaction Detail Information   
 Interface Address: /api/transactions   
