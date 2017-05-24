@@ -21,6 +21,7 @@ Table of Contents
         * [2.1.7 Get the Fee of Given Delegate](#217-get-the-fee-of-given-delegate)
         * [2.1.8 Voting](#218-voting)
 	* [2.1.9 Get the top 100 accounts](#219-get_the_top_100_accounts)
+	
       * [2.2 Transactions](#22-transactions)
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
