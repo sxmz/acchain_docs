@@ -68,19 +68,20 @@ Table of Contents
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
         
 ---
-##1 API Usage Guide
-###1.1 Request Process Overview
+
+## 1 API Usage Guide
+### 1.1 Request Process Overview
 - **Generate request data:** according the interface specification provided by Acchain system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called Acchain-js to create signature. see [2.9 Peer to Peer transportation](#29-peer-to-peer-transportation) for detail).
 - **Send request data:** transfer the generated data object to acchain  platform through POST/GET method upon HTTP
 - **Acchain system handles the data object:** after receiving the data object, acchain server will validate the data firstly, then deal with it.
 - **Return the response data:** acchain system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
 - **Client handles the response data**
 
-##2 Interface   
-###2.1 Accounts   
+## 2 Interface   
+### 2.1 Accounts   
    
-####2.1.1 Login   
-#####2.1.1.1 Login after locally encrypt (recommended)   
+#### 2.1.1 Login   
+##### 2.1.1.1 Login after locally encrypt (recommended)   
 Interface Address: /api/accounts/open2/   
 Request Type: post   
 Supported Format: json   
