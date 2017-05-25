@@ -95,12 +95,9 @@ Table of Contents
         * [2.10.5.1 Assets Issue](#21051-assets-issue)
         * [2.10.5.2 Assets Transfer](#21052-assets-transfer)
         * [2.10.5.3 Assets Flags](#21053-assets-flags)
-      * [2.10.6 Get Assets Voters](#2106-get-voters-by-asset's-currency)
-        * [2.10.6.1 Get voters by asset's currency](#21061-get-voters-by-asset's-currency)
-        * [2.10.6.2 Get voters for issues](#21062-get-voters-for-issues)
-      * [2.10.7 Get Assets Category](#2107-get-assets-category)
-        * [2.10.7.1 Get First Category](#21071-get-first-category)
-        * [2.10.7.2 Get Category By id](#21072-get-category-by-id)
+      * [2.10.6 Get Assets Category](#2106-get-assets-category)
+        * [2.10.6.1 Get First Category](#21061-get-first-category)
+        * [2.10.6.2 Get Category By id](#21062-get-category-by-id)
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
         
 ---
@@ -3189,6 +3186,12 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
+- JSON Response Example:
+
+```js
+{"success":true,"transactionId":"ffd7500b944451adfaea20578a9ecab382e66dc8a11358901dfa8456c4aaa91d"}
+```
+
 ##### 2.10.5.2 Assets Transfer
 ---
 - Request Parameter Description:
@@ -3260,51 +3263,10 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 {"success":true}   
 ```
 
-#### 2.10.6 Get Assets Voters
-##### 2.10.6.1 Get voters by asset's currency
----
-- Interface Address: /api/uia/assets/:currency/voters
-    - `currency` is the symbol of the assets, for example: TEST.ABC
-- Request Methods: get
-- JSON Response Example:
 
-```js
-{
-    "success": true,
-    "voters": [
-        {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
-        }
-    ],
-  "count": 9
-}
-```
+#### 2.10.6 Get Assets Category
 
-##### 2.10.6.2 Get voters for issues 
----
-- Interface Address: /api/uia/issues/:id/voters
-    - `id` is a transaction from previous interface.
-- Request Methods: post
-- JSON Response Example:
-
-```js
-{
-    "success": true,
-    "voters": [
-        {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
-        }
-    ],
-  "count": 9
-}
-```
-
-
-#### 2.10.7 Get Assets Category
-
-##### 2.10.7.1 Get First Category
+##### 2.10.6.1 Get First Category
 ---
 - Interface Address: /api/uia/categories/0
 - Request Methods: get
@@ -3329,7 +3291,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 }
 ```
 
-##### 2.10.7.2 Get Category By id
+##### 2.10.6.2 Get Category By id
 ---
 - Interface Address: /api/uia/categories/:id
     - `id` is the previous number.
