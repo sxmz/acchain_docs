@@ -82,9 +82,25 @@ Table of Contents
           * [2.10.1.9 Get the assets access control lists](#21019-get-the-assets-access-control-lists)
           * [2.10.1.10 Get all the assets info of gave address](#210110-get-all-the-assets-info-of-gave-address)
           * [2.10.1.11 Get transactions](#210111-get-transactions)
-      * [2.10 User Identify Assets](#210-user-identify-assets)
-      * [2.10 User Identify Assets](#210-user-identify-assets)
-        * [2.10 User Identify Assets](#210-user-identify-assets)
+      * [2.10.2 Create UIA Transaction](#2102-create-UIA-transaction)
+        * [2.10.2.1 Create Issuer](#2.10.2.1-create-issuer)
+        * [2.10.2.2 Register Assets](#2.10.2.2-register-assets)
+      * [2.10.3 UIA Vote](#2103-UIA-vote)
+        * [2.10.3.1 Get voters by asset's currency](#21031-get-voters-byasset's-currency)
+        * [2.10.3.2 Get voters for issues](#21032-get-voters-for-issues)
+      * [2.10.4 UIA Control](#2104-UIA_control)
+        * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
+        * [2.10.4.2 Update acl lists](#21042-Update-acl-lists)
+      * [2.10.5 UIA Operation](#2105-UIA-operation)
+        * [2.10.5.1 Assets Issue](#21051-assets-issue)
+        * [2.10.5.2 Assets Transfer](#21052-assets-transfer)
+        * [2.10.5.3 Assets Flags](#21053-assets-flags)
+      * [2.10.6 Get Assets Voters](#2106-get-voters-by-asset's-currency)
+        * [2.10.6.1 Get voters by asset's currency](#21061-get-voters-by-asset's-currency)
+        * [2.10.6.2 Get voters for issues](#21062-get-voters-for-issues)
+      * [2.10.7 Get Assets Category](#2107-get-assets-category)
+        * [2.10.7.1 Get First Category](#21071-get-first-category)
+        * [2.10.7.2 Get Category By id](#21072-get-category-by-id)
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
         
 ---
@@ -3244,7 +3260,8 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 {"success":true}   
 ```
 
-#### 2.10.6 Get voters by asset's currency
+#### 2.10.6 Get Assets Voters
+##### 2.10.6.1 Get voters by asset's currency
 ---
 - Interface Address: /api/uia/assets/:currency/voters
     - `currency` is the symbol of the assets, for example: TEST.ABC
