@@ -2784,27 +2784,13 @@ type=14
 ```
    
 #### **2.10.2 创建资产（UIA）交易**
-##### **2.10.2.1 创建资产（UIA）交易** 
-acchain系统的所有写操作都是通过发起一个交易来完成的。 
-交易数据通过一个叫做AcchainJS的库来构建，然后再通过一个POST接口发布出去。
+###### **2.10.2.1 注册资产发行商**
+---
+- 请求方式: get
+- 请求路径: /peer/transactions
+- JSON返回实例:
 
-POST接口规格如下：
-payload为AcchainJS创建出来的交易数据
-接口地址：/peer/transactions  
-请求方式：post   
-支持格式：json  
-公用变量：
-```
-var acchainJS = require('AcchainJS');
-// 一级密码
-var secret = 'motion group blossom coral upper warrior pattern fragile sister misery palm detect'
-// 二级密码
-var secondSecret = 'erjimima001'
-```
-
-###### **2.10.2.2 注册资产发行商**
 请求参数说明：
-
 |名称 |类型   |必填 |说明              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|AcchainJS.uia.createIssuer根据发行商名字、描述、一级密码、二级密码生成的交易数据|
@@ -2836,7 +2822,13 @@ JSON返回示例：
 {"success":true}        
 ```
 
-##### **2.10.2.3 注册资产** 
+##### **2.10.2.2 注册资产** 
+---
+请求方式：post
+接口地址：/peer/transactions     
+支持格式：json  
+公用变量：
+```
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -2848,8 +2840,18 @@ JSON返回示例：
 |名称 |类型   |说明              |   
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
+var acchainJS = require('AcchainJS');
+// 一级密码
+var secret = 'motion group blossom coral upper warrior pattern fragile sister misery palm detect'
+// 二级密码
+var secondSecret = 'erjimima001'
 
-   
+acchain系统的所有写操作都是通过发起一个交易来完成的。 
+交易数据通过一个叫做AcchainJS的库来构建，然后再通过一个POST接口发布出去。
+
+POST接口规格如下：
+payload为AcchainJS创建出来的交易数据
+
 请求示例：   
 ```js   
 var extra = {
