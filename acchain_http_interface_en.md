@@ -3,7 +3,7 @@
 Table of Contents
 =================
 
-  * [Acchain-HTTP Interface Specification](#Acchain-http-interface-specification)
+  * [Acchain-HTTP Interface Specification](#Acchain-http-interface-specification)
   * [Index](#index)
     * [<a href="#appendix-1-install-Acchain-js-library">Appendix 1ï¼š Install 'Acchain-js' library</a>](#-appendix-1-install-Acchain-js-library)
     * [1 API Usage Guide](#1-api-usage-guide)
@@ -66,8 +66,24 @@ Table of Contents
           * [2.9.2.2 Transfer Money](#2922-transfer-money)
           * [2.9.2.3 Register Delegates](#2923-register-delegates)
           * [2.9.2.4 Vote and Cancel the vote](#2924-vote-and-cancel-the-vote)
+      * [2.10 User Identify Assets](#210-user-identify-assets)
+        * [2.10.1 Get assets info](#2101-get-assets-info)
+          * [2.10.1.1 Get all issuers](#21011-get-all-issuers)
+          * [2.10.1.2 Get the issuer's info](#21012-get-all-issuers=info)
+          * [2.10.1.3 Get the issuer's assets](#21012-get-the-issuers-assets)
+          * [2.10.1.4 Get all assets](#21014-get-all-assets)
+          * [2.10.1.5 Get info by asset name](#21015-get-info-by-asset-name)
+          * [2.10.1.6 Get the applying assets](#21016-get-the-applying-assets)
+          * [2.10.1.7 Get the applying issues](#21017-get-the-applying-issues)
+          * [2.10.1.8 Get approved assets](#21018-get-approved-assets)
+          * [2.10.1.9 Get the assets access control lists](#21019-get-the-assets-access-control-lists)
+          * [2.10.1.10 Get all the assets info of gave address](#210110-get-all-the-assets-info-of-gave-address)
+          * [2.10.1.11 Get transactions](#210111-get-transactions)
+      * [2.10 User Identify Assets](#210-user-identify-assets)
+      * [2.10 User Identify Assets](#210-user-identify-assets)
+        * [2.10 User Identify Assets](#210-user-identify-assets)
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
-   
+        
 ---
 
 ## 1 API Usage Guide
@@ -2138,17 +2154,17 @@ JSON Response Example:
 
 ##### 2.10.1.1 Get all issuers
 
-Interface Address: /api/uia/issuers
-Request Methods: get
-Supported Format: urlencoded
-Request Parameters: 
+- Interface Address: /api/uia/issuers
+- Request Methods: get
+- Supported Format: urlencoded
+- Request Parameters: 
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
-Response Parameter Description: 
+- Response Parameter Description: 
  
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -2156,13 +2172,13 @@ Response Parameter Description:
 |issuers|list  |element is dictionary, each dictionary represents a issuer, including "name", "desc", "issuerId" |
 |count  | integer | count of issuers | 
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers?offset=0&limit=1' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2183,26 +2199,24 @@ JSON Response Example:
 
 ##### 2.10.1.2 Get the issuer's info
 
-Interface Address: /api/uia/issuers/:name
-Request Methods: get
-Supported Format: urlencoded
-
-"name" could be the issuer's name or acchain account address.
-
-Response Parameter Description: 
+- Interface Address: /api/uia/issuers/:name
+    - "name" could be the issuer's name or acchain account address.
+- Request Methods: get
+- Supported Format: urlencoded
+- Response Parameter Description: 
  
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |issuers|list  |element is dictionary, each dictionary represents a issuer, including "name", "desc", "issuerId" |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api/uia/issuers/zhenxi' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2217,10 +2231,10 @@ JSON Response Example:
 
 ##### 2.10.1.3 Get the issuer's assets
 
-Interface Address: /api/uia/issuers/name/assets
-Request Methods: get
-Supported Format: urlencoded
-Request Parameters:
+- Interface Address: /api/uia/issuers/name/assets
+- Request Methods: get
+- Supported Format: urlencoded
+- Request Parameters:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -2228,7 +2242,7 @@ Request Parameters:
 |limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -2236,13 +2250,13 @@ Response Parameter Description:
 |assets |list  |element is dictionary, each dictionary represents a issuer, including "currency", "desc", "name", ... |
 |count | integer | the issuer's registered assets | 
 
-Request Example: 
+- Request Example: 
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2266,10 +2280,10 @@ JSON Response Example:
 
 ##### 2.10.1.4 Get all assets
 
-Interface Address: /api/uia/issuers/name/assets
-Request Methods: get
-Supported Format: urlencoded
-Request Parameters Description:
+- Interface Address: /api/uia/issuers/name/assets
+- Request Methods: get
+- Supported Format: urlencoded
+- Request Parameters Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -2277,7 +2291,7 @@ Request Parameters Description:
 |offset |integer  | N  |offset, minimum 0   |
 
 
-Response Parameter Description: 
+- Response Parameter Description: 
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -2285,13 +2299,13 @@ Response Parameter Description:
 |assets |list  |element is dictionary, each dictionary represents a issuer, including "currency", "desc", "maximum", ... |
 |count | integer | the issuer's registered assets | 
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets?offset=0&limit=2' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2326,28 +2340,28 @@ JSON Response Example:
 
 ##### 2.10.1.5 Get info by asset name
 
-Interface Address: /api/uia/assets/:name
-Request Methods: get
-Supported Format: urlencoded
-Request Parameters:
+- Interface Address: /api/uia/assets/:name
+- Request Methods: get
+- Supported Format: urlencoded
+- Request Parameters:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |name | string | Y | asset name |
 
-Response Parameter Description: 
+- Response Parameter Description: 
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |     
 |assets |list  |element is dictionary, each dictionary represents a issuer, including "currency", "desc", "maximum", ... |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.UIA' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2370,9 +2384,9 @@ JSON Response Example:
 
 ##### 2.10.1.6 Get the applying assets
 
-Interface Address: /api/uia/assets/applying
-Request Methods: get
-JSON Response Example:
+- Interface Address: /api/uia/assets/applying
+- Request Methods: get
+- JSON Response Example:
 
 ```js
 {
@@ -2403,9 +2417,9 @@ JSON Response Example:
 
 ##### 2.10.1.7 Get the applying issues
 
-Interface Address: /api/uia/issues/applying
-Request Methods: get
-JSON Response Example: 
+- Interface Address: /api/uia/issues/applying
+- Request Methods: get
+- JSON Response Example: 
 
 ```js
 {
@@ -2425,9 +2439,9 @@ count: 1
 
 ##### 2.10.1.8 Get approved assets
 
-Interface Address: /api/uia/assets/approved
-Request Methods: get 
-JSON Response Example:
+- Interface Address: /api/uia/assets/approved
+- Request Methods: get 
+- JSON Response Example:
 
 ```js
 {
@@ -2494,11 +2508,11 @@ JSON Response Example:
 
 ##### 2.10.1.9 Get the assets access control lists
 
-Interface Address: /api/uia/assets/name/acl/flag
-Request Methods: get 
-Supported Format: urlencoded
+- Interface Address: /api/uia/assets/name/acl/flag
+- Request Methods: get 
+- Supported Format: urlencoded
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -2507,7 +2521,7 @@ Request Parameter Description:
 |limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |     
@@ -2515,14 +2529,14 @@ Response Parameter Description:
 |list | list | the address list  |
 |count | integer | the list count |
 
-Request Example:
+- Request Example:
 
 ```js
 // get zhenxi.UIA white lists 
 curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/assets/zhenxi.UIA/acl/1' && echo
 ```
 
-JSON Response Example: 
+- JSON Response Example: 
 
 ```js
 {
@@ -2539,20 +2553,18 @@ JSON Response Example:
 
 ##### 2.10.1.10 Get all the assets info of gave address
 
-Interface Address: /api/uia/balances/:address
-Request methods: get
-Supported Format: urlencoded
-
-"address" represents for user account address.
-
-Request Parameter Description:
+- Interface Address: /api/uia/balances/:address
+    - "address" represents for user account address.
+- Request methods: get
+- Supported Format: urlencoded
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
-Response Parameter Description: 
+- Response Parameter Description: 
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |     
@@ -2560,13 +2572,13 @@ Response Parameter Description:
 |balances | list | owned asset info list, each element is a asset, including some details  |
 |count | integer |the assets count of this address   |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/balances/AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2594,11 +2606,11 @@ JSON Response Example:
 
 ##### 2.10.1.11 Get transactions
 
-Interface Address: /api/uia/transactions
-Request Methods: get
-Supported Format: urlencoded
+- Interface Address: /api/uia/transactions
+- Request Methods: get
+- Supported Format: urlencoded
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -2606,7 +2618,7 @@ Request Parameter Description:
 |offset |integer  | N  |offset, minimum 0   |
 |ownerPublicKey | string | N | publicKey |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |     
@@ -2614,13 +2626,13 @@ Response Parameter Description:
 |transactions | list | transaction list, each element represents one transaction, including "id", "height", ...  |
 |count | integer |the assets count of this address   |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/transactions?offset=0&limit=2' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {
@@ -2768,22 +2780,22 @@ Acchain system's every operation is raised by a transaction. The transaction is 
 
 ##### 2.10.2.1 Create Issuer
 
-Interface Address: /peer/transactions
-Request Methods: get
-Supported Format: json
-Request Parameter Description:
+- Interface Address: /peer/transactions
+- Request Methods: get
+- Supported Format: json
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createIssuer(name, desc, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 // 发行商名称,唯一标识
@@ -2799,7 +2811,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true}  
@@ -2807,22 +2819,22 @@ JSON Response Example:
 
 ##### 2.10.2.2 Register Assets
 
-Interface Address: /peer/transactions
-Request Methods: post
-Supported Format: json
-Request Parameter Description:
+- Interface Address: /peer/transactions
+- Request Methods: post
+- Supported Format: json
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createAsset(name, desc, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var extra = {
@@ -2875,7 +2887,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true} 
@@ -2885,12 +2897,10 @@ JSON Response Example:
 
 ##### 2.10.3.1 Get voters by asset's currency
 
-Interface Address: /api/uia/assets/:currency/voters
-Request Methods: get
-
-`currency` is the symbol of the assets, for example: TEST.ABC
-
-JSON Response Example:
+- Interface Address: /api/uia/assets/:currency/voters
+    - `currency` is the symbol of the assets, for example: TEST.ABC
+- Request Methods: get
+- JSON Response Example:
 
 ```js
 {
@@ -2907,12 +2917,10 @@ JSON Response Example:
 
 ##### 2.10.3.2 Get voters for issues 
 
-Interface Address: /api/uia/issues/:id/voters
-Request Methods: post
-
-`id` is a transaction from previous interface.
-
-JSON Response Example:
+- Interface Address: /api/uia/issues/:id/voters
+    - `id` is a transaction from previous interface.
+- Request Methods: post
+- JSON Response Example:
 
 ```js
 {
@@ -2931,19 +2939,19 @@ JSON Response Example:
 
 ##### 2.10.4.1 Set `acl` mode
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createFlags(currency, flagType, flag, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var currency = 'IssuerName.CNY'
@@ -2959,7 +2967,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true} 
@@ -2967,19 +2975,19 @@ JSON Response Example:
 
 ##### 2.10.4.2 Update `acl` lists
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createAcl(currency, operator, flag, list, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var currency = 'IssuerName.CNY'
@@ -2996,7 +3004,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true}
@@ -3015,19 +3023,19 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 
 ##### 2.10.5.1 Assets Issue
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createIssue(currency, amount, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var currency = 'IssuerName.CNY'
@@ -3042,19 +3050,19 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 
 ##### 2.10.5.2 Assets Transfer
 
-Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createTransfer(currency, amount, recipientId, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var currency = 'IssuerName.CNY'
@@ -3070,7 +3078,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
   
-JSON Response Example:
+- JSON Response Example:
   
 ```js
 {"success":true} 
@@ -3078,19 +3086,19 @@ JSON Response Example:
   
 ##### 2.10.5.3 Assets Flags
 
- Request Parameter Description:
+- Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
 |------ |-----  |---  |----              |   
 |transaction	|json  | Y  |AcchainJS.uia.createFlags(currency, flagType, flag, secret, secondSecret) |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description |   
 |------ |-----  |----   | 
 |success | boole | success or failure |
 
-Request Example:
+- Request Example:
 
 ```js
 var currency = 'IssuerName.CNY'
@@ -3105,7 +3113,7 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19488690,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":2,"flag":1}},"signature":"cbd656552417604704703e1236ec2bbed8eba6a2ccfcb54cc0b2d629c0a9d1335a264fc9f6dee1705f4a86c36a5ce2ba8e039d913a189b7c273c8ac0d9e3780c","signSignature":"3c7b91d03efeed2dc86e1f2301da60789751c1be8850460d8c66c0ae8f55ea27d26f0bc79541d74b4777d9b85c518c1c73c0284dbf3e826db0a686560e57a80b"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true}   
@@ -3113,12 +3121,10 @@ JSON Response Example:
 
 #### 2.10.6 Get voters by asset's currency
 
-Interface Address: /api/uia/assets/:currency/voters
-Request Methods: get
-
-`currency` is the symbol of the assets, for example: TEST.ABC
-
-JSON Response Example:
+- Interface Address: /api/uia/assets/:currency/voters
+    - `currency` is the symbol of the assets, for example: TEST.ABC
+- Request Methods: get
+- JSON Response Example:
 
 ```js
 {
@@ -3135,12 +3141,10 @@ JSON Response Example:
 
 ##### 2.10.6.2 Get voters for issues 
 
-Interface Address: /api/uia/issues/:id/voters
-Request Methods: post
-
-`id` is a transaction from previous interface.
-
-JSON Response Example:
+- Interface Address: /api/uia/issues/:id/voters
+    - `id` is a transaction from previous interface.
+- Request Methods: post
+- JSON Response Example:
 
 ```js
 {
@@ -3160,9 +3164,9 @@ JSON Response Example:
 
 ##### 2.10.7.1 Get First Category
 
-Interface Address: /api/uia/categories/0
-Request Methods: get
-JSON Response Example:
+- Interface Address: /api/uia/categories/0
+- Request Methods: get
+- JSON Response Example:
 
 ```js
 {
@@ -3185,12 +3189,10 @@ JSON Response Example:
 
 ##### 2.10.7.2 Get Category By id
    
-Interface Address: /api/uia/categories/:id
-Request Methods: get
-
-`id` is the previous number.
-
-JSON Response Example:
+- Interface Address: /api/uia/categories/:id
+    - `id` is the previous number.
+- Request Methods: get
+- JSON Response Example:
 
 ```js
 {
@@ -3222,4 +3224,3 @@ The transaction data is generated through a JS library named "Acchain-js", and t
 **Install the library**   
 `npm install Acchain-js`   
    
-
