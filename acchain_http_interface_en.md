@@ -25,7 +25,7 @@ Table of Contents
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
         * [2.2.3 Get Transaction Detail by Unconfirmed Transaction ID](#223-get-transaction-detail-by-unconfirmed-transaction-id)
-        * [2.2.4 Get Unconfirmed Transaction Detail Inforamtion [within all network]](#224-get-unconfirmed-transaction-detail-inforamtion-within-all-network)
+        * [2.2.4 Get Unconfirmed Transaction Detail Inforamtion (within all network)](#224-get-unconfirmed-transaction-detail-inforamtion-within-all-network)
         * [2.2.5 Create Transaction](#225-create-transaction)
       * [2.3 Blocks](#23-blocks)
         * [2.3.1 Get the Block Detail Information of the Given ID](#231-get-the-block-detail-information-of-the-given-id)
@@ -44,6 +44,9 @@ Table of Contents
         * [2.4.5 Get the Transaction Fee Set by Delegate](#245-get-the-transaction-fee-set-by-delegate)
         * [2.4.6 Get Forge Information by Public Key](#246-get-forge-information-by-public-key)
         * [2.4.7 Register Delegate](#247-register-delegate)
+        * [2.4.8 Delegates enable forging](#248-delegates-enable-forging)
+        * [2.4.9 Delegates disable forging](#249-delegates-disable-forging)
+        * [2.4.10 Delegates forging status](#2410-delegates-forging-status)
       * [2.5 Peers](#25-peers)
         * [2.5.1 Get all Peers' Information in the Whole Network](#251-get-all-peers-information-in-the-whole-network)
         * [2.5.2 Get the Version of Peer](#252-get-the-version-of-peer)
@@ -59,7 +62,7 @@ Table of Contents
         * [2.8.2 Get the Detail Information of Pending Multi-signature Transaction](#282-get-the-detail-information-of-pending-multi-signature-transaction)
         * [2.8.3 Sign the Multi-signature Transaction (by non-initiator)](#283-sign-the-multi-signature-transaction-by-non-initiator)
         * [2.8.4 Get Detail Information of the Multi-signature Account](#284-get-detail-information-of-the-multi-signature-account)
-      * [2.9 Peer to Peer Transportation[secure API]](#29-peer-to-peer-transportationsecure-api)
+      * [2.9 Peer to Peer Transportation(secure API)](#29-peer-to-peer-transportationsecure-api)
         * [2.9.1 Overview](#291-overview)
         * [2.9.2 Transaction](#292-transaction)
           * [2.9.2.1 Set the Second Payment Password](#2921-set-the-second-payment-password)
@@ -88,8 +91,9 @@ Table of Contents
 
 ## 1 API Usage Guide
 ### 1.1 Request Process Overview
+---
 - **Generate request data:** according the interface specification provided by Acchain system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called Acchain-js to create signature. see [2.9 Peer to Peer transportation](#29-peer-to-peer-transportation) for detail).
-- **Send request data:** transfer the generated data object to acchain  platform through POST/GET method upon HTTP
+- **Send request data:** transfer the generated data object to acchain  platform through POST/GET Methods upon HTTP
 - **Acchain system handles the data object:** after receiving the data object, acchain server will validate the data firstly, then deal with it.
 - **Return the response data:** acchain system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
 - **Client handles the response data**
@@ -99,35 +103,38 @@ Table of Contents
    
 #### 2.1.1 Login   
 ##### 2.1.1.1 Login after locally encrypt (recommended)   
-Interface Address: /api/accounts/open2/   
-Request Type: post   
-Supported Format: json   
-Comment: Public key needs to be generated locally according to user's password (see Request Example)   
+---
+- Interface Address: /api/accounts/open2/   
+- Request Type: post   
+- Supported Format: json   
+- Comment: Public key needs to be generated locally according to user's password (see Request Example)   
 
-Request Parameter Description:    
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |acchain account public key       |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |Whether login is successful      |    
-|account|json   |Account Information          |    
-Request Example:   
+|account|json   |Account Information          | 
+   
+- Request Example:   
   
 ```js
 var acchainJS = require('Acchain-js');  //For further information about Acchain-js, please see Appendix
 var publicKey = AcchainJS.crypto.getKeys(secret).publicKey;  //Generate public key according to password 
 // var address = AcchainJS.crypto.getAddress(publicKey);   //Generate address according to public key
 
-// Submit the above data to acchain server through post method   
+// Submit the above data to acchain server through post Methods   
 curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://45.32.248.33:4096/api/accounts/open2/   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:  
+ 
 ```js   
 {   
 	"success": true,   
@@ -152,29 +159,32 @@ JSON Response Example:
 	}   
 ```   
    
-##### 2.1.1.2 Login without locally encrypt (not recommend)   
-Interface Address: /api/accounts/open/   
-Request Method:post   
-Supported Format: json   
-Request Parameter Description:    
+##### 2.1.1.2 Login without locally encrypt (not recommend) 
+---
+- Interface Address: /api/accounts/open/   
+- Request Methods:post   
+- Supported Format: json   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain account password       |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |Whether login is successful      |    
 |account|json   |Account information          |    
    
-Request Example:   
+- Request Example: 
+  
 ```bash   
 curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' http://45.32.248.33:4096/api/accounts/open/   
 ```   
    
-JSON Response Example:   
+- JSON Response Example: 
+  
 ```js   
 {   
     "success": true,    
@@ -191,17 +201,18 @@ JSON Response Example:
     }   
 }   
 ```   
-####2.1.2 Get Account Information   
-Interface Address: /api/accounts   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+####2.1.2 Get Account Information  
+---
+- Interface Address: /api/accounts   
+- Request Methods:get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |Client's address, minimum length:1      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -210,12 +221,14 @@ Response Parameter Description:
 |latestBlock|json  |latest block information      |    
 |version|json  |version information      |    
    
-Request Example:   
+- Request Example:  
+ 
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/accounts?address=16723473400748954103   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:  
+ 
 ```js   
 {   
 	"success": true,   
@@ -241,17 +254,19 @@ JSON Response Example:
 	}   
 }   
 ```   
-#### 2.1.3 Get Balance of Account   
-Interface Address: /api/accounts/getBalance   
-Request Method: get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+
+#### 2.1.3 Get Balance of Account  
+--- 
+- Interface Address: /api/accounts/getBalance   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |Client's address, minimum length:1      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -260,12 +275,14 @@ Response Parameter Description:
 |unconfirmedBalance|integer|the sum of unconfirmed and confirmed balance, that should be larger than or equal to balance|   
    
    
-Request Example:   
+-Request Example:  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getBalance?address=14636456069025293113'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -274,29 +291,32 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.1.4 Get Account's Public Key   
-Interface Address: /api/accounts/getPublickey   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+#### 2.1.4 Get Account's Public Key 
+---  
+- Interface Address: /api/accounts/getPublickey   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |Client's address, minimum length:1     |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |publicKey|string  |public key      |    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getPublickey?address=14636456069025293113'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -304,29 +324,32 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.1.5 Generate Public Key   
-Interface Address: /api/accounts/generatePublickey   
-Request Method: post   
-Supported Format: json   
-Request Parameter Description:    
+#### 2.1.5 Generate Public Key
+---   
+- Interface Address: /api/accounts/generatePublickey   
+- Request Methods: post   
+- Supported Format: json   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain account password     |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |publicKey|string  |public key      |    
    
-Request Example:   
+- Request Example:  
+ 
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' 'http://45.32.248.33:4096/api/accounts/generatePublickey'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:  
+ 
 ```js   
 {   
 	"success": true,   
@@ -335,16 +358,17 @@ JSON Response Example:
 ```   
    
 #### 2.1.6 Get Voting List by Address   
-Interface Address: /api/accounts/delegates   
-Request Method: get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/accounts/delegates   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |address |string |Y    |Voter's address      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -352,12 +376,14 @@ Response Parameter Description:
 |delegates|Array  |A list that contains detail information of those delegates who have already voted   |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates?address=14636456069025293113'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:  
+ 
 ```js   
 {   
 	"success": true,   
@@ -397,13 +423,14 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.1.7 Get the Fee of Given Delegate   
-Interface Address: /api/accounts/delegates/fee   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none  
+#### 2.1.7 Get the Fee of Given Delegate 
+--- 
+- Interface Address: /api/accounts/delegates/fee   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none  
 
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -411,12 +438,14 @@ Response Parameter Description:
 |fee|integer  |fee setting      |    
    
    
-Request Example:   
+- Request Example:
+   
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates/fee  
 ```   
    
-JSON Response Example:   
+- JSON Response Example:  
+ 
 ```js   
 {   
 	"success": true,   
@@ -426,10 +455,11 @@ JSON Response Example:
    
    
 #### 2.1.8 Voting   
-Interface Address: /api/accounts/delegates   
-Request Method:put   
-Supported Format: json   
-Request Parameter Description:    
+---
+- Interface Address: /api/accounts/delegates   
+- Request Methods: put   
+- Supported Format: json   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -438,7 +468,7 @@ Request Parameter Description:
 |secondSecret|string|N|acchain account's second password，minimum length：1，maximum length：100|   
 |delegates|Array|a list that contains delegates' public key. put +/- in front of each public key, which means vote/abolish this delegate. |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -446,12 +476,14 @@ Response Parameter Description:
 |transaction|json  |voting detail inforamtion      |    
    
    
-Request Example:   
+- Request Example:  
+ 
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors pupil water friend timber spend brand vote obey corn size","publicKey":"3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a","delegates":["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]}' 'http://45.32.248.33:4096/api/accounts/delegates'     
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
  {
 	"success": true,
@@ -476,31 +508,31 @@ JSON Response Example:
 ```   
    
 #### 2.1.9 Get the top 100 accounts
-
-Interface Address: /api/accounts/top    
-Request Method: get  
-Supported Format: none      
-Request Parameter Description: if no parameters are passed, it will return top 100 accounts info
+---
+- Interface Address: /api/accounts/top    
+- Request Methods: get  
+- Supported Format: none      
+- Request Parameter Description: if no parameters are passed, it will return top 100 accounts info
   
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
-Response Parameter Description: 
+- Response Parameter Description: 
  
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |accounts|json  |accounts info array, including "address", "balance", "publicKey" |    
 
-Request Example:
+- Request Example:
 
-```js
+```bash
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/top?limit=5&offset=0'  //return 5 accounts info 
 ```
 
-Return JSON example:
+- Return JSON example:
 
 ```js
 {
@@ -535,12 +567,13 @@ Return JSON example:
 
 
 ### 2.2 Transactions   
-#### 2.2.1 Get the Transaction Detail Information   
-Interface Address: /api/transactions   
-Request Method: get   
-Supported Format: urlencoded   
-Comment： if there is no parameter in request data, all network transactions will be returned.    
-Request Parameter Description:    
+#### 2.2.1 Get the Transaction Detail Information  
+--- 
+- Interface Address: /api/transactions   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Comment： if there is no parameter in request data, all network transactions will be returned.    
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -557,7 +590,7 @@ Request Parameter Description:
 |amount|string|N|amount|   
 |fee|integer|N|charge fee|   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -565,12 +598,14 @@ Response Parameter Description:
 |transactions|Array  |A JSON object list containing multiple transactions' detail      |    
 |count|int|the total number of retrieved transactions|   
    
-Request Example:   
+- Request Example:  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -634,30 +669,33 @@ JSON Response Example:
 	"count": 3   
 }   
 ```   
+
 #### 2.2.2 Get the Transaction Detail Information by Transaction ID
-Interface Address: /api/transactions/get   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/transactions/get   
+- Request Methods:get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |Id |string |Y    |transaction id      |   
-   
-   
-Response Parameter Description:   
+    
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |transactions|json  |transaction detail information      |    
    
-Request Example:   
+- Request Example: 
+  
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions/get?id=14093929199102906687'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:
+   
 ```js   
 {   
 	"success": true,   
@@ -682,17 +720,18 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.2.3 Get Transaction Detail by Unconfirmed Transaction ID   
-Interface Address: /api/transactions/unconfirmed/get   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+#### 2.2.3 Get Transaction Detail by Unconfirmed Transaction ID 
+---  
+- Interface Address: /api/transactions/unconfirmed/get   
+- Request Methods:get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |id|string |Y    |unconfirmed transaction id      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -700,12 +739,14 @@ Response Parameter Description:
 |transaction|json  |unconfirmed transaction detail inforamtion      |   
    
    
-Request Example:   
+- Request Example:
+   
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/transactions/unconfirmed/get?id=7557072430673853692  //Regularly, this unconfirmed transaction exist during an extremely short time, almost 0~10 second. 
 ```   
    
-JSON Response Example:   
+- JSON Response Example:
+   
 ```js   
 {
 	"success": true,
@@ -728,12 +769,13 @@ JSON Response Example:
 ```   
    
    
-#### **2.2.4 Get Unconfirmed Transaction Detail Inforamtion [within all network]
-Interface Address: /api/transactions/unconfirmed   
-Request Method:get   
-Supported Format: urlencoded   
-Comment: If there is no parameter, all unconfirmed transactions in the whole network will be returned.
-Request Parameter Description:    
+#### 2.2.4 Get Unconfirmed Transaction Detail Inforamtion (within all network)
+---
+- Interface Address: /api/transactions/unconfirmed   
+- Request Methods:get   
+- Supported Format: urlencoded   
+- Comment: If there is no parameter, all unconfirmed transactions in the whole network will be returned.
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -741,7 +783,7 @@ Request Parameter Description:
 |address |string |N    |address      |   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -749,12 +791,14 @@ Response Parameter Description:
 |transactions|Array  |a list containing all unconfirmed transactions      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions/unconfirmed'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -763,11 +807,12 @@ JSON Response Example:
 ```   
    
 #### 2.2.5 Create Transaction   
-Interface Address: /api/transactions   
-Request Method:PUT   
-Supported Format: json   
-Comment: Recipiant acount must have already login in wallet on the web.  
-Request Parameter Description:    
+---
+- Interface Address: /api/transactions   
+- Request Methods: PUT   
+- Supported Format: json   
+- Comment: Recipiant acount must have already login in wallet on the web.  
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -778,7 +823,7 @@ Request Parameter Description:
 |secondSecret|string|N|sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|   
 |multisigAccountPublicKey|string|N|the public key of multiple signature account|   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -786,12 +831,14 @@ Response Parameter Description:
 |transactionId|string  |transaction id      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103"}' 'http://45.32.248.33:4096/api/transactions'    
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -800,11 +847,12 @@ JSON Response Example:
 ```   
    
 ### 2.3 Blocks
-#### 2.3.1 Get the Block Detail Information of the Given ID   
-Interface Address: /api/blocks/   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+#### 2.3.1 Get the Block Detail Information of the Given ID 
+---  
+- Interface Address: /api/blocks/   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -812,7 +860,7 @@ Request Parameter Description:
 |height|string|ditto|block height|   
 |hash|string|ditto|block hash value|   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -820,12 +868,14 @@ Response Parameter Description:
 |block|json  |the block detail information      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/get?id=6076474715648888747'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -851,11 +901,12 @@ JSON Response Example:
 ```   
    
 #### 2.3.2 Get the Latest Block  
-Interface Address: /api/blocks   
-Request Method: get   
-Supported Format: urlencoded   
-Comment: if there is no parameter, the detail of all the blocks in the whole network will be returned  
-Request Parameter Description:    
+---
+- Interface Address: /api/blocks   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Comment: if there is no parameter, the detail of all the blocks in the whole network will be returned  
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -869,7 +920,7 @@ Request Parameter Description:
 |previousBlock|string  |N      |previous block  |   
 |height|integer  |N      |block height  |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -878,12 +929,14 @@ Response Parameter Description:
 |count|integer|block height|   
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks?limit=2&offset=0&orderBy=height:desc'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -927,36 +980,40 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.3.3 Get the Block Height   
-Interface Address: /api/blocks/getHeight   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+#### 2.3.3 Get the Block Height  
+--- 
+- Interface Address: /api/blocks/getHeight   
+- Request Methods:get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |height|integer  |block height      |    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getheight'    
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"height":140569}   
 ```   
    
-#### 2.3.4 Get the Transaction Fee   
-Interface Address: /api/blocks/getFee   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+#### 2.3.4 Get the Transaction Fee  
+--- 
+- Interface Address: /api/blocks/getFee   
+- Request Methods:get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -964,23 +1021,26 @@ Response Parameter Description:
 |fee|integer  |transaction fee     |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getfee'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"fee":10000000}     //transaction fee is 
 0.1 ACC   
 ```   
    
 #### 2.3.5 Get the Milestone   
-Interface Address: /api/blocks/getMilestone   
-Request Method: get   
-Supported Format: none   
-Request Parameter Description: none   
-Response Parameter Description:   
+---
+- Interface Address: /api/blocks/getMilestone   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -988,23 +1048,26 @@ Response Parameter Description:
 |milestone|integer  |      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getMilestone'    
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"milestone":0}   
 ```   
    
 #### 2.3.6 Get the Reward Information of a Block 
-Interface Address: /api/blocks/getReward   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+---
+- Interface Address: /api/blocks/getReward   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1012,23 +1075,26 @@ Response Parameter Description:
 |reward|integer  |the reward of the block      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getReward'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"reward":350000000} //every single block you created will be rewarded by 3.5 ACC   
 ```   
    
 #### 2.3.7 Get the Current Maximum Supply of the Blockchain
-Interface Address: /api/blocks/getSupply   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+
+- Interface Address: /api/blocks/getSupply   
+- Request Methods:get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1036,23 +1102,26 @@ Response Parameter Description:
 |supply|integer  |the total amount of ACC in the whole network      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getSupply'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"supply":10049222600000000} //There are totally 100492226 ACC in current testnet   
 ```   
    
-#### 2.3.8 Get Current Status of Blockchain  
-Interface Address: /api/blocks/getStatus   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+#### 2.3.8 Get Current Status of Blockchain 
+--- 
+- Interface Address: /api/blocks/getStatus   
+- Request Methods:get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1064,12 +1133,14 @@ Response Parameter Description:
 |supply|integer  |total amount of ACC in the whole network      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getStatus'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1086,51 +1157,57 @@ JSON Response Example:
 ### 2.4 Delegates  
    
 #### 2.4.1 Get the Total Number of Delegates 
-Interface Address: /api/delegates/count   
-Request Method: get   
-Supported Format: none   
-Request Parameter Description: none   
+---
+- Interface Address: /api/delegates/count   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |count|integer   |total number of delegates      |    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/count'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"count":234}   
 ```   
    
 #### 2.4.2 Check the Voters of Delegates by Public Key   
-Interface Address: /api/delegates/voters   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/delegates/voters   
+- Request Methods:get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |public key of the delegate      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |accounts|Array  |a JSON object list of account    |    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/voters?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1157,18 +1234,19 @@ JSON Response Example:
 ```   
    
 #### 2.4.3 Get the Delegate's Detail by Public Key or Name   
-Interface Address:  /api/delegates/get/   
-Request Method:get   
-Supported Format: urlencoded   
-Comment:Get the delegate's detail by his/her public key or user name      
-Request Parameter Description:    
+---
+- Interface Address:  /api/delegates/get/   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Comment:Get the delegate's detail by his/her public key or user name      
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publickey |string |choose only one parameter of these two    |delegate's public key      |   
 |username  |string |ditto    |delegate's user name      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1176,13 +1254,15 @@ Response Parameter Description:
 |delegate|json  |the detail information of this delegate      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/delegates/get?publicKey=bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9   
 curl -k -X GET http://45.32.248.33:4096/api/delegates/get?username=delegate_register   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1203,12 +1283,13 @@ JSON Response Example:
 }   
 ```   
    
-#### 2.4.4 Get the List of Delegates   
-Interface Address: /api/delegates   
-Request Method:get   
-Supported Format: urlencoded   
-Comment: if there is no parameter, all delegates in the whole network will be returned. 
-Request Parameter Description:    
+#### 2.4.4 Get the List of Delegates 
+---  
+- Interface Address: /api/delegates   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Comment: if there is no parameter, all delegates in the whole network will be returned. 
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1219,7 +1300,7 @@ Request Parameter Description:
    
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1227,12 +1308,14 @@ Response Parameter Description:
 |delegates|Array  |a list containing delegates' detail information      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates?orderby=approval:desc&limit=2' //the first two delegates order by approval vote, descendingly  
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1269,21 +1352,18 @@ JSON Response Example:
 ```   
    
    
-   
-   
-   
-   
 #### 2.4.5 Get the Transaction Fee Set by Delegate 
-Interface Address: /api/delegates/fee   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/delegates/fee   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |delegate's public key      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1291,27 +1371,30 @@ Response Parameter Description:
 |fee|integer  |transaction fee      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/fee?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {"success":true,"fee":10000000000}  //0.1 ACC   
 ```   
    
 #### 2.4.6 Get Forge Information by Public Key 
-Interface Address: /api/delegates/forging/getForgedByAccount   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/delegates/forging/getForgedByAccount   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |generatorPublicKey |string |Y    |block generator's public key      |   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1321,12 +1404,14 @@ Response Parameter Description:
 |forged|integer|total rewards comming from forge|   
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/forging/getForgedByAccount?generatorPublicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1337,10 +1422,11 @@ JSON Response Example:
 ```   
    
 #### 2.4.7 Register Delegate
-Interface Address: /api/delegates   
-Request Method:put   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/delegates   
+- Request Methods: put   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1349,7 +1435,7 @@ Request Parameter Description:
 |secondSecret|string|N|acchain account's second password, minimum length:1 maximum length: 100 |   
 |username|string|N|the delegate's user name|   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1357,12 +1443,14 @@ Response Parameter Description:
 |transaction|json  |the detail of the registering process      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","username":"delegate_0821"}' 'http://45.32.248.33:4096/api/delegates'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1388,31 +1476,31 @@ JSON Response Example:
 ```   
    
 #### 2.4.8 Delegates enable forging
-
-Interface Address: /api/delegates/forging/enable
-Request Methods: post
-Supported Format: urlencoded //url must be under the delegate's server 
-Request Parameters: 
+---
+- Interface Address: /api/delegates/forging/enable
+- Request Methodss: post
+- Supported Format: urlencoded //url must be under the delegate's server 
+- Request Parameters: 
 
 |Name	|Type   |Required |Descriptio|
 |------ |-----  |---  |----  |  
 |secret |string | Y   | acchain account secret|
 |publicKey| string | N | publicKey|
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              | 
 | success | boole | get the response data success or failure | 
 | address | string | delegate's address |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/enable'   
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true,"address":"16358246403719868041"}  
@@ -1420,60 +1508,60 @@ JSON Response Example:
 
 #### 2.4.9 Delegates disable forging
 
-Interface Address: /api/delegates/forging/disable
-Request Methods: post
-Supported Format: urlencoded //url must be under the delegate's server 
-Request Parameters: 
+- Interface Address: /api/delegates/forging/disable
+- Request Methodss: post
+- Supported Format: urlencoded //url must be under the delegate's server 
+- Request Parameters: 
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |  
 |secret |string | Y   | acchain account secret|
 |publicKey| string | N | publicKey|
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              | 
 | success | boole | get the response data success or failure | 
 | address | string | delegate's address |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/disable'   
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true,"address":"16358246403719868041"} 
 ```
 
 #### 2.4.10 Delegates forging status
-
-Interface Address: /api/delegates/forging/disable
-Request Methods: post
-Supported Format: urlencoded //url must be under the delegate's server 
-Request Parameters: 
+---
+- Interface Address: /api/delegates/forging/disable
+- Request Methodss: post
+- Supported Format: urlencoded //url must be under the delegate's server 
+- Request Parameters: 
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |  
 |publicKey |string | Y   | publicKey |
 
-Response Parameter Description:
+- Response Parameter Description:
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              | 
 | success | boole | get the response data success or failure | 
 | enable | string | the status of delegates foring |
 
-Request Example:
+- Request Example:
 
 ```js
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/forging/status?publicKey=fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575'        
 ```
 
-JSON Response Example:
+- JSON Response Example:
 
 ```js
 {"success":true,"enabled":false}    
@@ -1483,10 +1571,11 @@ JSON Response Example:
 ### 2.5 Peers 
    
 #### 2.5.1 Get all Peers' Information in the Whole Network   
-Interface Address: /api/peers   
-Request Methods: get   
-Supported Format:  urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/peers   
+- Request Methods: get   
+- Supported Format:  urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1499,7 +1588,7 @@ Request Parameter Description:
 |port|integer|N|port number，1~65535|   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1508,12 +1597,14 @@ Response Parameter Description:
 |totalCount|integer|the number of currently running peers|   
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/peers?limit=1'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1529,12 +1620,13 @@ JSON Response Example:
 ```   
    
 #### 2.5.2 Get the Version of Peer
-Interface Address: /api/peers/version   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+---
+- Interface Address: /api/peers/version   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1544,12 +1636,14 @@ Response Parameter Description:
 |net    |string  |if the peer is mainnet or testnet     |   
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/peers/version   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1560,10 +1654,11 @@ JSON Response Example:
 ```   
    
 #### 2.5.3 Get the Peer Information of a Given IP Address   
-Interface Address: /api/peers/get   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/peers/get   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1571,7 +1666,7 @@ Request Parameter Description:
 |port|integer|Y|peer's port，1~65535|   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1579,12 +1674,14 @@ Response Parameter Description:
 |peer|json  | peer's information     |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/peers/get?ip=45.32.248.33&port=4096'   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1594,13 +1691,14 @@ JSON Response Example:
 ```   
    
 ### 2.6 Sync and Loader  
-#### 2.6.1 Get the local blockchain loadig status   
-Interface Address: /api/loader/status   
-Request Method: get   
-Supported Format: none   
-Request Parameter Description: none   
+#### 2.6.1 Get the local blockchain loading status  
+--- 
+- Interface Address: /api/loader/status   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1608,12 +1706,14 @@ Response Parameter Description:
 |loaded |bool    |          |   
 |blocksCount|integer||   
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k http://45.32.248.33:4096/api/loader/status -X GET   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1623,24 +1723,27 @@ JSON Response Example:
 ```   
    
 #### 2.6.2 Get the block syncing status
-Interface Address: /api/loader/status/sync   
-Request Method: get   
-Supported Format: none   
-Request Parameter Description: none   
+---
+- Interface Address: /api/loader/status/sync   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |true: response data return successfully |    
 |height |int    |block height          |   
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k http://45.32.248.33:4096/api/loader/status/sync -X GET   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1652,10 +1755,11 @@ JSON Response Example:
    
 ### 2.7 Second Password   
 #### 2.7.1 Set the Second Password
-Interface Address: /api/signatures   
-Request Method: put   
-Supported Format: json   
-Request Parameter Description:    
+---
+- Interface Address: /api/signatures   
+- Request Methods: put   
+- Supported Format: json   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1665,7 +1769,7 @@ Request Parameter Description:
 |multisigAccountPublicKey|string|N|the public key of multi signatures account|   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1673,12 +1777,14 @@ Response Parameter Description:
 |transaction|json  |the detail information of setting transaction   |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","secondSecret":"fault still attack alley expand music basket purse later educate follow ride"}' 'http://45.32.248.33:4096/api/signatures'    
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1703,13 +1809,14 @@ JSON Response Example:
 ```   
    
 #### 2.7.2 Get the Transaction Fee of Setting Second Password
-Interface Address: /api/signatures/fee   
-Request Method:get   
-Supported Format: none   
-Request Parameter Description: none   
+---
+- Interface Address: /api/signatures/fee   
+- Request Methods: get   
+- Supported Format: none   
+- Request Parameter Description: none   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1717,12 +1824,14 @@ Response Parameter Description:
 |fee|integer  |transaction fee     |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k http://45.32.248.33:4096/api/signatures/fee -X GET   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1732,11 +1841,12 @@ JSON Response Example:
    
 ### 2.8 Multiple Signatures 
 #### 2.8.1 Set Normal Account to Multi-signatures Account
-Interface Address: /api/multisignatures   
-Request Method: put   
-Supported Format: json   
-Comment: the return value is transaction ID only. To successfully set to multi-signature account still needs other's signatures. Every transaction after registered as multi-signatures account will be asked for multiple signatures. The minimum necessary signatures is defined by "min" (include sender itself) 
-Request Parameter Description:    
+---
+- Interface Address: /api/multisignatures   
+- Request Methods: put   
+- Supported Format: json   
+- Comment: the return value is transaction ID only. To successfully set to multi-signature account still needs other's signatures. Every transaction after registered as multi-signatures account will be asked for multiple signatures. The minimum necessary signatures is defined by "min" (include sender itself) 
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1748,7 +1858,7 @@ Request Parameter Description:
 |keysgroup|array|Y|an array containing other signaturers' public key. There are plus/minus (+/-) in front of each public key, means add or delete multi-signature account respectively. Minimum length:1, maximum length:10.|   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1756,12 +1866,14 @@ Response Parameter Description:
 |transactionId|string  |the multi-signature transaction ID     |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'http://45.32.248.33:4096/api/multisignatures'  //公钥为2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1770,17 +1882,18 @@ JSON Response Example:
 ```   
    
 #### 2.8.2 Get the Detail Information of Pending Multi-signature Transaction
-Interface Address: /api/multisignatures/pending   
-Request Method:get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/multisignatures/pending   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publicKey|string  |Y|public key      |    
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1788,12 +1901,14 @@ Response Parameter Description:
 |transactions|Array  |a JSON object list containing those pending transactions      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1826,11 +1941,12 @@ JSON Response Example:
    
 ```   
    
-#### 2.8.3 Sign the Multi-signature Transaction (by non-initiator)   
-Interface Address: /api/multisignatures/sign   
-Request Method:post   
-Supported Format: json   
-Request Parameter Description:    
+#### 2.8.3 Sign the Multi-signature Transaction (by non-initiator) 
+---  
+- Interface Address: /api/multisignatures/sign   
+- Request Methods: post   
+- Supported Format: json   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
@@ -1840,7 +1956,7 @@ Request Parameter Description:
 |transactionId|string|Y|transaction ID|   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1848,12 +1964,14 @@ Response Parameter Description:
 |transactionId|string  |multi-signature transaction ID      |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet desk accuse clerk future oyster essay seminar force live dog","transactionId":"17620378998277022323"}' 'http://45.32.248.33:4096/api/multisignatures/sign'   //signed by a user whose public key is eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1925,17 +2043,18 @@ curl -k -X GET http://45.32.248.33:4096/api/transactions/get?id=1762037899827702
 ```   
    
 #### 2.8.4 Get Detail Information of the Multi-signature Account
-Interface Address: /api/multisignatures/accounts   
-Request Method: get   
-Supported Format: urlencoded   
-Request Parameter Description:    
+---
+- Interface Address: /api/multisignatures/accounts   
+- Request Methods: get   
+- Supported Format: urlencoded   
+- Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |publicKey |string |Y    |One of the participants‘ public key      |   
    
    
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
@@ -1943,12 +2062,14 @@ Response Parameter Description:
 |accounts|Array  |the detail of this multi-signature account   |    
    
    
-Request Example:   
+- Request Example:   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/multisignatures/accounts?publicKey=eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
+
 ```js   
 {   
 	"success": true,   
@@ -1973,38 +2094,41 @@ JSON Response Example:
 }   
 ```   
 
-### 2.9 Peer to Peer Transportation[secure API]  
+### 2.9 Peer to Peer Transportation(secure API)
 #### 2.9.1 Overview 
+---
 To request a peer related API, it is required to set a header like this:  
 
  - key=magic, and value=594fe0f3  
  - key=version, and value=''  
 
 #### 2.9.2 Transaction 
+---
 All the writing operations in acchain system are finished by starting a transaction.
 The transaction data is generated through a JS library named "Acchain-js", and then broadcasted by a POST API.
 The POST API specification is as follows:
 
 payload: transaction data generated by Acchain-js
 API Address: /peer/transactions  
-Request Method: POST   
+Request Methods: POST   
 Supported Format: JSON  
 
-##### 2.9.2.1 Set the Second Payment Password 
+##### 2.9.2.1 Set the Second Payment Password
+--- 
 Request Parameter Description:  
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|transaction data generated by [Acchain-js.signature.createSignature]|
 
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |whether the transaction is successful |  
    
    
-Request Example:   
+- Request Example:   
 
 ```js   
 var acchain = require('Acchain-js');    
@@ -2012,11 +2136,11 @@ var transaction = Acchain.signature.createSignature('measure bottom stock hospit
 console.log(JSON.stringify(transaction))  
 {"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}   
 
-// submit above data of setting second password to acchain server by POST method
+// submit above data of setting second password to acchain server by POST Methods
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' http://45.32.248.33:4096/peer/transactions   
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
 
 ```js  
 {
@@ -2025,20 +2149,21 @@ JSON Response Example:
 ``` 
 
 ##### 2.9.2.2 Transfer Money
-Request Parameter Description:   
+---
+- Request Parameter Description:   
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|transaction data generated by [Acchain-js.transaction.createTransaction]|
 
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |whether the transaction is successful |  
    
    
-Request Example:   
+- Request Example:   
 
 ```js   
 var acchain = require('Acchain-js');   
@@ -2054,11 +2179,11 @@ var transaction = Acchain.transaction.createTransaction(targetAddress, amount, p
 JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
-// submit above data of transfer to acchain server by POST method
+// submit above data of transfer to acchain server by POST Methods
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON Response Example:  
+- JSON Response Example:  
  
 ```js  
 {
@@ -2066,22 +2191,22 @@ JSON Response Example:
 }		
 ``` 
 
-#####2.9.2.3 Register Delegates   
-
-Request Parameter Description:  
+##### 2.9.2.3 Register Delegates   
+---
+- Request Parameter Description:  
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|transaction data generated by [Acchain-js.delegate.createDelegate]|
 
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |whether transaction is success |  
    
    
-Request Example:   
+- Request Example:   
 
 ```js   
 var acchain = require('Acchain-js');   
@@ -2093,11 +2218,11 @@ var transaction = Acchain.delegate.createDelegate(password, userName, secondPass
 JSON.stringify(transaction)  
 '{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}'
 
-// submit above data of registering delegate to acchain server by POST method
+// submit above data of registering delegate to acchain server by POST Methods
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON Response Example:   
+- JSON Response Example:   
 
 ```js  
 {
@@ -2106,21 +2231,21 @@ JSON Response Example:
 ``` 
 
 ##### 2.9.2.4 Vote and Cancel the vote  
-
-Request Parameter Description: 
+---
+- Request Parameter Description: 
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |transaction|json|Y|transaction data generated by [Acchain-js.vote.createVote]|
 
-Response Parameter Description:   
+- Response Parameter Description:   
 
 |Name	|Type   |Description              |   
 |------ |-----  |----              |   
 |success|bool  |whether the transaction is successful |  
    
    
-Request Example:  
+- Request Example:  
  
 ```js   
 var acchain = require('Acchain-js');   
@@ -2136,11 +2261,11 @@ var transaction = Acchain.vote.createVote(password, voteContent, secondPassword 
 JSON.stringify(transaction)
 {"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}
 
-// submit above data of vote/cancel vote to acchain server by POST method
+// submit above data of vote/cancel vote to acchain server by POST Methods
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON Response Example:  
+- JSON Response Example:  
  
 ```js  
 {
@@ -2153,7 +2278,7 @@ JSON Response Example:
 #### 2.10.1 Get assets info
 
 ##### 2.10.1.1 Get all issuers
-
+---
 - Interface Address: /api/uia/issuers
 - Request Methods: get
 - Supported Format: urlencoded
@@ -2161,7 +2286,7 @@ JSON Response Example:
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
+|limit	|integer  | N  |the limitation of returned records，minimum：0, maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
 - Response Parameter Description: 
@@ -2198,7 +2323,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 ```
 
 ##### 2.10.1.2 Get the issuer's info
-
+---
 - Interface Address: /api/uia/issuers/:name
     - "name" could be the issuer's name or acchain account address.
 - Request Methods: get
@@ -2230,7 +2355,7 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api
 ```
 
 ##### 2.10.1.3 Get the issuer's assets
-
+---
 - Interface Address: /api/uia/issuers/name/assets
 - Request Methods: get
 - Supported Format: urlencoded
@@ -2239,7 +2364,7 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |name   | string | Y | issuer's name or acchain account address| 
-|limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
+|limit	|integer  | N  |the limitation of returned records，minimum：0, maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
 - Response Parameter Description:
@@ -2279,7 +2404,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 ```
 
 ##### 2.10.1.4 Get all assets
-
+---
 - Interface Address: /api/uia/issuers/name/assets
 - Request Methods: get
 - Supported Format: urlencoded
@@ -2339,7 +2464,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 ```
 
 ##### 2.10.1.5 Get info by asset name
-
+---
 - Interface Address: /api/uia/assets/:name
 - Request Methods: get
 - Supported Format: urlencoded
@@ -2383,7 +2508,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 
 
 ##### 2.10.1.6 Get the applying assets
-
+---
 - Interface Address: /api/uia/assets/applying
 - Request Methods: get
 - JSON Response Example:
@@ -2416,7 +2541,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 ```
 
 ##### 2.10.1.7 Get the applying issues
-
+---
 - Interface Address: /api/uia/issues/applying
 - Request Methods: get
 - JSON Response Example: 
@@ -2438,7 +2563,7 @@ count: 1
 ```
 
 ##### 2.10.1.8 Get approved assets
-
+---
 - Interface Address: /api/uia/assets/approved
 - Request Methods: get 
 - JSON Response Example:
@@ -2507,7 +2632,7 @@ count: 1
 ```
 
 ##### 2.10.1.9 Get the assets access control lists
-
+---
 - Interface Address: /api/uia/assets/name/acl/flag
 - Request Methods: get 
 - Supported Format: urlencoded
@@ -2552,10 +2677,10 @@ curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/
 ```
 
 ##### 2.10.1.10 Get all the assets info of gave address
-
+---
 - Interface Address: /api/uia/balances/:address
-    - "address" represents for user account address.
-- Request methods: get
+    - `address` represents for user account address.
+- Request Methods: get
 - Supported Format: urlencoded
 - Request Parameter Description:
 
@@ -2605,7 +2730,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/b
 ```
 
 ##### 2.10.1.11 Get transactions
-
+--- 
 - Interface Address: /api/uia/transactions
 - Request Methods: get
 - Supported Format: urlencoded
@@ -2628,7 +2753,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/b
 
 - Request Example:
 
-```js
+```bash
 curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/transactions?offset=0&limit=2' && echo
 ```
 
@@ -2775,11 +2900,11 @@ type=14
 ```
 
 #### 2.10.2 Create UIA Transaction
-
+---
 Acchain system's every operation is raised by a transaction. The transaction is built by a framework called "AcchainJS", then POST the transaction.
 
 ##### 2.10.2.1 Create Issuer
-
+---
 - Interface Address: /peer/transactions
 - Request Methods: get
 - Supported Format: json
@@ -2818,7 +2943,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.2.2 Register Assets
-
+---
 - Interface Address: /peer/transactions
 - Request Methods: post
 - Supported Format: json
@@ -2899,7 +3024,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 
 - Interface Address: /api/uia/assets/:currency/voters
     - `currency` is the symbol of the assets, for example: TEST.ABC
-- Request Methods: get
+- Request Methodss: get
 - JSON Response Example:
 
 ```js
@@ -2916,7 +3041,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.3.2 Get voters for issues 
-
+---
 - Interface Address: /api/uia/issues/:id/voters
     - `id` is a transaction from previous interface.
 - Request Methods: post
@@ -2938,7 +3063,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 #### 2.10.4 UIA Control
 
 ##### 2.10.4.1 Set `acl` mode
-
+---
 - Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
@@ -2974,7 +3099,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.4.2 Update `acl` lists
-
+---
 - Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
@@ -3022,7 +3147,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 #### 2.10.5 UIA Operation
 
 ##### 2.10.5.1 Assets Issue
-
+---
 - Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
@@ -3049,7 +3174,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.5.2 Assets Transfer
-
+---
 - Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
@@ -3085,7 +3210,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
   
 ##### 2.10.5.3 Assets Flags
-
+---
 - Request Parameter Description:
 
 |Name	|Type   |Required |Description   |   
@@ -3120,7 +3245,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 #### 2.10.6 Get voters by asset's currency
-
+---
 - Interface Address: /api/uia/assets/:currency/voters
     - `currency` is the symbol of the assets, for example: TEST.ABC
 - Request Methods: get
@@ -3140,7 +3265,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.6.2 Get voters for issues 
-
+---
 - Interface Address: /api/uia/issues/:id/voters
     - `id` is a transaction from previous interface.
 - Request Methods: post
@@ -3163,7 +3288,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 #### 2.10.7 Get Assets Category
 
 ##### 2.10.7.1 Get First Category
-
+---
 - Interface Address: /api/uia/categories/0
 - Request Methods: get
 - JSON Response Example:
@@ -3188,7 +3313,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```
 
 ##### 2.10.7.2 Get Category By id
-   
+---
 - Interface Address: /api/uia/categories/:id
     - `id` is the previous number.
 - Request Methods: get
@@ -3224,3 +3349,4 @@ The transaction data is generated through a JS library named "Acchain-js", and t
 **Install the library**   
 `npm install Acchain-js`   
    
+
