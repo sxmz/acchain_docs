@@ -1,4 +1,4 @@
-# Acchain HTTP API文档
+# # Acchain HTTP API文档
 
 Table of Contents
 =================
@@ -94,12 +94,9 @@ Table of Contents
             * [<strong>2.10.5 资产（UIA）操作</strong>](#2105-资产（UIA）操作)            
                 * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
                 * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
-            * [<strong>2.10.6 查询资产投票</strong>](#2106-查询资产投票)
-                * [<strong>2.10.6.1 查询某个资产的投票明细</strong>](#21061-查询某个资产的投票明细)
-                * [<strong>2.10.6.2 查询资产发行的投票明细</strong>](#21062-查询某次发行的投票)
-            * [<strong>2.10.7 查询资产分类</strong>](#21010-查询资产分类)
-                * [<strong>2.10.7.1 查询一级分类</strong>](#21071-查询一级分类)
-                * [<strong>2.10.7.2 查询指定编号分类的子分类</strong>](#21072-查询指定编号分类的子分类)
+            * [<strong>2.10.6 查询资产分类</strong>](#2106-查询资产分类)
+                * [<strong>2.10.6.1 查询一级分类</strong>](#21061-查询一级分类)
+                * [<strong>2.10.6.2 查询指定编号分类的子分类</strong>](#21062-查询指定编号分类的子分类)
         * [<strong>2.11 存储storages</strong>](#211-存储storages)
             * [<strong>2.11.1 上传数据</strong>](#2111-上传数据)
             * [<strong>2.11.2 查询存储的数据</strong>](#2112-查询存储的数据)
@@ -146,6 +143,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |------ |-----  |----              |   
 |success|boole  |是否登陆成功      |    
 |account|json   |账户信息          |    
+
 请求示例：   
   
 ```js
@@ -157,7 +155,8 @@ var publicKey = AcchainJS.crypto.getKeys(secret).publicKey;  //根据密码生�
 curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://45.32.248.33:4096/api/accounts/open2/   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -199,12 +198,14 @@ JSON返回示例：
 |success|boole  |是否登陆成功      |    
 |account|json   |账户信息          |    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' http://45.32.248.33:4096/api/accounts/open/   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,    
@@ -241,11 +242,13 @@ JSON返回示例：
 |version|json  |版本相关信息      |    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/accounts?address=16723473400748954103   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -291,11 +294,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getBalance?address=14636456069025293113'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -321,12 +326,14 @@ JSON返回示例：
 |success|boole  |是否成功获得response数据 |    
 |publicKey|string  |公钥      |    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/getPublickey?address=14636456069025293113'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js   
 {   
     "success": true,   
@@ -351,12 +358,14 @@ JSON返回示例：
 |success|boole  |是否成功获得response数据 |    
 |publicKey|string  |公钥      |    
    
-请求示例：   
+请求示例：
+   
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' 'http://45.32.248.33:4096/api/accounts/generatePublickey'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -382,12 +391,14 @@ JSON返回示例：
 |delegates|Array  |已投票的受托人详情数组      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates?address=14636456069025293113'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -442,11 +453,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/delegates/fee  
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -477,11 +490,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors pupil water friend timber spend brand vote obey corn size","publicKey":"3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a","delegates":["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]}' 'http://45.32.248.33:4096/api/accounts/delegates'     
 ```   
    
 JSON返回示例：   
+
 ```js   
  {
     "success": true,
@@ -524,12 +539,14 @@ JSON返回示例：
 |accounts|json  |账户信息元组，每个元素包含地址、余额、公钥      |    
    
    
-请求示例：   
+请求示例：
+   
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/accounts/top?limit=5&offset=0'  //返回前5名账户信息
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {
     "success": true,
@@ -594,11 +611,13 @@ JSON返回示例：
 |count|int|获取到的交易总个数|   
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js   
 {   
     "success": true,   
@@ -690,11 +709,13 @@ JSON返回示例：
 |transactions|json  |交易详情      |    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions/get?id=14093929199102906687'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -738,11 +759,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/transactions/unconfirmed/get?id=7557072430673853692  //正常情况，该未确认交易存在时间极短0~10秒   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {
     "success": true,
@@ -787,11 +810,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/transactions/unconfirmed'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -823,12 +848,14 @@ JSON返回示例：
 |transactionId|string  |交易id      |    
    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103"}' 'http://45.32.248.33:4096/api/transactions'    
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -857,12 +884,14 @@ JSON返回示例：
 |block|json  |区块详情      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/get?id=6076474715648888747'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -915,12 +944,14 @@ JSON返回示例：
 |count|integer|区块链高度|   
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks?limit=2&offset=0&orderBy=height:desc'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -977,12 +1008,14 @@ JSON返回示例：
 |success|boole  |是否成功获得response数据 |    
 |height|integer  |区块链高度      |    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getheight'    
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js   
 {"success":true,"height":140569}   
 ```   
@@ -1002,11 +1035,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getfee'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {"success":true,"fee":10000000}     
 ```   
@@ -1025,11 +1060,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getMilestone'    
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js   
 {"success":true,"milestone":0}   
 ```   
@@ -1049,11 +1086,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getReward'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {"success":true,"reward":350000000} //每个生成一个block奖励3.5 ACC 
 ```   
@@ -1073,11 +1112,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getSupply'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {"success":true,"supply":10049222600000000} //当前testnet共有100492226ACC  
 ```   
@@ -1101,11 +1142,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/blocks/getStatus'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -1135,11 +1178,13 @@ JSON返回示例：
 |count|integer   |受托人总个数      |    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/count'   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {"success":true,"count":234}   
 ```   
@@ -1161,12 +1206,14 @@ JSON返回示例：
 |success|boole  |是否成功获得response数据 |    
 |accounts|Array  |账户json串组成的数组      |    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/voters?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -1212,13 +1259,15 @@ JSON返回示例：
 |delegate|json  |委托人详情      |    
    
    
-请求示例：   
+请求示例：
+   
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/delegates/get?publicKey=bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9   
 curl -k -X GET http://45.32.248.33:4096/api/delegates/get?username=delegate_register   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1264,11 +1313,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates?orderby=approval:desc&limit=2' //按照得票率降序排序，取出前2名   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1322,12 +1373,14 @@ JSON返回示例：
 |fee|integer  |转账费      |    
    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/fee?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {"success":true,"fee":10000000000}  //0.1 ACC
 ```   
@@ -1352,12 +1405,14 @@ JSON返回示例：
 |forged|integer|锻造获得的总奖励|   
    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/forging/getForgedByAccount?generatorPublicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1388,12 +1443,14 @@ JSON返回示例：
 |transaction|json  |注册受托人交易详情      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","username":"delegate_0821"}' 'http://45.32.248.33:4096/api/delegates'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js   
 {   
     "success": true,   
@@ -1438,12 +1495,14 @@ JSON返回示例：
 |address|string  |受托人地址      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/enable'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {"success":true,"address":"16358246403719868041"}   
 ```      
@@ -1468,12 +1527,14 @@ JSON返回示例：
 |address|string  |受托人地址      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/disable'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {"success":true,"address":"16358246403719868041"}     
 ```     
@@ -1497,12 +1558,14 @@ JSON返回示例：
 |enabled|string  |锻造是否开启      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/delegates/forging/status?publicKey=fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575'        
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {"success":true,"enabled":false}    
 ```     
@@ -1536,11 +1599,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/peers?limit=1'   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -1572,11 +1637,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/peers/version   
 ```   
    
 JSON返回示例：   
+
 ```js   
 {   
     "success": true,   
@@ -1607,11 +1674,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET 'http://45.32.248.33:4096/api/peers/get?ip=45.32.248.33&port=4096'   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1635,12 +1704,14 @@ JSON返回示例：
 |loaded |boole    |          |   
 |blocksCount|integer||   
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k http://45.32.248.33:4096/api/loader/status -X GET   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1662,12 +1733,14 @@ JSON返回示例：
 |success|boole  |是否成功获得response数据 |    
 |height |int    |区块高度          |   
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k http://45.32.248.33:4096/api/loader/status/sync -X GET   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1702,11 +1775,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","secondSecret":"fault still attack alley expand music basket purse later educate follow ride"}' 'http://45.32.248.33:4096/api/signatures'    
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -1745,12 +1820,14 @@ JSON返回示例：
 |fee|integer  |费用      |    
    
    
-请求示例：   
+请求示例：  
+ 
 ```bash   
 curl -k http://45.32.248.33:4096/api/signatures/fee -X GET   
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js   
 {   
     "success": true,   
@@ -1786,12 +1863,14 @@ JSON返回示例：
 |transactionId|string  |多重签名交易的id      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'http://45.32.248.33:4096/api/multisignatures'  //公钥为2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -1819,11 +1898,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -1879,11 +1960,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```bash   
 curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet desk accuse clerk future oyster essay seminar force live dog","transactionId":"17620378998277022323"}' 'http://45.32.248.33:4096/api/multisignatures/sign'   //公钥为eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97的用户进行签名   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -1973,12 +2056,14 @@ curl -k -X GET http://45.32.248.33:4096/api/transactions/get?id=1762037899827702
 |accounts|Array  |多重签名账户详情      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -X GET http://45.32.248.33:4096/api/multisignatures/accounts?publicKey=eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -2036,6 +2121,7 @@ payload为AcchainJS创建出来的交易数据
    
    
 请求示例：   
+
 ```js   
 var acchain = require('AcchainJS');    
 var transaction = AcchainJS.signature.createSignature('measure bottom stock hospital calm hurdle come banner high edge foster cram','erjimimashezhi001')       
@@ -2046,7 +2132,8 @@ console.log(JSON.stringify(transaction))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' http://45.32.248.33:4096/peer/transactions   
 ```   
    
-JSON返回示例：   
+JSON返回示例：  
+ 
 ```js  
 {
     "success":true  //二级密码设置成功
@@ -2067,7 +2154,8 @@ JSON返回示例：
 |success|boole  |是否成功 |  
    
    
-请求示例：   
+请求示例：  
+ 
 ```js   
 var acchain = require('AcchainJS');   
 var targetAddress = "16358246403719868041";  
@@ -2085,7 +2173,8 @@ JSON.stringify(transaction)
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {
     "success":true  //转账成功
@@ -2107,6 +2196,7 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```js   
 var acchain = require('AcchainJS');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
@@ -2121,7 +2211,8 @@ JSON.stringify(transaction)
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {
     "success":true  //注册受托人成功
@@ -2143,7 +2234,8 @@ JSON返回示例：
 |success|boole  |是否成功 |  
    
    
-请求示例：   
+请求示例：  
+ 
 ```js   
 var acchain = require('AcchainJS');   
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
@@ -2162,7 +2254,8 @@ JSON.stringify(transaction)
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {
     "success":true  //投票&取消投票 成功
@@ -2193,11 +2286,13 @@ JSON返回示例：
 |count|integer|发行商总个数|
 
 请求示例：   
+
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers?offset=0&limit=1' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {
     "success": true,
@@ -2229,12 +2324,14 @@ JSON返回示例：
 |success|boole  |是否成功 |  
 |issuers|dict|包含发行商名字、描述、id（acchain地址）|
    
-请求示例：   
+请求示例：  
+ 
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api/uia/issuers/zhenxi' && echo
 ```   
    
 JSON返回示例：   
+
 ```js  
 {
     "success": true,
@@ -2269,12 +2366,14 @@ JSON返回示例：
 
    
    
-请求示例：   
+请求示例：
+   
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
 ```   
    
 JSON返回示例：   
+
 ```js  
 {
     "success": true,
@@ -2318,11 +2417,13 @@ JSON返回示例：
    
    
 请求示例：   
+
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets?offset=0&limit=2' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {
     "success": true,
@@ -2372,12 +2473,14 @@ JSON返回示例：
 |success|boole  |是否成功 |  
 |assets|dict|包含资产名字、描述、上限、精度、策略、当前发行量、发行高度、发行商id，acl、是否注销|
    
-请求示例：   
+请求示例：  
+ 
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.UIA' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {
     "success": true,
@@ -2543,13 +2646,15 @@ count: 1
 |count|integer|符合规则账户总数|
 
    
-请求示例：   
+请求示例： 
+  
 ```js   
 // 获取资产zhenxi.UIA白名单中的地址列表
 curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/assets/zhenxi.UIA/acl/1' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {
     "success": true,
@@ -2585,12 +2690,14 @@ JSON返回示例：
 |balances|list|拥有的资产详情列表，每个元素是一个资产，包含资产符号、资产名、余额、上限、精度、当前发行量、是否注销（0：未注销，1：已注销）|
 |count|integer|当前该地址拥有的资产个数|
    
-请求示例：   
+请求示例：
+   
 ```js   
 curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/balances/AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {
     "success": true,
@@ -2636,12 +2743,14 @@ JSON返回示例：
 |transactions|list|交易列表，每个元素是一个字典代表一次交易，包含交易id、区块高度、区块id、交易类型、时间戳、发送者公钥、发送者id、接收者id（系统为空，如资产注册）、交易数量（资产交易都为0）、手续费0.1ACC、签名、多重签名、确认数、资产信息（包含发行商id、发行商名字、描述）、交易id。|
 |count|integer|资产交易总个数|
    
-请求示例：   
+请求示例： 
+  
 ```js   
 curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/transactions?offset=0&limit=2' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {
     "success": true,
@@ -2802,7 +2911,8 @@ type=14
 |success|boole  |是否成功 |  
 
    
-请求示例：   
+请求示例： 
+  
 ```js   
 // 发行商名称,唯一标识
 var name = 'IssuerName'
@@ -2817,7 +2927,8 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {"success":true}        
 ```
@@ -2852,7 +2963,8 @@ acchain系统的所有写操作都是通过发起一个交易来完成的。
 POST接口规格如下：
 payload为AcchainJS创建出来的交易数据
 
-请求示例：   
+请求示例：  
+ 
 ```js   
 var extra = {
     "productBrand": {
@@ -2904,13 +3016,14 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {"success":true}        
 ```
 
 #### ** 2.10.3 资产（UIA）投票**
-##### **2.10.3.1 查询某个资产的投票明细**
+##### **2.10.3.1 查询某个注册的投票明细**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/assets/:currency/voters
@@ -2968,6 +3081,7 @@ JSON返回示例：
 
    
 请求示例：   
+
 ```js   
 var currency = 'IssuerName.CNY'
 // 资产是否注销，1：流通，2：注销
@@ -2982,7 +3096,8 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {"success":true}        
 ```
@@ -3000,8 +3115,8 @@ JSON返回示例：
 |------ |-----  |----              |   
 |success|boole  |是否成功 |  
 
-   
 请求示例：   
+
 ```js   
 var currency = 'IssuerName.CNY'
 // '+'表示增加列表， ‘-’表示删除列表
@@ -3017,7 +3132,8 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
 {"success":true}
 // 查询更新后的列表（acl/1代表白名单）
@@ -3046,7 +3162,8 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 |success|boole  |是否成功 |  
 
    
-请求示例：   
+请求示例：
+   
 ```js   
 var currency = 'IssuerName.CNY'
 // 本次发行量=真实数量（100）*10**精度（3），所有发行量之和需 <= 上限*精度
@@ -3058,9 +3175,10 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js  
-        
+{"success":true,"transactionId":"ffd7500b944451adfaea20578a9ecab382e66dc8a11358901dfa8456c4aaa91d"}   
 ```
 
 ##### **2.10.5.2 资产转账** 
@@ -3077,7 +3195,8 @@ JSON返回示例：
 |success|boole  |是否成功 |  
 
    
-请求示例：   
+请求示例：  
+ 
 ```js   
 var currency = 'IssuerName.CNY'
 // 本次转账数（10000）=真实数量（10）*10**精度（3），需 <= 当前资产发行总量
@@ -3092,7 +3211,8 @@ console.log(JSON.stringify(trs))
 curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
-JSON返回示例：   
+JSON返回示例： 
+  
 ```js  
 {"success":true}        
 ```
@@ -3111,7 +3231,8 @@ JSON返回示例：
 |success|boole  |是否成功 |  
 
    
-请求示例：   
+请求示例：
+   
 ```js   
 var currency = 'IssuerName.CNY'
 // flagType为资产是否注销，1：流通，2：注销
@@ -3126,53 +3247,13 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```   
    
 JSON返回示例：   
+
 ```js  
 {"success":true}        
 ```  
 
-#### **2.10.6 查询资产投票**
-##### **2.10.6.1 查询某个资产的投票明细**
----
-- 请求方式: get
-- 请求路径: /api/uia/assets/:currency/voters
-- JSON返回实例:
-
-```
-{
-    "success": true,
-    "voters": [
-        {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
-        }
-    ],
-  "count": 9
-}
-```
-
-##### **2.10.6.2 查询某次发行的投票明细**
----
-- 请求方式: get
-- 请求路径: /api/uia/issues/:id/voters
-- JSON返回实例: 
-
-其中id为从上个接口获取的transactionId
-
-```
-{
-    "success": true,
-    "voters": [
-        {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
-        }
-    ],
-  "count": 9
-}
-```
-
-#### **2.10.7 查询资产分类**
-##### **2.10.7.1 查询一级分类**
+#### **2.10.6 查询资产分类**
+##### **2.10.6.1 查询一级分类**
 --- 
 - 请求方式: get
 - 请求路径: /api/uia/categories/0
@@ -3197,7 +3278,7 @@ JSON返回示例：
 }
 ```
 
-##### **2.10.7.2 查询指定编号分类的子分类**
+##### **2.10.6.2 查询指定编号分类的子分类**
 ---
 - 请求方式: get
 - 请求路径: /api/uia/categories/:id
@@ -3252,7 +3333,8 @@ attrs表示商品分类名称，可能有多种语言的翻译，第一个是中
 |transactionId|string  |交易id      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 // 将字符串"helloworld"用base64进行编码
 console.log(new Buffer('helloworld').toString('base64'));
@@ -3261,7 +3343,8 @@ aGVsbG93b3JsZA==
 curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect","secondSecret":"erjimima001","content":"aGVsbG93b3JsZA==","encode":"base64","wait":1}' http://localhost:4096/api/storages    
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {   
     "success": true,   
@@ -3287,12 +3370,14 @@ JSON返回示例：
 |id|string  |交易id      |    
    
    
-请求示例：   
+请求示例： 
+  
 ```bash   
 curl -k -H "Content-Type: application/json" -X GET http://localhost:4096/api/storages/get/?id=eddc48691269e653c5ec6f077ebf7c87aa3e6fb8ec295987366e6661de067da8 && echo   
 ```   
    
-JSON返回示例：   
+JSON返回示例：
+   
 ```js   
 {
     "success": true,
