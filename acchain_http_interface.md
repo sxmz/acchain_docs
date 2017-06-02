@@ -603,7 +603,7 @@ JSON返回示例：
 |------ |-----  |---  |----              |   
 |blockId |string |N    |区块id      |   
 |limit |integer |N    |限制结果集个数，最小值：0,最大值：100   |   
-|type|integer  |N      |交易类型,0:普通转账，1:设置二级密码，2:注册受托人，3:投票，4:多重签名，5:DAPP，6:IN_TRANSFER，7:OUT_TRANSFER      |   
+|type|integer  |N      |转账: 0,设置二级密码: 1,注册受托人: 2,投票: 3,注册多重签名: 4,注册应用: 5,应用充值: 6,应用提现: 7,批准: 8,注册发行商: 9,注册资产: 10,资产发行: 11,资产行权: 12|   
 |orderBy|string  |N      |根据表中字段排序，senderPublicKey:desc  |   
 |offset|integer  |N      |偏移量，最小值0  |   
 |senderPublicKey|string|N|发送者公钥|   
@@ -702,23 +702,7 @@ JSON返回示例：
     "count": 3   
 }   
 ```   
-Type Reference:
 
-```
-转账 SEND : 0,
-设置二级密码 SIGNATURE : 1,
-注册受托人 DELEGATE : 2,
-投票 VOTE : 3,
-注册多重签名 MULTI: 4,
-注册应用 DAPP: 5,
-应用充值 IN_TRANSFER: 6,
-应用提现 OUT_TRANSFER: 7,
-批准 APPROVAL: 8,
-注册发行商 UIA_ISSUER: 9,
-注册资产 UIA_ASSET: 10,
-资产发行 UIA_ISSUE: 11,
-资产行权 UIA——EXERCISE: 12
-```
 
 #### **2.2.2 根据id查看交易详情**   
 --- 
