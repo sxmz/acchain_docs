@@ -80,8 +80,7 @@ Table of Contents
                 * [<strong>2.10.1.8 查询已上线的资产</strong>](#21018-查询已上线的资产)
                 * [<strong>2.10.1.9 获取某个资产的访问控制列表acl</strong>](#21019-获取某个资产的访问控制列表acl)
                 * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
-                * [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
-                * [<strong>2.10.1.12 获取账户行权记录</strong>](#210112-获取账户行权记录)
+                * [<strong>2.10.1.11 获取账户行权记录</strong>](#210111-获取账户行权记录)
             * [<strong>2.10.2 创建资产uia交易</strong>](#2102-创建资产uia交易)
                 * [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
                 * [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
@@ -2140,7 +2139,7 @@ JSON返回示例：
 ---  
 /peer相关的api，在请求时都需要设置一个header  
 
- - key为magic，value为594fe0f3  
+ - key为magic，value为8e9b66ed  
  - key为version，value为''  
 
 #### **2.9.2 交易**  
@@ -2178,7 +2177,7 @@ console.log(JSON.stringify(transaction))
 {"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}   
 
 // 将上面生成的设置二级密码的交易数据通过post提交给acchain server
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' http://45.32.248.33:4096/peer/transactions   
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' http://45.32.248.33:4096/peer/transactions   
 ```   
    
 JSON返回示例：  
@@ -2220,7 +2219,7 @@ JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
 // 将上面生成的转账操作的交易数据通过post提交给acchain server
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' http://45.32.248.33:4096/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
 JSON返回示例：
@@ -2259,7 +2258,7 @@ JSON.stringify(transaction)
 '{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}'
 
 // 将上面生成的注册受托人的交易数据通过post提交给acchain server
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' http://45.32.248.33:4096/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
 JSON返回示例： 
@@ -2302,7 +2301,7 @@ JSON.stringify(transaction)
 {"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}
 
 // 将上面生成的投票的交易数据通过post提交给acchain server
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' http://45.32.248.33:4096/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' http://45.32.248.33:4096/peer/transactions
 ```   
    
 JSON返回示例： 
@@ -2780,178 +2779,8 @@ JSON返回示例：
 }       
 ```
 
-##### **2.10.1.11 获取资产交易记录** 
---- 
-接口地址：/api/uia/transactions  
-请求方式：get   
-支持格式：urlencoded 
-
-请求参数说明：
-
-|名称 |类型   |必填 |说明              |   
-|------ |-----  |---  |----              |   
-|limit|integer|N|限制结果集个数，最小值：0,最大值：100|
-|offset|integer|N|偏移量，最小值0|
-|ownerPublicKey|string|N|公钥|
-
-返回参数说明：   
-
-|名称 |类型   |说明              |   
-|------ |-----  |----              |   
-|success|boole  |是否成功 |  
-|transactions|list|交易列表，每个元素是一个字典代表一次交易，包含交易id、区块高度、区块id、交易类型、时间戳、发送者公钥、发送者id、接收者id（系统为空，如资产注册）、交易数量（资产交易都为0）、手续费0.1ACC、签名、多重签名、确认数、资产信息（包含发行商id、发行商名字、描述）、交易id。|
-|count|integer|资产交易总个数|
    
-请求示例： 
-  
-```js   
-curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/transactions?offset=0&limit=2' && echo
-```   
-   
-JSON返回示例：
-   
-```js  
-{
-    "success": true,
-    "transactions": [{
-        "id": "12372526051670720162",   // 交易id
-        "height": "286",    // 交易所在区块高度
-        "blockId": "14863181420651287815",  // 交易所在区块id
-        "type": 9,  // 交易类型
-        "timestamp": 17597873,  // 交易时间，举例创世块的offset
-        "senderPublicKey": "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3",  // 交易发起者公钥
-        "senderId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a",   // 交易发起者id
-        "recipientId": "",  //  接收者id，如果是系统则为空
-        "amount": 0,    //  交易数量，如果是资产或者ACC则为非0，否则为0
-        "fee": 10000000,    // 交易费
-        "signature": "6a1e66387f610de5a89489105697082037b82bff4fb6f95f9786304176efe59f7d41e8fe9c5501e1b0b34a47e957a38e10e940fdb180f8ebcaf0ac062a63c601", // 交易签名
-        "signSignature": "",    // 二级签名，有二级密码时才有
-        "signatures": null, // 多重签名，使用多重签名账户时才有
-        "confirmations": "155998",  // 交易确认数
-        "asset": {
-            "uiaIssuer": {
-                "transactionId": "12372526051670720162",    // 交易id
-                "name": "zhenxi",   // 发行商名字
-                "desc": "注册资产发行商-测试"   // 发行商描述
-            }
-        },
-        "t_id": "12372526051670720162"  // 交易id
-    },
-    {
-        "id": "17308768226103450697",
-        "height": "371",
-        "blockId": "244913990990213995",
-        "type": 9,
-        "timestamp": 17598730,
-        "senderPublicKey": "7bd645f9626820d390311fb28dc30875e8bd26cce2d04ba2809df82e84088020",
-        "senderId": "AEVWQWAq3TEJkCPSDxXMP2uCRrL2xbQnsy",
-        "recipientId": "",
-        "amount": 0,
-        "fee": 10000000,
-        "signature": "6ea76ff6f58f1bc99d6b40ece45e371948db58a68f6fa41e13b34ff86bbf1f0bea53d6afe982562392861727f879205efc7d1342f6e963028985e243a94e5507",
-        "signSignature": "",
-        "signatures": null,
-        "confirmations": "155913",
-        "asset": {
-            "uiaIssuer": {
-                "transactionId": "17308768226103450697",
-                "name": "speedtest",
-                "desc": "speedtest"
-            }
-        },
-        "t_id": "17308768226103450697"
-    }],
-    "count": 58
-} 
-      
-```
-
-说明：注意这里asset与type相关，9 <= type <= 14， 根据不同的type从asset中取出不同的值
-
-```
-type=9
-"asset": {
-                "uiaIssuer": {
-                    "transactionId": "260434858608363290",
-                    "name": "issuername",
-                    "desc": "issuer1_desc"
-                }
-            },
-展示： 注册了发行商$name
-```
-
-```
-type=10
-"asset": {
-                "uiaAsset": {
-                    "transactionId": "11613326283813789432",
-                    "name": "issuername.BTC",
-                    "desc": "asset1_desc",
-                    "maximum": "10000000000000",
-                    "precision": "6",
-                    "strategy": ""
-                }
-            },
-展示： 注册了资产$name
-```
-
-```
-type=11
-"asset": {
-                "uiaFlags": {
-                    "transactionId": "14649028077581400942",
-                    "currency": "issuername.BTC",
-                    "flagType": "1",
-                    "flag": "1"
-                }
-            },
-展示: 
-如果$flagType==1 ： 资产$currency访问控制设置为(flag==0?黑名单：白名单)
-如果$flagType==2 ： 资产$currency被注销
-```
-
-```
-type=12
-"asset": {
-                "uiaAcl": {
-                    "transactionId": "16597707943986371131",
-                    "currency": "issuername.BTC",
-                    "operator": "+",
-                    "flag": "1",
-                    "list": [
-                        "196751217687897827",
-                        "11053997261735317227"
-                    ]
-                }
-            },
-展示：资产$currency更新了访问控制列表
-```
-
-```
-type=13
-"asset": {
-                "uiaIssue": {
-                    "transactionId": "10646196155790595088",
-                    "currency": "issuername.BTC",
-                    "amount": "10000000000"
-                }
-            },
-展示： 资产$currency新发行$amount
-```
-
-```
-type=14
-"asset": {
-                "uiaTransfer": {
-                    "transactionId": "9105235822289198060",
-                    "currency": "issuername.BTC",
-                    "amount": "10"
-                }
-            },
-展示：资产$currency从$senderId转账$amount到$recipientId
-```
-   
-##### **2.10.1.12 获取账户行权记录**
+##### **2.10.1.11 获取账户行权记录**
 ---
 接口地址：/api/uia/exercises   
 请求方式：get   
@@ -3016,7 +2845,7 @@ console.log(JSON.stringify(trs))
 {"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}
 
 // 将生成的交易数据通过post发送给server，注册资产发行商IssuerName
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：
@@ -3105,7 +2934,7 @@ console.log(JSON.stringify(trs))
 {"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}
 
 // 将生成的交易数据通过post发送给server，注册资产IssuerName.CNY
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：
@@ -3137,7 +2966,7 @@ var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
 console.log(JSON.stringify(trs))
 {"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
 
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：   
@@ -3172,7 +3001,7 @@ console.log(JSON.stringify(trs))
 {"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}
 
 // 给AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a发送10.000 IssuerName.CNY资产
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例： 
@@ -3204,7 +3033,7 @@ var trs = AccchainJS.uia.createExercise(currency, amount, secret, secondSecret)
 console.log(JSON.stringify(trs))
  {"type": 12, "amount": "0", "fee": 100000, "recipientId": null, "senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise": {"currency": "TESTREAL.RET", "amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}
 
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：   
@@ -3285,7 +3114,7 @@ console.log(JSON.stringify(trs))
 {"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}
 
 // 将生成的交易数据通过post发送给server，将acl改为白名单模式
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：
@@ -3322,7 +3151,7 @@ console.log(JSON.stringify(trs))
 {"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}
 
 // 将生成的交易数据通过post发送给server，把地址列表['15745540293890213312']增加到该白名单中，只修改名单列表，不修改acl模式，手续费0.2ACC
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
 ```   
    
 JSON返回示例：
