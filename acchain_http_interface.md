@@ -854,8 +854,9 @@ JSON返回示例：
 |------ |-----  |---  |----              |   
 |secret |string |Y    |acchain账户密码       |   
 |amount|string|Y|金额，最小值：1，最大值：10000000000000000|   
-|recipientId|string|Y|接收者地址,最小长度：1|   
-|publicKey|string|N|发送者公钥|   
+|recipientId|string|Y|接收者地址,最小长度：1|  
+|currency|string|N|交易币种（为空或者不填默认为ACC)|
+|publicKey|string|N|发送者公钥| 
 |secondSecret|string|N|发送者二级密码，最小长度1，最大长度：100|   
 |multisigAccountPublicKey|string|N|多重签名账户公钥|   
    
@@ -870,7 +871,7 @@ JSON返回示例：
 请求示例：  
  
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103"}' 'http://45.32.248.33:4096/api/transactions'    
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103","currency":"TESTREAL.RET",}' 'http://45.32.248.33:4096/api/transactions'    
 ```   
    
 JSON返回示例： 
