@@ -62,7 +62,7 @@ Table of Contents
             * [<strong>2.8.2 获取挂起的多重签名交易详情</strong>](#282-获取挂起的多重签名交易详情)
             * [<strong>2.8.3 非交易发起人对交易进行多重签名</strong>](#283-非交易发起人对交易进行多重签名)
             * [<strong>2.8.4 获取多重签名账户信息</strong>](#284-获取多重签名账户信息)
-        * [<strong>2.9 点对点传输transport(安全的api)</strong>](#29-点对点传输(安全的api)transport)
+        * [<strong>2.9 点对点传输transport(安全的api)</strong>](#29-点对点传输transport(安全的api))
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
                 * [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
@@ -70,7 +70,7 @@ Table of Contents
                 * [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
                 * [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票和取消投票)
         * [<strong>2.10 用户自定义资产uia</strong>](#210-用户自定义资产uia)
-            * [<strong>2.10.1 获取资产(UIA)信息</strong>](#2101-获取资产(UIA)信息)
+            * [<strong>2.10.1 获取资产uia信息</strong>](#2101-获取资产uia信息)
                 * [<strong>2.10.1.1 获取全网所有发行商</strong>](#21011-获取全网所有发行商)
                 * [<strong>2.10.1.2 查询指定发行商的信息</strong>](#21012-查询指定发行商的信息)
                 * [<strong>2.10.1.3 查看指定发行商的资产</strong>](#21013-查看指定发行商的资产)
@@ -82,17 +82,17 @@ Table of Contents
                 * [<strong>2.10.1.9 获取某个资产的访问控制列表(acl)</strong>](#21019-获取某个资产的访问控制列表(acl))
                 * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
                 * [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
-            * [<strong>2.10.2 创建资产(UIA)交易</strong>](#2109-创建资产(UIA)交易)
+            * [<strong>2.10.2 创建资产uia交易</strong>](#2109-创建资产uia交易)
                 * [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
                 * [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
                 * [<strong>2.10.2.3 资产发行</strong>](#21023-资产发行)
-            * [<strong>2.10.3 资产(UIA)投票</strong>](#2103-资产(UIA)投票)
+            * [<strong>2.10.3 资产uia投票</strong>](#2103-资产uia投票)
                 * [<strong>2.10.3.1 查询某个资产注册的投票明细</strong>](#21031-查询某个资产注册的投票明细)
                 * [<strong>2.10.3.2 查询某次发行的投票明细</strong>](#21032-查询某次发行的投票明细)
-            * [<strong>2.10.4 资产(UIA)控制</strong>](#2104-资产(UIA)控制)
+            * [<strong>2.10.4 资产uia控制</strong>](#2104-资产uia控制)
                 * [<strong>2.10.4.1 资产设置acl模式</strong>](#21041-资产设置acl模式)
-                * [<strong>2.10.4.2 更新访问控制列表(acl)</strong>](#21042-更新访问控制列表(acl))
-            * [<strong>2.10.5 资产UIA操作</strong>](#2105-资产UIA操作)            
+                * [<strong>2.10.4.2 更新访问控制列表acl</strong>](#21042-更新访问控制列表acl)
+            * [<strong>2.10.5 资产uia操作</strong>](#2105-资产uia操作)            
                 * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
                 * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
                 * [<strong>2.10.5.3 资产行权</strong>](#21053-资产行权)
@@ -2167,7 +2167,7 @@ JSON返回示例：
 }   
 ```   
 
-### **2.9 点对点传输(安全的api)transport**  
+### **2.9 点对点传输transport(安全的api)**  
  
 #### **2.9.1 说明**  
 ---  
@@ -2348,7 +2348,7 @@ JSON返回示例：
 
 ### **2.10 用户自定义资产uia**
 
-#### **2.10.1 获取资产(UIA)信息**
+#### **2.10.1 获取资产uia信息**
 ##### **2.10.1.1 获取全网所有发行商** 
 ---  
 接口地址：/api/uia/issuers  
@@ -2466,7 +2466,7 @@ JSON返回示例：
     "success": true,
     "assets": [{
             "currency": "BTC",
-            "name": "zhenxi.UIA",
+            "name": "zhenxi.uia",
             "desc": "注册资产-测试",
             "maximum": "10000000",
             "precision": 3,
@@ -2516,7 +2516,7 @@ JSON返回示例：
 {
     "success": true,
     "assets": [{
-        "name": "zhenxi.UIA",
+        "name": "zhenxi.uia",
         "desc": "注册资产-测试",
         "maximum": "10000000",
         "precision": 3,
@@ -2565,7 +2565,7 @@ JSON返回示例：
 请求示例：  
  
 ```js   
-curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.UIA' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.uia' && echo
 ```   
    
 JSON返回示例：
@@ -2574,7 +2574,7 @@ JSON返回示例：
 {
     "success": true,
     "asset": {
-        "name": "zhenxi.UIA",
+        "name": "zhenxi.uia",
         "desc": "注册资产-测试",
         "maximum": "10000000",
         "precision": 3,
@@ -2739,8 +2739,8 @@ count: 1
 请求示例： 
   
 ```js   
-// 获取资产zhenxi.UIA白名单中的地址列表
-curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/assets/zhenxi.UIA/acl/1' && echo
+// 获取资产zhenxi.uia白名单中的地址列表
+curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/assets/zhenxi.uia/acl/1' && echo
 ```   
    
 JSON返回示例： 
@@ -2793,8 +2793,8 @@ JSON返回示例：
 {
     "success": true,
     "balances": [{
-            "currency": "zhenxi.UIA",
-            "name":"UIA",
+            "currency": "zhenxi.uia",
+            "name":"uia",
             "balance": "900000",
             "maximum": "10000000",
             "precision": 3,
@@ -2984,7 +2984,7 @@ type=14
 展示：资产$currency从$senderId转账$amount到$recipientId
 ```
    
-#### **2.10.2 创建资产(UIA)交易**
+#### **2.10.2 创建资产uia交易**
 ###### **2.10.2.1 注册资产发行商**
 ---
 - 请求方式: get
@@ -3145,7 +3145,7 @@ JSON返回示例：
 {"success":true} 	
 ```
 
-#### **2.10.3 资产(UIA)投票**
+#### **2.10.3 资产uia投票**
 ##### **2.10.3.1 查询某个资产注册的投票明细**
 ---
 - 请求方式: get
@@ -3188,7 +3188,7 @@ JSON返回示例：
 }
 ```
 
-#### **2.10.4 资产(UIA)控制**
+#### **2.10.4 资产uia控制**
 ##### **2.10.4.1 资产设置acl模式** 
 --- 
 请求参数说明：
@@ -3226,7 +3226,7 @@ JSON返回示例：
 {"success":true}        
 ```
 
-##### **2.10.4.2 更新访问控制列表(acl)** 
+##### **2.10.4.2 更新访问控制列表acl** 
 --- 
 请求参数说明：
 
@@ -3271,7 +3271,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
     "count": 1
 }
 ```
-#### **2.10.5 资产UIA操作**
+#### **2.10.5 资产uia操作**
 ##### **2.10.5.1 资产转账** 
 --- 
 请求参数说明：
