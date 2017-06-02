@@ -93,9 +93,9 @@ Table of Contents
       * [2.10.4 UIA Control](#2104-uia-control)
         * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
         * [2.10.4.2 Update acl lists](#21042-update-acl-lists)
-      * [2.10.5 Get Assets Category](#2106-get-assets-category)
-        * [2.10.5.1 Get First Category](#21061-get-first-category)
-        * [2.10.5.2 Get Category By id](#21062-get-category-by-id)
+      * [2.10.5 Get Assets Category](#2105-get-assets-category)
+        * [2.10.5.1 Get First Category](#21051-get-first-category)
+        * [2.10.5.2 Get Category By id](#21052-get-category-by-id)
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
         
 ---
