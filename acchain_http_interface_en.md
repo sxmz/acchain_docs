@@ -594,7 +594,7 @@ curl -k -X GET 'http://45.32.248.33:4096/api/accounts/top?limit=5&offset=0'  //r
 |------ |-----  |---  |----              |   
 |blockId |string |N    |block id      |   
 |limit |integer |N    |the limitation of returned records，minimum：0,maximum：100   |   
-|type|integer  |N      |The transaction type,0:normal transfer，1:setting second password，2:registering delegate，3:voting，4:multiple signature，5:DAPP，6:IN_TRANSFER，7:OUT_TRANSFER      |   
+|type|integer  |N      |The transaction type, SEND: 0, SIGNATURE: 1,DELEGATE: 2 ,VOTE: 3, MULTI: 4, DAPP: 5,IN_TRANSFER: 6, OUT_TRANSFER: 7, APPROVAL: 8, UIA_ISSUER: 9, UIA_ASSET: 10, UIA_ISSUE: 11, UIA——EXERCISE: 12|   
 |orderBy|string  |N      |sort with a field in the table，senderPublicKey:desc  |   
 |offset|integer  |N      |offset, minimum 0  |   
 |senderPublicKey|string|N|sender's public key|   
@@ -2325,7 +2325,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
     "success": true,
     "issuers": [{
         "name": "zhenxi",
-        "desc": "注册资产发行商-测试",
+        "desc": "this is a description",
         "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
     },
     {
@@ -2363,7 +2363,7 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api
     "success": true,
     "issuer": {
         "name": "zhenxi",
-        "desc": "注册资产发行商-测试",
+        "desc": "this is a description",
         "issuerId": "AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a"
     }
 }
@@ -2404,7 +2404,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
     "assets": [{
             "currency": "BTC",
             "name": "zhenxi.UIA",
-            "desc": "注册资产-测试",
+            "desc": "this is a description",
             "maximum": "10000000",
             "precision": 3,
             "strategy": "",
@@ -2452,7 +2452,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
     "success": true,
     "assets": [{
         "name": "zhenxi.UIA",
-        "desc": "注册资产-测试",
+        "desc": "this is a description",
         "maximum": "10000000",
         "precision": 3,
         "strategy": "",
@@ -2464,7 +2464,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
     },
     {
         "name": "speedtest.SPEED",
-        "desc": "测速",
+        "desc": "this is a description",
         "maximum": "10000",
         "precision": 1,
         "strategy": "",
@@ -2803,16 +2803,16 @@ Acchain system's every operation is raised by a transaction. The transaction is 
 - Request Example:
 
 ```js
-// 发行商名称,唯一标识
+// issuer name, unique
 var name = 'IssuerName'
-// 发行商描述
+// issuer description
 var desc = 'IssuerDesc'
-// 构造交易数据
+// create issuer
 var trs = AcchainJS.uia.createIssuer(name, desc, secret, secondSecret)
 console.log(JSON.stringify(trs))
 {"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}
 
-// 将生成的交易数据通过post发送给server，注册资产发行商IssuerName
+// http post the 'trs' to the server, register issuer name
 curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
@@ -2871,24 +2871,24 @@ var extra = {
     "moreDetails":" "
 }
 var payload = {
-    name: 'IssuerName.CNY',// 资产名称，发行商名.资产名，唯一标识
-    currency: "",// 货币名称:BTC,ETH..
-    desc: '资产描述',// 资产描述
-    category: '',// 资产类别
-    precision: 3,// 精度，小数点的位数，这里上限是1000000，精度为3，代表资产IssuerName.CNY的最大发行量为1000.000
-    maximum: '1000000',// 上限
-    estimateUnit: '',// 估值单位
-    estimatePrice: '',// 估值价格
-    exerciseUnit: '',// 行权规格
-    unlockCondition: 0,// 解锁条件0, 1
-    extra: extra// 其它信息
+    name: 'IssuerName.CNY',// assets name，issuer.assetsName，unique
+    currency: "CNY",// currency: BTC,ETH..
+    desc: 'this is a description',
+    category: '',// assets category
+    precision: 3,// precision，for instance: maximum = 1000000，precision = 3，and the IssuerName.CNY actual maximum is 1000.000
+    maximum: '1000000',
+    estimateUnit: '',
+    estimatePrice: '',
+    exerciseUnit: '',
+    unlockCondition: 0,// unlock condition = 0 or 1
+    extra: extra
 }
-// 构造交易数据
+// create assets
 var trs = AcchainJS.uia.createAsset(payload, secret, secondSecret)
 console.log(JSON.stringify(trs))
-{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}
+{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"this is a description","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}
 
-// 将生成的交易数据通过post发送给server，注册资产IssuerName.CNY
+// http post the 'trs' to the server，register assset IssuerName.CNY
 curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
 ```
 
