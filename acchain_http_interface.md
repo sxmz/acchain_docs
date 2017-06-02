@@ -1,4 +1,4 @@
-# # Acchain HTTP API文档
+## Acchain HTTP API文档
 
 Table of Contents
 =================
@@ -20,11 +20,12 @@ Table of Contents
             * [<strong>2.1.7 获取受托人手续费设置</strong>](#217-获取受托人手续费设置)
             * [<strong>2.1.8 投票</strong>](#218-投票)
             * [<strong>2.1.9 获取账户排行榜前100名</strong>](#219-获取账户排行榜前100名)
+            * [<strong>2.1.10 获取账户行权记录</strong>](#2110-获取账户行权记录)
         * [<strong>2.2 交易transactions</strong>](#22-交易transactions)
             * [<strong>2.2.1 获取交易信息</strong>](#221-获取交易信息)
             * [<strong>2.2.2 根据id查看交易详情</strong>](#222-根据id查看交易详情)
             * [<strong>2.2.3 根据未确认交易id查看详情</strong>](#223-根据未确认交易id查看详情)
-            * [<strong>2.2.4 获取[全网所有]未确认的交易详情</strong>](#224-获取全网所有未确认的交易详情)
+            * [<strong>2.2.4 获取(全网所有)未确认的交易详情</strong>](#224-获取全网所有未确认的交易详情)
             * [<strong>2.2.5 创建交易</strong>](#225-创建交易)
         * [<strong>2.3 区块blocks</strong>](#23-区块blocks)
             * [<strong>2.3.1 获取特定id的区块详情</strong>](#231-获取特定id的区块详情)
@@ -61,7 +62,7 @@ Table of Contents
             * [<strong>2.8.2 获取挂起的多重签名交易详情</strong>](#282-获取挂起的多重签名交易详情)
             * [<strong>2.8.3 非交易发起人对交易进行多重签名</strong>](#283-非交易发起人对交易进行多重签名)
             * [<strong>2.8.4 获取多重签名账户信息</strong>](#284-获取多重签名账户信息)
-        * [<strong>2.9 点对点传输tansport[安全的api]</strong>](#29-点对点传输tansport[安全的api])
+        * [<strong>2.9 点对点传输tansport(安全的api)</strong>](#29-点对点传输tansport[安全的api])
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
                 * [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
@@ -94,6 +95,7 @@ Table of Contents
             * [<strong>2.10.5 资产（UIA）操作</strong>](#2105-资产（UIA）操作)            
                 * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
                 * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
+                * [<strong>2.10.5.3 资产行权</strong>](#21053-资产行权)
             * [<strong>2.10.6 查询资产分类</strong>](#2106-查询资产分类)
                 * [<strong>2.10.6.1 查询一级分类</strong>](#21061-查询一级分类)
                 * [<strong>2.10.6.2 查询指定编号分类的子分类</strong>](#21062-查询指定编号分类的子分类)
@@ -109,15 +111,16 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
  
 ## **1 API使用说明**   
 ### **1.1 请求过程说明**   
-
-    1. 构造请求数据，用户数据按照Acchain提供的接口规则，通过程序生成签名，生成请求数据集合；       
-    2. 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
-    3. acchain对请求数据进行处理，服务器在接收到请求后，会首先进行安全校验，验证通过后便会处理该次发送过来的请求；       
-    4. 返回响应结果数据，acchain把响应结果以JSON的格式反馈给用户，每个响应都包含success字段，表示请求是否成功，成功为true, 失败为false。 如果失败，则还会包含一个error字段，表示错误原因；       
-    5. 对获取的返回结果数据进行处理；
+---
+1. 构造请求数据，用户数据按照Acchain提供的接口规则，通过程序生成签名，生成请求数据集合；       
+2. 发送请求数据，把构造完成的数据集合通过POST/GET等提交的方式传递给acchain；       
+3. acchain对请求数据进行处理，服务器在接收到请求后，会首先进行安全校验，验证通过后便会处理该次发送过来的请求；       
+4. 返回响应结果数据，acchain把响应结果以JSON的格式反馈给用户，每个响应都包含success字段，表示请求是否成功，成功为true, 失败为false。 如果失败，则还会包含一个error字段，表示错误原因；       
+5. 对获取的返回结果数据进行处理；
 
 ### **1.2 接口说明** 
-    1. 接口地址中带:的字段为变量名, 调用时需要将变量替换成具体的值， 例如接口地址为/api/uia/balances/:address，:address为实际的地址，实际请求时的接口地址为/api/uia/balances/A21DabNVZ4LFZBSWjcoNsLfpDKdhqqoMqB       
+---
+1. 接口地址中带:的字段为变量名, 调用时需要将变量替换成具体的值， 例如接口地址为/api/uia/balances/:address，:address为实际的地址，实际请求时的接口地址为/api/uia/balances/A21DabNVZ4LFZBSWjcoNsLfpDKdhqqoMqB       
    
 
    
@@ -125,7 +128,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 ### **2.1 账户accounts**   
    
 #### **2.1.1 登录**   
-##### **2.1.1.1 本地加密后再登陆（推荐使用）**   
+##### **2.1.1.1 本地加密后再登陆（推荐使用）** 
+---  
 接口地址：/api/accounts/open2/   
 请求方式：post   
 支持格式：json   
@@ -181,7 +185,8 @@ JSON返回示例：
     }   
 ```   
    
-##### **2.1.1.2 本地不加密直接登陆（不推荐使用）**   
+##### **2.1.1.2 本地不加密直接登陆（不推荐使用）**  
+---  
 接口地址：/api/accounts/open/   
 请求方式：post   
 支持格式：json   
@@ -222,7 +227,8 @@ JSON返回示例：
     }   
 }   
 ```   
-#### **2.1.2 获取账户信息**   
+#### **2.1.2 获取账户信息** 
+---   
 接口地址：/api/accounts   
 请求方式：get   
 支持格式：urlencoded   
@@ -274,7 +280,9 @@ JSON返回示例：
     }   
 }   
 ```   
+
 #### **2.1.3 获取账户余额**   
+--- 
 接口地址：/api/accounts/getBalance   
 请求方式：get   
 支持格式：urlencoded   
@@ -310,6 +318,7 @@ JSON返回示例：
 ```   
    
 #### **2.1.4 获取账户公钥**   
+--- 
 接口地址：/api/accounts/getPublickey   
 请求方式：get   
 支持格式：urlencoded   
@@ -342,6 +351,7 @@ JSON返回示例：
 ```   
    
 #### **2.1.5 生成公钥**   
+--- 
 接口地址：/api/accounts/generatePublickey   
 请求方式：post   
 支持格式：json   
@@ -374,6 +384,7 @@ JSON返回示例：
 ```   
    
 #### **2.1.6 根据地址获取其投票列表**   
+--- 
 接口地址：/api/accounts/delegates   
 请求方式：get   
 支持格式：urlencoded   
@@ -438,7 +449,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.1.7 获取受托人手续费设置**   
+#### **2.1.7 获取受托人手续费设置**  
+---  
 接口地址：/api/accounts/delegates/fee   
 请求方式：get   
 支持格式：无   
@@ -469,6 +481,7 @@ JSON返回示例：
    
    
 #### **2.1.8 投票**   
+--- 
 接口地址：/api/accounts/delegates   
 请求方式：put   
 支持格式：json   
@@ -521,6 +534,7 @@ JSON返回示例：
 ```   
 
 #### **2.1.9 获取账户排行榜前100名**   
+---
 接口地址：/api/accounts/top   
 请求方式：get   
 支持格式：无   
@@ -577,10 +591,42 @@ JSON返回示例：
     }
 }    
 ```   
+
+#### **2.1.10 获取账户行权记录**
+---
+接口地址：/api/uia/exercises   
+请求方式：get   
+支持格式：无   
+请求参数说明：如果不加请求参数则返回所有的行权记录  
+
+|名称 |类型   |必填 |说明              |   
+|------ |-----  |---  |----              |   
+|currency|string  |N      |账户某个币种的行权记录   
+
+返回参数说明：   
+
+|名称 |类型   |说明              |   
+|------ |-----  |----              |   
+|success|boole  |是否成功获得response数据 |    
+|exercises|json  |账户行权记录数组，每个数组包含交易ID,币种,时间戳|
+|count  |integer  | 行权记录的个数 |
    
+   
+请求示例：
+   
+```bash   
+curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  //返回currency为"TESTREAL.RET"的行权记录
+```   
+   
+JSON返回示例：
+   
+```
+{"success":true,"exercises":[{"transactionId":"d5cf82f37a35537e73cb921f662b4fe162e7c4d715e4c397a4811db6cf949057","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254858},{"transactionId":"086c912812c8b7ee0bd70cff80cbed83f0efa8a08230722fdf5b5502b1aa6238","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254924},{"transactionId":"f7649cf70ad62203c7279be3e3cd0d8b7ecdf5e2073ab20546d521ca87a729ba","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29311954}],"count":3}
+```
    
 ### **2.2 交易transactions**   
 #### **2.2.1 获取交易信息**   
+---
 接口地址：/api/transactions   
 请求方式：get   
 支持格式：urlencoded   
@@ -691,6 +737,7 @@ JSON返回示例：
 }   
 ```   
 #### **2.2.2 根据id查看交易详情**   
+--- 
 接口地址：/api/transactions/get   
 请求方式：get   
 支持格式：urlencoded   
@@ -740,7 +787,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.2.3 根据未确认交易id查看详情**   
+#### **2.2.3 根据未确认交易id查看详情** 
+---   
 接口地址：/api/transactions/unconfirmed/get   
 请求方式：get   
 支持格式：urlencoded   
@@ -788,7 +836,8 @@ JSON返回示例：
 ```   
    
    
-#### **2.2.4 获取[全网所有]未确认的交易详情**   
+#### **2.2.4 获取(全网所有)未确认的交易详情**   
+---
 接口地址：/api/transactions/unconfirmed   
 请求方式：get   
 支持格式：urlencoded   
@@ -824,7 +873,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.2.5 创建交易**   
+#### **2.2.5 创建交易**  
+---  
 接口地址：/api/transactions   
 请求方式：PUT   
 支持格式：json   
@@ -864,7 +914,8 @@ JSON返回示例：
 ```  
    
 ### **2.3 区块blocks**   
-#### **2.3.1 获取特定id的区块详情**   
+#### **2.3.1 获取特定id的区块详情** 
+---   
 接口地址：/api/blocks/get   
 请求方式：get   
 支持格式：urlencoded   
@@ -917,6 +968,7 @@ JSON返回示例：
 ```   
    
 #### **2.3.2 获取最新的区块**   
+--- 
 接口地址：/api/blocks   
 请求方式：get   
 支持格式：urlencoded   
@@ -995,7 +1047,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.3.3 获取区块链高度**   
+#### **2.3.3 获取区块链高度** 
+---   
 接口地址：/api/blocks/getHeight   
 请求方式：get   
 支持格式：无   
@@ -1021,6 +1074,7 @@ JSON返回示例：
 ```   
    
 #### **2.3.4 获取交易手续费**   
+--- 
 接口地址：/api/blocks/getFee   
 请求方式：get   
 支持格式：无   
@@ -1047,6 +1101,7 @@ JSON返回示例：
 ```   
    
 #### **2.3.5 获取里程碑**   
+--- 
 接口地址：/api/blocks/getMilestone   
 请求方式：get   
 支持格式：无   
@@ -1071,7 +1126,8 @@ JSON返回示例：
 {"success":true,"milestone":0}   
 ```   
    
-#### **2.3.6 查看单个区块奖励**   
+#### **2.3.6 查看单个区块奖励**  
+---  
 接口地址：/api/blocks/getReward   
 请求方式：get   
 支持格式：无   
@@ -1097,7 +1153,8 @@ JSON返回示例：
 {"success":true,"reward":350000000} //每个生成一个block奖励3.5 ACC 
 ```   
    
-#### **2.3.7 获取区块链当前最大供应值**   
+#### **2.3.7 获取区块链当前最大供应值**  
+---  
 接口地址：/api/blocks/getSupply   
 请求方式：get   
 支持格式：无   
@@ -1124,6 +1181,7 @@ JSON返回示例：
 ```   
    
 #### **2.3.8 区块链状态**   
+--- 
 接口地址：/api/blocks/getStatus   
 请求方式：get   
 支持格式：无   
@@ -1164,7 +1222,8 @@ JSON返回示例：
    
 ### **2.4 受托人delegates**   
    
-#### **2.4.1 获取受托人总个数**   
+#### **2.4.1 获取受托人总个数** 
+---   
 接口地址：/api/delegates/count   
 请求方式：get   
 支持格式：无   
@@ -1189,7 +1248,8 @@ JSON返回示例：
 {"success":true,"count":234}   
 ```   
    
-#### **2.4.2 根据公钥查看哪些人为其投了票**   
+#### **2.4.2 根据公钥查看哪些人为其投了票**  
+---  
 接口地址：/api/delegates/voters   
 请求方式：get   
 支持格式：urlencoded   
@@ -1239,7 +1299,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.4.3 根据公钥或者用户名获取受托人详情**   
+#### **2.4.3 根据公钥或者用户名获取受托人详情** 
+---   
 接口地址： /api/delegates/get/   
 请求方式：get   
 支持格式：urlencoded   
@@ -1289,6 +1350,7 @@ JSON返回示例：
 ```   
    
 #### **2.4.4 获取受托人列表**   
+--- 
 接口地址：/api/delegates   
 请求方式：get   
 支持格式：urlencoded   
@@ -1356,6 +1418,7 @@ JSON返回示例：
 ```   
    
 #### **2.4.5 获取受托人设置的转账费**   
+--- 
 接口地址：/api/delegates/fee   
 请求方式：get   
 支持格式：urlencoded   
@@ -1385,7 +1448,8 @@ JSON返回示例：
 {"success":true,"fee":10000000000}  //0.1 ACC
 ```   
    
-#### **2.4.6 根据公钥查看其锻造情况**   
+#### **2.4.6 根据公钥查看其锻造情况**  
+---  
 接口地址：/api/delegates/forging/getForgedByAccount   
 请求方式：get   
 支持格式：urlencoded   
@@ -1422,7 +1486,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.4.7 注册受托人**   
+#### **2.4.7 注册受托人**  
+---  
 接口地址：/api/delegates   
 请求方式：put   
 支持格式：urlencoded   
@@ -1475,7 +1540,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.4.8 受托人开启锻造**   
+#### **2.4.8 受托人开启锻造**  
+---  
 接口地址：/api/delegates/forging/enable   
 请求方式：post   
 支持格式：urlencoded   //url必须是受托人所在服务器  
@@ -1507,7 +1573,8 @@ JSON返回示例：
 {"success":true,"address":"16358246403719868041"}   
 ```      
 
-#### **2.4.9 受托人关闭锻造**   
+#### **2.4.9 受托人关闭锻造** 
+---   
 接口地址：/api/delegates/forging/disable   
 请求方式：post   
 支持格式：urlencoded   //url必须是受托人所在服务器  
@@ -1539,7 +1606,8 @@ JSON返回示例：
 {"success":true,"address":"16358246403719868041"}     
 ```     
 
-#### **2.4.10 受托人锻造状态查看**   
+#### **2.4.10 受托人锻造状态查看** 
+---   
 接口地址：/api/delegates/forging/status      
 请求方式：get     
 支持格式：urlencoded    
@@ -1573,6 +1641,7 @@ JSON返回示例：
 ### **2.5 节点peers**   
    
 #### **2.5.1 获取全网节点信息**   
+--- 
 接口地址：/api/peers   
 请求方式：get   
 支持格式：urlencoded   
@@ -1620,7 +1689,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.5.2 获取节点版本信息**   
+#### **2.5.2 获取节点版本信息**  
+---  
 接口地址：/api/peers/version   
 请求方式：get   
 支持格式：无   
@@ -1653,7 +1723,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.5.3 获取特定ip节点信息**   
+#### **2.5.3 获取特定ip节点信息**  
+---  
 接口地址：/api/peers/get   
 请求方式：get   
 支持格式：urlencoded   
@@ -1690,7 +1761,8 @@ JSON返回示例：
 ```   
    
 ### **2.6 同步和加载**   
-#### **2.6.1 查看本地区块链加载状态**   
+#### **2.6.1 查看本地区块链加载状态**  
+---  
 接口地址：/api/loader/status   
 请求方式：get   
 支持格式：无   
@@ -1720,7 +1792,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.6.2 查看区块同步信息**   
+#### **2.6.2 查看区块同步信息** 
+---   
 接口地址：/api/loader/status/sync   
 请求方式：get   
 支持格式：无   
@@ -1752,7 +1825,8 @@ JSON返回示例：
    
 ### **2.7 二级密码signatures** 
   
-#### **2.7.1 设置二级密码**   
+#### **2.7.1 设置二级密码** 
+---   
 接口地址：/api/signatures   
 请求方式：put   
 支持格式：json   
@@ -1805,7 +1879,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.7.2 获取二级密码设置费**   
+#### **2.7.2 获取二级密码设置费**
+---    
 接口地址：/api/signatures/fee   
 请求方式：get   
 支持格式：无   
@@ -1837,7 +1912,8 @@ JSON返回示例：
    
 ### **2.8 多重签名multisignatures** 
   
-#### **2.8.1 设置普通账户为多重签名账户**   
+#### **2.8.1 设置普通账户为多重签名账户** 
+---   
 接口地址：/api/multisignatures   
 请求方式：put   
 支持格式：json   
@@ -1878,7 +1954,8 @@ JSON返回示例：
 }   
 ```   
    
-#### **2.8.2 获取挂起的多重签名交易详情**   
+#### **2.8.2 获取挂起的多重签名交易详情**  
+---  
 接口地址：/api/multisignatures/pending   
 请求方式：get   
 支持格式：urlencoded   
@@ -1937,7 +2014,8 @@ JSON返回示例：
    
 ```   
    
-#### **2.8.3 非交易发起人对交易进行多重签名**   
+#### **2.8.3 非交易发起人对交易进行多重签名**  
+---  
 接口地址：/api/multisignatures/sign   
 请求方式：post   
 支持格式：json   
@@ -2037,7 +2115,8 @@ curl -k -X GET http://45.32.248.33:4096/api/transactions/get?id=1762037899827702
    
 ```   
    
-#### **2.8.4 获取多重签名账户信息**   
+#### **2.8.4 获取多重签名账户信息**  
+---  
 接口地址：/api/multisignatures/accounts   
 请求方式：get   
 支持格式：urlencoded   
@@ -2088,15 +2167,17 @@ JSON返回示例：
 }   
 ```   
 
-### **2.9 点对点传输tansport[安全的api]**  
+### **2.9 点对点传输tansport(安全的api)**  
  
-#### **2.9.1 说明**   
+#### **2.9.1 说明**  
+---  
 /peer相关的api，在请求时都需要设置一个header  
 
  - key为magic，value为594fe0f3  
  - key为version，value为''  
 
-#### **2.9.2 交易**   
+#### **2.9.2 交易**  
+---  
 acchain系统的所有写操作都是通过发起一个交易来完成的。 
 交易数据通过一个叫做AcchainJS的库来创建，然后再通过一个POST接口发布出去
 
@@ -2106,7 +2187,8 @@ payload为AcchainJS创建出来的交易数据
 请求方式：post   
 支持格式：json  
 
-##### **2.9.2.1 设置二级支付密码**   
+##### **2.9.2.1 设置二级支付密码**  
+---  
 请求参数说明： 
 
 |名称 |类型   |必填 |说明              |   
@@ -2141,6 +2223,7 @@ JSON返回示例：
 ``` 
 
 ##### **2.9.2.2 转账**   
+--- 
 请求参数说明：  
 
 |名称 |类型   |必填 |说明              |   
@@ -2181,7 +2264,8 @@ JSON返回示例：
 }       
 ``` 
 
-##### **2.9.2.3 注册受托人**   
+##### **2.9.2.3 注册受托人** 
+---   
 请求参数说明： 
 
 |名称 |类型   |必填 |说明              |   
@@ -2220,7 +2304,7 @@ JSON返回示例：
 ``` 
 
 ##### **2.9.2.4 投票 & 取消投票**  
-
+--- 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -2265,7 +2349,8 @@ JSON返回示例：
 ### **2.10 用户自定义资产uia**
 
 #### **2.10.1 获取资产（UIA）信息**
-##### **2.10.1.1 获取全网所有发行商**  
+##### **2.10.1.1 获取全网所有发行商** 
+---  
 接口地址：/api/uia/issuers  
 请求方式：get   
 支持格式：urlencoded 
@@ -2311,6 +2396,7 @@ JSON返回示例：
 ``` 
 
 ##### **2.10.1.2 查询指定发行商的信息** 
+--- 
 接口地址：/api/uia/issuers/:name 
 请求方式：get   
 支持格式：urlencoded 
@@ -2344,6 +2430,7 @@ JSON返回示例：
 ``` 
 
 ##### **2.10.1.3 查看指定发行商的资产** 
+--- 
 接口地址：/api/uia/issuers/name/assets  
 请求方式：get   
 支持格式：urlencoded 
@@ -2394,7 +2481,8 @@ JSON返回示例：
 }       
 ``` 
 
-##### **2.10.1.4 获取全网所有资产** 
+##### **2.10.1.4 获取全网所有资产**
+---  
 接口地址：/api/uia/assets  
 请求方式：get   
 支持格式：urlencoded 
@@ -2456,6 +2544,7 @@ JSON返回示例：
 ``` 
 
 ##### **2.10.1.5 获取指定资产信息** 
+--- 
 接口地址：/api/uia/assets/:name  
 请求方式：get   
 支持格式：urlencoded 
@@ -2623,7 +2712,8 @@ count: 1
 }
 ```
 
-#### **2.10.1.9 获取某个资产的访问控制列表（acl）** 
+#### **2.10.1.9 获取某个资产的访问控制列表（acl）**
+---  
 接口地址：/api/uia/assets/name/acl/flag
 请求方式：get   
 支持格式：urlencoded 
@@ -2668,7 +2758,8 @@ JSON返回示例：
 }       
 ``` 
 
-##### **2.10.1.10 获取某个地址拥有的所有资产信息** 
+##### **2.10.1.10 获取某个地址拥有的所有资产信息**
+---  
 接口地址：/api/uia/balances/:address
 请求方式：get   
 支持格式：urlencoded 
@@ -2723,6 +2814,7 @@ JSON返回示例：
 ```
 
 ##### **2.10.1.11 获取资产交易记录** 
+--- 
 接口地址：/api/uia/transactions  
 请求方式：get   
 支持格式：urlencoded 
@@ -2803,9 +2895,9 @@ JSON返回示例：
         "t_id": "17308768226103450697"
     }],
     "count": 58
-}       
+} 
+      
 ```
-
 
 说明：注意这里asset与type相关，9 <= type <= 14， 根据不同的type从asset中取出不同的值
 
@@ -2939,7 +3031,7 @@ JSON返回示例：
 接口地址：/peer/transactions     
 支持格式：json  
 公用变量：
-```
+
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3067,6 +3159,7 @@ JSON返回示例：
 
 #### **2.10.4 资产（UIA）控制**
 ##### **2.10.4.1 资产设置acl模式** 
+--- 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3103,6 +3196,7 @@ JSON返回示例：
 ```
 
 ##### **2.10.4.2 更新访问控制列表（acl）** 
+--- 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3148,6 +3242,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 ```
 
 ##### **2.10.5.1 资产转账** 
+--- 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3184,6 +3279,7 @@ JSON返回示例：
 ```
  
 ##### **2.10.5.2 资产注销** 
+--- 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3217,6 +3313,38 @@ JSON返回示例：
 ```js  
 {"success":true}        
 ```  
+
+##### **2.10.5.3 资产行权** 
+--- 
+请求参数说明：
+
+|名称 |类型   |必填 |说明       |   
+|------ |-----  |---  |----      |   
+|transaction|json|Y|AccchainJS.uia.createExercise根据资产currency、数量、一级密码、二级密码生成的交易数据|
+
+返回参数说明：   
+
+|名称 |类型   |说明       |   
+|------ |-----  |----   |   
+|success|boole  |是否成功 |  
+
+请求示例：
+
+```js   
+var currency = 'IssuerName.CNY'
+var amount = 100
+var trs = AccchainJS.uia.createExercise(currency, amount, secret, secondSecret)
+console.log(JSON.stringify(trs))
+ {"type": 12, "amount": "0", "fee": 100000, "recipientId": null, "senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise": {"currency": "TESTREAL.RET", "amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}
+
+curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://localhost:4096/peer/transactions' && echo
+```   
+   
+JSON返回示例：   
+
+```js  
+{"success":true}        
+``` 
 
 #### **2.10.6 查询资产分类**
 ##### **2.10.6.1 查询一级分类**
@@ -3273,9 +3401,12 @@ JSON返回示例：
 attrs表示商品分类名称，可能有多种语言的翻译，第一个是中文， 第二个是英文
 
 
-#### **2.11 存储storages**   
+#### **2.11 存储storages**  
+ 
 源码在src/core/transactions.js文件中，适合存储短文。
+
 #### **2.11.1 上传数据**
+---
 接口地址：/api/storages   
 请求方式：PUT   
 支持格式：json   
@@ -3319,6 +3450,7 @@ JSON返回示例：
 ```  
 
 ### **2.11.2 查询存储的数据**
+---
 接口地址：/api/storages   
 请求方式：GET   
 支持格式：urlencode   
