@@ -1884,7 +1884,7 @@ curl -k http://45.32.248.33:4096/api/signatures/fee -X GET
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'http://45.32.248.33:4096/api/multisignatures'  //公钥为2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'http://45.32.248.33:4096/api/multisignatures'  //publickey = 2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
 - JSON Response Example:   
@@ -2508,7 +2508,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
     "success": true,
     "asset": {
         "name": "zhenxi.UIA",
-        "desc": "注册资产-测试",
+        "desc": "this is a description",
         "maximum": "10000000",
         "precision": 3,
         "strategy": "",
@@ -3013,8 +3013,8 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
     "success": true,
     "voters": [
         {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
+            "voter": "delegate1",  
+            "weight": "500"
         }
     ],
   "count": 9
@@ -3033,8 +3033,8 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
     "success": true,
     "voters": [
         {
-            "voter": "delegate1",  // 投票者
-            "weight": "500", // 投票权重
+            "voter": "delegate1",  
+            "weight": "500"
         }
     ],
   "count": 9
@@ -3097,7 +3097,7 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
 
 ```js
 var currency = 'IssuerName.CNY'
-// '+'表示增加列表， ‘-’表示删除列表
+// '+'add list， ‘-’remove list
 var operator = '+'
 var list = ['15745540293890213312']
 // 访问控制列表的类型，0：黑名单， 1：白名单
@@ -3179,7 +3179,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 }
 ```
 
-`attrs` represents the goods category name, and may be serval language, the first is the English, the second is the Chineses. 
+`attrs` represents the goods category name, and may be serval language, the first is the English, the second is the Chinese. 
 
 
 ## Appendix 1： Install 'Acchain-js' library   
