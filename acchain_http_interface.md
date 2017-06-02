@@ -62,7 +62,7 @@ Table of Contents
             * [<strong>2.8.2 获取挂起的多重签名交易详情</strong>](#282-获取挂起的多重签名交易详情)
             * [<strong>2.8.3 非交易发起人对交易进行多重签名</strong>](#283-非交易发起人对交易进行多重签名)
             * [<strong>2.8.4 获取多重签名账户信息</strong>](#284-获取多重签名账户信息)
-        * [<strong>2.9 点对点传输(安全的api)transport</strong>](#29-点对点传输(安全的api)transport)
+        * [<strong>2.9 点对点传输transport(安全的api)</strong>](#29-点对点传输(安全的api)transport)
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
                 * [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
@@ -92,7 +92,7 @@ Table of Contents
             * [<strong>2.10.4 资产(UIA)控制</strong>](#2104-资产(UIA)控制)
                 * [<strong>2.10.4.1 资产设置acl模式</strong>](#21041-资产设置acl模式)
                 * [<strong>2.10.4.2 更新访问控制列表(acl)</strong>](#21042-更新访问控制列表(acl))
-            * [<strong>2.10.5 资产(UIA)操作</strong>](#2105-资产(UIA)操作)            
+            * [<strong>2.10.5 资产UIA操作</strong>](#2105-资产UIA操作)            
                 * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
                 * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
                 * [<strong>2.10.5.3 资产行权</strong>](#21053-资产行权)
@@ -3271,7 +3271,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
     "count": 1
 }
 ```
-#### **2.10.5 资产(UIA)操作**
+#### **2.10.5 资产UIA操作**
 ##### **2.10.5.1 资产转账** 
 --- 
 请求参数说明：
