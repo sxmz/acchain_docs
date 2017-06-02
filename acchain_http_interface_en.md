@@ -1,5 +1,4 @@
 # Acchain-HTTP Interface Specification
----
 Table of Contents
 =================
 
@@ -20,7 +19,7 @@ Table of Contents
         * [2.1.6 Get Voting List by Address](#216-get-voting-list-by-address)
         * [2.1.7 Get the Fee of Given Delegate](#217-get-the-fee-of-given-delegate)
         * [2.1.8 Voting](#218-voting)
-        * [2.1.9 Get the top 100 accounts](#219-get_the_top_100_accounts)
+        * [2.1.9 Get the top 100 accounts](#219-get-the-top-100-accounts)
       * [2.2 Transactions](#22-transactions)
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
@@ -52,7 +51,7 @@ Table of Contents
         * [2.5.2 Get the Version of Peer](#252-get-the-version-of-peer)
         * [2.5.3 Get the Peer Information of a Given IP Address](#253-get-the-peer-information-of-a-given-ip-address)
       * [2.6 Sync and Loader](#26-sync-and-loader)
-        * [2.6.1 Get the local blockchain loadig status](#261-get-the-local-blockchain-loadig-status)
+        * [2.6.1 Get the local blockchain loading status](#261-get-the-local-blockchain-loadig-status)
         * [2.6.2 Get the block syncing status](#262-get-the-block-syncing-status)
       * [2.7 Second Password](#27-second-password)
         * [2.7.1 Set the Second Password](#271-set-the-second-password)
@@ -72,8 +71,8 @@ Table of Contents
       * [2.10 User Identify Assets](#210-user-identify-assets)
         * [2.10.1 Get assets info](#2101-get-assets-info)
           * [2.10.1.1 Get all issuers](#21011-get-all-issuers)
-          * [2.10.1.2 Get the issuer's info](#21012-get-all-issuers=info)
-          * [2.10.1.3 Get the issuer's assets](#21012-get-the-issuers-assets)
+          * [2.10.1.2 Get the issuer's info](#21012-get-all-issuer's-info)
+          * [2.10.1.3 Get the issuer's assets](#21012-get-the-issuer's-assets)
           * [2.10.1.4 Get all assets](#21014-get-all-assets)
           * [2.10.1.5 Get info by asset name](#21015-get-info-by-asset-name)
           * [2.10.1.6 Get the applying assets](#21016-get-the-applying-assets)
@@ -83,12 +82,12 @@ Table of Contents
           * [2.10.1.10 Get all the assets info of gave address](#210110-get-all-the-assets-info-of-gave-address)
           * [2.10.1.11 Get transactions](#210111-get-transactions)
       * [2.10.2 Create UIA Transaction](#2102-create-UIA-transaction)
-        * [2.10.2.1 Create Issuer](#2.10.2.1-create-issuer)
-        * [2.10.2.2 Register Assets](#2.10.2.2-register-assets)
+        * [2.10.2.1 Create Issuer](#21021-create-issuer)
+        * [2.10.2.2 Register Assets](#21022-register-assets)
       * [2.10.3 UIA Vote](#2103-UIA-vote)
         * [2.10.3.1 Get voters by asset's currency](#21031-get-voters-byasset's-currency)
         * [2.10.3.2 Get voters for issues](#21032-get-voters-for-issues)
-      * [2.10.4 UIA Control](#2104-UIA_control)
+      * [2.10.4 UIA Control](#2104-UIA-control)
         * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
         * [2.10.4.2 Update acl lists](#21042-Update-acl-lists)
       * [2.10.5 UIA Operation](#2105-UIA-operation)
