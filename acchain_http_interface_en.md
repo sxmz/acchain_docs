@@ -96,7 +96,7 @@ Table of Contents
       * [2.10.5 Get Assets Category](#2105-get-assets-category)
         * [2.10.5.1 Get First Category](#21051-get-first-category)
         * [2.10.5.2 Get Category By id](#21052-get-category-by-id)
-* [Appendix 1： Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
+* [Appendix: Install 'Acchain-js' library](#appendix:-install-Acchain-js-library)
         
 ---
 
@@ -3182,7 +3182,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 `attrs` represents the goods category name, and may be serval language, the first is the English, the second is the Chinese. 
 
 
-## Appendix 1： Install 'Acchain-js' library   
+## Appendix: Install 'Acchain-js' library   
 
 All the writing operations in Acchain system are finished by starting a transaction.
 The transaction data is generated through a JS library named "Acchain-js", and then broadcasted by a POST API.
