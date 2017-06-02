@@ -90,7 +90,7 @@ Table of Contents
       * [2.10.4 UIA Control](#2104-UIA-control)
         * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
         * [2.10.4.2 Update acl lists](#21042-Update-acl-lists)
-      * [2.10.5 UIA Operation](#2105-UIA-operation)
+      * [2.10.5 uia Operation](#2105-uia-operation)
         * [2.10.5.1 Assets Issue](#21051-assets-issue)
         * [2.10.5.2 Assets Transfer](#21052-assets-transfer)
         * [2.10.5.3 Assets Flags](#21053-assets-flags)
@@ -3156,7 +3156,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 }
 ```
 
-#### 2.10.5 UIA Operation
+#### 2.10.5 uia Operation
 
 ##### 2.10.5.1 Assets Issue
 ---
