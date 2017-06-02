@@ -2976,7 +2976,7 @@ type=14
 请求示例：
    
 ```bash   
-curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  //返回currency为"TESTREAL.RET"的行权记录
+curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  //currency为"TESTREAL.RET"的行权记录
 ```   
    
 JSON返回示例：
