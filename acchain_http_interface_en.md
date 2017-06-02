@@ -19,7 +19,7 @@ Table of Contents
         * [2.1.6 Get Voting List by Address](#216-get-voting-list-by-address)
         * [2.1.7 Get the Fee of Given Delegate](#217-get-the-fee-of-given-delegate)
         * [2.1.8 Voting](#218-voting)
-        * [2.1.9 Get the top 100 accounts](#219-Get-the-top-100-accounts)
+        * [2.1.9 Get the top 100 accounts](#219-get-the-top-100-accounts)
       * [2.2 Transactions](#22-transactions)
         * [2.2.1 Get the Transaction Detail Information](#221-get-the-transaction-detail-information)
         * [2.2.2 Get the Transaction Detail Information by Transaction ID](#222-get-the-transaction-detail-information-by-transaction-id)
@@ -102,6 +102,7 @@ Table of Contents
 ---
 
 ## 1 API Usage Guide
+
 ### 1.1 Request Process Overview
 ---
 - **Generate request data:** according the interface specification provided by Acchain system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called Acchain-js to create signature. see [2.9 Peer to Peer transportation](#29-peer-to-peer-transportation) for detail).
@@ -110,10 +111,12 @@ Table of Contents
 - **Return the response data:** acchain system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
 - **Client handles the response data**
 
-## 2 Interface   
+## 2 Interface  
+ 
 ### 2.1 Accounts   
    
 #### 2.1.1 Login   
+
 ##### 2.1.1.1 Login after locally encrypt (recommended)   
 ---
 - Interface Address: /api/accounts/open2/   
@@ -518,6 +521,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors 
 	}
 }  
 ```   
+
    
 #### 2.1.9 Get the top 100 accounts
 ---
