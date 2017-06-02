@@ -20,7 +20,6 @@ Table of Contents
             * [<strong>2.1.7 获取受托人手续费设置</strong>](#217-获取受托人手续费设置)
             * [<strong>2.1.8 投票</strong>](#218-投票)
             * [<strong>2.1.9 获取账户排行榜前100名</strong>](#219-获取账户排行榜前100名)
-            * [<strong>2.1.10 获取账户行权记录</strong>](#2110-获取账户行权记录)
         * [<strong>2.2 交易transactions</strong>](#22-交易transactions)
             * [<strong>2.2.1 获取交易信息</strong>](#221-获取交易信息)
             * [<strong>2.2.2 根据id查看交易详情</strong>](#222-根据id查看交易详情)
@@ -62,7 +61,7 @@ Table of Contents
             * [<strong>2.8.2 获取挂起的多重签名交易详情</strong>](#282-获取挂起的多重签名交易详情)
             * [<strong>2.8.3 非交易发起人对交易进行多重签名</strong>](#283-非交易发起人对交易进行多重签名)
             * [<strong>2.8.4 获取多重签名账户信息</strong>](#284-获取多重签名账户信息)
-        * [<strong>2.9 点对点传输transport(安全的api)</strong>](#29-点对点传输transport安全的api)
+        * [<strong>2.9 点对点传输transport(安全的api)</strong>](#29-点对点传输transport(安全的api))
             * [<strong>2.9.1 说明</strong>](#291-说明)
             * [<strong>2.9.2 交易</strong>](#292-交易)
                 * [<strong>2.9.2.1 设置二级支付密码</strong>](#2921-设置二级支付密码)
@@ -82,6 +81,7 @@ Table of Contents
                 * [<strong>2.10.1.9 获取某个资产的访问控制列表acl</strong>](#21019-获取某个资产的访问控制列表acl)
                 * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
                 * [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
+                * [<strong>2.10.1.12 获取账户行权记录</strong>](#210112-获取账户行权记录)
             * [<strong>2.10.2 创建资产uia交易</strong>](#2102-创建资产uia交易)
                 * [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
                 * [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
@@ -592,37 +592,6 @@ JSON返回示例：
 }    
 ```   
 
-#### **2.1.10 获取账户行权记录**
----
-接口地址：/api/uia/exercises   
-请求方式：get   
-支持格式：无   
-请求参数说明：如果不加请求参数则返回所有的行权记录  
-
-|名称 |类型   |必填 |说明              |   
-|------ |-----  |---  |----              |   
-|currency|string  |N      |账户某个币种的行权记录   
-
-返回参数说明：   
-
-|名称 |类型   |说明              |   
-|------ |-----  |----              |   
-|success|boole  |是否成功获得response数据 |    
-|exercises|json  |账户行权记录数组，每个数组包含交易ID,币种,时间戳|
-|count  |integer  | 行权记录的个数 |
-   
-   
-请求示例：
-   
-```bash   
-curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  //返回currency为"TESTREAL.RET"的行权记录
-```   
-   
-JSON返回示例：
-   
-```
-{"success":true,"exercises":[{"transactionId":"d5cf82f37a35537e73cb921f662b4fe162e7c4d715e4c397a4811db6cf949057","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254858},{"transactionId":"086c912812c8b7ee0bd70cff80cbed83f0efa8a08230722fdf5b5502b1aa6238","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254924},{"transactionId":"f7649cf70ad62203c7279be3e3cd0d8b7ecdf5e2073ab20546d521ca87a729ba","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29311954}],"count":3}
-```
    
 ### **2.2 交易transactions**   
 #### **2.2.1 获取交易信息**   
@@ -2984,6 +2953,39 @@ type=14
 展示：资产$currency从$senderId转账$amount到$recipientId
 ```
    
+##### **2.10.1.12 获取账户行权记录**
+---
+接口地址：/api/uia/exercises   
+请求方式：get   
+支持格式：无   
+请求参数说明：如果不加请求参数则返回所有的行权记录  
+
+|名称 |类型   |必填 |说明              |   
+|------ |-----  |---  |----              |   
+|currency|string  |N      |账户某个币种的行权记录   
+
+返回参数说明：   
+
+|名称 |类型   |说明              |   
+|------ |-----  |----              |   
+|success|boole  |是否成功获得response数据 |    
+|exercises|json  |账户行权记录数组，每个数组包含交易ID,币种,时间戳|
+|count  |integer  | 行权记录的个数 |
+   
+   
+请求示例：
+   
+```bash   
+curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  //返回currency为"TESTREAL.RET"的行权记录
+```   
+   
+JSON返回示例：
+   
+```
+{"success":true,"exercises":[{"transactionId":"d5cf82f37a35537e73cb921f662b4fe162e7c4d715e4c397a4811db6cf949057","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254858},{"transactionId":"086c912812c8b7ee0bd70cff80cbed83f0efa8a08230722fdf5b5502b1aa6238","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254924},{"transactionId":"f7649cf70ad62203c7279be3e3cd0d8b7ecdf5e2073ab20546d521ca87a729ba","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29311954}],"count":3}
+```
+
+
 #### **2.10.2 创建资产uia交易**
 ###### **2.10.2.1 注册资产发行商**
 ---
