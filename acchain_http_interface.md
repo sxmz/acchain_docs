@@ -702,6 +702,24 @@ JSON返回示例：
     "count": 3   
 }   
 ```   
+Type Reference:
+
+```
+转账 SEND : 0,
+设置二级密码 SIGNATURE : 1,
+注册受托人 DELEGATE : 2,
+投票 VOTE : 3,
+注册多重签名 MULTI: 4,
+注册应用 DAPP: 5,
+应用充值 IN_TRANSFER: 6,
+应用提现 OUT_TRANSFER: 7,
+批准 APPROVAL: 8,
+注册发行商 UIA_ISSUER: 9,
+注册资产 UIA_ASSET: 10,
+资产发行 UIA_ISSUE: 11,
+资产行权 UIA——EXERCISE: 12
+```
+
 #### **2.2.2 根据id查看交易详情**   
 --- 
 接口地址：/api/transactions/get   
