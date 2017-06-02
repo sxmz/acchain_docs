@@ -70,7 +70,7 @@ Table of Contents
                 * [<strong>2.9.2.3 注册受托人</strong>](#2923-注册受托人)
                 * [<strong>2.9.2.4 投票和取消投票</strong>](#2924-投票和取消投票)
         * [<strong>2.10 用户自定义资产uia</strong>](#210-用户自定义资产uia)
-            * [<strong>2.10.1 获取资产（UIA）信息</strong>](#2101-获取资产（UIA）信息)
+            * [<strong>2.10.1 获取资产(UIA)信息</strong>](#2101-获取资产(UIA)信息)
                 * [<strong>2.10.1.1 获取全网所有发行商</strong>](#21011-获取全网所有发行商)
                 * [<strong>2.10.1.2 查询指定发行商的信息</strong>](#21012-查询指定发行商的信息)
                 * [<strong>2.10.1.3 查看指定发行商的资产</strong>](#21013-查看指定发行商的资产)
@@ -79,20 +79,20 @@ Table of Contents
                 * [<strong>2.10.1.6 查询申请中的资产</strong>](#21016-查询正在申请中的资产)
                 * [<strong>2.10.1.7 查询待发行的资产</strong>](#21017-查询待发行的资产)
                 * [<strong>2.10.1.8 查询已上线的资产</strong>](#21018-查询已上线的资产)
-                * [<strong>2.10.1.9 获取某个资产的访问控制列表（acl）</strong>](#21019-获取某个资产的访问控制列表acl)
+                * [<strong>2.10.1.9 获取某个资产的访问控制列表(acl)</strong>](#21019-获取某个资产的访问控制列表(acl))
                 * [<strong>2.10.1.10 获取某个地址拥有的所有资产信息</strong>](#210110-获取某个地址拥有的所有资产信息)
                 * [<strong>2.10.1.11 获取资产交易记录</strong>](#210111-获取资产交易记录)
-            * [<strong>2.10.2 创建资产（UIA）交易</strong>](#2109-创建资产（UIA）交易)
+            * [<strong>2.10.2 创建资产(UIA)交易</strong>](#2109-创建资产(UIA)交易)
                 * [<strong>2.10.2.1 注册资产发行商</strong>](#21021-注册资产发行商)
                 * [<strong>2.10.2.2 注册资产</strong>](#21022-注册资产)
                 * [<strong>2.10.2.3 资产发行</strong>](#21023-资产发行)
-            * [<strong>2.10.3 资产（UIA）投票</strong>](#2103-资产（UIA）投票)
+            * [<strong>2.10.3 资产(UIA)投票</strong>](#2103-资产(UIA)投票)
                 * [<strong>2.10.3.1 查询某个资产注册的投票明细</strong>](#21031-查询某个资产注册的投票明细)
                 * [<strong>2.10.3.2 查询某次发行的投票明细</strong>](#21032-查询某次发行的投票明细)
-            * [<strong>2.10.4 资产（UIA）控制</strong>](#2104-资产（UIA）控制)
+            * [<strong>2.10.4 资产(UIA)控制</strong>](#2104-资产(UIA)控制)
                 * [<strong>2.10.4.1 资产设置acl模式</strong>](#21041-资产设置acl模式)
-                * [<strong>2.10.4.2 更新访问控制列表（acl）</strong>](#21042-更新访问控制列表acl)
-            * [<strong>2.10.5 资产（UIA）操作</strong>](#2105-资产（UIA）操作)            
+                * [<strong>2.10.4.2 更新访问控制列表(acl)</strong>](#21042-更新访问控制列表(acl))
+            * [<strong>2.10.5 资产(UIA)操作</strong>](#2105-资产(UIA)操作)            
                 * [<strong>2.10.5.1 资产转账</strong>](#21051-资产转账)
                 * [<strong>2.10.5.2 资产注销</strong>](#21052-资产注销)
                 * [<strong>2.10.5.3 资产行权</strong>](#21053-资产行权)
@@ -2348,7 +2348,7 @@ JSON返回示例：
 
 ### **2.10 用户自定义资产uia**
 
-#### **2.10.1 获取资产（UIA）信息**
+#### **2.10.1 获取资产(UIA)信息**
 ##### **2.10.1.1 获取全网所有发行商** 
 ---  
 接口地址：/api/uia/issuers  
@@ -2984,7 +2984,7 @@ type=14
 展示：资产$currency从$senderId转账$amount到$recipientId
 ```
    
-#### **2.10.2 创建资产（UIA）交易**
+#### **2.10.2 创建资产(UIA)交易**
 ###### **2.10.2.1 注册资产发行商**
 ---
 - 请求方式: get
@@ -3114,7 +3114,38 @@ JSON返回示例：
 {"success":true}        
 ```
 
-#### **2.10.3 资产（UIA）投票**
+##### **2.10.2.3 资产发行**
+---
+请求参数说明：
+
+|名称	|类型   |必填 |说明   |   
+|------ |-----  |---  |----  |   
+|transaction|json|Y|AcchainJS.uia.createIssuer根据发行商名字、描述、一级密码、二级密码生成的交易数据|
+
+返回参数说明：   
+
+|名称	|类型   |说明   |   
+|------ |-----  |----    |   
+|success|boole  |是否成功 |  
+
+请求示例：   
+```js   
+var currency = 'IssuerName.CNY'
+// 本次发行量=真实数量（100）*10**精度（3），所有发行量之和需 <= 上限*精度
+var amount = '100000'
+var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
+console.log(JSON.stringify(trs))
+{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
+
+curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
+```   
+   
+JSON返回示例：   
+```js  
+{"success":true} 	
+```
+
+#### **2.10.3 资产(UIA)投票**
 ##### **2.10.3.1 查询某个资产注册的投票明细**
 ---
 - 请求方式: get
@@ -3157,7 +3188,7 @@ JSON返回示例：
 }
 ```
 
-#### **2.10.4 资产（UIA）控制**
+#### **2.10.4 资产(UIA)控制**
 ##### **2.10.4.1 资产设置acl模式** 
 --- 
 请求参数说明：
@@ -3195,7 +3226,7 @@ JSON返回示例：
 {"success":true}        
 ```
 
-##### **2.10.4.2 更新访问控制列表（acl）** 
+##### **2.10.4.2 更新访问控制列表(acl)** 
 --- 
 请求参数说明：
 
@@ -3240,7 +3271,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
     "count": 1
 }
 ```
-#### **2.10.5 资产（UIA）操作
+#### **2.10.5 资产(UIA)操作**
 ##### **2.10.5.1 资产转账** 
 --- 
 请求参数说明：
