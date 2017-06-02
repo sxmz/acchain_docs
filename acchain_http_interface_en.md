@@ -81,22 +81,22 @@ Table of Contents
           * [2.10.1.9 Get the assets access control lists](#21019-get-the-assets-access-control-lists)
           * [2.10.1.10 Get all the assets info of gave address](#210110-get-all-the-assets-info-of-gave-address)
           * [2.10.1.11 Get transactions](#210111-get-transactions)
+          * [2.10.1.12 Get UIA Exercise](#210112-get-uia-exercise)
       * [2.10.2 Create UIA Transaction](#2102-create-uia-transaction)
         * [2.10.2.1 Create Issuer](#21021-create-issuer)
         * [2.10.2.2 Register Assets](#21022-register-assets)
+        * [2.10.2.3 Assets Issue](#21023-assets-issue)
+        * [2.10.2.4 Assets Transfer](#21024-assets-transfer)
+        * [2.10.2.5 Assets Exercise](#21025-assets-exercise)
       * [2.10.3 UIA Vote](#2103-uia-vote)
         * [2.10.3.1 Get voters by assets currency](#21031-get-voters-by-assets-currency)
         * [2.10.3.2 Get voters for issues](#21032-get-voters-for-issues)
       * [2.10.4 UIA Control](#2104-uia-control)
         * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
         * [2.10.4.2 Update acl lists](#21042-update-acl-lists)
-      * [2.10.5 UIA Operation](#2105-uia-operation)
-        * [2.10.5.1 Assets Issue](#21051-assets-issue)
-        * [2.10.5.2 Assets Transfer](#21052-assets-transfer)
-        * [2.10.5.3 Assets Flags](#21053-assets-flags)
-      * [2.10.6 Get Assets Category](#2106-get-assets-category)
-        * [2.10.6.1 Get First Category](#21061-get-first-category)
-        * [2.10.6.2 Get Category By id](#21062-get-category-by-id)
+      * [2.10.5 Get Assets Category](#2106-get-assets-category)
+        * [2.10.5.1 Get First Category](#21061-get-first-category)
+        * [2.10.5.2 Get Category By id](#21062-get-category-by-id)
 * [Appendix 1ï¼š Install 'Acchain-js' library](#appendix-1-install-Acchain-js-library)
         
 ---
@@ -2915,6 +2915,41 @@ type=14
 展示：资产$currency从$senderId转账$amount到$recipientId
 ```
 
+##### 2.10.1.12 Get UIA Exercise
+---
+- Interface Address: /api/uia/exercises
+- Request Methods: get
+- Supported Format: none
+    - if no parameter passed, it will return all exercise record
+
+- Request Parameter Description:  
+
+|Name	|Type   |Required |Description              |    
+|------ |-----  |---  |----              |   
+|currency|string  |N      |exercise record of this currency   |
+
+- Response Parameter Description:   
+
+|Name	|Type   |Description              |   
+|------ |-----  |----              |   
+|success|boole  |success or failure |    
+|exercises|json  |list of exercise，each contains transactionId, currency, timestamp..|
+|count  |integer  | exercise count |
+   
+   
+- Request Example:
+   
+```bash   
+curl -k -X GET 'http://45.32.248.33:4096/api/uia/exercises?currency=TESTREAL.RET'  
+```   
+   
+- JSON Response Example:
+   
+```
+{"success":true,"exercises":[{"transactionId":"d5cf82f37a35537e73cb921f662b4fe162e7c4d715e4c397a4811db6cf949057","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254858},{"transactionId":"086c912812c8b7ee0bd70cff80cbed83f0efa8a08230722fdf5b5502b1aa6238","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29254924},{"transactionId":"f7649cf70ad62203c7279be3e3cd0d8b7ecdf5e2073ab20546d521ca87a729ba","currency":"TESTREAL.RET","amount":"100","precision":1,"senderId":"AD7tetn1WGEAaWeU8BCaK7fRcNKcHKzV6f","timestamp":29311954}],"count":3}
+```
+
+
 #### 2.10.2 Create UIA Transaction
 ---
 Acchain system's every operation is raised by a transaction. The transaction is built by a framework called "AcchainJS", then POST the transaction.
@@ -3033,6 +3068,107 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 ```js
 {"success":true} 
 ```
+
+##### 2.10.2.3 Assets Issue
+---
+- Request Parameter Description:
+
+|Name	|Type   |Required |Description   |   
+|------ |-----  |---  |----              |   
+|transaction	|json  | Y  |AcchainJS.uia.createIssue(currency, amount, secret, secondSecret) |
+
+- Response Parameter Description:
+
+|Name	|Type   |Description |   
+|------ |-----  |----   | 
+|success | boole | success or failure |
+
+- Request Example:
+
+```js
+var currency = 'IssuerName.CNY'
+// 本次发行量=真实数量（100）*10**精度（3），所有发行量之和需 <= 上限*精度
+var amount = '100000'
+var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
+console.log(JSON.stringify(trs))
+{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
+
+curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
+```
+
+- JSON Response Example:
+
+```js
+{"success":true,"transactionId":"ffd7500b944451adfaea20578a9ecab382e66dc8a11358901dfa8456c4aaa91d"}
+```
+
+##### 2.10.2.4 Assets Transfer
+---
+- Request Parameter Description:
+
+|Name	|Type   |Required |Description   |   
+|------ |-----  |---  |----              |   
+|transaction	|json  | Y  |AcchainJS.uia.createTransfer(currency, amount, recipientId, secret, secondSecret) |
+
+- Response Parameter Description:
+
+|Name	|Type   |Description |   
+|------ |-----  |----   | 
+|success | boole | success or failure |
+
+- Request Example:
+
+```js
+var currency = 'IssuerName.CNY'
+// 本次转账数（10000）=真实数量（10）*10**精度（3），需 <= 当前资产发行总量
+var amount = '10000'
+// 接收地址，需满足前文定义好的acl规则
+var recipientId = 'AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a'
+var trs = AcchainJS.uia.createTransfer(currency, amount, recipientId, secret, secondSecret)
+console.log(JSON.stringify(trs))
+{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}
+
+// 给AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a发送10.000 IssuerName.CNY资产
+curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
+```
+  
+- JSON Response Example:
+  
+```js
+{"success":true} 
+```
+##### 2.10.2.5 Assets Exercise
+--- 
+- Request Parameter Description:
+
+|Name	|Type   |Required |Description   |  
+|------ |-----  |---  |----      |   
+|transaction|json|Y|AccchainJS.uia.createExercise data created by currency、amount、secret、secondSecret|
+
+- Response Parameter Description:   
+
+|Name	|Type   |Description |  
+|------ |-----  |----   |   
+|success|boole  |success or failure |  
+
+- Request Example:
+
+```js   
+var currency = 'IssuerName.CNY'
+var amount = '1000'
+var trs = AccchainJS.uia.createExercise(currency, amount, secret, secondSecret)
+console.log(JSON.stringify(trs))
+ {"type": 12, "amount": "0", "fee": 100000, "recipientId": null, "senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise": {"currency": "TESTREAL.RET", "amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}
+
+curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://localhost:4096/peer/transactions' && echo
+```   
+   
+- JSON Response Example:  
+
+```js  
+{"success":true}        
+``` 
+
 
 #### 2.10.3 UIA Vote
 
@@ -3160,116 +3296,10 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 }
 ```
 
-#### 2.10.5 uia Operation
 
-##### 2.10.5.1 Assets Issue
----
-- Request Parameter Description:
+#### 2.10.5 Get Assets Category
 
-|Name	|Type   |Required |Description   |   
-|------ |-----  |---  |----              |   
-|transaction	|json  | Y  |AcchainJS.uia.createIssue(currency, amount, secret, secondSecret) |
-
-- Response Parameter Description:
-
-|Name	|Type   |Description |   
-|------ |-----  |----   | 
-|success | boole | success or failure |
-
-- Request Example:
-
-```js
-var currency = 'IssuerName.CNY'
-// 本次发行量=真实数量（100）*10**精度（3），所有发行量之和需 <= 上限*精度
-var amount = '100000'
-var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
-console.log(JSON.stringify(trs))
-{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
-
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
-```
-
-- JSON Response Example:
-
-```js
-{"success":true,"transactionId":"ffd7500b944451adfaea20578a9ecab382e66dc8a11358901dfa8456c4aaa91d"}
-```
-
-##### 2.10.5.2 Assets Transfer
----
-- Request Parameter Description:
-
-|Name	|Type   |Required |Description   |   
-|------ |-----  |---  |----              |   
-|transaction	|json  | Y  |AcchainJS.uia.createTransfer(currency, amount, recipientId, secret, secondSecret) |
-
-- Response Parameter Description:
-
-|Name	|Type   |Description |   
-|------ |-----  |----   | 
-|success | boole | success or failure |
-
-- Request Example:
-
-```js
-var currency = 'IssuerName.CNY'
-// 本次转账数（10000）=真实数量（10）*10**精度（3），需 <= 当前资产发行总量
-var amount = '10000'
-// 接收地址，需满足前文定义好的acl规则
-var recipientId = 'AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a'
-var trs = AcchainJS.uia.createTransfer(currency, amount, recipientId, secret, secondSecret)
-console.log(JSON.stringify(trs))
-{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}
-
-// 给AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a发送10.000 IssuerName.CNY资产
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
-```
-  
-- JSON Response Example:
-  
-```js
-{"success":true} 
-```
-  
-##### 2.10.5.3 Assets Flags
----
-- Request Parameter Description:
-
-|Name	|Type   |Required |Description   |   
-|------ |-----  |---  |----              |   
-|transaction	|json  | Y  |AcchainJS.uia.createFlags(currency, flagType, flag, secret, secondSecret) |
-
-- Response Parameter Description:
-
-|Name	|Type   |Description |   
-|------ |-----  |----   | 
-|success | boole | success or failure |
-
-- Request Example:
-
-```js
-var currency = 'IssuerName.CNY'
-// flagType为资产是否注销，1：流通，2：注销
-var flagType = 2
-// flag为黑、白名单模式
-var flag =1
-var trs = AcchainJS.uia.createFlags(currency, flagType, flag, secret, secondSecret)
-console.log(JSON.stringify(trs))
-{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19488690,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":2,"flag":1}},"signature":"cbd656552417604704703e1236ec2bbed8eba6a2ccfcb54cc0b2d629c0a9d1335a264fc9f6dee1705f4a86c36a5ce2ba8e039d913a189b7c273c8ac0d9e3780c","signSignature":"3c7b91d03efeed2dc86e1f2301da60789751c1be8850460d8c66c0ae8f55ea27d26f0bc79541d74b4777d9b85c518c1c73c0284dbf3e826db0a686560e57a80b"}
-
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19488690,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":2,"flag":1}},"signature":"cbd656552417604704703e1236ec2bbed8eba6a2ccfcb54cc0b2d629c0a9d1335a264fc9f6dee1705f4a86c36a5ce2ba8e039d913a189b7c273c8ac0d9e3780c","signSignature":"3c7b91d03efeed2dc86e1f2301da60789751c1be8850460d8c66c0ae8f55ea27d26f0bc79541d74b4777d9b85c518c1c73c0284dbf3e826db0a686560e57a80b"}}' 'http://localhost:4096/peer/transactions' && echo
-```
-
-- JSON Response Example:
-
-```js
-{"success":true}   
-```
-
-
-#### 2.10.6 Get Assets Category
-
-##### 2.10.6.1 Get First Category
+##### 2.10.5.1 Get First Category
 ---
 - Interface Address: /api/uia/categories/0
 - Request Methods: get
@@ -3294,7 +3324,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 }
 ```
 
-##### 2.10.6.2 Get Category By id
+##### 2.10.5.2 Get Category By id
 ---
 - Interface Address: /api/uia/categories/:id
     - `id` is the previous number.
