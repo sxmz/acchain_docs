@@ -71,8 +71,8 @@ Table of Contents
       * [2.10 User Identify Assets](#210-user-identify-assets)
         * [2.10.1 Get assets info](#2101-get-assets-info)
           * [2.10.1.1 Get all issuers](#21011-get-all-issuers)
-          * [2.10.1.2 Get the issuer's info](#21012-get-all-issuer's-info)
-          * [2.10.1.3 Get the issuer's assets](#21012-get-the-issuer's-assets)
+          * [2.10.1.2 Get the issuers info](#21012-get-all-issuers-info)
+          * [2.10.1.3 Get the issuer assets](#21012-get-the-issuer-assets)
           * [2.10.1.4 Get all assets](#21014-get-all-assets)
           * [2.10.1.5 Get info by asset name](#21015-get-info-by-asset-name)
           * [2.10.1.6 Get the applying assets](#21016-get-the-applying-assets)
@@ -85,7 +85,7 @@ Table of Contents
         * [2.10.2.1 Create Issuer](#21021-create-issuer)
         * [2.10.2.2 Register Assets](#21022-register-assets)
       * [2.10.3 UIA Vote](#2103-UIA-vote)
-        * [2.10.3.1 Get voters by asset's currency](#21031-get-voters-byasset's-currency)
+        * [2.10.3.1 Get voters by assets currency](#21031-get-voters-by-assets-currency)
         * [2.10.3.2 Get voters for issues](#21032-get-voters-for-issues)
       * [2.10.4 UIA Control](#2104-UIA-control)
         * [2.10.4.1 Set acl mode](#21041-set-acl-mode)
@@ -2334,7 +2334,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 }       
 ```
 
-##### 2.10.1.2 Get the issuer's info
+##### 2.10.1.2 Get the issuers info
 ---
 - Interface Address: /api/uia/issuers/:name
     - "name" could be the issuer's name or acchain account address.
@@ -2366,7 +2366,7 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api
 }
 ```
 
-##### 2.10.1.3 Get the issuer's assets
+##### 2.10.1.3 Get the issuer assets
 ---
 - Interface Address: /api/uia/issuers/name/assets
 - Request Methods: get
@@ -3032,7 +3032,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 
 #### 2.10.3 UIA Vote
 
-##### 2.10.3.1 Get voters by asset's currency
+##### 2.10.3.1 Get voters by assets currency
 
 - Interface Address: /api/uia/assets/:currency/voters
     - `currency` is the symbol of the assets, for example: TEST.ABC
@@ -3110,7 +3110,7 @@ curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k 
 {"success":true} 
 ```
 
-##### 2.10.4.2 Update `acl` lists
+##### 2.10.4.2 Update acl lists
 ---
 - Request Parameter Description:
 
