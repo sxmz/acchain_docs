@@ -3147,41 +3147,7 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/a
 }
 ```
 
-#### **2.10.5 资产（UIA）操作**
-##### **2.10.5.1 资产发行** 
-请求参数说明：
-
-|名称 |类型   |必填 |说明              |   
-|------ |-----  |---  |----              |   
-|transaction|json|Y|AcchainJS.uia.createIssuer根据发行商名字、描述、一级密码、二级密码生成的交易数据|
-
-返回参数说明：   
-
-|名称 |类型   |说明              |   
-|------ |-----  |----              |   
-|success|boole  |是否成功 |  
-
-   
-请求示例：
-   
-```js   
-var currency = 'IssuerName.CNY'
-// 本次发行量=真实数量（100）*10**精度（3），所有发行量之和需 <= 上限*精度
-var amount = '100000'
-var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
-console.log(JSON.stringify(trs))
-{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
-
-curl -H "Content-Type: application/json" -H "magic:594fe0f3" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
-```   
-   
-JSON返回示例：
-   
-```js  
-{"success":true,"transactionId":"ffd7500b944451adfaea20578a9ecab382e66dc8a11358901dfa8456c4aaa91d"}   
-```
-
-##### **2.10.5.2 资产转账** 
+##### **2.10.5.1 资产转账** 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
@@ -3217,7 +3183,7 @@ JSON返回示例：
 {"success":true}        
 ```
  
-##### **2.10.5.3 资产注销** 
+##### **2.10.5.2 资产注销** 
 请求参数说明：
 
 |名称 |类型   |必填 |说明              |   
