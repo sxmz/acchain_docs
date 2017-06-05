@@ -835,7 +835,9 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions/unconfirmed'
 |amount|string|Y|amount，between 1 and 10000000000000000|   
 |recipientId|string|Y|recipient's address, minimum:1|   
 |publicKey|string|N|sender's public key|   
-|secondSecret|string|N|sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|   
+|currency|string|N|assets name, for example:"test.RET"|
+|publicKey|string|N|sender's public key|   
+|secondSecret|string|N|sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|   
 |multisigAccountPublicKey|string|N|the public key of multiple signature account|   
    
 - Response Parameter Description:   
@@ -849,7 +851,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions/unconfirmed'
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103"}' 'https://tnode.acchain.org/api/transactions'    
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103","currency":"test.RET"}' 'https://tnode.acchain.org/api/transactions'    
 ```   
    
 - JSON Response Example:   
