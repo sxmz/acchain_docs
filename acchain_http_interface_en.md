@@ -144,7 +144,7 @@ var publicKey = AcchainJS.crypto.getKeys(secret).publicKey;  //Generate public k
 // var address = AcchainJS.crypto.getAddress(publicKey);   //Generate address according to public key
 
 // Submit the above data to acchain server through post Methods   
-curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' https://tnode.acchain.org/api/accounts/open2/   
+curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' https://testnet.acchain.org/api/accounts/open2/   
 ```   
    
 - JSON Response Example:  
@@ -194,7 +194,7 @@ curl -X POST -H "Content-Type: application/json" -k -d '{"publicKey":"bd1e78c5a1
 - Request Example: 
   
 ```bash   
-curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' https://tnode.acchain.org/api/accounts/open/   
+curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' https://testnet.acchain.org/api/accounts/open/   
 ```   
    
 - JSON Response Example: 
@@ -238,7 +238,7 @@ curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still a
 - Request Example:  
  
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/accounts?address=16723473400748954103   
+curl -k -X GET https://testnet.acchain.org/api/accounts?address=16723473400748954103   
 ```   
    
 - JSON Response Example:  
@@ -292,7 +292,7 @@ curl -k -X GET https://tnode.acchain.org/api/accounts?address=167234734007489541
 -Request Example:  
  
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/accounts/getBalance?address=14636456069025293113'   
+curl -k -X GET 'https://testnet.acchain.org/api/accounts/getBalance?address=14636456069025293113'   
 ```   
    
 - JSON Response Example:   
@@ -326,7 +326,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/accounts/getBalance?address=146364
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/accounts/getPublickey?address=14636456069025293113'   
+curl -k -X GET 'https://testnet.acchain.org/api/accounts/getPublickey?address=14636456069025293113'   
 ```   
    
 - JSON Response Example:   
@@ -359,7 +359,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/accounts/getPublickey?address=1463
 - Request Example:  
  
 ```bash   
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' 'https://tnode.acchain.org/api/accounts/generatePublickey'   
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' 'https://testnet.acchain.org/api/accounts/generatePublickey'   
 ```   
    
 - JSON Response Example:  
@@ -393,7 +393,7 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still a
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/accounts/delegates?address=14636456069025293113'   
+curl -k -X GET 'https://testnet.acchain.org/api/accounts/delegates?address=14636456069025293113'   
 ```   
    
 - JSON Response Example:  
@@ -455,7 +455,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/accounts/delegates?address=1463645
 - Request Example:
    
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/accounts/delegates/fee  
+curl -k -X GET 'https://testnet.acchain.org/api/accounts/delegates/fee  
 ```   
    
 - JSON Response Example:  
@@ -493,7 +493,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/accounts/delegates/fee
 - Request Example:  
  
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors pupil water friend timber spend brand vote obey corn size","publicKey":"3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a","delegates":["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]}' 'https://tnode.acchain.org/api/accounts/delegates'     
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors pupil water friend timber spend brand vote obey corn size","publicKey":"3ec1c9ec08c0512641deba37c0e95a0fe5fc3bdf58424009f594d7d6a4e28a2a","delegates":["+fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575"]}' 'https://testnet.acchain.org/api/accounts/delegates'     
 ```   
    
 - JSON Response Example:   
@@ -544,7 +544,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"call scissors 
 - Request Example:
 
 ```bash
-curl -k -X GET 'https://tnode.acchain.org/api/accounts/top?limit=5&offset=0'  //return 5 accounts info 
+curl -k -X GET 'https://testnet.acchain.org/api/accounts/top?limit=5&offset=0'  //return 5 accounts info 
 ```
 
 - Return JSON example:
@@ -616,7 +616,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/accounts/top?limit=5&offset=0'  //
 - Request Example:  
  
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'   
+curl -k -X GET 'https://testnet.acchain.org/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'   
 ```   
    
 - JSON Response Example:   
@@ -706,7 +706,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions?recipientId=167234734
 - Request Example: 
   
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/transactions/get?id=14093929199102906687'   
+curl -k -X GET 'https://testnet.acchain.org/api/transactions/get?id=14093929199102906687'   
 ```   
    
 - JSON Response Example:
@@ -757,7 +757,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions/get?id=14093929199102
 - Request Example:
    
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/transactions/unconfirmed/get?id=7557072430673853692  //Regularly, this unconfirmed transaction exist during an extremely short time, almost 0~10 second. 
+curl -k -X GET https://testnet.acchain.org/api/transactions/unconfirmed/get?id=7557072430673853692  //Regularly, this unconfirmed transaction exist during an extremely short time, almost 0~10 second. 
 ```   
    
 - JSON Response Example:
@@ -784,7 +784,7 @@ curl -k -X GET https://tnode.acchain.org/api/transactions/unconfirmed/get?id=755
 ```   
    
    
-#### 2.2.4 Get Unconfirmed Transaction Detail Inforamtion (within all network)
+#### 2.2.4 Get Unconfirmed Transaction Detail Information (within all network)
 ---
 - Interface Address: /api/transactions/unconfirmed   
 - Request Methods:get   
@@ -809,7 +809,7 @@ curl -k -X GET https://tnode.acchain.org/api/transactions/unconfirmed/get?id=755
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/transactions/unconfirmed'   
+curl -k -X GET 'https://testnet.acchain.org/api/transactions/unconfirmed'   
 ```   
    
 - JSON Response Example:   
@@ -826,7 +826,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions/unconfirmed'
 - Interface Address: /api/transactions   
 - Request Methods: PUT   
 - Supported Format: json   
-- Comment: Recipiant acount must have already login in wallet on the web.  
+- Comment: recipient account must have already login in wallet on the web.  
 - Request Parameter Description:    
 
 |Name	|Type   |Required |Description              |   
@@ -851,7 +851,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/transactions/unconfirmed'
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103","currency":"test.RET"}' 'https://tnode.acchain.org/api/transactions'    
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"recipientId":"16723473400748954103","currency":"test.RET"}' 'https://testnet.acchain.org/api/transactions'    
 ```   
    
 - JSON Response Example:   
@@ -888,7 +888,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/get?id=6076474715648888747'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/get?id=6076474715648888747'   
 ```   
    
 - JSON Response Example:   
@@ -928,7 +928,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/get?id=6076474715648888747'
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
 |limit |integer |N    |maximum number of returned records, between 0 and 100   |   
-|orderBy|string  |N      |sort by a field in the table, for example, height:desc  |   
+|orderBy|string  |N      |sort by a field in the table, for example, height: desc  |   
 |offset|integer  |N      |offset, minimum 0  |   
 |generatorPublicKey|string  |N      |public key of the block generator  |   
 |totalAmount|integer  |N       |total amount of transactions, from 0 to 10000000000000000 |   
@@ -949,7 +949,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/get?id=6076474715648888747'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks?limit=2&offset=0&orderBy=height:desc'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks?limit=2&offset=0&orderBy=height:desc'   
 ```   
    
 - JSON Response Example:   
@@ -1000,7 +1000,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks?limit=2&offset=0&orderBy=he
 #### 2.3.3 Get the Block Height  
 --- 
 - Interface Address: /api/blocks/getHeight   
-- Request Methods:get   
+- Request Methods: get   
 - Supported Format: none   
 - Request Parameter Description: none   
    
@@ -1014,7 +1014,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks?limit=2&offset=0&orderBy=he
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getheight'    
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getheight'    
 ```   
    
 - JSON Response Example:   
@@ -1026,7 +1026,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getheight'
 #### 2.3.4 Get the Transaction Fee  
 --- 
 - Interface Address: /api/blocks/getFee   
-- Request Methods:get   
+- Request Methods: get   
 - Supported Format: none   
 - Request Parameter Description: none   
    
@@ -1041,7 +1041,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getheight'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getfee'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getfee'   
 ```   
    
 - JSON Response Example:   
@@ -1068,7 +1068,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getfee'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getMilestone'    
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getMilestone'    
 ```   
    
 - JSON Response Example:   
@@ -1095,7 +1095,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getMilestone'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getReward'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getReward'   
 ```   
    
 - JSON Response Example:   
@@ -1107,7 +1107,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getReward'
 #### 2.3.7 Get the Current Maximum Supply of the Blockchain
 
 - Interface Address: /api/blocks/getSupply   
-- Request Methods:get   
+- Request Methods: get   
 - Supported Format: none   
 - Request Parameter Description: none   
    
@@ -1122,7 +1122,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getReward'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getSupply'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getSupply'   
 ```   
    
 - JSON Response Example:   
@@ -1134,7 +1134,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getSupply'
 #### 2.3.8 Get Current Status of Blockchain 
 --- 
 - Interface Address: /api/blocks/getStatus   
-- Request Methods:get   
+- Request Methods: get   
 - Supported Format: none   
 - Request Parameter Description: none   
    
@@ -1153,7 +1153,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getSupply'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/blocks/getStatus'   
+curl -k -X GET 'https://testnet.acchain.org/api/blocks/getStatus'   
 ```   
    
 - JSON Response Example:   
@@ -1190,7 +1190,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/blocks/getStatus'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/delegates/count'   
+curl -k -X GET 'https://testnet.acchain.org/api/delegates/count'   
 ```   
    
 - JSON Response Example:   
@@ -1202,7 +1202,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/count'
 #### 2.4.2 Check the Voters of Delegates by Public Key   
 ---
 - Interface Address: /api/delegates/voters   
-- Request Methods:get   
+- Request Methods: get   
 - Supported Format: urlencoded   
 - Request Parameter Description:    
 
@@ -1220,7 +1220,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/count'
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/delegates/voters?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
+curl -k -X GET 'https://testnet.acchain.org/api/delegates/voters?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
 - JSON Response Example:   
@@ -1274,8 +1274,8 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/voters?publicKey=ae25655
 - Request Example:   
 
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/delegates/get?publicKey=bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9   
-curl -k -X GET https://tnode.acchain.org/api/delegates/get?username=delegate_register   
+curl -k -X GET https://testnet.acchain.org/api/delegates/get?publicKey=bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9   
+curl -k -X GET https://testnet.acchain.org/api/delegates/get?username=delegate_register   
 ```   
    
 - JSON Response Example:   
@@ -1328,7 +1328,7 @@ curl -k -X GET https://tnode.acchain.org/api/delegates/get?username=delegate_reg
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/delegates?orderby=approval:desc&limit=2' //the first two delegates order by approval vote, descendingly  
+curl -k -X GET 'https://testnet.acchain.org/api/delegates?orderby=approval:desc&limit=2' //the first two delegates order by approval vote, descendingly  
 ```   
    
 - JSON Response Example:   
@@ -1391,7 +1391,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates?orderby=approval:desc&li
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/delegates/fee?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
+curl -k -X GET 'https://testnet.acchain.org/api/delegates/fee?publicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
 - JSON Response Example:   
@@ -1424,7 +1424,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/fee?publicKey=ae256559d0
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/delegates/forging/getForgedByAccount?generatorPublicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
+curl -k -X GET 'https://testnet.acchain.org/api/delegates/forging/getForgedByAccount?generatorPublicKey=ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7'   
 ```   
    
 - JSON Response Example:   
@@ -1463,7 +1463,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/forging/getForgedByAccou
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","username":"delegate_0821"}' 'https://tnode.acchain.org/api/delegates'   
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","username":"delegate_0821"}' 'https://testnet.acchain.org/api/delegates'   
 ```   
    
 - JSON Response Example:   
@@ -1514,7 +1514,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 - Request Example:
 
 ```js
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/enable'   
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://testnet.acchain.org/api/delegates/forging/enable'   
 ```
 
 - JSON Response Example:
@@ -1545,7 +1545,7 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group 
 - Request Example:
 
 ```js
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://localhost:4096/api/delegates/forging/disable'   
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group blossom coral upper warrior pattern fragile sister misery palm detect"}' 'http://testnet.acchain.org/api/delegates/forging/disable'   
 ```
 
 - JSON Response Example:
@@ -1575,7 +1575,7 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"motion group 
 - Request Example:
 
 ```js
-curl -k -X GET 'https://tnode.acchain.org/api/delegates/forging/status?publicKey=fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575'        
+curl -k -X GET 'https://testnet.acchain.org/api/delegates/forging/status?publicKey=fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575'        
 ```
 
 - JSON Response Example:
@@ -1617,7 +1617,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/delegates/forging/status?publicKey
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/peers?limit=1'   
+curl -k -X GET 'https://testnet.acchain.org/api/peers?limit=1'   
 ```   
    
 - JSON Response Example:   
@@ -1656,7 +1656,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/peers?limit=1'
 - Request Example:   
 
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/peers/version   
+curl -k -X GET https://testnet.acchain.org/api/peers/version   
 ```   
    
 - JSON Response Example:   
@@ -1694,7 +1694,7 @@ curl -k -X GET https://tnode.acchain.org/api/peers/version
 - Request Example:   
 
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/peers/get?ip=45.32.248.33&port=4096'   
+curl -k -X GET 'https://testnet.acchain.org/api/peers/get?ip=45.32.248.33&port=4096'   
 ```   
    
 - JSON Response Example:   
@@ -1726,7 +1726,7 @@ curl -k -X GET 'https://tnode.acchain.org/api/peers/get?ip=45.32.248.33&port=409
 - Request Example:   
 
 ```bash   
-curl -k https://tnode.acchain.org/api/loader/status -X GET   
+curl -k https://testnet.acchain.org/api/loader/status -X GET   
 ```   
    
 - JSON Response Example:   
@@ -1756,7 +1756,7 @@ curl -k https://tnode.acchain.org/api/loader/status -X GET
 - Request Example:   
 
 ```bash   
-curl -k https://tnode.acchain.org/api/loader/status/sync -X GET   
+curl -k https://testnet.acchain.org/api/loader/status/sync -X GET   
 ```   
    
 - JSON Response Example:   
@@ -1797,7 +1797,7 @@ curl -k https://tnode.acchain.org/api/loader/status/sync -X GET
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","secondSecret":"fault still attack alley expand music basket purse later educate follow ride"}' 'https://tnode.acchain.org/api/signatures'    
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","secondSecret":"fault still attack alley expand music basket purse later educate follow ride"}' 'https://testnet.acchain.org/api/signatures'    
 ```   
    
 - JSON Response Example:   
@@ -1844,7 +1844,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 - Request Example:   
 
 ```bash   
-curl -k https://tnode.acchain.org/api/signatures/fee -X GET   
+curl -k https://testnet.acchain.org/api/signatures/fee -X GET   
 ```   
    
 - JSON Response Example:   
@@ -1886,7 +1886,7 @@ curl -k https://tnode.acchain.org/api/signatures/fee -X GET
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'https://tnode.acchain.org/api/multisignatures'  //publickey = 2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver message evil canyon night extend unusual tell prosper issue antenna","min":2,"lifetime":1,"keysgroup":["+eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97","+d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb"]}' 'https://testnet.acchain.org/api/multisignatures'  //publickey = 2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
 - JSON Response Example:   
@@ -1921,7 +1921,7 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"vanish deliver
 - Request Example:   
 
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
+curl -k -X GET https://testnet.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 ```   
    
 - JSON Response Example:   
@@ -1984,7 +1984,7 @@ curl -k -X GET https://tnode.acchain.org/api/multisignatures/pending?publicKey=2
 - Request Example:   
 
 ```bash   
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet desk accuse clerk future oyster essay seminar force live dog","transactionId":"17620378998277022323"}' 'https://tnode.acchain.org/api/multisignatures/sign'   //signed by a user whose public key is eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet desk accuse clerk future oyster essay seminar force live dog","transactionId":"17620378998277022323"}' 'https://testnet.acchain.org/api/multisignatures/sign'   //signed by a user whose public key is eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
 ```   
    
 - JSON Response Example:   
@@ -1995,7 +1995,7 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"lemon carpet 
 	"transactionId": "17620378998277022323"   
 }   
 // Now get the pending transaction again   
-curl -k -X GET https://tnode.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
+curl -k -X GET https://testnet.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 {   
 	"success": true,   
 	"transactions": [{   
@@ -2027,13 +2027,13 @@ curl -k -X GET https://tnode.acchain.org/api/multisignatures/pending?publicKey=2
 }   
    
 // a user whose public key is "d5d7aa157f866c47a2a1e09e2746286ed089fd90976b54fbfa930e87d11609cb" sign this registering transaction   
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"chalk among elbow piece badge try van round quality position simple teach","transactionId":"17620378998277022323"}' 'https://tnode.acchain.org/api/multisignatures/sign'   
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"chalk among elbow piece badge try van round quality position simple teach","transactionId":"17620378998277022323"}' 'https://testnet.acchain.org/api/multisignatures/sign'   
 {"success":true,"transactionId":"17620378998277022323"}   
 // trying to get pending transaction again, but this time there isn't any of it.   
-curl -k -X GET https://tnode.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
+curl -k -X GET https://testnet.acchain.org/api/multisignatures/pending?publicKey=2cef5711e61bb5361c544077aa08aebc4d962a1d656571901c48d716382ad4fd   
 {"success":true,"transactions":[]}   
 // Check the detail of this transaction. (at this time, this transaction has been broadcasted to the whole network and been written to the blockchain) Now the account has already registered as a multi-signature account. 
-curl -k -X GET https://tnode.acchain.org/api/transactions/get?id=17620378998277022323   
+curl -k -X GET https://testnet.acchain.org/api/transactions/get?id=17620378998277022323   
 {   
 	"success": true,   
 	"transaction": {   
@@ -2082,7 +2082,7 @@ curl -k -X GET https://tnode.acchain.org/api/transactions/get?id=176203789982770
 - Request Example:   
 
 ```bash   
-curl -k -X GET https://tnode.acchain.org/api/multisignatures/accounts?publicKey=eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
+curl -k -X GET https://testnet.acchain.org/api/multisignatures/accounts?publicKey=eb48b9ab7c9a34a9b7cdf860265d65b31af774355cabf1b3a387d14a1925dc97   
 ```   
    
 - JSON Response Example:   
@@ -2154,7 +2154,7 @@ console.log(JSON.stringify(transaction))
 {"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}   
 
 // submit above data of setting second password to acchain server by POST Methods
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' https://tnode.acchain.org/peer/transactions   
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":1,"amount":0,"fee":500000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5328943,"asset":{"signature":{"publicKey":"27116db89cb5a8c02fb559712e0eabdc298480d3c79a089b803e35bc5ef7bb7b"}},"signature":"71ef98b1600f22f3b18cfcf17599db3c40727c230db817f610e86454b62df4fb830211737ff0c03c6a61ecfd4a9fcb68a30b2874060bb33b87766acf800e820a","id":"15605591820551652547"}}' https://testnet.acchain.org/peer/transactions   
 ```   
    
 - JSON Response Example:   
@@ -2197,7 +2197,7 @@ JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
 // submit above data of transfer to acchain server by POST Methods
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' https://tnode.acchain.org/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}}' https://testnet.acchain.org/peer/transactions
 ```   
    
 - JSON Response Example:  
@@ -2236,7 +2236,7 @@ JSON.stringify(transaction)
 '{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}'
 
 // submit above data of registering delegate to acchain server by POST Methods
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' https://tnode.acchain.org/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":2,"amount":0,"fee":10000000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334485,"asset":{"delegate":{"username":"zhenxi_test","publicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f"}},"signature":"a12ce415d2d21ab46e4c1b918b8717b1d351dd99abd6f2f94d9a1a7e1f32b697f843a05b1851cb857ea45a2476dce592f5ddd612c00cd44488b8b610c57d7f0a","signSignature":"35adc9f1f37d14458e8588f9b4332eedf1151c02480159f64a287a4b0cbb59bfe82040dfec96a4d9560bae99b8eaa1799a7023395db5ddc640d95447992d6e00","id":"12310465407307249905"}}' https://testnet.acchain.org/peer/transactions
 ```   
    
 - JSON Response Example:   
@@ -2279,7 +2279,7 @@ JSON.stringify(transaction)
 {"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}
 
 // submit above data of vote/cancel vote to acchain server by POST Methods
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' https://tnode.acchain.org/peer/transactions
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":3,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","timestamp":5334923,"asset":{"vote":{"votes":["-ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7","+c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2"]}},"signature":"6036c2066a231c452a1c83aafd3bb9db3842ee05d5f17813f8264a4294cdec761faa89edf4a95f9b2e2451285807ab18aa9f989ad9a3165b95643179b8e4580f","signSignature":"a216ca739112e6f65986604b9467ccc8058138a7077faf134d6c4d673306cd1c514cc95bd54a036f7c602a56c4b4f2e4e59f6aa7c376cb1429e89054042e050b","id":"17558357483072606427"}}' https://testnet.acchain.org/peer/transactions
 ```   
    
 - JSON Response Example:  
@@ -2317,7 +2317,7 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
 - Request Example:
 
 ```js
-curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers?offset=0&limit=1' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/issuers?offset=0&limit=1' && echo
 ```
 
 - JSON Response Example:
@@ -2355,7 +2355,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 - Request Example:
 
 ```js
-curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api/uia/issuers/zhenxi' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/issuers/zhenxi' && echo
 ```
 
 - JSON Response Example:
@@ -2395,7 +2395,7 @@ curl -X GET -H "Content-Type: application/json"  'http://tnode.AcchainJS.org/api
 - Request Example: 
 
 ```js
-curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/issuers/zhenxi/assets?offset=0&limit=2' && echo
 ```
 
 - JSON Response Example:
@@ -2429,7 +2429,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
+|limit	|integer  | N  |the limitation of returned records，minimum：0, maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
 
@@ -2444,7 +2444,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 - Request Example:
 
 ```js
-curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets?offset=0&limit=2' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/assets?offset=0&limit=2' && echo
 ```
 
 - JSON Response Example:
@@ -2500,7 +2500,7 @@ curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:40
 - Request Example:
 
 ```js
-curl -X GET -H "Content-Type: application/json"  'http://testnet.AcchainJS.so:4096/api/uia/assets/zhenxi.UIA' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/assets/zhenxi.UIA' && echo
 ```
 
 - JSON Response Example:
@@ -2675,7 +2675,7 @@ count: 1
 
 ```js
 // get zhenxi.UIA white lists 
-curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/assets/zhenxi.UIA/acl/1' && echo
+curl -X GET -H "Content-Type: application/json"  'http://testnet.acchain.org/api/uia/assets/zhenxi.UIA/acl/1' && echo
 ```
 
 - JSON Response Example: 
@@ -2703,7 +2703,7 @@ curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/
 
 |Name	|Type   |Required |Description              |   
 |------ |-----  |---  |----              |   
-|limit	|integer  | N  |the limitation of returned records，minimum：0,maximum：100    |
+|limit	|integer  | N  |the limitation of returned records，minimum：0, maximum：100    |
 |offset |integer  | N  |offset, minimum 0   |
 
 - Response Parameter Description: 
@@ -2717,7 +2717,7 @@ curl -X GET -H "Content-Type: application/json"  'http://localhost:4096/api/uia/
 - Request Example:
 
 ```js
-curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/balances/AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a' && echo
+curl -X GET -H "Content-Type: application/json" 'http://testnet.acchain.org/api/uia/balances/AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a' && echo
 ```
 
 - JSON Response Example:
@@ -2772,9 +2772,9 @@ curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/b
 - Request Example:
    
 ```bash   
-curl -k -X GET 'https://tnode.acchain.org/api/uia/exercises?currency=TESTREAL.RET'  
+curl -k -X GET 'https://testnet.acchain.org/api/uia/exercises?currency=TESTREAL.RET'  
 // or
-curl -k -X GET 'https://tnode.acchain.org/api/uia/exercises?id=3bf8892a33eadb2617dbc35934a4781bd0a50834524208a68faedb39fc12b510' 
+curl -k -X GET 'https://testnet.acchain.org/api/uia/exercises?id=3bf8892a33eadb2617dbc35934a4781bd0a50834524208a68faedb39fc12b510' 
 ```   
    
 - JSON Response Example:
@@ -2818,7 +2818,7 @@ console.log(JSON.stringify(trs))
 {"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}
 
 // http post the 'trs' to the server, register issuer name
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":9,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19395607,"asset":{"uiaIssuer":{"name":"IssuerName","desc":"IssuerDesc"}},"signature":"c6ed2a4bafe2b8aa31f4aaceacc2a96cb028abbabb2ed062937498c58e24ca5467a340ddd63b67f809a680ff91b83e685c64991eb695494ddb2fdc57e5761607","signSignature":"8eceacbd47c2b8ed335145ced19d7a3a51f99bdd6631d16ed214180c6f80e29bd6d572f45e7c7d685584e55cb5c303cf340406553ece28c9c0a2fa7a777aac0b"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
 
 - JSON Response Example:
@@ -2894,7 +2894,7 @@ console.log(JSON.stringify(trs))
 {"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"this is a description","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}
 
 // http post the 'trs' to the server，register assset IssuerName.CNY
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":10,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19397444,"asset":{"uiaAsset":{"name":"IssuerName.CNY","desc":"资产描述","maximum":"1000000","precision":3,"strategy":""}},"signature":"c755587d331dd2eb62ef91dce1511d83a3e603c7cdc7548a16052519c21ea89c78364e35e5d46da0e2103fa2fb7f037eec55a5deba18826fa13e4252422d750e","signSignature":"1b7ed4c21c477b8ff3d2acfdfd7ff85617093f4c21de70938c46b61c9704b037dbcf7f9e5f5dd1a5dc8f22cf473aaa459e6e5b15ced388b8a1da1e307987a509"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
 
 - JSON Response Example:
@@ -2927,7 +2927,7 @@ var trs = AcchainJS.uia.createIssue(currency, amount, secret, secondSecret)
 console.log(JSON.stringify(trs))
 {"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}
 
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":13,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19475744,"asset":{"uiaIssue":{"currency":"IssuerName.CNY","amount":"100000"}},"signature":"32b01a18eca2b0dc7e2ce77ba4e758eaae2532f60844760a762cc20918e7439ac6ca585b921db6ede833ed0bf1c62e30cec545a928abafe0b679183a6ad02202","signSignature":"4fc290d7d7d788e9112a56233df0fe796cba39be3efa0cebf00cbc7e5bc5fd1369fad49e5698d967845b5c02e427926049cab25845d4d385e4a395791906f909"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
 
 - JSON Response Example:
@@ -2963,7 +2963,7 @@ console.log(JSON.stringify(trs))
 {"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}
 
 // send 'AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a' 10.000 IssuerName.CNY asset
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":14,"amount":0,"fee":10000000,"recipientId":"AKKHPvQb2A119LNicCQWLZQDFxhGVEY57a","senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19481489,"asset":{"uiaTransfer":{"currency":"IssuerName.CNY","amount":"10000"}},"signature":"77789071a2ad6d407b9d1e0d654a9deb6d85340a3d2a13d786030e26ac773b4e9b5f052589958d2b8553ae5fc9449496946b5c225e0baa723e7ddecbd89f060a","signSignature":"f0d4a000aae3dd3fa48a92f792d4318e41e3b56cdbaf98649261ae34490652b87645326a432d5deb69f771c133ee4b67d2d22789197be34249e6f7f0c30c1705"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
   
 - JSON Response Example:
@@ -2994,7 +2994,7 @@ var trs = AccchainJS.uia.createExercise(currency, amount, secret, secondSecret)
 console.log(JSON.stringify(trs))
  {"type": 12, "amount": "0", "fee": 100000, "recipientId": null, "senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise": {"currency": "TESTREAL.RET", "amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}
 
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type": 12, "amount": "0", "fee": 100000, "recipientId": null,"senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise":{"currency":"TESTREAL.RET","amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```   
    
 - JSON Response Example:  
@@ -3075,7 +3075,7 @@ console.log(JSON.stringify(trs))
 {"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}
 
 // post the 'trs' to server，change the acl mode to white list
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":11,"amount":0,"fee":10000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19400996,"asset":{"uiaFlags":{"currency":"IssuerName.CNY","flagType":1,"flag":1}},"signature":"b96fb3d1456e1f26357109cc24d82834eb9a4687f29e69c374bbb1d534568336e148cac52f213aa4d2a69185092f8e1143b49ec4b8048cd9b3af4e20f6ba0b08","signSignature":"b37c77ebebe90341346be2aefe1e12bd7403e5d8f4d6e8f04630190b3e09494a28820da0ffd5f9ff011033aa6d70fc9bb4c159a4493be3b18fd7ff470103570d"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
 
 - JSON Response Example:
@@ -3112,7 +3112,7 @@ console.log(JSON.stringify(trs))
 {"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}
 
 // post the 'trs' to server，add ['15745540293890213312'] to white list，only modify the list，not modify the acl mode，cost fee 0.2ACC
-curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://localhost:4096/peer/transactions' && echo
+curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k -X POST -d '{"transaction":{"type":12,"amount":0,"fee":20000000,"recipientId":null,"senderPublicKey":"fafcd01f6b813fdeb3c086e60bc7fa9bfc8ef70ae7be47ce0ac5d06e7b1a8575","timestamp":19403125,"asset":{"uiaAcl":{"currency":"IssuerName.CNY","operator":"+","flag":1,"list":["15745540293890213312"]}},"signature":"ad4060e04c1a12256de114e34499f8add24326753f1f8362991ee14aefc4c0fe90ff394d2db97e83770855a5688d463de00656fdd2d04604605cf3c04fdaca0e","signSignature":"63129c58b1b9fcce88cbe829f3104a10ab06037253e9b65feb50ce0d2bb988533b93e8edcad016a85675f9027758fc318cf899ca7ef161a95a8d8a055ae83a02"}}' 'http://testnet.acchain.org/peer/transactions' && echo
 ```
 
 - JSON Response Example:
@@ -3120,7 +3120,7 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
 ```js
 {"success":true}
 // check updated lists（acl/1:white list）
-curl -X GET -H "Content-Type: application/json" 'http://localhost:4096/api/uia/assets/IssuerName.CNY/acl/1?limit=10&offset=0' && echo
+curl -X GET -H "Content-Type: application/json" 'http://testnet.acchain.org/api/uia/assets/IssuerName.CNY/acl/1?limit=10&offset=0' && echo
 {
     "success": true,
     "list": [{
