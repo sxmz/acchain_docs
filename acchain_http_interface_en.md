@@ -4,7 +4,7 @@ Table of Contents
 
   * [Acchain-HTTP Interface Specification](#Acchain-http-interface-specification)
   * [Index](#index)
-    * [<a href="#appendix-1-install-Acchain-js-library">Appendix: Install 'Acchain-js' library</a>](#-appendix-1-install-Acchain-js-library)
+    * [<a href="#appendix-1-install-Acchain-js-library">Appendix 1 Install 'Acchain-js' library</a>](#-appendix-1-install-Acchain-js-library)
     * [1 API Usage Guide](#1-api-usage-guide)
       * [1.1 Request Process Overview](#11-request-process-overview)
     * [2 Interface](#2-interface)
