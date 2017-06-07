@@ -101,7 +101,7 @@ And don't forget restarting your system after configuration by:
 ##6. Troubleshooting
 ###6.1 I cannot access my online wallet
 #### Solution 1
-Check the `[port]` field in `config.json`, the default port numbers of **testnet** and **mainnet** are `4096` and `8192`, respectively.
+Check the `[port]` field in `config.json`, the default port numbers of **testnet** and **mainnet** are `5000` and `4000`, respectively.
 
 #### Solution 2
 Check whether service is started by typing commands as follows:
