@@ -116,8 +116,8 @@ tail -f logs/debug.log
 
 【情况一】
 
-查看是否改了config.json里的port字段， testnet的端口默认为4096，mainnet的端口默认为8192<br>
-官方的种子节点将端口改成了80
+查看是否改了config.json里的port字段， testnet的端口默认为5000，mainnet的端口默认为4000<br>
+官方的部分种子节点将端口改成了80和443
 
 【情况二】
 
