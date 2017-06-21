@@ -4,8 +4,10 @@
 - Linux system required
 - Public IP address required
 - Ubuntu 14.04 64bit OS recommended
-- Above 1Gb RAM recommended
-- Above 2Mb broadwidth recommended
+- Above 2 core CPU required
+- Above 2Gb RAM required
+- Above 4Mb broadwidth required
+- Above 100G hard disk required 
 
 ## 2. Installation
 There are two seperated system: test version (testnet) and main official version (mainnet). Both of them are co-existed but unable to communicate with each other. 
