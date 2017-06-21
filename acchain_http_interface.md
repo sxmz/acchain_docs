@@ -2214,10 +2214,11 @@ var targetAddress = "16358246403719868041";
 var amount = 100*100000000;   //100 ACC  
 var password = 'measure bottom stock hospital calm hurdle come banner high edge foster cram';
 var secondPassword  = 'erjimimashezhi001';
+var message = '这是转账的备注';
 
 // 其中password是在用户登录的时候记录下来的，secondPassword需要每次让用户输入
 // 可以通过user.secondPublicKey来判断用户是否有二级密码，如果没有，则不必输入，以下几个交易类型类似
-var transaction = AcchainJS.transaction.createTransaction(targetAddress, amount, password, secondPassword || undefined);       
+var transaction = AcchainJS.transaction.createTransaction(targetAddress, amount, message, password, secondPassword || undefined);       
 JSON.stringify(transaction)
 '{"type":0,"amount":10000000000,"fee":10000000,"recipientId":"16358246403719868041","timestamp":5333378,"asset":{},"senderPublicKey":"3e6e7c90571b9f7dabc0abc2e499c2fcee8e436af3a9d5c8eadd82ac7aeae85f","signature":"2d47810b7d9964c5c4d330a53d1382769e5092b3a53639853f702cf4a382aafcff8ef8663c0f6856a23f41c249944f0c3cfac0744847268853a62af5dd8fc90a","signSignature":"dfa9b807fff362d581170b41c56a2b8bd723c48d1f100f2856d794408723e8973016d75aeff4705e6837dcdb745aafb41aa10a9f1ff8a77d128ba3d712e90907","id":"16348623380114619131"}'
 
