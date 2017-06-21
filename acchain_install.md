@@ -26,7 +26,7 @@ tar zxvf acchain-linux-latest-testnet.tar.gz
 正式版mainnet
 
 ```
-wget https://www.acchain.org/downloads/acchain-linux-latest-mainnet.tar.gz
+wget https://down.acchain.org/download/package/acchain-linux-1.0.0-mainnet.tar.gz?auth_key=1505485710-0-0-7041aaf7b9ffaa346c90148d372e746a
 tar zxvf acchain-linux-latest-mainnet.tar.gz
 ```
 
