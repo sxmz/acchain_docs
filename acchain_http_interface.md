@@ -26,6 +26,7 @@ Table of Contents
             * [<strong>2.2.3 根据未确认交易id查看详情</strong>](#223-根据未确认交易id查看详情)
             * [<strong>2.2.4 获取(全网所有)未确认的交易详情</strong>](#224-获取全网所有未确认的交易详情)
             * [<strong>2.2.5 创建交易</strong>](#225-创建交易)
+            * [<strong>2.2.6 行权</strong>](#226-行权)
         * [<strong>2.3 区块blocks</strong>](#23-区块blocks)
             * [<strong>2.3.1 获取特定id的区块详情</strong>](#231-获取特定id的区块详情)
             * [<strong>2.3.2 获取最新的区块</strong>](#232-获取最新的区块)
@@ -880,6 +881,65 @@ JSON返回示例：
 {   
     "success": true,   
     "transactionId": "16670272591943275531"   
+}   
+```  
+
+#### **2.2.6 行权**  
+---  
+接口地址：/api/uia/exercises   
+请求方式：PUT   
+支持格式：json   
+接口备注：接收者账户需在web端钱包登陆过   
+请求参数说明：   
+
+|名称 |类型   |必填 |说明              |   
+|------ |-----  |---  |----              |   
+|secret |string |Y    |acchain账户密码       |   
+|amount|string|Y|金额，最小值：1，最大值：10000000000000000| 
+|currency|string|Y|资产名称,例如test.RET|
+|publicKey|string|N|发送者公钥|   
+|message|string|N|备注信息|
+|secondSecret|string|N|发送者二级密码，最小长度1，最大长度：100|  
+|multisigAccountPublicKey|string|N|多重签名账户公钥|   
+   
+返回参数说明：   
+
+|名称 |类型   |说明              |   
+|------ |-----  |----              |   
+|success|boole  |是否成功获得response数据 |    
+|transactionId|string  |交易id      |    
+   
+   
+请求示例：  
+ 
+```bash   
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"currency":"test.RET", "message":"hello"}' 'https://testnet.acchain.org/api/uia/exercises'    
+```   
+   
+JSON返回示例： 
+  
+```js   
+{
+    "success": true,
+    "transaction": {
+        "type": 12,
+        "amount": "0",
+        "senderPublicKey": "78e3bca480fc90ff149c1f538a332f540350ca19ac441bfee66cc29a076e62d9",
+        "requesterPublicKey": null,
+        "timestamp": 31408638,
+        "asset": {
+            "uiaExercise": {
+                "currency": "test.RET",
+                "amount": "10000"
+            }
+        },
+        "recipientId": null,
+        "signature": "ea12eee74a932c49863fb90493a90a942b95e9e39e2d5c6204d8cf651b6c3fee63309db17374c22a16a453a22f5f881c8af153119d81bc3401e5e80364c55502",
+        "signSignature": "0577c15e9498fbcd0b84a70b80e7f10db3fb327dd7316868a427ec7bc917b15468f4cb8bcfb4cbe1897b9576275ff1430e78858fdbeebbc19a1ec0966e530d05",
+        "id": "8a56a0f5c0b057f2e037b609ab829a8f15e9c581b43436c438063df3492eb6ce",
+        "fee": 100000,
+        "senderId": "APfs15A8KegKu1TtnJsWJvLoFxCKT7pRos"
+    }
 }   
 ```  
    
