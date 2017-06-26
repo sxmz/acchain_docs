@@ -26,6 +26,7 @@ Table of Contents
         * [2.2.3 Get Transaction Detail by Unconfirmed Transaction ID](#223-get-transaction-detail-by-unconfirmed-transaction-id)
         * [2.2.4 Get Unconfirmed Transaction Detail Inforamtion (within all network)](#224-get-unconfirmed-transaction-detail-inforamtion-within-all-network)
         * [2.2.5 Create Transaction](#225-create-transaction)
+        * [2.2.6 Exercise](#226-exercise)
       * [2.3 Blocks](#23-blocks)
         * [2.3.1 Get the Block Detail Information of the Given ID](#231-get-the-block-detail-information-of-the-given-id)
         * [2.3.2 Get the Latest Block](#232-get-the-latest-block)
@@ -836,6 +837,7 @@ curl -k -X GET 'https://testnet.acchain.org/api/transactions/unconfirmed'
 |recipientId|string|Y|recipient's address, minimum:1|   
 |publicKey|string|N|sender's public key|   
 |currency|string|N|assets name, for example:"test.RET"|
+|message|string|N|remark message|
 |publicKey|string|N|sender's public key|   
 |secondSecret|string|N|sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|   
 |multisigAccountPublicKey|string|N|the public key of multiple signature account|   
@@ -862,6 +864,68 @@ curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label 
 	"transactionId": "16670272591943275531"   
 }   
 ```   
+
+
+
+
+
+#### 2.2.6 Exercise  
+---
+- Interface Address: /api/exercises   
+- Request Methods: PUT   
+- Supported Format: json   
+- Comment: recipient account must have already login in wallet on the web.  
+- Request Parameter Description:  
+
+|Name	|Type   |Required |Description|   
+|------ |-----  |---  |----      |
+|secret|string|Y| acchain account password |
+|amount|string|Y| amount，between 1 and 10000000000000000|
+|currency|string|Y| assets name, for example:"test.RET"|
+|publicKey|string|Y| sender's public key|
+|message|string|N | remark message|
+|secondSecret|string|N| sender's second password (must fit the BIP39 standard), the length should be between 1 and 100|
+|multisigAccountPublicKey|string|N| the public key of multiple signature account|
+
+- Response Parameter Description:   
+
+|Name	|Type   |Description              |   
+|------ |-----  |----              |   
+|success|bool  |true: response data return successfully |    
+|transactionId|string  |transaction id      |  
+
+- Request Example:   
+
+```bash   
+curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"unaware label emerge fancy concert long fiction report affair appear decide twenty","amount":1000000,"currency":"test.RET", "message":"hello"}' 'https://testnet.acchain.org/api/uia/exercises'        
+```      
+
+- JSON Response Example:   
+
+```js   
+{
+    "success": true,
+    "transaction": {
+        "type": 12,
+        "amount": "0",
+        "senderPublicKey": "78e3bca480fc90ff149c1f538a332f540350ca19ac441bfee66cc29a076e62d9",
+        "requesterPublicKey": null,
+        "timestamp": 31408638,
+        "asset": {
+            "uiaExercise": {
+                "currency": "test.RET",
+                "amount": "10000"
+            }
+        },
+        "recipientId": null,
+        "signature": "ea12eee74a932c49863fb90493a90a942b95e9e39e2d5c6204d8cf651b6c3fee63309db17374c22a16a453a22f5f881c8af153119d81bc3401e5e80364c55502",
+        "signSignature": "0577c15e9498fbcd0b84a70b80e7f10db3fb327dd7316868a427ec7bc917b15468f4cb8bcfb4cbe1897b9576275ff1430e78858fdbeebbc19a1ec0966e530d05",
+        "id": "8a56a0f5c0b057f2e037b609ab829a8f15e9c581b43436c438063df3492eb6ce",
+        "fee": 100000,
+        "senderId": "APfs15A8KegKu1TtnJsWJvLoFxCKT7pRos"
+    }
+}    
+```  
    
 ### 2.3 Blocks
 #### 2.3.1 Get the Block Detail Information of the Given ID 
