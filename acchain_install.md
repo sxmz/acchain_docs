@@ -37,15 +37,15 @@ apt-get install sqlite3 -y
 测试版testnet
 
 ```
-wget https://www.acchain.org/downloads/acchain-linux-latest-testnet.tar.gz
-tar zxvf acchain-linux-latest-testnet.tar.gz
+wget https://www.acchain.org/downloads/acchain-linux-1.0.0-testnet.tar.gz
+tar zxvf acchain-linux-1.0.0-testnet.tar.gz
 ```
 
 正式版mainnet
 
 ```
 wget https://down.acchain.org/download/package/acchain-linux-1.0.0-mainnet.tar.gz?auth_key=1505485710-0-0-7041aaf7b9ffaa346c90148d372e746a
-tar zxvf acchain-linux-latest-mainnet.tar.gz
+tar zxvf acchain-linux-1.0.0-mainnet.tar.gz
 ```
 
 一般情况下，testnet的版本号大于等于mainnet的版本号
