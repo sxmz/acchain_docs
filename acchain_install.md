@@ -27,6 +27,13 @@ cd node-v6.10.2
 make; make install
 ```
 
+安装sqlite3环境（若服务器已安装了sqlite3可省略此步骤））
+
+```
+apt-get update
+apt-get install sqlite3 -y
+```
+
 测试版testnet
 
 ```
