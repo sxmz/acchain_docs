@@ -18,6 +18,15 @@
 
 ### 2.1 下载和解压缩
 
+安装node（版本V6.10.2以上）环境（若服务器已安装了node可省略此步骤）
+
+```
+wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2.tar.gz
+tar zxvf node-v6.10.2.tar.gz
+cd node-v6.10.2
+make; make install
+```
+
 测试版testnet
 
 ```
