@@ -615,12 +615,13 @@ JSON返回示例：
 |orderBy|string  |N      |根据表中字段排序，senderPublicKey:desc  |   
 |offset|integer  |N      |偏移量，最小值0  |   
 |senderPublicKey|string|N|发送者公钥|   
-|ownerPublicKey|string|N||   
-|ownerAddress|string|N||   
+|ownerPublicKey|string|N|拥有者公钥|   
+|ownerAddress|string|N|拥有者地址|   
 |senderId|string|N|发送者地址|   
 |recipientId|string|N|接收者地址,最小长度：1|   
 |amount|string|N|金额|   
-|fee|integer|N|手续费|   
+|fee|integer|N|手续费|
+|message|string|N|备注信息|   
    
 返回参数说明：   
 
@@ -656,12 +657,13 @@ JSON返回示例：
         "signSignature": "",   
         "signatures": null,   
         "confirmations": "31802",
-                currency: "",   
+        "currency": "", 
         "asset": {   
                
         },
-                precision: 6,
-                amountShow: "0"   
+        "precision": 6,
+        "amountShow": "0"
+                   
     },   
     {   
         "id": "7000452951235123088",   
@@ -678,12 +680,12 @@ JSON返回示例：
         "signSignature": "",   
         "signatures": null,   
         "confirmations": "32280",
-                currency: "",   
+        "currency": "",   
         "asset": {   
                
         }
-                precision: 6,
-                amountShow: "0"   
+        "precision": 6,
+        "amountShow": "0"   
     },   
     {   
         "id": "14093929199102906687",   
@@ -700,12 +702,12 @@ JSON返回示例：
         "signSignature": "",   
         "signatures": null,   
         "confirmations": "32293", 
-                currency: "TEST.ABC",  
+        "currency": "TEST.ABC",  
         "asset": {   
                
         }
-                precision: 1,
-                amountShow: "0"   
+        "precision": 1,
+        "amountShow": "0"   
     }],   
     "count": 3   
 }   
