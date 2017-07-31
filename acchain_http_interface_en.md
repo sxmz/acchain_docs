@@ -3054,7 +3054,8 @@ curl -H "Content-Type: application/json" -H "magic:8e9b66ed" -H "version:''" -k 
 ```js   
 var currency = 'IssuerName.CNY'
 var amount = '1000'
-var trs = AccchainJS.uia.createExercise(currency, amount, secret, secondSecret)
+var message = '这是备注信息'
+var trs = AccchainJS.uia.createExercise(currency, amount, secret, message, secondSecret)
 console.log(JSON.stringify(trs))
  {"type": 12, "amount": "0", "fee": 100000, "recipientId": null, "senderPublicKey":"a7628dc36cc9be73a9d4aa5a61c4ed36ff0ef150139e503f7ced47f237cb2fcf", "timestamp": 29252257, "asset": {"uiaExercise": {"currency": "TESTREAL.RET", "amount":"100"}},"signature":"d4571a90222e77930c125c64d0e710edd2b5aa686ba66e45d80f7d78694ba72115cdfe52e6190cefc88131a5171b03eaba6f25757c800545aeef2a8b82152d0a"}
 
