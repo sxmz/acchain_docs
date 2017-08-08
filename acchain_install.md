@@ -24,6 +24,7 @@
 wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2.tar.gz
 tar zxvf node-v6.10.2.tar.gz
 cd node-v6.10.2
+./configure
 make; make install
 ```
 
