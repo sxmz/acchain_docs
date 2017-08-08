@@ -64,12 +64,6 @@
 sudo apt-get install npm
 ```
 
-国内服务器可以考虑加上 “--registry=http://registry.npm.taobao.org” 参数加快安装速度
-```
-npm install -g acchain-cli
-```
-
-
 ##2 Acchain-cli使用说明
 acchain-cli [选项] [命令]
 
