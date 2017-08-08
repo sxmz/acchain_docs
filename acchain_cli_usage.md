@@ -129,7 +129,7 @@ root@acchain:~# acchain-cli -h #查看acchain-cli帮助信息
     -P, --port <port>  Specify the port of the node, default: 5000
     -M, --main         Specify the mainnet, default: false
 
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getvoteddelegates -h #查看子命令帮助
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getvoteddelegates -h #查看子命令帮助
   Usage: getvoteddelegates [options] [address]
   get delegates voted by address
   Options:
@@ -158,12 +158,12 @@ root@acchain:~# acchain-cli -V
 
 返回值： 无
 
-使用方法：acchain-cli -H 45.32.248.33 [子命令]
+使用方法：acchain-cli -H 47.91.150.2 [子命令]
 
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 getheight     #查看45.32.248.33服务器最新的区块高度
+root@acchain:~# acchain-cli -H 47.91.150.2 getheight     #查看47.91.150.2服务器最新的区块高度
 101236
 ```
 
@@ -177,7 +177,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 getheight     #查看45.32.248.33服
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getheight  
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getheight  
 102313
 ```
 
@@ -186,12 +186,12 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getheight
 
 返回值： 无
 
-使用方法：acchain-cli -H 45.32.248.33 -P 8192 -M [子命令]
+使用方法：acchain-cli -H *.*.*.105 -P 4000 -M [子命令]
 
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -M -H *.*.*.105 -P 8192 getheight  #查看acchain主链区块高度
+root@acchain:~# acchain-cli -M -H *.*.*.105 -P 4000 getheight  #查看acchain主链区块高度
 9388
 ```
 
@@ -207,7 +207,7 @@ root@acchain:~# acchain-cli -M -H *.*.*.105 -P 8192 getheight  #查看acchain主
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getheight
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getheight
 105387
 ```
 
@@ -221,7 +221,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getheight
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getblockstatus
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getblockstatus
 {
   "success": true,
   "height": 105392,
@@ -242,7 +242,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getblockstatus
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 openaccount "fault still attack alley expand music basket purse later educate follow ride"
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 openaccount "fault still attack alley expand music basket purse later educate follow ride"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -266,7 +266,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 openaccount "fault still att
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 openaccountbypublickey "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -289,7 +289,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 openaccountbypublickey "bd1e
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getbalance 16723473400748954103
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getbalance 16723473400748954103
 20000000000
 ```
 
@@ -303,7 +303,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getbalance 16723473400748954
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getaccount 16723473400748954103
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getaccount 16723473400748954103
 {
   "address": "16723473400748954103",
   "unconfirmedBalance": 20000000000,
@@ -327,7 +327,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getaccount 16723473400748954
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getvoteddelegates 15745540293890213312 -o 1 -l 2
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getvoteddelegates 15745540293890213312 -o 1 -l 2
 { success: true,
   delegates: 
    [ { username: 'wgl_002',
@@ -360,7 +360,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getvoteddelegates 1574554029
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getdelegatescount
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getdelegatescount
 232
 ```
 
@@ -374,7 +374,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getdelegatescount
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getdelegates -o 1 -l 1 -s rate:asc
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 getdelegates -o 1 -l 1 -s rate:asc
 [
   {
     "username": "wgl_003",
@@ -403,7 +403,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 getdelegates -o 1 -l 1 -s ra
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getvoters "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 [
   {
     "address": "2918354313445278349",
@@ -429,7 +429,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getvoters "ae256559d06409
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getdelegatebypublickey "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7"
 {
   "username": "wgl_002",
   "address": "14636456069025293113",
@@ -455,7 +455,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getdelegatebypublickey "a
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getdelegatebyusername "wgl_002"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getdelegatebyusername "wgl_002"
 {
   "username": "wgl_002",
   "address": "14636456069025293113",
@@ -482,7 +482,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getdelegatebyusername "wg
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblocks -o 1 -l 1 -r 350000000
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getblocks -o 1 -l 1 -r 350000000
 {
   "success": true,
   "blocks": [
@@ -518,7 +518,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblocks -o 1 -l 1 -r 35
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblockbyid 1425942128040906871 #查看创世块
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getblockbyid 1425942128040906871 #查看创世块
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -549,7 +549,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblockbyid 142594212804
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblockbyheight 1
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getblockbyheight 1
 {
   "id": "1425942128040906871",
   "version": 0,
@@ -580,7 +580,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getblockbyheight 1
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getpeers -o 1 -l 2 
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getpeers -o 1 -l 2 
 [
   {
     "ip": "45.32.62.184",
@@ -609,7 +609,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getpeers -o 1 -l 2
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 getunconfirmedtransactions -k "d39d6f26869067473d685da742339d1a9117257fe14b3cc7261e3f2ed5a339e3" 
 [
   {
     "type": 0,
@@ -638,7 +638,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 getunconfirmedtransaction
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 gettransactions -o 1 -l 2 #查看全网前2个交易
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 gettransactions -o 1 -l 2 #查看全网前2个交易
 [
   {
     "id": "10169086766604015960",
@@ -687,7 +687,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 gettransactions -o 1 -l 2
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 gettransaction 17192581936339156329
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 gettransaction 17192581936339156329
 {
   "id": "17192581936339156329",
   "height": "105951",
@@ -717,7 +717,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 gettransaction 1719258193
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 sendmoney -e "motion group blossom coral upper warrior pattern fragile sister misery palm admin" -t 16723473400748954103 -a 100
 true
 ```
 
@@ -731,7 +731,7 @@ true
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 registerdelegate -e "fault still attack alley expand music basket purse later educate follow ride" -u "delegate_register"
 true
 ```
 
@@ -745,7 +745,7 @@ true
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 upvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -759,7 +759,7 @@ true
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 downvote -e "fault still attack alley expand music basket purse later educate follow ride" -p "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
 true
 ```
 
@@ -773,7 +773,7 @@ true
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 setsecondsecret -e "fault still attack alley expand music basket purse later educate follow ride" -s "ce shi er ji mi ma"
 true
 ```
 
@@ -810,7 +810,7 @@ true
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 45.32.248.33 -P 5000 crypto -g
+root@acchain:~# acchain-cli -H 47.91.150.2 -P 5000 crypto -g
 ? Enter number of accounts to generate 1
 [ { address: '16723473400748954103',
     secret: 'fault still attack alley expand music basket purse later educate follow ride',
@@ -836,7 +836,7 @@ Done
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 creategenesis 
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 creategenesis 
 root@acchain:~# more genesisBlock.json
 {
   "version": 0,
@@ -860,8 +860,8 @@ root@acchain:~# more genesisBlock.json
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 peerstat
-45.32.248.33:5000 1.0.0 106036
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 peerstat
+47.91.150.2:5000 1.0.0 106036
 45.32.62.184:5000 1.0.0 106036
 45.32.19.241:5000 1.0.0 106036
 ```
@@ -876,7 +876,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 peerstat
 示例:
 
 ```{r, engine='bash', count_lines}
-root@acchain:~# acchain-cli -H 101.200.162.236 -P 5000 delegatestat
+root@acchain:~# acchain-cli -H 120.76.235.169 -P 5000 delegatestat
 name	address	rate	approval	productivity	produced	height	id	time
 nayimoliuguang	3331976396377269399	93	88.36%	98.39%	1037	105618	12962348710289833740	2016/08/17 21:07:20(1 hour ago)
 jack	3705405381126069457	86	88.36%	99.41%	506	105628	5876778147855073736	2016/08/17 21:09:00(1 hour ago)
