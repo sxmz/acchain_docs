@@ -21,14 +21,14 @@ As long as there is no conflict of ports, you can install the test version and o
 test version (testnet)  
 
 ```
-wget https://www.acchain.org/downloads/acchain-linux-latest-testnet.tar.gz
-tar zxvf acchain-linux-latest-testnet.tar.gz
+wget http://upgrade.acchain.org/package/acchain-linux-1.0.3-testnet.tar.gz
+tar zxvf acchain-linux-1.0.3-testnet.tar.gz
 ```
 
 official version (mainnet)
 ```
-wget https://down.acchain.org/download/package/acchain-linux-1.0.0-mainnet.tar.gz?auth_key=1505485710-0-0-7041aaf7b9ffaa346c90148d372e746a
-tar zxvf acchain-linux-latest-mainnet.tar.gz
+wget http://upgrade.acchain.org/package/acchain-linux-1.0.2-mainnet.tar.gz
+tar zxvf acchain-linux-1.0.2-mainnet.tar.gz
 ```
 
 Usually, the version number of testnet will larger than that of mainnet.
