@@ -56,12 +56,6 @@ From [Acchain Whitepaper](/acchain_whitepaper_en.md)
 - Install nodejs package manager **npm**
 
 `sudo apt-get install npm`
-
-- Install ACCHAIN-CLI 
-
-`npm install -g acchain-cli`
-
-NOTICE: if you install it in China, try parameter `--registry=http://registry.npm.taobao.org` to accelerate the installation.
  
 ##2 ACCHAIN-CLI Synopsis
 `acchain-cli [option] [command]`
