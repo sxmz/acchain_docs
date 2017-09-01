@@ -39,14 +39,14 @@ apt-get install sqlite3 -y
 
 ```
 wget http://upgrade.acchain.org/package/acchain-linux-1.0.3-testnet.tar.gz
-tar zxvf acchain-linux-1.0.1-testnet.tar.gz
+tar zxvf acchain-linux-1.0.3-testnet.tar.gz
 ```
 
 正式版mainnet
 
 ```
 wget http://upgrade.acchain.org/package/acchain-linux-1.0.3-mainnet.tar.gz
-tar zxvf acchain-linux-1.0.1-mainnet.tar.gz
+tar zxvf acchain-linux-1.0.3-mainnet.tar.gz
 ```
 
 一般情况下，testnet的版本号大于等于mainnet的版本号
