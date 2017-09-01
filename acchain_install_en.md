@@ -41,7 +41,7 @@ tar zxvf acchain-linux-1.0.3-testnet.tar.gz
 
 official version (mainnet)
 ```
-wget http://upgrade.acchain.org/package/acchain-linux-1.0.2-mainnet.tar.gz
+wget http://upgrade.acchain.org/package/acchain-linux-1.0.3-mainnet.tar.gz
 tar zxvf acchain-linux-1.0.2-mainnet.tar.gz
 ```
 
