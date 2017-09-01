@@ -18,8 +18,22 @@ As long as there is no conflict of ports, you can install the test version and o
 
 ### 2.1 Download and unpack
 
-test version (testnet)  
+Install node (Vesion 6.10.2 or higher）
+```
+wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2.tar.gz
+tar zxvf node-v6.10.2.tar.gz
+cd node-v6.10.2
+./configure
+make; make install
+```
 
+Install sqlite3
+```
+apt-get update
+apt-get install sqlite3 -y
+```
+
+test version (testnet)  
 ```
 wget http://upgrade.acchain.org/package/acchain-linux-1.0.3-testnet.tar.gz
 tar zxvf acchain-linux-1.0.3-testnet.tar.gz
@@ -41,7 +55,7 @@ In this step, something will be done for you automatically:
 There is no need to run this step once although there is no harm to execute it more than one time.
 
 	#locate to your installation folder
-	/acchaind configure
+	./acchaind configure
 	...
 
 ## 3. Run
