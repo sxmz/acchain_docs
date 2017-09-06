@@ -17,17 +17,6 @@
 只要端口不冲突，可以同时在一台机器安装，但是不推荐这样做，除非机器配置足够好，比如双核、2G内存、4M带宽...
 
 ### 2.1 下载和解压缩
-
-安装node（版本V6.10.2以上）环境（若服务器已安装了node可省略此步骤）
-
-```
-wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2.tar.gz
-tar zxvf node-v6.10.2.tar.gz
-cd node-v6.10.2
-./configure
-make; make install
-```
-
 安装sqlite3环境（若服务器已安装了sqlite3可省略此步骤））
 
 ```
