@@ -18,15 +18,6 @@ As long as there is no conflict of ports, you can install the test version and o
 
 ### 2.1 Download and unpack
 
-Install node (Vesion 6.10.2 or higher）
-```
-wget https://nodejs.org/download/release/v6.10.2/node-v6.10.2.tar.gz
-tar zxvf node-v6.10.2.tar.gz
-cd node-v6.10.2
-./configure
-make; make install
-```
-
 Install sqlite3
 ```
 apt-get update
@@ -61,6 +52,7 @@ There is no need to run this step once although there is no harm to execute it m
 ## 3. Run
 ```
 # Enter the installation folder
+cd acchain-linux-1.0.3-mainnet
 
 # start the service
 ./acchaind start
