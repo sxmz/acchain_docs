@@ -40,19 +40,18 @@ Usually, the version number of testnet will larger than that of mainnet.
 
 ### 2.2 Initialize
 In this step, something will be done for you automatically:  
-- Install some dependency modules like **nodejs** and **sqlite3**
+- Install some dependency modules like **sqlite3**
 - Install and configure the ntp service by which your time can be synchronized with that of other nodes.
 
 There is no need to run this step once although there is no harm to execute it more than one time.
 
-	#locate to your installation folder
-	./acchaind configure
-	...
+#Enter the installation folder
+./acchaind configure
+...
 
 ## 3. Run
 ```
 # Enter the installation folder
-cd acchain-linux-1.0.3-mainnet
 
 # start the service
 ./acchaind start
