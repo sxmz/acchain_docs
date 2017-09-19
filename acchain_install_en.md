@@ -5,7 +5,7 @@
 - Public IP address required
 - Ubuntu 14.04 64bit OS recommended
 - Above 2 core CPU required
-- Above 2Gb RAM required
+- Above 4Gb RAM required
 - Above 4Mb broadwidth required
 - Above 100G hard disk required 
 
