@@ -104,7 +104,6 @@ Table of Contents
         * [<strong>2.11 存储storages</strong>](#211-存储storages)
             * [<strong>2.11.1 上传数据</strong>](#2111-上传数据)
             * [<strong>2.11.2 查询存储的数据</strong>](#2112-查询存储的数据)
-     * [<strong>附录1：acchain-js安装</strong>](#附录1AcchainJS安装)
             
         
         
@@ -3404,14 +3403,7 @@ JSON返回示例：
 // 将得到的16进制（hex）格式的字符串"68656c6c6f776f726c64"转为文本字符串正好是"helloworld"
 console.log(new Buffer('68656c6c6f776f726c64','hex').toString());
 helloworld
-```  
-
-
-## **附录1：acchain-js安装**   
-acchain系统的所有写操作都是通过发起一个交易来完成的。    
-交易数据通过一个叫做AcchainJS的库来创建，然后再通过一个POST接口发布出去   
-**库安装**   
-npm install acchain-js   
+```   
   
 
 
