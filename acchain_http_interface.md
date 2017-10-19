@@ -16,6 +16,7 @@ Table of Contents
             * [<strong>2.1.1 登录</strong>](#211-登录)
                 * [<strong>2.1.1.1 本地加密后再登陆（推荐使用）</strong>](#2111-本地加密后再登陆推荐使用)
                 * [<strong>2.1.1.2 本地不加密直接登陆（不推荐使用）</strong>](#2112-本地不加密直接登陆不推荐使用)
+                * [<strong>2.1.1.3 获取BIP39格式的密钥 </strong>](#2113-获取BIP39格式的私钥)
             * [<strong>2.1.2 获取账户信息</strong>](#212-获取账户信息)
             * [<strong>2.1.3 获取账户余额</strong>](#213-获取账户余额)
             * [<strong>2.1.4 获取账户公钥</strong>](#214-获取账户公钥)
@@ -231,6 +232,43 @@ JSON返回示例：
     }   
 }   
 ```   
+
+##### **2.1.1.3 获取BIP39格式的密钥 ** 
+接口地址：/api/accounts/new   
+请求方式：get 
+支持格式：json   
+请求参数说明：   
+
+|名称 |类型   |必填 |说明              |   
+|------ |-----  |---  |----              |   
+   
+返回参数说明：   
+
+|名称 |类型   |说明              |   
+|------ |-----  |----              |   
+|success|boole  |是否获取成功      |    
+|secret| string  |密钥信息          |   
+|publicKey| string  |公钥          | 
+|address| string  |地址          | 
+   
+请求示例：  
+ 
+```bash   
+curl -X GET -H "Content-Type: application/json" -k https://testnet.acchain.org/api/accounts/new/   
+```   
+   
+JSON返回示例： 
+  
+```js   
+{
+   success: true,
+   secret: "recipe faculty absorb leisure agree lecture syrup helmet fly airport cabin flag",
+   publicKey: "5ca7efc2d1506739bc8719d16e7028dbe13d3de1f2680c7a00a0cf4e446eb366",
+   privateKey:             "1516276d1875d10dbc5d706953f4c25495235bdd76ef18fcfdf9d4c25aad9c625ca7efc2d1506739bc8719d16e7028dbe13d3de1f2680c7a00a0cf4e446eb366",
+   address: "AGXcBi7XG2qxesBBTHdHZiFPkYDUBWcxe1"
+}  
+```   
+
 #### **2.1.2 获取账户信息** 
 ---   
 接口地址：/api/accounts   
