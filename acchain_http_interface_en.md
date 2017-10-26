@@ -12,6 +12,7 @@ Table of Contents
         * [2.1.1 Login](#211-login)
           * [2.1.1.1 Login after locally encrypt (recommended)](#2111-login-after-locally-encrypt-recommended)
           * [2.1.1.2 Login without locally encrypt (not recommend)](#2112-login-without-locally-encrypt-not-recommend)
+	  * [2.1.1.3 Get secret of BIP39 format](#2113-get-secret-of-BIP39-format)
         * [2.1.2 Get Account Information](#212-get-account-information)
         * [2.1.3 Get Balance of Account](#213-get-balance-of-account)
         * [2.1.4 Get Account's Public Key](#214-get-accounts-public-key)
@@ -262,7 +263,44 @@ curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still a
         "u_multisignatures": [ ]   
     }   
 }   
+``` 
+##### **2.1.1.3 Get secret of BIP39 format **  
+---  
+- Interface Address: /api/accounts/new   
+- Request Methods: get 
+- Supported Format: json   
+- Request Parameter Description:    
+
+|Name	|Type   |Required |Description              |   
+|------ |-----  |---  |----              |     
+   
+- Response Parameter Description:   
+
+|Name	|Type   |Description              |   
+|------ |-----  |----              |    
+|success|boole  |whether get is successful      |    
+|secret| string  |secret information          |   
+|publicKey| string  |publickey          | 
+|address| string  |address          | 
+   
+- JSON Response Example:
+ 
+```bash   
+curl -X GET -H "Content-Type: application/json" -k https://testnet.acchain.org/api/accounts/new/   
 ```   
+   
+- JSON Response Example: 
+  
+```js   
+{
+   success: true,
+   secret: "recipe faculty absorb leisure agree lecture syrup helmet fly airport cabin flag",
+   publicKey: "5ca7efc2d1506739bc8719d16e7028dbe13d3de1f2680c7a00a0cf4e446eb366",
+   privateKey:             "1516276d1875d10dbc5d706953f4c25495235bdd76ef18fcfdf9d4c25aad9c625ca7efc2d1506739bc8719d16e7028dbe13d3de1f2680c7a00a0cf4e446eb366",
+   address: "AGXcBi7XG2qxesBBTHdHZiFPkYDUBWcxe1"
+}  
+``` 
+
 ####2.1.2 Get Account Information  
 ---
 - Interface Address: /api/accounts   
