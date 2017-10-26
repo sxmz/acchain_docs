@@ -264,7 +264,7 @@ curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still a
     }   
 }   
 ``` 
-##### **2.1.1.3 Get secret of BIP39 format **  
+##### **2.1.1.3 Get secret of BIP39 format**  
 ---  
 - Interface Address: /api/accounts/new   
 - Request Methods: get 
