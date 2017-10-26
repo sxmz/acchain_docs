@@ -12,7 +12,7 @@ Table of Contents
         * [2.1.1 Login](#211-login)
           * [2.1.1.1 Login after locally encrypt (recommended)](#2111-login-after-locally-encrypt-recommended)
           * [2.1.1.2 Login without locally encrypt (not recommend)](#2112-login-without-locally-encrypt-not-recommend)
-	  * [2.1.1.3 Get secret of BIP39 format](#2113-get-secret-of-BIP39-format)
+          * [2.1.1.3 Get secret of BIP39 format](#2113-get-secret-of-BIP39-format)
         * [2.1.2 Get Account Information](#212-get-account-information)
         * [2.1.3 Get Balance of Account](#213-get-balance-of-account)
         * [2.1.4 Get Account's Public Key](#214-get-accounts-public-key)
