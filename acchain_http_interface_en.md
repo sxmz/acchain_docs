@@ -301,7 +301,7 @@ curl -X GET -H "Content-Type: application/json" -k https://testnet.acchain.org/a
 }  
 ``` 
 
-####2.1.2 Get Account Information  
+#### 2.1.2 Get Account Information  
 ---
 - Interface Address: /api/accounts   
 - Request Methods:get   
