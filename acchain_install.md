@@ -74,7 +74,7 @@ tar zxvf acchain-linux-1.0.5-mainnet.tar.gz
 # 升级
 ./acchaind upgrade
 
-# 重新同步区块
+# 重新同步区块(可加快同步速度）
 ./acchaind rebuild
 
 # 查看版本
