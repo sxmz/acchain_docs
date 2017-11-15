@@ -69,7 +69,7 @@ There is no need to run this step once although there is no harm to execute it m
 # upgrade the system
 ./acchaind upgrade
 
-# re-synchronize the blockchain
+# re-synchronize the blockchain（and synchronize fast）
 ./acchaind rebuild
 
 # check the system version
