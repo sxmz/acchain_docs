@@ -26,13 +26,13 @@ apt-get install sqlite3 -y
 
 test version (testnet)  
 ```
-wget http://upgrade.acchain.org/package/acchain-linux-1.0.6-testnet.tar.gz
+wget http://upgrade.acchain.org/package/acchain-linux-1.0.7-testnet.tar.gz
 tar zxvf acchain-linux-1.0.7-testnet.tar.gz
 ```
 
 official version (mainnet)
 ```
-wget http://upgrade.acchain.org/package/acchain-linux-1.0.6-mainnet.tar.gz
+wget http://upgrade.acchain.org/package/acchain-linux-1.0.7-mainnet.tar.gz
 tar zxvf acchain-linux-1.0.7-mainnet.tar.gz
 ```
 
